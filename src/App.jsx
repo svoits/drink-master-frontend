@@ -6,6 +6,7 @@ import { ThemeProvider } from 'styled-components';
 import { lazy, useState } from 'react';
 import { darkTheme, lightTheme } from './components/Themes';
 import { GlobalStyles } from './components/globalStyles';
+import MyDrinksPage from "./pages/MyDrinksPage/MyDrinksPage";
 
 const Welcome = lazy(() => import('./pages/WelcomePage/WelcomePage'));
 const Signup = lazy(() => import('./pages/SignupPage/SignupPage'));
@@ -30,6 +31,7 @@ function App() {
       <AppWrapper>
         <Routes>
           <Route path="/" element={<SharedLayout />}>
+
             <Route path="welcome" element={<Welcome />} />
             <Route path="signup" element={<Signup />} />
             <Route path="signin" element={<Signin />} />
