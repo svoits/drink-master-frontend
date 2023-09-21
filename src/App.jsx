@@ -9,6 +9,7 @@ import { ThemeProvider } from 'styled-components';
 import { useState } from 'react';
 import { darkTheme, lightTheme } from './components/Theme';
 import { GlobalStyles } from './components/globalStyles';
+import MyDrinksPage from "./pages/MyDrinksPage/MyDrinksPage";
 
 function App() {
   const [theme] = useState('dark');
@@ -24,6 +25,7 @@ function App() {
             <Route path="/second" element={<SecondPage />}>
               <Route path=":half" element={<HalfPage />} />
             </Route>
+            <Route path="/my" element={<MyDrinksPage/>}></Route>
 
             <Route path="*" element={<ErrorPage />} />
           </Route>
