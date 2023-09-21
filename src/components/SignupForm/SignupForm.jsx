@@ -6,6 +6,7 @@ import React from 'react';
 import FormError from '../FormError/FormError';
 
 import DatePicker from '../StyledDatepicker/StyledDatepicker';
+import StyledDatepicker from '../StyledDatepicker/StyledDatepicker';
 // const today = new Date();
 const initialValues = { name: '', birthDate: '', email: '', password: '' };
 const schema = Yup.object().shape({
@@ -36,6 +37,7 @@ export default function SignupForm() {
   //  const dispatch = useDispatch();
   const handleSubmit = (values, { resetForm }) => {
     const { name, birthDate, email, password } = values;
+    console.log(name, birthDate, email, password);
     // dispatch(signup({ name, birthDate, email, password }));
 
     resetForm();
@@ -51,8 +53,9 @@ export default function SignupForm() {
         <Field type="text" name="name" placeholder="Name" />
         <FormError name="name" />
 
-        <Field type="text" name="birthDate" placeholder="dd/mm/yyyy" /> 
-        <DatePicker   />
+        {/* <Field type="text"  placeholder="dd/mm/yyyy" />  */}
+        {/* <DatePicker  name="birthDate" /> */}
+        <StyledDatepicker name="birthDate"/>
         <FormError name="birthDate" />
 
         <Field type="email" name="email" placeholder="Email" />

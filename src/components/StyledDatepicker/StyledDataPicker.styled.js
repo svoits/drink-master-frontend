@@ -148,7 +148,9 @@ export const CalendarGlobalStyles = createGlobalStyle`
 `;
 
 export const Button = styled.button`
-  width: 20px;
+  width: 200px;
   color: #ffffff;
   background: transparent;
+  display: flex;
+  justify-content: space-between;
 `;

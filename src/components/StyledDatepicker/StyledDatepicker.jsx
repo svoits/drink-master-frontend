@@ -1,5 +1,5 @@
 import { forwardRef, useState } from "react";
-import { format } from "date-fns";
+// import { format } from "date-fns";
 import { AiOutlineCalendar } from 'react-icons/ai';
 import { CalendarGlobalStyles, Button } from "./StyledDataPicker.styled";
 import DatePicker from "react-datepicker";
@@ -7,29 +7,33 @@ import "react-datepicker/dist/react-datepicker-cssmodules.css";
 
 export default function StyledDatepicker() {
    const [selectedDate, setSelectedDate] = useState(null);
-
-  // const CustomInput = forwardRef(({ value, onClick }, ref) => {
-  //   return (
-  //     <Button  onClick={onClick} ref={ref}>
-  //       {/* {format(selectedDate, "dd-MM-yyyy")} */}
-  //       <AiOutlineCalendar/>
-  //     </Button>
-  //   );
-  // });
+const [placeholder, setPlaceholder] = useState("dd/mm/yyyy");
+  const CustomInput = forwardRef(({ value, onClick }, ref) => {
+    return (
+      <Button onClick={onClick}>
+      {value ? value : placeholder}
+      <AiOutlineCalendar />
+    </Button>
+    );
+  });
+  
   return (
     <>
       <DatePicker
        
+       customInput ={<CustomInput/>}
        selected={selectedDate}
         onChange={(date) => {
           setSelectedDate(date);
+          setPlaceholder(date ? "" : "dd/mm/yyyy");
+          
         }}
-        // customInput={<CustomInput />}
+        
         dateFormat={"dd-MM-yyyy"}
         maxDate={new Date()}
         showYearDropdown
         scrollableMonthYearDropdown
-        placeholderText="dd/mm/yyyy"
+        placeholderText={placeholder}
         // calendarStartDay={1}
         // formatWeekDay={(day) => day.substr(0, 1)}
         
