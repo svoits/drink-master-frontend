@@ -12,17 +12,60 @@ export const Header = () => {
   return (
     <HeaderContainer>
       <Navigation>
-        <StyledLink to="/first">
+        <StyledLink to="/welcome">
           <IconWrapper>
             <use href={`${sprite}#icon-logo`} />
           </IconWrapper>
-          First
+          Welcome
         </StyledLink>
-        <StyledLink to="/second">
+        <StyledLink to="/signup">
           <IconWrapper>
             <use href={`${sprite}#icon-logo`} />
           </IconWrapper>
-          Second
+          Sign Up
+        </StyledLink>
+        <StyledLink to="/signin">
+          <IconWrapper>
+            <use href={`${sprite}#icon-logo`} />
+          </IconWrapper>
+          Sign In
+        </StyledLink>
+
+        <StyledLink to="/home">
+          <IconWrapper>
+            <use href={`${sprite}#icon-logo`} />
+          </IconWrapper>
+          Home
+        </StyledLink>
+        <StyledLink to="/drinks">
+          <IconWrapper>
+            <use href={`${sprite}#icon-logo`} />
+          </IconWrapper>
+          Drinks
+        </StyledLink>
+        <StyledLink to="/add">
+          <IconWrapper>
+            <use href={`${sprite}#icon-logo`} />
+          </IconWrapper>
+          Add Drink
+        </StyledLink>
+        <StyledLink to="/favorites">
+          <IconWrapper>
+            <use href={`${sprite}#icon-logo`} />
+          </IconWrapper>
+          Favorite Drinks
+        </StyledLink>
+        <StyledLink to="/drink/123">
+          <IconWrapper>
+            <use href={`${sprite}#icon-logo`} />
+          </IconWrapper>
+          Drink
+        </StyledLink>
+        <StyledLink to="/my">
+          <IconWrapper>
+            <use href={`${sprite}#icon-logo`} />
+          </IconWrapper>
+          My Drinks
         </StyledLink>
       </Navigation>
       <DrinkDetails>Hello</DrinkDetails>
