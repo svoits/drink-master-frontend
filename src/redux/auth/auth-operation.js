@@ -47,3 +47,23 @@ export const signOut = createAsyncThunk(
     }
   },
 );
+
+export const refreshUser = createAsyncThunk(
+    'auth/refresh',
+    async (_, thunkAPI) => {
+        const { token } = thunkAPI.getState().auth;
+
+        if (!token) {
+            return thunkAPI.rejectWithValue('Not valid token');
+        };
+
+        setAuthHeader(token);
+
+        try {
+            const res = await axios.get('/users/current');
+            return res.data;
+        } catch (error) {
+            return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
