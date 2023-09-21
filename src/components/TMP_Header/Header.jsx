@@ -5,6 +5,8 @@ import {
   IconWrapper,
 } from './Header.styled';
 import sprite from '../../assets/sprite.svg';
+import { DrinkDetails } from '../../pages/DrinkPage/DrinkPage';
+import { DrinkPageHero } from '../DrinkPageHero/DrinkPageHero';
 
 export const Header = () => {
   return (
@@ -23,6 +25,7 @@ export const Header = () => {
           Second
         </StyledLink>
       </Navigation>
+      <DrinkDetails>Hello</DrinkDetails>
     </HeaderContainer>
   );
 };
