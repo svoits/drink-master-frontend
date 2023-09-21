@@ -4,8 +4,8 @@ const initialState = {
   isLoading: false,
   error: null,
 };
-const contactSlice = createSlice({
-  name: 'contacts',
+const drinksSlice = createSlice({
+  name: 'drinks',
   initialState,
   extraReducers: {},
 });
