@@ -37,7 +37,7 @@ export const signIn = createAsyncThunk(
   },
 );
 export const signOut = createAsyncThunk(
-  '/auth/signout',
+  'auth/signout',
   async (_, thunkAPI) => {
     try {
       await axios.post('/signout');
