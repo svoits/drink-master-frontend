@@ -1,1 +1,0 @@
-import{j as n,L as i}from"./index-d5619a79.js";function s(){return n.jsxs("nav",{children:[n.jsx(i,{to:"/signup",children:"Sign Up"}),n.jsx(i,{to:"/signin",children:"Sign In"})]})}function r(){return n.jsx("div",{children:n.jsx(s,{})})}export{r as default};
