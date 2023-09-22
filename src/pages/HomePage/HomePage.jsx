@@ -1,3 +1,10 @@
+import AddDrink from '../../components/AddDrink/AddDrink';
+
 export default function HomePage() {
-  return <div>HomePage</div>;
+  return (
+    <>
+      <AddDrink />
+      <div>HomePage</div>
+    </>
+  );
 }

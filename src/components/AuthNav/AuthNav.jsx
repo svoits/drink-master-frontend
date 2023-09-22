@@ -1,9 +1,11 @@
-import { Link } from 'react-router-dom';
+import { Link, Nav } from "./AuthNav.styled";
+
 export default function AuthNav() {
   return (
-    <nav>
+    <Nav>
       <Link to="/signup">Sign Up</Link>
       <Link to="/signin">Sign In</Link>
-    </nav>
+    </Nav>
   );
 }
+

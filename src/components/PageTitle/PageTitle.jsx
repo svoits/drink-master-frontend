@@ -1,9 +1,7 @@
-export const PageTitle = () => {
-    return (
-        <>
-            <h1>
-                My drinks
-            </h1>
-        </>
-    )
+import { Title } from "./PageTitle.styled";
+
+export default function PageTitle({ title }) {
+  return (
+      <Title>{title}</Title>
+  )
 }
