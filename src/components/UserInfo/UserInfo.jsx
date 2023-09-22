@@ -1,4 +1,4 @@
-import { Button, Image, ImgWrapper } from './UserInfo.styled';
+import { Button, Image } from './UserInfo.styled';
 
 export default function UserInfo() {
   return (

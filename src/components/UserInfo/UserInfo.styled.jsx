@@ -1,12 +1,5 @@
 import styled from 'styled-components';
 
-export const ImgWrapper = styled.span`
-  width: 32px;
-  height: 32px;
-  display: inline-flex;
-  background-color: #fff;
-`;
-
 export const Image = styled.img`
   width: 32px;
   height: 32px;
