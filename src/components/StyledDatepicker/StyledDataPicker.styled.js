@@ -148,8 +148,19 @@ export const CalendarGlobalStyles = createGlobalStyle`
 `;
 
 export const Button = styled.button`
-  width: 200px;
-  color: #ffffff;
+  width: 380px;
+  color: ${({ theme }) => theme.mainText};
+  background: transparent;
+  display: flex;
+  justify-content: space-between;
+  background-color: transparent;
+  padding: 18px 24px;
+  color: ${({ theme }) => theme.mainText};
+  border: 1px solid rgba(243, 243, 243, 0.2);
+  font-size: 14px;
+  border-radius: 42px;
+  line-height: 1.28;
+  border: 1px solid rgba(243, 243, 243, 0.2);
   background: transparent;
   display: flex;
   justify-content: space-between;

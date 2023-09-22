@@ -1,4 +1,4 @@
-import { Formik, Form, Field } from 'formik';
+import { Formik, Field } from 'formik';
 import * as Yup from 'yup';
 import React from 'react';
 // import { useState } from 'react';
@@ -7,6 +7,7 @@ import FormError from '../FormError/FormError';
 
 import DatePicker from '../StyledDatepicker/StyledDatepicker';
 import StyledDatepicker from '../StyledDatepicker/StyledDatepicker';
+import { AuthForm, Input } from './Signup.styled';
 // const today = new Date();
 const initialValues = { name: '', birthDate: '', email: '', password: '' };
 const schema = Yup.object().shape({
@@ -49,8 +50,9 @@ export default function SignupForm() {
       validationSchema={schema}
       onSubmit={handleSubmit}
     >
-      <Form>
-        <Field type="text" name="name" placeholder="Name" />
+      <AuthForm>
+        <>
+        <Input type="text" name="name" placeholder="Name" />
         <FormError name="name" />
 
         {/* <Field type="text"  placeholder="dd/mm/yyyy" />  */}
@@ -58,14 +60,15 @@ export default function SignupForm() {
         <StyledDatepicker name="birthDate"/>
         <FormError name="birthDate" />
 
-        <Field type="email" name="email" placeholder="Email" />
+        <Input type="email" name="email" placeholder="Email" />
         <FormError name="email" />
 
-        <Field type="password" name="password" placeholder="Password" />
-        <FormError name="password" />
+        <Input type="password" name="password" placeholder="Password" />
+          <FormError name="password" />
+        </>
 
         <button type="submit">Sign Up</button>
-      </Form>
+      </AuthForm>
     </Formik>
   );
 }

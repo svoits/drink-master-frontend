@@ -4,16 +4,17 @@ import { AiOutlineCalendar } from 'react-icons/ai';
 import { CalendarGlobalStyles, Button } from "./StyledDataPicker.styled";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker-cssmodules.css";
+import { Field } from "formik";
 
 export default function StyledDatepicker() {
    const [selectedDate, setSelectedDate] = useState(null);
 const [placeholder, setPlaceholder] = useState("dd/mm/yyyy");
   const CustomInput = forwardRef(({ value, onClick }, ref) => {
     return (
-      <Button onClick={onClick}>
+      <Field onClick={onClick}>
       {value ? value : placeholder}
       <AiOutlineCalendar />
-    </Button>
+    </Field>
     );
   });
   

@@ -1,5 +1,6 @@
-export default function PageTitle({title}) {
+import { Title } from "./PageTitle.styled";
+export default function PageTitle({ title }) {
   return (
-      <h1>{title}</h1>
+      <Title>{title}</Title>
   );
 }
