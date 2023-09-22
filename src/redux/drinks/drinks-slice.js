@@ -9,7 +9,7 @@ import {
   removeOwnDrink,
   getOwnDrinks,
   addDrinkToFavorite,
-  getFavoriteAll
+  getFavoriteAll,
 } from './drinks-operations';
 const initialState = {
   items: [],
@@ -17,7 +17,7 @@ const initialState = {
   error: null,
 };
 
-const hanlePending = state => {
+const hanlePending = (state) => {
   state.isLoading = true;
 };
 
@@ -30,7 +30,7 @@ const drinksSlice = createSlice({
   name: 'drinks',
   initialState,
 
-  extraReducers: (builder) => 
+  extraReducers: (builder) =>
     builder
       .addCase(getMainPageAllDrinks.pending, hanlePending)
       .addCase(getMainPageAllDrinks.fulfilled, (state, action) => {
@@ -75,7 +75,7 @@ const drinksSlice = createSlice({
         state.isLoading = true;
         state.error = null;
       })
-      .addCase(getOwnDrinks.rejected, handleRejected)
+      .addCase(getOwnDrinks.pending, hanlePending)
       .addCase(getOwnDrinks.fulfilled, (state, action) => {
         state.drinks = action.payload;
         state.isLoading = true;
@@ -95,7 +95,6 @@ const drinksSlice = createSlice({
         state.isLoading = true;
         state.error = null;
       })
-      .addCase(getFavoriteAll.rejected, handleRejected)
-
+      .addCase(getFavoriteAll.rejected, handleRejected),
 });
 export const drinksReducer = drinksSlice.reducer;
