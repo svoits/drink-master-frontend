@@ -1,4 +1,5 @@
 import { Link, Nav } from "./AuthNav.styled";
+
 export default function AuthNav() {
   return (
     <Nav>
@@ -7,3 +8,4 @@ export default function AuthNav() {
     </Nav>
   );
 }
+
