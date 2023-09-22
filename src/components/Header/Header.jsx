@@ -12,6 +12,7 @@ import { useResize } from 'src/hooks/useResize';
 import UserInfo from '../UserInfo/UserInfo';
 import MenuBtn from '../BurgerBtn/MenuBtn';
 import MobileMenu from '../MobileMenu/MobileMenu';
+import ThemeSwitcher from '../ThemeSwitcher/ThemeSwitcher';
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -42,11 +43,22 @@ export const Header = () => {
               </Navigation>
             )}
             <UserMenuWrap>
-              {!isMenuOpen && <UserInfo />}
-              <MenuBtn
-                handleToggleMenu={handleToggleMenu}
-                isMenuOpen={isMenuOpen}
-              />
+              {windowWidth <= 1439.98 ? (
+                isMenuOpen && <ThemeSwitcher />
+              ) : (
+                <ThemeSwitcher />
+              )}
+              {windowWidth <= 1439.98 ? (
+                !isMenuOpen && <UserInfo />
+              ) : (
+                <UserInfo />
+              )}
+              {windowWidth <= 1439.98 && (
+                <MenuBtn
+                  handleToggleMenu={handleToggleMenu}
+                  isMenuOpen={isMenuOpen}
+                />
+              )}
             </UserMenuWrap>
           </MainWrapper>
         </Container>
