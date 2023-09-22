@@ -4,9 +4,9 @@ import React from 'react';
 // import { useState } from 'react';
 // import { format } from "date-fns";
 import FormError from '../FormError/FormError';
-import { format, parse } from 'date-fns';
+import { format } from 'date-fns';
 
-import DatePicker from '../StyledDatepicker/StyledDatepicker';
+// import DatePicker from '../StyledDatepicker/StyledDatepicker';
 import StyledDatepicker from '../StyledDatepicker/StyledDatepicker';
 import { AuthForm, Input, SignupBtn } from './SignupForm.styled';
 // const today = new Date();
@@ -38,6 +38,8 @@ export default function SignupForm() {
   //  const dispatch = useDispatch();
   const handleSubmit = (values, { resetForm }) => {
     const { name, birthDate, email, password } = values;
+    const formattedBirthDate = format(new Date(birthDate), "yyyy-MM-dd'T'HH:mm:ssXXX");
+
     // const parsedDate = parse(
     //   birthDate,
     //   "EEE MMM dd yyyy HH:mm:ss 'GMT'XXX (zzzz)",
@@ -46,7 +48,7 @@ export default function SignupForm() {
     // const newBirthDate = format(parsedDate, "yyyy-MM-dd'T'HH:mm:ssXXX");
 
     console.log('Name: ', name);
-    console.log('birthDate: ', birthDate);
+    console.log('birthDate: ', formattedBirthDate);
     console.log('email: ', email);
     console.log('password: ', password);
 
@@ -90,98 +92,4 @@ export default function SignupForm() {
   );
 }
 
-// import React from 'react';
-// import { useFormik } from 'formik';
-// import * as Yup from 'yup';
 
-// const SignupForm = () => {
-//   const formik = useFormik({
-//     initialValues: {
-//       name: '',
-//       birthDate: '',
-//       email: '',
-//       password: '',
-//     },
-//     validationSchema: Yup.object({
-//       name: Yup.string().min(3).required('Name is required'),
-//       birthDate: Yup.string()
-//         .required('BirthDate is required')
-//         .matches(/^\d{2}-\d{2}-\d{4}$/, 'Invalid date format (DD-MM-YYYY)'),
-//       email: Yup.string()
-//         .email('Invalid email format, test@tt.com')
-//         .required('Email is required')
-//         .matches(/\.(com|net)$/, 'Email must end with .com or .net'),
-//       password: Yup.string()
-//         .min(3, 'Password must be 3 characters at minimum')
-//         .required('Password is required')
-//         .matches(/[a-zA-Z]/, 'Password must contain at least one letter')
-//         .matches(/[0-9]/, 'Password must contain at least one number'),
-//     }),
-//     onSubmit: (values, { resetForm }) => {
-//       const { name, birthDate, email, password } = values;
-//       //     // dispatch(signup({ name, birthDate, email, password }));
-
-//       resetForm();
-//     },
-//   });
-
-//   return (
-//     <form onSubmit={formik.handleSubmit}>
-//       <div>
-//         <input
-//           type="text"
-//           name="name"
-//           placeholder="Name"
-//           value={formik.values.name}
-//           onChange={formik.handleChange}
-//         />
-//         {formik.touched.name && formik.errors.name && (
-//           <div>{formik.errors.name}</div>
-//         )}
-//       </div>
-
-//       <div>
-//         <input
-//           type="text"
-//           name="birthDate"
-//           placeholder="dd/mm/yyyy"
-//           value={formik.values.birthDate}
-//           onChange={formik.handleChange}
-//         />
-//         {formik.touched.birthDate && formik.errors.birthDate && (
-//           <div>{formik.errors.birthDate}</div>
-//         )}
-//       </div>
-
-//       <div>
-//         <input
-//           type="email"
-//           name="email"
-//           placeholder="Email"
-//           value={formik.values.email}
-//           onChange={formik.handleChange}
-//         />
-//         {formik.touched.email && formik.errors.email && (
-//           <div>{formik.errors.email}</div>
-//         )}
-//       </div>
-
-//       <div>
-//         <input
-//           type="password"
-//           name="password"
-//           placeholder="password"
-//           value={formik.values.password}
-//           onChange={formik.handleChange}
-//         />
-//         {formik.touched.password && formik.errors.password && (
-//           <div>{formik.errors.password}</div>
-//         )}
-//       </div>
-
-//       <button type="submit">Submit</button>
-//     </form>
-//   );
-// };
-
-// export default SignupForm;
