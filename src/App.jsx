@@ -38,7 +38,7 @@ function App() {
             <Route path="drinks" element={<Drinks />} />
             <Route path="add" element={<AddDrink />} />
             <Route path="favorites" element={<FavoriteDrinks />} />
-            <Route path="drink/:drinkId" element={<Drink />} />
+            <Route path="drinks/:drinkId" element={<Drink />} />
             <Route path="my" element={<MyDrinks />} />
 
             <Route path="*" element={<ErrorPage />} />

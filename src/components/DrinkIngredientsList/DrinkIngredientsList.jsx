@@ -1,5 +1,9 @@
 import React from 'react';
 import { DrinkIngredientItem } from '../DrinkIngredientItem/DrinkIngredientItem';
+import {
+  IngredientsTitle,
+  IngredientsList,
+} from './DrinkIngredientsList.styled';
 
 // import {
 //   selectContacts,
@@ -12,15 +16,18 @@ export const DrinkIngredientsList = ({ ingredients }) => {
 
   return (
     <div>
-      {ingredients.map((ingredient) => (
-        <div key={ingredient.ingredientId.$oid}>
-          <DrinkIngredientItem
-            id={ingredient.ingredientId.$oid}
-            title={ingredient.title}
-            measure={ingredient.measure}
-          />
-        </div>
-      ))}
+      <IngredientsTitle>Ingredients</IngredientsTitle>
+      <IngredientsList>
+        {ingredients.map((ingredient) => (
+          <div key={ingredient.ingredientId.$oid}>
+            <DrinkIngredientItem
+              id={ingredient.ingredientId.$oid}
+              title={ingredient.title}
+              measure={ingredient.measure}
+            />
+          </div>
+        ))}
+      </IngredientsList>
     </div>
   );
 };
