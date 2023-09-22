@@ -1,49 +1,43 @@
-import { forwardRef, useState } from "react";
+import { forwardRef, useState } from 'react';
 // import { format } from "date-fns";
 import { AiOutlineCalendar } from 'react-icons/ai';
-import { CalendarGlobalStyles, Button } from "./StyledDataPicker.styled";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker-cssmodules.css";
+import { CalendarGlobalStyles, Button } from './StyledDataPicker.styled';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 
-
-export default function StyledDatepicker() {
-   const [selectedDate, setSelectedDate] = useState(null);
-const [placeholder, setPlaceholder] = useState("dd/mm/yyyy");
+export default function StyledDatepicker({ value, setFieldValue }) {
+  const [selectedDate, setSelectedDate] = useState(null);
+  const [placeholder, setPlaceholder] = useState('dd/mm/yyyy');
   const CustomInput = forwardRef(({ value, onClick }, ref) => {
     return (
       <Button onClick={onClick}>
-      {value ? value : placeholder}
-      <AiOutlineCalendar />
-    </Button>
+        {value ? value : placeholder}
+        <AiOutlineCalendar />
+      </Button>
     );
   });
-  
+
   return (
     <>
       <DatePicker
-       
-       customInput ={<CustomInput/>}
-       selected={selectedDate}
+        customInput={<CustomInput />}
+        selected={value}
         onChange={(date) => {
-          setSelectedDate(date);
-          setPlaceholder(date ? "" : "dd/mm/yyyy");
-          
+          setFieldValue('birthDate', date);
+          setPlaceholder(date ? '' : 'dd/mm/yyyy');
         }}
-        
-        dateFormat={"dd-MM-yyyy"}
+        dateFormat={'dd-MM-yyyy'}
         maxDate={new Date()}
         showYearDropdown
         scrollableMonthYearDropdown
         placeholderText={placeholder}
         // calendarStartDay={1}
         // formatWeekDay={(day) => day.substr(0, 1)}
-        
-      /> <CalendarGlobalStyles />
+      />{' '}
+      <CalendarGlobalStyles />
     </>
   );
 }
-
-
 
 // import React from "react";
 // import DateView from "react-datepicker";
