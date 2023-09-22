@@ -5,11 +5,12 @@ import {
   WelcomeSubtitle,
   WelcomeTitle,
   WelcomeWrap,
+  Section,
 } from './WelcomePage.styled';
 export default function WelcomePage() {
   return (
     <main>
-      <section>
+      <Section>
         <BackgroundImage/>
         <Container>
           <WelcomeWrap>
@@ -22,7 +23,7 @@ export default function WelcomePage() {
             <AuthNav />
           </WelcomeWrap>
         </Container>
-      </section>
+      </Section>
     </main>
   );
 }

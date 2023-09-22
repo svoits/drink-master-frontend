@@ -7,7 +7,7 @@ import FormError from '../FormError/FormError';
 
 import DatePicker from '../StyledDatepicker/StyledDatepicker';
 import StyledDatepicker from '../StyledDatepicker/StyledDatepicker';
-import { AuthForm, Input } from './Signup.styled';
+import { AuthForm, Input,SignupBtn } from './SignupForm.styled';
 // const today = new Date();
 const initialValues = { name: '', birthDate: '', email: '', password: '' };
 const schema = Yup.object().shape({
@@ -67,7 +67,7 @@ export default function SignupForm() {
           <FormError name="password" />
         </>
 
-        <button type="submit">Sign Up</button>
+        <SignupBtn type="submit">Sign Up</SignupBtn>
       </AuthForm>
     </Formik>
   );

@@ -3,6 +3,14 @@ import bgImageMobile from '../../images/welcome/bg-welcomePage-mobile.jpg';
 import bgImageMobile2x from '../../images/welcome/bg-welcomePage-mobile@2x.jpg';
 import bgImage from '../../images/welcome/bg-welcomePage.jpg';
 import bgImage2x from '../../images/welcome/bg-welcomePage@2x.jpg';
+export const Section = styled.section`
+ padding-top: 120px;
+
+  @media screen and (min-width: 768px) {
+  }
+  @media screen and (min-width: 1440px) {
+  }
+`;
 
 export const WelcomeWrap = styled.div`
   display: flex;
@@ -63,6 +71,7 @@ export const BackgroundImage = styled.div`
   background-repeat: no-repeat;
   background-position: bottom;
   background-size: cover;
+  
   @media (min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {
@@ -81,9 +90,10 @@ export const BackgroundImage = styled.div`
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+   
     width: 257px;
     height: 247px;
+     transform: translate(-80%, -140%);
     background: radial-gradient(
       ellipse at center,
       rgba(188, 230, 210, 0.4) 0%,
