@@ -10,10 +10,10 @@ import { format } from 'date-fns';
 import StyledDatepicker from '../StyledDatepicker/StyledDatepicker';
 import { AuthForm, Input, SignupBtn } from './SignupForm.styled';
 // const today = new Date();
-const initialValues = { name: '', birthDate: '', email: '', password: '' };
+const initialValues = { name: '', dateOfBirth: '', email: '', password: '' };
 const schema = Yup.object().shape({
   name: Yup.string().min(3).required('Name is required'),
-  birthDate: Yup.date().required('BirthDate is required'),
+  dateOfBirth: Yup.date().required('dateOfBirth is required'),
   // .matches(/^\d{2}-\d{2}-\d{4}$/, 'Invalid date format (DD-MM-YYYY)'),
   // .test("max-date", "Future date not allowed", function (value) {
   //   if (!value) return true;
@@ -37,8 +37,8 @@ export default function SignupForm() {
 
   //  const dispatch = useDispatch();
   const handleSubmit = (values, { resetForm }) => {
-    const { name, birthDate, email, password } = values;
-    const formattedBirthDate = format(new Date(birthDate), "yyyy-MM-dd'T'HH:mm:ssXXX");
+    const { name, dateOfBirth, email, password } = values;
+    const birthDate = format(new Date(dateOfBirth), "yyyy-MM-dd'T'HH:mm:ssXXX");
 
     // const parsedDate = parse(
     //   birthDate,
@@ -48,7 +48,7 @@ export default function SignupForm() {
     // const newBirthDate = format(parsedDate, "yyyy-MM-dd'T'HH:mm:ssXXX");
 
     console.log('Name: ', name);
-    console.log('birthDate: ', formattedBirthDate);
+    console.log('birthDate: ', birthDate);
     console.log('email: ', email);
     console.log('password: ', password);
 
@@ -72,11 +72,11 @@ export default function SignupForm() {
             {/* <Field type="text"  placeholder="dd/mm/yyyy" />  */}
             {/* <DatePicker  name="birthDate" /> */}
             <StyledDatepicker
-              name="birthDate"
-              value={values.birthDate}
+              name="dateOfBirth"
+              value={values.dateOfBirth}
               setFieldValue={setFieldValue}
             />
-            <FormError name="birthDate" />
+            <FormError name="dateOfBirth" />
 
             <Input type="email" name="email" placeholder="Email" />
             <FormError name="email" />

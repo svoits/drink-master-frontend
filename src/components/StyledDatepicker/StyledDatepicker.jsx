@@ -23,7 +23,7 @@ export default function StyledDatepicker({ value, setFieldValue }) {
         customInput={<CustomInput />}
         selected={value}
         onChange={(date) => {
-          setFieldValue('birthDate', date);
+          setFieldValue('dateOfBirth', date);
           setPlaceholder(date ? '' : 'dd/mm/yyyy');
         }}
         dateFormat={'dd-MM-yyyy'}
