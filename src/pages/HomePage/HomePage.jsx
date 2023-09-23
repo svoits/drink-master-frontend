@@ -1,10 +1,11 @@
-import AddDrink from '../../components/AddDrink/AddDrink';
+import { CoctailsCategory } from '../../components/CoctailsCategory/CoctailsCategory';
 
 export default function HomePage() {
-  return (
+  return ( 
     <>
-      <AddDrink />
-      <div>HomePage</div>
+      
+      <div>FirstBlock</div>
+      <CoctailsCategory/>
     </>
-  );
+  )
 }
