@@ -1,12 +1,12 @@
-// import {  useSelector } from "react-redux";
-// import { getDrinks  } from '../../redux/drinks/drinks-selectors'
+import {  useSelector } from "react-redux";
+import { selectDrinks  } from '../../redux/drinks/drinks-selectors'
 import { ItemCoctail } from "./ItemCoctail";
 
 
 export const CoctailsCategory = () => { 
-    // const drinks = useSelector(getDrinks);
+    let drinks = useSelector(selectDrinks);
 
-    const drinks = [
+    drinks = [
         {category1: ['Berry Deadly', 'English Rose Cocktail', 'Elderflower Caipirinha', 'Blueberry Mojito', 'Greyhound', 'Gin Lemon']},
         {category2: ['Berry Deadly', 'English Rose Cocktail', 'Elderflower Caipirinha', 'Blueberry Mojito', 'Greyhound', 'Gin Lemon']},
         {category3: ['Berry Deadly', 'English Rose Cocktail', 'Elderflower Caipirinha', 'Blueberry Mojito', 'Greyhound', 'Gin Lemon']},
@@ -20,6 +20,7 @@ export const CoctailsCategory = () => {
             <div>
                 <p>Name category </p>
                 <ul>
+                    
                     <li key={idx} >
                         <ItemCoctail />
                     </li> 
