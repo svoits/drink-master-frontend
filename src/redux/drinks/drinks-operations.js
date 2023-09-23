@@ -14,6 +14,7 @@ export const getMainPageAllDrinks = createAsyncThunk(
     }
   },
 );
+
 export const getDrinkById = createAsyncThunk(
   'drinks/getDrinkById',
   async (drinkId, thunkAPI) => {
@@ -30,7 +31,7 @@ export const getPopularDrinks = createAsyncThunk(
   'drinks/popular',
   async (_, thunkAPI) => {
     try {
-      const response = await axios.get(`/popular`);
+      const response = await axios.get('/popular');
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -66,7 +67,7 @@ export const removeDrink = createAsyncThunk(
   'drinks/favorite/remove/:id',
   async (drinkId, thunkAPI) => {
     try {
-      const response = await axios.get(`favorite/remove/${drinkId}`);
+      const response = await axios.get(`/favorite/remove/${drinkId}`);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -78,7 +79,7 @@ export const removeOwnDrink = createAsyncThunk(
   'drinks/own/remove/:id',
   async (drinkId, thunkAPI) => {
     try {
-      const response = await axios.get(`own/remove/${drinkId}`);
+      const response = await axios.get(`/own/remove/${drinkId}`);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -90,7 +91,7 @@ export const getOwnDrinks = createAsyncThunk(
   'drinks/own/all',
   async (_, thunkAPI) => {
     try {
-      const response = await axios.get(`own/all`);
+      const response = await axios.get('/own/all');
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -110,24 +111,11 @@ export const addDrinkToFavorite = createAsyncThunk(
   },
 );
 
-// Дубль
-// export const removeDrinkFromFavorite = createAsyncThunk(
-//   'drinks/favorite/remove/:id',
-//   async (drinkId, thunkAPI) => {
-//     try {
-//       const response = await axios.get(`/favorite/remove/${drinkId}`);
-//       return response.data;
-//     } catch (error) {
-//       return thunkAPI.rejectWithValue(error.message);
-//     }
-//   },
-// );
-
 export const getFavoriteAll = createAsyncThunk(
   'drinks/favorite/all',
   async (_, thunkAPI) => {
     try {
-      const response = await axios.get(`/favorite/all`);
+      const response = await axios.get('/favorite/all');
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

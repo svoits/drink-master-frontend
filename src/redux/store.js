@@ -4,6 +4,7 @@ import { userReducer } from './user/user-slice';
 import { filtersReducer } from './filters/filters-slice';
 import { drinksReducer } from './drinks/drinks-slice';
 import {
+  persistReducer,
   persistStore,
   FLUSH,
   REHYDRATE,
@@ -12,7 +13,6 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
-import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
 const authPersistConfig = {

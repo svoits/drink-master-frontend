@@ -35,7 +35,7 @@ export const updateUser = createAsyncThunk(
 );
 
 export const subscribeDrinks = createAsyncThunk(
-  '/auth/subscribe',
+  'auth/subscribe',
     async (data, thunkAPI) => {
         console.log(data);
     try {
