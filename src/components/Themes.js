@@ -11,6 +11,7 @@ export const lightTheme = {
   activeNavLinkBg: '#161F37',
   activeNavLinkText: '#F3F3F3',
   themeSwitcher: '#F3F3F3',
+  subTitleText: '#0A0A1180',
 };
 
 export const darkTheme = {
@@ -26,4 +27,5 @@ export const darkTheme = {
   activeNavLinkBg: '#161F37',
   activeNavLinkText: '#F3F3F3',
   themeSwitcher: '#161F37',
+  subTitleText: '#F3F3F380',
 };

@@ -10,6 +10,7 @@ import { useParams } from 'react-router-dom';
 // import { selectDrinks } from '../../redux/drinks/drinks-selectors';
 // import { getMainPageAllDrinks } from '../../redux/drinks/drinks-operations';
 import { Container } from '../../components/Container/Container.styled';
+import { DrinkPageWrapper } from './DrinkPage.styled';
 
 export default function DrinkPage() {
   const { drinkId } = useParams();
@@ -23,17 +24,19 @@ export default function DrinkPage() {
   const ingredients = getIngredientsListId(drinkId);
 
   return (
-    <Container>
-      <DrinkPageHero
-        id={drink._id}
-        name={drink.drink}
-        glass={drink.glass}
-        alcoholic={drink.alcoholic}
-        description={drink.description}
-        imgPath={drink.drinkThumb}
-      />
-      <DrinkIngredientsList ingredients={ingredients} />
-      <RecipePreparation instructions={drink.instructions} />
-    </Container>
+    <DrinkPageWrapper>
+      <Container>
+        <DrinkPageHero
+          id={drink._id}
+          name={drink.drink}
+          glass={drink.glass}
+          alcoholic={drink.alcoholic}
+          description={drink.description}
+          imgPath={drink.drinkThumb}
+        />
+        <DrinkIngredientsList ingredients={ingredients} />
+        <RecipePreparation instructions={drink.instructions} />
+      </Container>
+    </DrinkPageWrapper>
   );
 }

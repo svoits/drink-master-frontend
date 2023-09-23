@@ -4,7 +4,7 @@ export const IngredientDescription = styled.div`
   display: flex;
   justify-content: space-between;
   margin-top: 8px;
-  color: #f3f3f3;
+  color: ${({ theme }) => theme.mainText};
   font-size: 14px;
   font-weight: 500;
   line-height: 18px;

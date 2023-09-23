@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const IngredientsTitle = styled.h4`
-  color: rgba(243, 243, 243, 0.5);
+  color: ${({ theme }) => theme.subTitleText};
   font-size: 16px;
   font-weight: 500;
   line-height: 20px;

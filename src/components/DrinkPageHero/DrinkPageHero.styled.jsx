@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const DrinkTitle = styled.h1`
-  color: #f3f3f3;
+  color: ${({ theme }) => theme.mainText};
   text-shadow:
     0px 4px 4px rgba(0, 0, 0, 0.25),
     0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -25,7 +25,7 @@ export const DrinkTitle = styled.h1`
 `;
 
 export const DrinkSubTitle = styled.h3`
-  color: rgba(243, 243, 243, 0.5);
+  color: ${({ theme }) => theme.subTitleText};
   font-size: 12px;
   font-weight: 400;
   line-height: 14px;
@@ -39,7 +39,7 @@ export const DrinkSubTitle = styled.h3`
 `;
 
 export const DrinkDescription = styled.p`
-  color: #f3f3f3;
+  color: ${({ theme }) => theme.mainText};
   font-size: 14px;
   font-weight: 400;
   line-height: 18px;
@@ -55,14 +55,14 @@ export const DrinkDescription = styled.p`
 export const AddToFavoriteButton = styled.button`
   width: 224px;
   height: 46px;
-  color: #161f37;
+  color: ${({ theme }) => theme.themeSwitcher};
   font-family: inherit;
   font-size: 14px;
   font-weight: 600;
   line-height: 18px;
   margin-top: 40px;
 
-  background-color: #f3f3f3;
+  background-color: ${({ theme }) => theme.mainAccent};
   border-radius: 42px;
   border: 1px solid transparent;
   cursor: pointer;

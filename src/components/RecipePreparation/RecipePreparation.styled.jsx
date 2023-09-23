@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const RecipePreparationTitle = styled.h2`
-  color: #f3f3f3;
+  color: ${({ theme }) => theme.mainText};
   font-size: 28px;
   font-weight: 600;
   line-height: 32px;
@@ -19,7 +19,7 @@ export const RecipePreparationTitle = styled.h2`
 `;
 
 export const RecipePreparationDescription = styled.p`
-  color: #f3f3f3;
+  color: ${({ theme }) => theme.mainText};
   font-size: 14px;
   font-weight: 400;
   line-height: 18px;
