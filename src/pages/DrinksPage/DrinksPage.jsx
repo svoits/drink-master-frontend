@@ -1,25 +1,40 @@
-// import { useSelector } from 'react-redux';
+// import { useEffect } from 'react';
+import {  useSelector } from 'react-redux';
+// import { getMainPageAllDrinks } from '../../redux/drinks/drinks-operations';
+import {
+  selectDrinks,
+  // selectError,
+  // selectIsLoading,
+} from '../../redux/drinks/drinks-selectors';
 
-// import { selectFilteredDrinks } from "redux/drinks/drinks-selectors";
+import { DrinksListPage } from 'components/DrinksListPage/DrinksListPage';
 
-import { HomeDrinksList } from 'components/HomeDrinksList/HomeDrinksList';
-// import {DrinksList} from 'components/DrinksList/DrinksList';
 import { SearchDrinks } from 'components/SearchDrinks/SearchDrinks';
 
+import { Loader } from 'components/Loader/Loader';
 import { DrinksPageTITLE } from './DrinksPage.styled';
 
 export default function DrinksPage() {
-  // const filteredDrinks = useSelector(selectFilteredDrinks);
+  // const dispatch = useDispatch();
 
-  // const location = useLocation();
+  const { drinks, isLoading, error } = useSelector(selectDrinks);
+
+  // const isLoading = useSelector(selectIsLoading);
+
+  // const error = useSelector(selectError);
+
+  // useEffect(() => {
+  //   dispatch(getMainPageAllDrinks());
+  // }, [dispatch]);
   return (
     <>
       <DrinksPageTITLE>Drinks</DrinksPageTITLE>
+      {isLoading && !error && <Loader />}
       <SearchDrinks />
+      {drinks.length > 0 && <DrinksListPage />}
+{/* 
+      <DrinksListPage /> */}
 
-      <HomeDrinksList />
-
-      {/* <DrinksList /> */}
     </>
   );
 }
