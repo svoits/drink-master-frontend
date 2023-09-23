@@ -1,4 +1,4 @@
-import{s as e}from"./index-36732f69.js";const t="/drink-master-frontend/assets/bg-welcomePage-mobile-4764bbe3.jpg",i="/drink-master-frontend/assets/bg-welcomePage-mobile@2x-b8f15be0.jpg",n="/drink-master-frontend/assets/bg-welcomePage-ac45039b.jpg",a="/drink-master-frontend/assets/bg-welcomePage@2x-2b9ac8e0.jpg",o=e.section`
+import{s as e}from"./index-3b455809.js";const t="/drink-master-frontend/assets/bg-welcomePage-mobile-4764bbe3.jpg",i="/drink-master-frontend/assets/bg-welcomePage-mobile@2x-b8f15be0.jpg",n="/drink-master-frontend/assets/bg-welcomePage-ac45039b.jpg",a="/drink-master-frontend/assets/bg-welcomePage@2x-2b9ac8e0.jpg",o=e.section`
  padding-top: 120px;
 
   @media screen and (min-width: 768px) {
