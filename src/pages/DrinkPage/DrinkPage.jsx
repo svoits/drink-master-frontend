@@ -6,18 +6,20 @@ import { RecipePreparation } from '../../components/RecipePreparation/RecipePrep
 import { getDrinkById } from '../../fakeApiRecipes';
 import { getIngredientsListId } from '../../fakeApiRecipes';
 import { useParams } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
-import { selectDrinkById } from '../../redux/drinks/drinks-selectors';
-import { getMainPageAllDrinks } from '../../redux/drinks/drinks-operations';
+// import { useSelector, useDispatch } from 'react-redux';
+// import { selectDrinks } from '../../redux/drinks/drinks-selectors';
+// import { getMainPageAllDrinks } from '../../redux/drinks/drinks-operations';
 import { Container } from '../../components/Container/Container.styled';
 
 export default function DrinkPage() {
-  // const dispatch = useDispatch();
   const { drinkId } = useParams();
-  // const drink = dispatch(getDrinkById(drinkId)).unwrap();
+  // const dispatch = useDispatch();
+
+  // dispatch(getMainPageAllDrinks());
+  // const drinks = useSelector(selectDrinks);
+  // console.log(drinks);
   const drink = getDrinkById(drinkId);
 
-  // console.log(drink);
   const ingredients = getIngredientsListId(drinkId);
 
   return (
