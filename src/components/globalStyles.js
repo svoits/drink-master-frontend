@@ -1,6 +1,8 @@
 import { createGlobalStyle } from 'styled-components';
 export const GlobalStyles = createGlobalStyle`
 
+body {
+
 
 @font-face {
   font-family: 'Manrope';
