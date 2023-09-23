@@ -1,4 +1,4 @@
-import{s as t,j as e}from"./index-e585f362.js";import{r as c}from"./recipes-c8bb5d97.js";import{F as l,a as s,c as x,d as p,b as d,E as g}from"./index.esm-2ff6c759.js";const h=t.ul`
+import{s as t,j as e,F as c,h as s,i as l,E as x}from"./index-ffe2a83b.js";import{r as p}from"./recipes-c8bb5d97.js";import{c as d,a as g}from"./index.esm-1756ab39.js";const h=t.ul`
   display: flex;
   flex-wrap: wrap;
   align-content: center;
@@ -35,7 +35,7 @@ import{s as t,j as e}from"./index-e585f362.js";import{r as c}from"./recipes-c8bb
   display: flex;
   justify-content: space-between;
   align-items: center;
-`;function y(){return e.jsx("div",{children:e.jsx(h,{children:c.map(({id:n,drink:r,drinkThumb:i})=>e.jsxs(m,{children:[i?e.jsx(o,{src:i,alt:r}):e.jsx(o,{src:""}),e.jsxs(j,{children:[e.jsx(f,{children:r}),e.jsx(u,{children:"See more"})]})]},n))})})}const k=t(l)`
+`;function y(){return e.jsx("div",{children:e.jsx(h,{children:p.map(({id:n,drink:r,drinkThumb:i})=>e.jsxs(m,{children:[i?e.jsx(o,{src:i,alt:r}):e.jsx(o,{src:""}),e.jsxs(j,{children:[e.jsx(f,{children:r}),e.jsx(u,{children:"See more"})]})]},n))})})}const k=t(c)`
   display: flex;
   align-items: center;
   gap: 8px;
@@ -63,9 +63,9 @@ import{s as t,j as e}from"./index-e585f362.js";import{r as c}from"./recipes-c8bb
   border-radius: 20px;
 `;const b=t.option`
   background-color: #161f37;
-`,a=[{id:"1",category:"Ordinary Drink"},{id:"2",category:"Cocktail"},{id:"3",category:"Shake"},{id:"4",category:"Other/Unknown"},{id:"5",category:"Cocoa"},{id:"6",category:"Shot"},{id:"7",category:"Coffee/Tea"},{id:"8",category:"Homemade Liqueur"},{id:"9",category:"Punch/Party Drink"},{id:"10",category:"Beer"},{id:"11",category:"Soft Drink"}],w={name:"",category:""},S=x({category:p().required("Please select a category").oneOf(a)}),F=t.p`
+`,a=[{id:"1",category:"Ordinary Drink"},{id:"2",category:"Cocktail"},{id:"3",category:"Shake"},{id:"4",category:"Other/Unknown"},{id:"5",category:"Cocoa"},{id:"6",category:"Shot"},{id:"7",category:"Coffee/Tea"},{id:"8",category:"Homemade Liqueur"},{id:"9",category:"Punch/Party Drink"},{id:"10",category:"Beer"},{id:"11",category:"Soft Drink"}],w={name:"",category:""},S=d({category:g().required("Please select a category").oneOf(a)}),F=t.p`
   color: red;
-`,v=({name:n})=>e.jsx(g,{name:n,render:r=>e.jsx(F,{children:r})}),E=()=>{const n=(r,{resetForm:i})=>{console.log(r),i()};return e.jsx(d,{initialValues:w,validationSchema:S,onSubmit:n,children:e.jsxs(k,{children:[e.jsx("div",{children:e.jsxs("label",{htmlFor:"name",children:[e.jsx(s,{name:"name",type:"text"}),e.jsx(v,{name:"name"})]})}),e.jsxs("div",{children:[e.jsx("label",{htmlFor:"categoty"}),e.jsx("div",{children:e.jsxs(D,{name:"categoty",as:"select",children:[e.jsx("option",{value:"",children:"All categories"}),a.map(({id:r,category:i})=>e.jsx(b,{value:i,children:i},r))]})})]}),e.jsx("button",{type:"submit",children:"submit"})]})})},H=t.h1`
+`,v=({name:n})=>e.jsx(x,{name:n,render:r=>e.jsx(F,{children:r})}),E=()=>{const n=(r,{resetForm:i})=>{console.log(r),i()};return e.jsx(l,{initialValues:w,validationSchema:S,onSubmit:n,children:e.jsxs(k,{children:[e.jsx("div",{children:e.jsxs("label",{htmlFor:"name",children:[e.jsx(s,{name:"name",type:"text"}),e.jsx(v,{name:"name"})]})}),e.jsxs("div",{children:[e.jsx("label",{htmlFor:"categoty"}),e.jsx("div",{children:e.jsxs(D,{name:"categoty",as:"select",children:[e.jsx("option",{value:"",children:"All categories"}),a.map(({id:r,category:i})=>e.jsx(b,{value:i,children:i},r))]})})]}),e.jsx("button",{type:"submit",children:"submit"})]})})},H=t.h1`
   margin-top: 160px;
   font-family: Manrope;
   font-size: 64px;
