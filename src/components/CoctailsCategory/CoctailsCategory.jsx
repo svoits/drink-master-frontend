@@ -24,10 +24,10 @@ export const CoctailsCategory = () => {
                 <p>{category} </p>
                 <ul>
 
-                    {drinks[category].map((item, i) => (
-                        <li key={i}>
-                            <ItemCoctail />
-                        </li>
+                    {drinks[category].map((item) => (
+                        
+                            <ItemCoctail key={item._id} item={item}/>
+                        
                     
                     ))} 
                 </ul>
