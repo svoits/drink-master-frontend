@@ -1,13 +1,11 @@
 import { Route, Routes } from 'react-router-dom';
 import SharedLayout from './components/SharedLayout/SharedLayout';
 import ErrorPage from './pages/TMP_ErrorPage/ErrorPage';
-import { AppWrapper } from './App.styled';
 import { ThemeProvider } from 'styled-components';
-import { lazy, useState } from 'react';
+import { lazy } from 'react';
 import { useSelector } from 'react-redux';
 import { darkTheme, lightTheme } from './components/Themes';
 import { GlobalStyles } from './components/globalStyles';
-import MyDrinksPage from './pages/MyDrinksPage/MyDrinksPage';
 import { selectTheme } from './redux/user/user-selectors';
 
 const Welcome = lazy(() => import('./pages/WelcomePage/WelcomePage'));
@@ -28,26 +26,24 @@ function App() {
 
   return (
     <ThemeProvider theme={theme === 'dark' ? darkTheme : lightTheme}>
-      <AppWrapper>
-        <Routes>
-          <Route path="/" element={<SharedLayout />}>
-            <Route path="welcome" element={<Welcome />} />
-            <Route path="signup" element={<Signup />} />
-            <Route path="signin" element={<Signin />} />
+      <Routes>
+        <Route path="/" element={<SharedLayout />}>
+          <Route path="welcome" element={<Welcome />} />
+          <Route path="signup" element={<Signup />} />
+          <Route path="signin" element={<Signin />} />
 
-            <Route path="home" element={<Home />} />
-            <Route path="drinks" element={<Drinks />} />
-            <Route path="add" element={<AddDrink />} />
-            <Route path="favorites" element={<FavoriteDrinks />} />
-            <Route path="drinks/:drinkId" element={<Drink />} />
-            <Route path="my" element={<MyDrinks />} />
+          <Route path="home" element={<Home />} />
+          <Route path="drinks" element={<Drinks />} />
+          <Route path="add" element={<AddDrink />} />
+          <Route path="favorites" element={<FavoriteDrinks />} />
+          <Route path="drinks/:drinkId" element={<Drink />} />
+          <Route path="my" element={<MyDrinks />} />
 
-            <Route path="*" element={<ErrorPage />} />
-          </Route>
-        </Routes>
+          <Route path="*" element={<ErrorPage />} />
+        </Route>
+      </Routes>
 
-        <GlobalStyles />
-      </AppWrapper>
+      <GlobalStyles />
     </ThemeProvider>
   );
 }

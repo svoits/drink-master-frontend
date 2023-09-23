@@ -1,6 +1,6 @@
-import { Button, Image } from './UserInfo.styled';
+import { Button, Image } from './UserLogo.styled';
 
-export default function UserInfo() {
+export default function UserLogo() {
   return (
     <Button type="button">
       <Image
