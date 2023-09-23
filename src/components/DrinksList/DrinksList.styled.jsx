@@ -28,7 +28,8 @@ export const MyDrinksH5 = styled.h5`
   margin-top: 24px;
   margin-bottom: 0;
   font-family: Manrope;
-  color: #f3f3f3;
+  color: ${({ theme }) => theme.mainText};
+  // color: #f3f3f3;
   font-size: 18px;
   font-weight: 500;
   line-height: 24px;
@@ -51,7 +52,8 @@ export const MyDrinksTEXT = styled.p`
 
   margin-top: 24px;
   font-family: Manrope;
-  color: #f3f3f3;
+  color: ${({ theme }) => theme.mainText};
+  // color: #f3f3f3;
   font-size: 16px;
   font-weight: 400;
   line-height: 22px;
@@ -72,12 +74,14 @@ export const MyDrinksButton = styled.button`
   padding-bottom: 18px;
   padding-right: 44px;
   padding-left: 44px;
-  padding: 18px, 44px, 18px, 44px;
+  // padding: 18px, 44px, 18px, 44px;
   border-radius: 42px;
   border: none;
   gap: 10px;
-  background-color: #161f37;
-  color: #f3f3f3;
+  // background-color: #161f37;
+  background-color: ${({ theme }) => theme.activeNavLinkBg};
+  color: ${({ theme }) => theme.mainText};
+  // color: #f3f3f3;
   font-family: Manrope;
   font-size: 16px;
   font-weight: 600;

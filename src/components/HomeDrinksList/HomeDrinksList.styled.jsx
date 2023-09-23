@@ -24,6 +24,7 @@ export const HomeDrinksIMG = styled.img`
 export const HomeDrinksP = styled.p`
   font-family: Manrope;
   color: #f3f3f3;
+  color: ${({ theme }) => theme.mainText};
   font-size: 18px;
   font-weight: 500;
   line-height: 24px;
