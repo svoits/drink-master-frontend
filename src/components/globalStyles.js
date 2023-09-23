@@ -1,6 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 export const GlobalStyles = createGlobalStyle`
 
+
 @font-face {
   font-family: 'Manrope';
   font-weight: 400;
@@ -22,7 +23,8 @@ export const GlobalStyles = createGlobalStyle`
     url('../fonts/Manrope-Medium.woff2') format('woff2'),
     url('../fonts/Manrope-Medium.woff') format('woff'),
     url('../fonts/Manrope-Medium.ttf') format('truetype'),
-    url('../fonts/Manrope-Medium.eot') format('embedded-opentype');
+    url('../fonts/Manrope-Medium.eot') format('embedded-opentype'),
+
 }
 
 @font-face {
@@ -39,12 +41,12 @@ export const GlobalStyles = createGlobalStyle`
 
   body {
   background-color: ${({ theme }) => theme.mainBackground};
-  background-size: auto 100%;
   font-family: 'Manrope', sans-serif;
+  font-size: 14px;
   font-weight: 400;
   font-style: normal;
-  color: ${({ theme }) => theme.mainText}
-  
+  color: ${({ theme }) => theme.mainText};
+  margin: 0;
 }
 h1,
 h2,
