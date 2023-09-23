@@ -4,30 +4,35 @@ import { ItemCoctail } from "./ItemCoctail";
 
 
 export const CoctailsCategory = () => { 
-    let drinks = useSelector(selectDrinks);
+    //const drinks = useSelector(selectDrinks);
 
-    drinks = [
-        {category1: ['Berry Deadly', 'English Rose Cocktail', 'Elderflower Caipirinha', 'Blueberry Mojito', 'Greyhound', 'Gin Lemon']},
-        {category2: ['Berry Deadly', 'English Rose Cocktail', 'Elderflower Caipirinha', 'Blueberry Mojito', 'Greyhound', 'Gin Lemon']},
-        {category3: ['Berry Deadly', 'English Rose Cocktail', 'Elderflower Caipirinha', 'Blueberry Mojito', 'Greyhound', 'Gin Lemon']},
-    ]
-    ;
+    const drinks = {
+        "category1": ['Berry Deadly', 'English Rose Cocktail', 'Elderflower Caipirinha', 'Blueberry Mojito', 'Greyhound', 'Gin Lemon'],
+        "category2": ['Berry Deadly', 'English Rose Cocktail', 'Elderflower Caipirinha', 'Blueberry Mojito', 'Greyhound', 'Gin Lemon'],
+        "category3": ['Berry Deadly', 'English Rose Cocktail', 'Elderflower Caipirinha', 'Blueberry Mojito', 'Greyhound', 'Gin Lemon'],
+    }  ;
+
+    
     
     return (
         <>
-        { drinks.length > 0 && 
-         drinks.map((category, idx) => {
-            <div>
-                <p>Name category </p>
+        {Object.keys(drinks).length > 0 && 
+
+         Object.keys(drinks).map((category) => (
+
+            <div key={category}>
+                <p>{category} </p>
                 <ul>
+
+                    {drinks[category].map((item, i) => (
+                        <li key={i}>
+                            <ItemCoctail />
+                        </li>
                     
-                    <li key={idx} >
-                        <ItemCoctail />
-                    </li> 
+                    ))} 
                 </ul>
             </div>
-        })
-        }
+         ))}
         </>
     )
 
