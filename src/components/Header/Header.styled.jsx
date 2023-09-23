@@ -29,7 +29,7 @@ export const Navigation = styled.nav`
 
 export const StyledNavLink = styled(NavLink)`
   padding: 8px 16px;
-  color: #ffffff; /* White text color */
+  color: ${({ theme }) => theme.headerText}; /* White text color */
 
   &.active {
     color: #00baff; /* Blue text color on hover/focus */
@@ -46,4 +46,7 @@ export const UserMenuWrap = styled.div`
   display: flex;
   align-items: center;
   column-gap: 14px;
+  @media screen and (min-width: 1440px) {
+    column-gap: 28px;
+  }
 `;

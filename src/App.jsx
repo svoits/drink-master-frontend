@@ -4,9 +4,11 @@ import ErrorPage from './pages/TMP_ErrorPage/ErrorPage';
 import { AppWrapper } from './App.styled';
 import { ThemeProvider } from 'styled-components';
 import { lazy, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { darkTheme, lightTheme } from './components/Themes';
 import { GlobalStyles } from './components/globalStyles';
-import MyDrinksPage from "./pages/MyDrinksPage/MyDrinksPage";
+import MyDrinksPage from './pages/MyDrinksPage/MyDrinksPage';
+import { selectTheme } from './redux/user/user-selectors';
 
 const Welcome = lazy(() => import('./pages/WelcomePage/WelcomePage'));
 const Signup = lazy(() => import('./pages/SignupPage/SignupPage'));
@@ -22,16 +24,13 @@ const Drink = lazy(() => import('./pages/DrinkPage/DrinkPage'));
 const MyDrinks = lazy(() => import('./pages/MyDrinksPage/MyDrinksPage'));
 
 function App() {
-  const [theme] = useState('dark');
-  // const themeToggler = () => {
-  //   theme === 'light' ? setTheme('dark') : setTheme('light');
-  // };
+  const theme = useSelector(selectTheme);
+
   return (
     <ThemeProvider theme={theme === 'dark' ? darkTheme : lightTheme}>
       <AppWrapper>
         <Routes>
           <Route path="/" element={<SharedLayout />}>
-
             <Route path="welcome" element={<Welcome />} />
             <Route path="signup" element={<Signup />} />
             <Route path="signin" element={<Signin />} />

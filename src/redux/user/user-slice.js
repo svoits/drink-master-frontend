@@ -2,15 +2,21 @@ import { createSlice } from '@reduxjs/toolkit';
 import { currentUser, updateUser, subscribeDrinks } from './user-operations';
 
 const initialState = {
-    user: { name: null, email: null, birthDate: null },
-    token: null,
-    isLoggedIn: false,
-    isSubscribed: false,
+  user: { name: null, email: null, birthDate: null },
+  token: null,
+  isLoggedIn: false,
+  isSubscribed: false,
+  theme: 'dark',
 };
 
 const userSlice = createSlice({
-  name: 'auth',
+  name: 'user',
   initialState,
+  reducers: {
+    toggleTheme(state) {
+      state.theme = state.theme === 'light' ? 'dark' : 'light';
+    },
+  },
   extraReducers: (builder) =>
     builder
       .addCase(currentUser.fulfilled, (state, { payload }) => {
@@ -32,3 +38,5 @@ const userSlice = createSlice({
 });
 
 export const userReducer = userSlice.reducer;
+
+export const { toggleTheme } = userSlice.actions;
