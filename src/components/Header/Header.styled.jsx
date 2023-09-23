@@ -19,6 +19,12 @@ export const HeaderContainer = styled.header`
   min-width: 320px;
   z-index: 10;
   background-color: ${({ theme }) => theme.mainBackground};
+
+  @media screen and (min-width: 768px) {
+    padding-top: ${(props) => (props.isopen === 'true' ? 23 : 20)}px;
+
+    padding-bottom: ${(props) => (props.isopen === 'true' ? 22 : 19)}px;
+  }
 `;
 
 export const Navigation = styled.nav`

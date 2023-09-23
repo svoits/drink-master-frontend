@@ -8,11 +8,11 @@ export const MainContainer = styled.div`
   left: 0;
   width: 100%;
   height: 100vh;
-  opacity: ${(props) => (props.isOpen ? 1 : 0)};
-  visibility: ${(props) => (props.isOpen ? 'visible' : 'hidden')};
+  opacity: ${(props) => (props.isopen === 'true' ? 1 : 0)};
+  visibility: ${(props) => (props.isopen === 'true' ? 'visible' : 'hidden')};
   z-index: 9;
   transform: ${(props) =>
-    props.isOpen ? 'translateY(0)' : 'translateY(-100%)'};
+    props.isopen === 'true' ? 'translateY(0)' : 'translateY(-100%)'};
 
   transition:
     opacity ${transition},
@@ -40,5 +40,9 @@ export const StyledNavLink = styled(NavLink)`
     background-color: ${({ theme }) => theme.activeNavLinkBg};
     color: ${({ theme }) => theme.activeNavLinkText};
     border-color: ${({ theme }) => theme.activeNavLinkBg};
+  }
+
+  @media screen and (min-width: 768px) {
+    line-height: 1.6;
   }
 `;

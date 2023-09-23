@@ -9,8 +9,8 @@ import {
 import Logo from '../Logo/Logo';
 import { Container } from '../Container/Container.styled';
 import { useResize } from 'src/hooks/useResize';
-import UserInfo from '../UserInfo/UserInfo';
-import MenuBtn from '../BurgerBtn/MenuBtn';
+import UserLogo from '../UserLogo/UserLogo';
+import MenuBtn from '../MenuBtn/MenuBtn';
 import MobileMenu from '../MobileMenu/MobileMenu';
 import ThemeSwitcher from '../ThemeSwitcher/ThemeSwitcher';
 
@@ -24,11 +24,11 @@ export const Header = () => {
 
   return (
     <>
-      <HeaderContainer>
+      <HeaderContainer isopen={isMenuOpen ? 'true' : 'false'}>
         <Container>
           <MainWrapper>
             <Logo />
-            {windowWidth >= 768 && (
+            {windowWidth >= 1440 && (
               <Navigation>
                 <StyledNavLink to="/welcome">Welcome</StyledNavLink>
                 <StyledNavLink to="/signup">Sign Up</StyledNavLink>
@@ -49,9 +49,9 @@ export const Header = () => {
                 <ThemeSwitcher />
               )}
               {windowWidth <= 1439.98 ? (
-                !isMenuOpen && <UserInfo />
+                !isMenuOpen && <UserLogo />
               ) : (
-                <UserInfo />
+                <UserLogo />
               )}
               {windowWidth <= 1439.98 && (
                 <MenuBtn
@@ -66,7 +66,7 @@ export const Header = () => {
 
       {/* {isMenuOpen && <MobileMenu isMenuOpen={isMenuOpen} />} */}
 
-      <MobileMenu isMenuOpen={isMenuOpen} />
+      <MobileMenu isMenuOpen={isMenuOpen} handleToggleMenu={handleToggleMenu} />
     </>
   );
 };

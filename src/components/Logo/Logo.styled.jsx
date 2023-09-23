@@ -12,4 +12,10 @@ export const StyledLink = styled(Link)`
   column-gap: 8px;
   padding-top: 5px;
   padding-bottom: 5px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
+    line-height: 1.22;
+    column-gap: 14px;
+  }
 `;
