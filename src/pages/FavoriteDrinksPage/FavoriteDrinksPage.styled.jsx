@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const DrinksFavoriveTITLE = styled.h1`
   margin-top: 160px;
+  margin-bottom: 62px;
   font-family: Manrope;
   font-size: 64px;
   font-weight: 600;
