@@ -14,9 +14,9 @@ import { DrinksListPage } from 'components/DrinksListPage/DrinksListPage';
 
 import { SearchDrinks } from 'components/SearchDrinks/SearchDrinks';
 
-import { Loader } from 'components/Loader/Loader';
+import Loader from 'components/Loader';
 
-import usePagination from 'components/Paginator/Paginator';
+// import usePagination from 'components/Paginator/Paginator';
 
 import { DrinksPageTITLE } from './DrinksPage.styled';
 
@@ -39,7 +39,7 @@ export default function DrinksPage() {
   // const filteredDrinks = useSelector(selectFilteredDrinks);
   setPageQty(Math.ceil(drinks.length / per_page));
 
-  const datapag = usePagination(drinks, per_page);
+  // const datapag = usePagination(drinks, per_page);
   const handleChangePagination = (e, p) => {
     setPage(p);
     datapag.jump(p);

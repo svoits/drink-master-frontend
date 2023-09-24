@@ -12,9 +12,9 @@ import { Container, Pagination, Stack } from '@mui/material';
 
 import { DrinksList } from 'components/DrinksList/DrinksList';
 
-import { Loader } from 'components/Loader/Loader';
+import Loader from 'components/Loader';
 
-import usePagination from 'components/Paginator/Paginator';
+// import usePagination from 'components/Paginator/Paginator';
 
 import { DrinksFavoriveTITLE } from './FavoriteDrinksPage.styled';
 
@@ -37,7 +37,7 @@ export const FavoriteDrinksPage = () => {
   // const filteredDrinks = useSelector(selectFilteredDrinks);
   setPageQty(Math.ceil(drinks.length / per_page));
 
-  const datapag = usePagination(drinks, per_page);
+  // const datapag = usePagination(drinks, per_page);
   const handleChangePagination = (e, p) => {
     setPage(p);
     datapag.jump(p);
