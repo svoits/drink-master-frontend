@@ -1,4 +1,4 @@
-import{s as t,j as e,n as h,C as u}from"./index-5bfcd1b2.js";const m=t.h1`
+import{s as t,j as e,m as h,C as u}from"./index-0ce440d9.js";const m=t.h1`
   color: ${({theme:a})=>a.mainText};
   text-shadow:
     0px 4px 4px rgba(0, 0, 0, 0.25),

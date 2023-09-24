@@ -1,4 +1,4 @@
-import{s as t,u as g,k as a,r as x,l as m,j as e,L as d,F as u,h,m as y,i as j,E as k}from"./index-5bfcd1b2.js";import{c as w,a as D}from"./index.esm-a500250e.js";const f=i=>i.drinks,b=t.ul`
+import{s as t,u as a,r as g,k as m,j as e,L as x,h as u,i as d,l as y,F as j,E as k}from"./index-0ce440d9.js";import{u as h}from"./useDispatch-be8c1e0f.js";import{c as w,a as D}from"./index.esm-f9c3be22.js";const f=i=>i.drinks,b=t.ul`
   display: flex;
   flex-wrap: wrap;
   align-content: center;
@@ -35,11 +35,11 @@ import{s as t,u as g,k as a,r as x,l as m,j as e,L as d,F as u,h,m as y,i as j,E
   display: flex;
   justify-content: space-between;
   align-items: center;
-`,F=()=>{const i=g(),{drinks:n,isLoading:s,error:o}=a(f);return x.useEffect(()=>{i(m())},[i]),e.jsxs(b,{children:[s&&e.jsx(d,{}),o&&e.jsx("p",{children:"Sorry. There are no images ... 😭"}),n.map(({id:r,drink:c,drinkThumb:l})=>e.jsxs(L,{children:[l?e.jsx(p,{src:l,alt:c}):e.jsx(p,{src:""}),e.jsxs(E,{children:[e.jsx(P,{children:c}),e.jsx(S,{children:"See more"})]})]},r))]})},M=i=>i.filter.categories,T=t(u)`
+`,F=()=>{const i=h(),{drinks:n,isLoading:s,error:o}=a(f);return g.useEffect(()=>{i(m())},[i]),e.jsxs(b,{children:[s&&e.jsx(x,{}),o&&e.jsx("p",{children:"Sorry. There are no images ... 😭"}),n.map(({id:r,drink:c,drinkThumb:l})=>e.jsxs(L,{children:[l?e.jsx(p,{src:l,alt:c}):e.jsx(p,{src:""}),e.jsxs(E,{children:[e.jsx(P,{children:c}),e.jsx(S,{children:"See more"})]})]},r))]})},M=i=>i.filter.categories,T=t(u)`
   display: flex;
   align-items: center;
   gap: 8px;
-`,v=t(h)`
+`,v=t(d)`
   // background-color: #161F37;
   background-color: pink;
   width: 199px;
@@ -65,7 +65,7 @@ import{s as t,u as g,k as a,r as x,l as m,j as e,L as d,F as u,h,m as y,i as j,E
   background-color: #161f37;
 `,C=[{id:"1",category:"Ordinary Drink"},{id:"2",category:"Cocktail"},{id:"3",category:"Shake"},{id:"4",category:"Other/Unknown"},{id:"5",category:"Cocoa"},{id:"6",category:"Shot"},{id:"7",category:"Coffee/Tea"},{id:"8",category:"Homemade Liqueur"},{id:"9",category:"Punch/Party Drink"},{id:"10",category:"Beer"},{id:"11",category:"Soft Drink"}],I={name:"",category:""},O=w({category:D().required("Please select a category").oneOf(C)}),$=t.p`
   color: red;
-`,q=({name:i})=>e.jsx(k,{name:i,render:n=>e.jsx($,{children:n})}),A=()=>{const i=g(),n=a(M);x.useEffect(()=>{i(y())},[i]);const s=(o,{resetForm:r})=>{console.log(o),r()};return e.jsx(j,{initialValues:I,validationSchema:O,onSubmit:s,children:e.jsxs(T,{children:[e.jsx("div",{children:e.jsxs("label",{htmlFor:"name",children:[e.jsx(h,{name:"name",type:"text"}),e.jsx(q,{name:"name"})]})}),e.jsxs("div",{children:[e.jsx("label",{htmlFor:"categoty"}),e.jsx("div",{children:e.jsxs(v,{name:"categoty",as:"select",children:[e.jsx("option",{value:"",children:"All categories"}),n.map(({id:o,category:r})=>e.jsx(z,{value:r,children:r},o))]})})]}),e.jsx("button",{type:"submit",children:"submit"})]})})};t.ul`
+`,q=({name:i})=>e.jsx(k,{name:i,render:n=>e.jsx($,{children:n})}),A=()=>{const i=h(),n=a(M);g.useEffect(()=>{i(y())},[i]);const s=(o,{resetForm:r})=>{console.log(o),r()};return e.jsx(j,{initialValues:I,validationSchema:O,onSubmit:s,children:e.jsxs(T,{children:[e.jsx("div",{children:e.jsxs("label",{htmlFor:"name",children:[e.jsx(d,{name:"name",type:"text"}),e.jsx(q,{name:"name"})]})}),e.jsxs("div",{children:[e.jsx("label",{htmlFor:"categoty"}),e.jsx("div",{children:e.jsxs(v,{name:"categoty",as:"select",children:[e.jsx("option",{value:"",children:"All categories"}),n.map(({id:o,category:r})=>e.jsx(z,{value:r,children:r},o))]})})]}),e.jsx("button",{type:"submit",children:"submit"})]})})};t.ul`
   display: flex;
   flex-wrap: wrap;
   align-content: center;
@@ -111,4 +111,4 @@ import{s as t,u as g,k as a,r as x,l as m,j as e,L as d,F as u,h,m as y,i as j,E
   letter-spacing: 0em;
   text-align: left;
   color: #f3f3f3;
-`;function H(){const{drinks:i,isLoading:n,error:s}=a(f);return e.jsxs(e.Fragment,{children:[e.jsx(B,{children:"Drinks"}),n&&!s&&e.jsx(d,{}),e.jsx(A,{}),i.length>0&&e.jsx(F,{})]})}export{H as default};
+`;function R(){const{drinks:i,isLoading:n,error:s}=a(f);return e.jsxs(e.Fragment,{children:[e.jsx(B,{children:"Drinks"}),n&&!s&&e.jsx(x,{}),e.jsx(A,{}),i.length>0&&e.jsx(F,{})]})}export{R as default};
