@@ -14,7 +14,7 @@ import { DrinksList } from 'components/DrinksList/DrinksList';
 
 import Loader from 'components/Loader';
 
-// import usePagination from 'components/Paginator/Paginator';
+// import { usePagination } from 'components/Paginator/Paginator';
 
 import { DrinksFavoriveTITLE } from './FavoriteDrinksPage.styled';
 
@@ -35,7 +35,7 @@ export const FavoriteDrinksPage = () => {
   const [pageQty, setPageQty] = useState(0);
   const per_page = 12;
   // const filteredDrinks = useSelector(selectFilteredDrinks);
-  setPageQty(Math.ceil(drinks.length / per_page));
+  // setPageQty(Math.ceil(drinks.length / per_page));
 
   // const datapag = usePagination(drinks, per_page);
   const handleChangePagination = (e, p) => {
