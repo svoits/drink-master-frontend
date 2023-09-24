@@ -1,8 +1,14 @@
-// import React from 'react';
+// import { useEffect } from 'react';
+// import { getMainPageAllDrinks } from '../../redux/drinks/drinks-operations';
 // import { useDispatch, useSelector } from 'react-redux';
-
-import recipes from './recipes.json';
-
+import { useSelector } from 'react-redux';
+// import recipes from './recipes.json';
+import { Loader } from 'components/Loader/Loader';
+import {
+  selectDrinks,
+  // selectError,
+  // selectIsLoading,
+} from '../../redux/drinks/drinks-selectors';
 import {
   HomeDrinksLIST,
   HomeDrinksITEM,
@@ -15,24 +21,23 @@ import {
 export function HomeDrinksList() {
   // const dispatch = useDispatch();
 
-  // const { isLoading, error } = useSelector(selectDrinks);
+  const { drinks, isLoading, error } = useSelector(selectDrinks);
 
-  // const visibleDrinks = useSelector(selectVisibleDrinks);
 
-  // const handleDeleteDrink = ({ id }) => {
-  //     dispatch(deleteDrink(id));
-  // }
+  // useEffect(() => {
+  //   dispatch(getMainPageAllDrinks());
+  // }, [dispatch]);
   return (
     <div>
       <HomeDrinksLIST>
-        {/* {isLoading && <Loader />}
+        {isLoading && <Loader />}
       {error && <p>Sorry. There are no images ... 😭</p>}
-      {error &&
+      {/* {error &&
         toast.error('Sorry. There are no muvies ... 😭', {
           position: 'top-center',
           theme: 'light',
         })} */}
-        {recipes.map(({ id, drink, drinkThumb }) => (
+        {drinks.map(({ id, drink, drinkThumb }) => (
           <HomeDrinksITEM key={id}>
             {drinkThumb ? (
               <HomeDrinksIMG src={drinkThumb} alt={drink} />

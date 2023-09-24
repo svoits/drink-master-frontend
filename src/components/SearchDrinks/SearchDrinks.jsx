@@ -1,3 +1,24 @@
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getCategories } from '../../redux/filters/filters-operation';
+// import {  getIngridients } from '../../redux/filters/filters-operation';
+<<<<<<< Updated upstream
+import {
+  selectCategories,
+  // selectError,
+  // selectIngridients,
+} from '../../redux/filters/selectors';
+=======
+// import {
+//   selectCategories,
+//   // selectError,
+//   selectIngridients,
+// } from '../../redux/filters/selectors';
+
+
+>>>>>>> Stashed changes
+
+
 import { Formik, Field, ErrorMessage } from 'formik';
 // import Select from 'react-select';
 import * as Yup from 'yup';
@@ -45,6 +66,22 @@ const FormError = ({ name }) => {
 };
 
 export const SearchDrinks = () => {
+  const dispatch = useDispatch();
+
+  // getting a list of contacts from the state
+<<<<<<< Updated upstream
+  const categories = useSelector(selectCategories);
+=======
+  const categories = useSelector(state => state.filter.categories);
+>>>>>>> Stashed changes
+  // const ingridient = useSelector(selectIngridients);
+  // getting isLoading value from the state
+  // const isLoading = useSelector(selectIsLoading);
+  // getting error value from the state
+  // const error = useSelector(selectError);
+  useEffect(() => {
+    dispatch(getCategories());
+  }, [dispatch]);
   //   // Отримуємо значення фільтру зі стану
   //   const filter = useSelector(selectFilter);
 
@@ -78,7 +115,7 @@ export const SearchDrinks = () => {
           <div>
             <SearchDrinksField name="categoty" as="select">
               <option value="">All categories</option>
-              {categorys.map(({ id, category }) => (
+              {categories.map(({ id, category }) => (
                 <SearchDrinksOption value={category} key={id}>
                   {category}
                 </SearchDrinksOption>
