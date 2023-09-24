@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-axios.defaults.baseURL = 'https://drink-master-api.onrender.com/api';
+// axios.defaults.baseURL = 'https://drink-master-api.onrender.com/api';
 
 export const getMainPageAllDrinks = createAsyncThunk(
   'drinks/getAll',
@@ -8,6 +8,7 @@ export const getMainPageAllDrinks = createAsyncThunk(
     try {
       const response = await axios.get('api/drinks/mainpage');
 
+      console.log('response =>', response); // TEST LINE
       return response.data;
     } catch (error) {
       console.log('error =>', error); // TEST LINE
