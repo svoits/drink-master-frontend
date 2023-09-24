@@ -1,4 +1,4 @@
-import{s as t}from"./index-2e7d46de.js";const s=e=>e.drinks.isLoading,i=e=>e.drinks.drinks,o=e=>e.drinks.error,r=t.ul`
+import{s as t}from"./index-90be9044.js";const s=e=>e.drinks.isLoading,i=e=>e.drinks.drinks,o=e=>e.drinks.error,r=t.ul`
   display: flex;
   flex-wrap: wrap;
   align-content: center;
