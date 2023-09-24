@@ -1,6 +1,8 @@
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
+import { useDispatch } from 'react-redux';
 import FormError from '../FormError/FormError';
+import { signIn } from '../../redux/auth/auth-operation';
 const initialValues = { email: '', password: '' };
 const schema = Yup.object().shape({
   email: Yup.string()
@@ -14,10 +16,10 @@ const schema = Yup.object().shape({
     .matches(/[0-9]/, 'Password must contain at least one number'),
 });
 export default function SigninForm() {
-  //  const dispatch = useDispatch();
+   const dispatch = useDispatch();
   const handleSubmit = (values, { resetForm }) => {
     const { email, password } = values;
-    // dispatch(signin({ email, password }));
+    dispatch(signIn({ email, password }));
 
     resetForm();
   };

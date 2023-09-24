@@ -1,7 +1,9 @@
 import { Formik, Field } from 'formik';
 import * as Yup from 'yup';
 import React from 'react';
-// import { useState } from 'react';
+
+import { useDispatch } from 'react-redux';
+import { signUp } from '../../redux/auth/auth-operation';
 // import { format } from "date-fns";
 import FormError from '../FormError/FormError';
 import { format } from 'date-fns';
@@ -35,7 +37,7 @@ const schema = Yup.object().shape({
 export default function SignupForm() {
   // const [selectedDate, setSelectedDate] = useState(null);
 
-  //  const dispatch = useDispatch();
+   const dispatch = useDispatch();
   const handleSubmit = (values, { resetForm }) => {
     const { name, dateOfBirth, email, password } = values;
     const birthDate = format(new Date(dateOfBirth), "yyyy-MM-dd'T'HH:mm:ssXXX");
@@ -52,7 +54,7 @@ export default function SignupForm() {
     console.log('email: ', email);
     console.log('password: ', password);
 
-    // dispatch(signup({ name, birthDate, email, password }));
+    dispatch(signUp({ name, birthDate, email, password }));
 
     resetForm();
   };
