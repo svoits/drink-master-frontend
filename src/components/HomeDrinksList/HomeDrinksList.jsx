@@ -3,7 +3,7 @@
 // import { useDispatch, useSelector } from 'react-redux';
 import { useSelector } from 'react-redux';
 // import recipes from './recipes.json';
-import { Loader } from 'components/Loader/Loader';
+import Loader from 'components/Loader';
 import {
   selectDrinks,
   // selectError,
@@ -23,7 +23,6 @@ export function HomeDrinksList() {
 
   const { drinks, isLoading, error } = useSelector(selectDrinks);
 
-
   // useEffect(() => {
   //   dispatch(getMainPageAllDrinks());
   // }, [dispatch]);
@@ -31,8 +30,8 @@ export function HomeDrinksList() {
     <div>
       <HomeDrinksLIST>
         {isLoading && <Loader />}
-      {error && <p>Sorry. There are no images ... 😭</p>}
-      {/* {error &&
+        {error && <p>Sorry. There are no images ... 😭</p>}
+        {/* {error &&
         toast.error('Sorry. There are no muvies ... 😭', {
           position: 'top-center',
           theme: 'light',

@@ -14,7 +14,7 @@ import { SearchDrinks } from 'components/SearchDrinks/SearchDrinks';
 import { HomeDrinksList } from 'components/HomeDrinksList/HomeDrinksList';
 // import {DrinksList} from 'components/DrinksList/DrinksList';
 // import { SearchDrinks } from 'components/SearchDrinks/SearchDrinks';
-import { Loader } from 'components/Loader/Loader';
+import Loader from 'components/Loader';
 import { DrinksPageTITLE } from './DrinksPage.styled';
 
 export default function DrinksPage() {

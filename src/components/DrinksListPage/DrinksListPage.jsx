@@ -3,7 +3,8 @@ import { getMainPageAllDrinks } from '../../redux/drinks/drinks-operations';
 import { useDispatch, useSelector } from 'react-redux';
 // import { useSelector } from 'react-redux';
 // import recipes from './recipes.json';
-import { Loader } from 'components/Loader/Loader';
+import Loader from 'components/Loader';
+
 import {
   selectDrinks,
   // selectError,
@@ -11,10 +12,10 @@ import {
 } from '../../redux/drinks/drinks-selectors';
 import {
   DrinksListPageLIST,
-  DrinksListPageITEM, 
+  DrinksListPageITEM,
   DrinksListPagesIMG,
   DrinksListPageP,
- DrinksListPageButton,
+  DrinksListPageButton,
   DrinksListPageTEXTDIV,
 } from './DrinksListPage.styled';
 
@@ -23,33 +24,31 @@ export const DrinksListPage = () => {
 
   const { drinks, isLoading, error } = useSelector(selectDrinks);
 
-
   useEffect(() => {
     dispatch(getMainPageAllDrinks());
   }, [dispatch]);
   return (
-      <DrinksListPageLIST>
-        {isLoading && <Loader />}
+    <DrinksListPageLIST>
+      {isLoading && <Loader />}
       {error && <p>Sorry. There are no images ... 😭</p>}
       {/* {error &&
         toast.error('Sorry. There are no muvies ... 😭', {
           position: 'top-center',
           theme: 'light',
         })} */}
-        {drinks.map(({ id, drink, drinkThumb }) => (
-          <DrinksListPageITEM key={id}>
-            {drinkThumb ? (
-              <DrinksListPagesIMG src={drinkThumb} alt={drink} />
-            ) : (
-              <DrinksListPagesIMG src="" />
-            )}
-            <DrinksListPageTEXTDIV>
-              <DrinksListPageP>{drink}</DrinksListPageP>
-              <DrinksListPageButton>See more</DrinksListPageButton>
-            </DrinksListPageTEXTDIV>
-          </DrinksListPageITEM>
-        ))}
-      </DrinksListPageLIST>
-
+      {drinks.map(({ id, drink, drinkThumb }) => (
+        <DrinksListPageITEM key={id}>
+          {drinkThumb ? (
+            <DrinksListPagesIMG src={drinkThumb} alt={drink} />
+          ) : (
+            <DrinksListPagesIMG src="" />
+          )}
+          <DrinksListPageTEXTDIV>
+            <DrinksListPageP>{drink}</DrinksListPageP>
+            <DrinksListPageButton>See more</DrinksListPageButton>
+          </DrinksListPageTEXTDIV>
+        </DrinksListPageITEM>
+      ))}
+    </DrinksListPageLIST>
   );
-}
+};
