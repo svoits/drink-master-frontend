@@ -8,10 +8,10 @@ export const GlobalStyles = createGlobalStyle`
   font-style: normal;
   font-display: swap;
   src: local('Manrope Regular'), local('Manrope-Regular'),
-    url('src/fonts/Manrope-Regular.woff2') format('woff2'),
-    url('src/fonts/Manrope-Regular.woff') format('woff'),
-    url('src/fonts/Manrope-Regular.ttf') format('truetype'),
-    url('src/fonts/Manrope-Regular.eot') format('embedded-opentype');
+    url('/src/fonts/Manrope-Regular.woff2') format('woff2'),
+    url('/src/fonts/Manrope-Regular.woff') format('woff'),
+    url('/src/fonts/Manrope-Regular.ttf') format('truetype'),
+    url('/src/fonts/Manrope-Regular.eot') format('embedded-opentype');
 }
 
 @font-face {
@@ -20,10 +20,10 @@ export const GlobalStyles = createGlobalStyle`
   font-style: normal;
   font-display: swap;
   src: local('Manrope Medium'), local('Manrope-Medium'),
-    url('src/fonts/Manrope-Medium.woff2') format('woff2'),
-    url('src/fonts/Manrope-Medium.woff') format('woff'),
-    url('src/fonts/Manrope-Medium.ttf') format('truetype'),
-    url('src/fonts/Manrope-Medium.eot') format('embedded-opentype'),
+    url('/src/fonts/Manrope-Medium.woff2') format('woff2'),
+    url('/src/fonts/Manrope-Medium.woff') format('woff'),
+    url('/src/fonts/Manrope-Medium.ttf') format('truetype'),
+    url('/src/fonts/Manrope-Medium.eot') format('embedded-opentype'),
 
 }
 
@@ -33,10 +33,10 @@ export const GlobalStyles = createGlobalStyle`
   font-style: normal;
   font-display: swap;
   src: local('Manrope SemiBold'), local('Manrope-SemiBold'),
-    url('src/fonts/Manrope-SemiBold.woff2') format('woff2'),
-    url('src/fonts/Manrope-SemiBold.woff') format('woff'),
-    url('src/fonts/Manrope-SemiBold.ttf') format('truetype'),
-    url('src/fonts/Manrope-SemiBold.eot') format('embedded-opentype');
+    url('/src/fonts/Manrope-SemiBold.woff2') format('woff2'),
+    url('/src/fonts/Manrope-SemiBold.woff') format('woff'),
+    url('/src/fonts/Manrope-SemiBold.ttf') format('truetype'),
+    url('/src/fonts/Manrope-SemiBold.eot') format('embedded-opentype');
 }
 html, body, #root {
   height: 100%;

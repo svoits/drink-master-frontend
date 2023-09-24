@@ -17,6 +17,7 @@ export const Wrapper = styled.div`
 export const LinkWrapper = styled.div`
   display: flex;
   column-gap: 14px;
+
   @media screen and (min-width: 768px) {
     column-gap: 18px;
   }
