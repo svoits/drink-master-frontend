@@ -1,15 +1,20 @@
-
-// import IconDatePicker from "../../components/StyledDatepicker/StyledDatepicker";
+import { Container } from "../../components/Container/Container.styled";
 import PageTitle from "../../components/PageTitle/PageTitle";
 import SignupForm from "../../components/SignupForm/SignupForm";
 import { BackgroundImage } from "../WelcomePage/WelcomePage.styled";
-
+import { Link, Wrap, Nav} from "../SignupPage/SignupPage.styled";
 export default function SignupPage() {
-
-  return <div>
-    <BackgroundImage/>
-    <PageTitle title="Sign Up" /><SignupForm/>
-    {/* <IconDatePicker/> */}
-  </div>;
+ return <main>
+    <section>
+      <BackgroundImage />
+      <Container>
+        <Wrap>
+         <PageTitle title="Sign Up" />
+         <SignupForm />
+         <Nav><Link to="/signin"> Sign In</Link></Nav>
+       </Wrap>
+      </Container>
+   </section>
+  </main>;
 
 }

@@ -1,6 +1,6 @@
 import { forwardRef, useState } from 'react';
-// import { format } from "date-fns";
-import { AiOutlineCalendar } from 'react-icons/ai';
+
+import { StyledCalendarIcon } from '../../components/StyledDatepicker/StyledDataPicker.styled';
 import { CalendarGlobalStyles, Button } from './StyledDataPicker.styled';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker-cssmodules.css';
@@ -12,7 +12,7 @@ export default function StyledDatepicker({ value, setFieldValue }) {
     return (
       <Button onClick={onClick}>
         {value ? value : placeholder}
-        <AiOutlineCalendar />
+        <StyledCalendarIcon/>
       </Button>
     );
   });
@@ -28,10 +28,10 @@ export default function StyledDatepicker({ value, setFieldValue }) {
         }}
         dateFormat={'dd-MM-yyyy'}
         maxDate={new Date()}
-        showYearDropdown
-        scrollableMonthYearDropdown
+        // showYearDropdown
+        // scrollableMonthYearDropdown
         placeholderText={placeholder}
-        // calendarStartDay={1}
+        calendarStartDay={1}
         // formatWeekDay={(day) => day.substr(0, 1)}
       />{' '}
       <CalendarGlobalStyles />

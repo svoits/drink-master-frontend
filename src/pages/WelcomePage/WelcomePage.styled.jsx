@@ -1,10 +1,16 @@
 import styled from 'styled-components';
-import bgImageMobile from '../../images/welcome/bg-welcomePage-mobile.jpg';
-import bgImageMobile2x from '../../images/welcome/bg-welcomePage-mobile@2x.jpg';
-import bgImage from '../../images/welcome/bg-welcomePage.jpg';
-import bgImage2x from '../../images/welcome/bg-welcomePage@2x.jpg';
+
+import bgImageMobile from '../../images/welcome/bg-welcome-mobile.jpg';
+import bgImageMobile2x from '../../images/welcome/bg-welcome-mobile@2x.jpg';
+import bgImageTablet from '../../images/welcome/bg-welcome-tablet.jpg';
+import bgImageTablet2x from '../../images/welcome/bg-welcome-tablet@2x.jpg';
+import bgImageDesc from '../../images/welcome/bg-welcome-desc.jpg';
+import bgImageDesc2x from '../../images/welcome/bg-welcome-desc@2x.jpg';
+
 export const Section = styled.section`
- padding-top: 120px;
+  /* padding-top: 120px; */
+  position: relative;
+    
 
   @media screen and (min-width: 768px) {
   }
@@ -12,11 +18,15 @@ export const Section = styled.section`
   }
 `;
 
+
 export const WelcomeWrap = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+      padding-top: 304px;
+
+  
 
   @media screen and (min-width: 768px) {
   }
@@ -56,36 +66,76 @@ export const WelcomeSubtitle = styled.p`
 
 export const BackgroundImage = styled.div`
   background:
-    linear-gradient(0deg, rgba(10, 10, 17, 0.2) 0%, rgba(10, 10, 17, 0.2) 100%),
+   radial-gradient(
+      circle,
+      rgba(64, 112, 205, 0.5),
+      rgb(64, 112, 205, 0),
+     
+    ),
+    radial-gradient(circle, rgba(188, 230, 210, 0.4)),
+    radial-gradient(circle, rgba(64, 112, 205, 0.5));
+    /* linear-gradient(0deg, rgba(10, 10, 17, 0.2) 0%, rgba(10, 10, 17, 0.2) 100%),
     linear-gradient(1deg, #0a0a11 -0.56%, rgba(10, 10, 17, 0) 21.93%),
-    linear-gradient(82deg, #0a0a11 11.89%, rgba(10, 10, 17, 0) 82.65%),
-    lightgray -3px -13.319px / 100.511% 101.679% no-repeat;
-
-  background-image: url(${bgImageMobile});
+    linear-gradient(82deg, #0a0a11 11.89%, rgba(10, 10, 17, 0) 82.65%); */
+    
+    /* background-image:radial-gradient(circle, rgba(64, 112, 205, 0.5) 25%, rgb(64, 112, 205, 0) 65%),
+            radial-gradient(circle, rgba(188, 230, 210, 0.4)),
+            radial-gradient(circle, rgba(64, 112, 205, 0.5)),
+            linear-gradient(0deg, rgba(10, 10, 17, 0.2) 0%, rgba(10, 10, 17, 0.2) 100%),
+            linear-gradient(1deg, #0a0a11 -0.56%, rgba(10, 10, 17, 0) 21.93%),
+            linear-gradient(82deg, #0a0a11 11.89%, rgba(10, 10, 17, 0) 82.65%),url(${bgImageMobile}); */
+    background-image:linear-gradient(0deg, rgba(10, 10, 17, 0.2) 0%, rgba(10, 10, 17, 0.2) 100%),
+    linear-gradient(1deg, #0a0a11 -0.56%, rgba(10, 10, 17, 0) 21.93%),
+    linear-gradient(82deg, #0a0a11 11.89%, rgba(10, 10, 17, 0) 82.65%),url(${bgImageMobile});
   position: absolute;
-  top: 0;
-  right: 0;
+  /* top: 0; */
+  right: -145px;
   z-index: -1;
-  width: 70%;
-  height: 100%;
-  background-repeat: no-repeat;
-  background-position: bottom;
-  background-size: cover;
-  
+  min-width: 320px;
+  /* width: 70%;
+  height: 100%;  */
+  /* width: 100vw;   */
+  height: 100vh;
+  /* /* background-repeat: no-repeat; */
+  background-position: center;
+
+  /* background-position-x: 498px , 84px , 20px , right , center , left ,  center;
+  background-position-y: -251px,-368px,546px, bottom,center,left,center; */
+  /* background-size:
+    549px 543px,
+    257px 247px,
+    520px 550px,
+    contain,
+    contain,
+    contain,
+   cover; */
+
   @media (min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {
     background-image: url(${bgImageMobile2x});
   }
+
   @media screen and (min-width: 768px) {
-    background-image: url(${bgImage});
+    background-image: url(${bgImageTablet});
+    right: -10px;
+
+  
     @media (min-device-pixel-ratio: 2),
       (min-resolution: 192dpi),
       (min-resolution: 2dppx) {
-      background-image: url(${bgImage2x});
+      background-image: url(${bgImageTablet2x});
     }
   }
-  &:before {
+  @media screen and (min-width: 1440px) {
+    background-image: url(${bgImageDesc});
+    @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: url(${bgImageDesc2x});
+    }
+  }`;
+  /* &:before {
     content: '';
     position: absolute;
     top: 50%;
@@ -111,12 +161,11 @@ export const BackgroundImage = styled.div`
       width: 520px;
       height: 550px;
       
-      /* transform: translateY(-50%, 50%); */
-      border-radius: 550px;
+      transform: translateY(-50%, 50%);
+       border-radius: 550px;
       background: rgba(64, 112, 205, 0.5);
       filter: blur(104.8543701171875px);
 
       z-index: -1;
-    }
-  
-`
+    }   */
+
