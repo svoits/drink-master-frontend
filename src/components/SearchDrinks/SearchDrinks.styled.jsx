@@ -9,8 +9,7 @@ export const SearchDrinksForm = styled(Form)`
 `;
 
 export const SearchDrinksField = styled(Field)`
-  // background-color: #161F37;
-  background-color: pink;
+  background-color: #161F37;
   width: 199px;
   height: 56px;
   // padding: 15px, 68px, 15px, 24px;
