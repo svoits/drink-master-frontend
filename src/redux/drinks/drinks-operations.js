@@ -1,16 +1,16 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-axios.defaults.baseURL = 'https://drink-master-api.onrender.com/api';
+// axios.defaults.baseURL = 'https://drink-master-api.onrender.com/api';
 
 export const getMainPageAllDrinks = createAsyncThunk(
   'drinks/getAll',
   async (_, thunkAPI) => {
     try {
       const response = await axios.get('api/mainpage');
-      console.log('response =>',response); // TEST LINE
+      console.log('response =>', response); // TEST LINE
       return response.data;
     } catch (error) {
-      console.log('error =>',error); // TEST LINE
+      console.log('error =>', error); // TEST LINE
       return thunkAPI.rejectWithValue(error.message);
     }
   },
@@ -44,7 +44,7 @@ export const getRequestedDrink = createAsyncThunk(
   'drinks/search',
   async (data, thunkAPI) => {
     try {
-      const response = await axios.get('/search', {data});
+      const response = await axios.get('/search', { data });
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -56,7 +56,7 @@ export const addMyDrink = createAsyncThunk(
   'drinks/own/add',
   async (data, thunkAPI) => {
     try {
-      const response = await axios.post('/own/add', {data});
+      const response = await axios.post('/own/add', { data });
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -123,8 +123,6 @@ export const getFavoriteAll = createAsyncThunk(
     }
   },
 );
-
- 
 
 // /own/remove/:id
 // /own/all
