@@ -1,13 +1,27 @@
 //import {Link} from '@reduxjs/toolkit'
 
-export const ItemCoctail = () => {
+import {
+    HomeDrinksITEM,
+    HomeDrinksIMG,
+    HomeDrinksTEXTDIV,
+    HomeDrinksP,
+    HomeDrinksButton,
+  } from '../HomeDrinksList/HomeDrinksList.styled';
+
+export const ItemCoctail = ({ id, drink, drinkThumb }) => {
     return (
         <>
-        <a href="#">
-             {/* <img src={item.img} alt={item.name}></img> */}
-             <p>Name coctail</p>
-        </a>
-           
+        <HomeDrinksITEM key={id}>
+            {drinkThumb ? (
+              <HomeDrinksIMG src={drinkThumb} alt={drink} />
+            ) : (
+              <HomeDrinksIMG src="" />
+            )}
+            <HomeDrinksTEXTDIV>
+              <HomeDrinksP>{drink}</HomeDrinksP>
+              <HomeDrinksButton>See more</HomeDrinksButton>
+            </HomeDrinksTEXTDIV>
+          </HomeDrinksITEM>
         </>
     )
 

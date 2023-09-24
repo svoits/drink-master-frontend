@@ -1,16 +1,18 @@
 import {  useSelector } from "react-redux";
 import { selectDrinks  } from '../../redux/drinks/drinks-selectors'
 import { ItemCoctail } from "./ItemCoctail";
-
+import {
+    HomeDrinksLIST,
+  } from '../HomeDrinksList/HomeDrinksList.styled';
 
 export const CoctailsCategory = () => { 
-    //const drinks = useSelector(selectDrinks);
-
-    const drinks = {
-        "category1": ['Berry Deadly', 'English Rose Cocktail', 'Elderflower Caipirinha', 'Blueberry Mojito', 'Greyhound', 'Gin Lemon'],
-        "category2": ['Berry Deadly', 'English Rose Cocktail', 'Elderflower Caipirinha', 'Blueberry Mojito', 'Greyhound', 'Gin Lemon'],
-        "category3": ['Berry Deadly', 'English Rose Cocktail', 'Elderflower Caipirinha', 'Blueberry Mojito', 'Greyhound', 'Gin Lemon'],
-    }  ;
+    const drinks = useSelector(selectDrinks);
+    console.log(drinks)
+    // const drinks = {
+    //     "category1": ['Berry Deadly', 'English Rose Cocktail', 'Elderflower Caipirinha', 'Blueberry Mojito', 'Greyhound', 'Gin Lemon'],
+    //     "category2": ['Berry Deadly', 'English Rose Cocktail', 'Elderflower Caipirinha', 'Blueberry Mojito', 'Greyhound', 'Gin Lemon'],
+    //     "category3": ['Berry Deadly', 'English Rose Cocktail', 'Elderflower Caipirinha', 'Blueberry Mojito', 'Greyhound', 'Gin Lemon'],
+    // }  ;
 
     
     
@@ -18,11 +20,11 @@ export const CoctailsCategory = () => {
         <>
         {Object.keys(drinks).length > 0 && 
 
-         Object.keys(drinks).map((category) => (
+         Object.keys(drinks).map((category, idx) => (
 
-            <div key={category}>
+            <div key={idx}>
                 <p>{category} </p>
-                <ul>
+                <HomeDrinksLIST>
 
                     {drinks[category].map((item) => (
                         
@@ -30,7 +32,7 @@ export const CoctailsCategory = () => {
                         
                     
                     ))} 
-                </ul>
+                </HomeDrinksLIST>
             </div>
          ))}
         </>
