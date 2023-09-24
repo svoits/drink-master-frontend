@@ -19,6 +19,11 @@ export const SwitchInput = styled.input`
   appearance: none;
   -webkit-tap-highlight-color: transparent;
   transition: background-color ${transition};
+  cursor: pointer;
+
+  &:focus {
+    outline: auto;
+  }
 
   &::before,
   &::after {
@@ -36,17 +41,29 @@ export const SwitchInput = styled.input`
   &::after {
     background-color: ${({ theme }) => theme.themeSwitcher};
     border-radius: 50%;
-    top: 1.2px;
-    right: 1.2px;
-    width: 18px;
-    height: 18px;
+    top: 1.9px;
+    right: 1.9px;
+    width: 16.5px;
+    height: 16.5px;
     transition:
       background-color ${transition},
       transform ${transition};
     z-index: 1;
+
+    @media screen and (min-width: 768px) {
+      top: 1.8px;
+    }
+
+    @media screen and (min-width: 1440px) {
+      top: 1.6px;
+    }
   }
 
   &:checked:after {
-    transform: translateX(-110%);
+    transform: translateX(-119%);
+
+    /* @media screen and (min-width: 1440px) {
+      transform: translateX(-116%);
+    } */
   }
 `;

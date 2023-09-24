@@ -1,4 +1,3 @@
-import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const HeaderAndMenuWrapper = styled.div`
@@ -24,27 +23,6 @@ export const HeaderContainer = styled.header`
     padding-top: ${(props) => (props.isopen === 'true' ? 23 : 20)}px;
 
     padding-bottom: ${(props) => (props.isopen === 'true' ? 22 : 19)}px;
-  }
-`;
-
-export const Navigation = styled.nav`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-export const StyledNavLink = styled(NavLink)`
-  padding: 8px 16px;
-  color: ${({ theme }) => theme.headerText}; /* White text color */
-
-  &.active {
-    color: #00baff; /* Blue text color on hover/focus */
-    text-shadow:
-      0 0 5px #00baff,
-      0 0 10px #00baff,
-      0 0 20px #00baff,
-      0 0 40px #00baff,
-      0 0 80px #00baff;
   }
 `;
 

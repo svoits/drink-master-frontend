@@ -18,7 +18,7 @@ export default function Footer() {
         <MainWrapper>
           <SecondaryWrapper>
             <LogoAndSocialWrapper>
-              <Logo />
+              <Logo isInFooter="true" />
               <SocialIcons />
             </LogoAndSocialWrapper>
             <FooterNavMenu />
