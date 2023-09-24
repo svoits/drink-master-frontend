@@ -9,6 +9,8 @@ export const useAuth = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
   const name = useSelector(selectUserName);
   const user = useSelector(selectUser);
+ 
+
 
   return {
     isLoggedIn,

@@ -1,5 +1,3 @@
-//import {Link} from '@reduxjs/toolkit'
-
 import {
     HomeDrinksITEM,
     HomeDrinksIMG,
@@ -8,7 +6,7 @@ import {
     HomeDrinksButton,
   } from '../HomeDrinksList/HomeDrinksList.styled';
 
-export const ItemCoctail = ({ id, drink, drinkThumb }) => {
+export const ItemDrink = ({ id, drink, drinkThumb }) => {
     return (
         <>
         <HomeDrinksITEM key={id}>
