@@ -27,6 +27,7 @@ export const DrinksListPage = () => {
   useEffect(() => {
     dispatch(getMainPageAllDrinks());
   }, [dispatch]);
+  
   return (
     <DrinksListPageLIST>
       {isLoading && <Loader />}

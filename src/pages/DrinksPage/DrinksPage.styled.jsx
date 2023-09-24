@@ -8,5 +8,5 @@ export const DrinksPageTITLE = styled.h1`
   line-height: 68px;
   letter-spacing: 0em;
   text-align: left;
-  color: #f3f3f3;
+  color: ${({ theme }) => theme.mainText};
 `;
