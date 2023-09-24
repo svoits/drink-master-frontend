@@ -6,14 +6,16 @@ import {
   WelcomeTitle,
   WelcomeWrap,
   Section,
+ 
 } from './WelcomePage.styled';
 export default function WelcomePage() {
-  return (
-    <main>
-      <Section>
-        <BackgroundImage/>
-        <Container>
-          <WelcomeWrap>
+  return (<>
+   
+    <Section>
+      <BackgroundImage/>
+      <Container>
+      
+      <WelcomeWrap>
             <WelcomeTitle>Welcome to the app!</WelcomeTitle>
             <WelcomeSubtitle>
               This app offers more than just a collection of recipes - it is
@@ -23,7 +25,10 @@ export default function WelcomePage() {
             <AuthNav />
           </WelcomeWrap>
         </Container>
+        
+        
+        
       </Section>
-    </main>
+    </>
   );
 }

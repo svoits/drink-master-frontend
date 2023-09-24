@@ -1,10 +1,11 @@
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import FormError from '../FormError/FormError';
+import { AuthForm, Input, Button } from "../SignupForm/SignupForm.styled";
 const initialValues = { email: '', password: '' };
 const schema = Yup.object().shape({
   email: Yup.string()
-    .email('Invalid email format, test@tt.com')
+    .email('Invalid email format, test@mail.com')
     .required('Email is required')
     .matches(/\.(com|net)$/, 'Email must end with .com or .net'),
   password: Yup.string()
@@ -28,15 +29,15 @@ export default function SigninForm() {
       validationSchema={schema}
       onSubmit={handleSubmit}
     >
-      <Form>
-        <Field type="email" name="email" placeholder="Email" />
+      <AuthForm>
+        <Input type="email" name="email" placeholder="Email" />
         <FormError name="email" />
 
-        <Field type="password" name="password" placeholder="Password" />
+        <Input type="password" name="password" placeholder="Password" />
         <FormError name="password" />
 
-        <button type="submit">Sign In</button>
-      </Form>
+        <Button type="submit">Sign In</Button>
+      </AuthForm>
     </Formik>
   );
 }

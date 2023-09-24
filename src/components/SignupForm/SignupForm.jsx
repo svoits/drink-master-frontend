@@ -1,14 +1,14 @@
-import { Formik, Field } from 'formik';
+import { Formik } from 'formik';
 import * as Yup from 'yup';
 import React from 'react';
 // import { useState } from 'react';
-// import { format } from "date-fns";
+
 import FormError from '../FormError/FormError';
 import { format } from 'date-fns';
 
 // import DatePicker from '../StyledDatepicker/StyledDatepicker';
 import StyledDatepicker from '../StyledDatepicker/StyledDatepicker';
-import { AuthForm, Input, SignupBtn } from './SignupForm.styled';
+import { AuthForm, Input, Button } from './SignupForm.styled';
 // const today = new Date();
 const initialValues = { name: '', dateOfBirth: '', email: '', password: '' };
 const schema = Yup.object().shape({
@@ -22,7 +22,7 @@ const schema = Yup.object().shape({
   //   return birthDate <= today;
   // }),
   email: Yup.string()
-    .email('Invalid email format, test@tt.com')
+    .email('Invalid email format, test@mail.com')
     .required('Email is required')
     .matches(/\.(com|net)$/, 'Email must end with .com or .net'),
   password: Yup.string()
@@ -69,8 +69,7 @@ export default function SignupForm() {
             <Input type="text" name="name" placeholder="Name" />
             <FormError name="name" />
 
-            {/* <Field type="text"  placeholder="dd/mm/yyyy" />  */}
-            {/* <DatePicker  name="birthDate" /> */}
+          
             <StyledDatepicker
               name="dateOfBirth"
               value={values.dateOfBirth}
@@ -85,7 +84,7 @@ export default function SignupForm() {
             <FormError name="password" />
           </>
 
-          <SignupBtn type="submit">Sign Up</SignupBtn>
+          <Button type="submit">Sign Up</Button>
         </AuthForm>
       )}
     </Formik>
