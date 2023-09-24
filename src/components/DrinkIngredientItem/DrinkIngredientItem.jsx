@@ -1,22 +1,25 @@
-import React from 'react';
-import { getIngredientById } from '../../fakeApiIngredients';
+import StubFoto from '../../images/stub.svg';
 import {
   IngredientFoto,
   IngredientFotoWrapper,
   IngredientDescription,
+  IngredientTitle,
+  IngredientMeasure,
 } from './DrinkIngredientItem.styled';
 
-// import PropTypes from 'prop-types';
-// import { ContactItemCss } from './ContactItem.styled';
-// import { useDispatch } from 'react-redux';
+import { selectIngredients } from '../../redux/filters/selectors';
+import { useSelector, useDispatch } from 'react-redux';
+import { getIngredients } from '../../redux/filters/filters-operation';
 
-export const DrinkIngredientItem = ({ id, title, measure }) => {
-  const ingredient = getIngredientById(id);
-  console.log(ingredient.ingredientThumb);
+export const DrinkIngredientItem = ({ id, title, measure, images }) => {
+  // console.log(images);
+  if (images['ingredientThumb'] === '') {
+    return (images['ingredientThumb'] = StubFoto);
+  }
 
-  const imgPath = ingredient.ingredientThumb;
+  // const imgPath = images.ingredientThumb;
 
-  const imgUrl = imgPath || 'https://via.placeholder.com/107x107';
+  // const imgUrl = imgPath || 'https://via.placeholder.com/107x107';
   //   const dispatch = useDispatch();
 
   return (
@@ -25,22 +28,19 @@ export const DrinkIngredientItem = ({ id, title, measure }) => {
         <picture>
           <source
             media="(min-width: 1440px)"
-            srcSet={ingredient['ingredientThumb']}
+            srcSet={images['ingredientThumb']}
           />
-          <source
-            media="(min-width: 768px)"
-            srcSet={ingredient['thumb-medium']}
-          />
-          <source
-            media="(min-width: 375px)"
-            srcSet={ingredient['thumb-small']}
-          />
-          <IngredientFoto src={imgUrl} alt="ingredient foto"></IngredientFoto>
+          <source media="(min-width: 768px)" srcSet={images['thumb-medium']} />
+          <source media="(min-width: 375px)" srcSet={images['thumb-small']} />
+          <IngredientFoto
+            src={images['ingredientThumb']}
+            alt="ingredient foto"
+          ></IngredientFoto>
         </picture>
       </IngredientFotoWrapper>
       <IngredientDescription>
-        <p>{title}</p>
-        <p>{measure}</p>
+        <IngredientTitle>{title}</IngredientTitle>
+        <IngredientMeasure>{measure}</IngredientMeasure>
       </IngredientDescription>
     </>
   );

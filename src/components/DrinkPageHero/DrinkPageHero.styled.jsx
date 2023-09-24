@@ -81,7 +81,7 @@ export const DrinkFoto = styled.img`
   border-radius: 4px;
 
   @media screen and (min-width: 768px) {
-    width: 704px;
+    max-width: 704px;
     height: 400px;
   }
 
@@ -92,8 +92,8 @@ export const DrinkFoto = styled.img`
 `;
 
 export const DrinkHeroWrapper = styled.div`
-  display: flex;
-  column-gap: 249px;
+  @media screen and (min-width: 1440px) {
+    display: flex;
+    column-gap: 249px;
+  }
 `;
-
-export const DrinkHeroDescriptionWrapper = styled.div``;
