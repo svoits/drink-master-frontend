@@ -1,0 +1,1 @@
+import{j as r}from"./index-7741aceb.js";import{D as s}from"./DrinksList-63620ccc.js";import{P as t}from"./PageTitle-2fd7bfa0.js";function o(){return r.jsxs(r.Fragment,{children:[r.jsx(t,{title:"My Drinks"}),r.jsx(s,{})]})}export{o as default};
