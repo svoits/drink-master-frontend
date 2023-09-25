@@ -13,7 +13,6 @@
   "dependencies": {
     "@mui/material": "^5.14.10",
     "@reduxjs/toolkit": "^1.9.5",
-    "@vitejs/plugin-react-swc": "^3.3.2",
     "axios": "^1.5.0",
     "date-fns": "^2.30.0",
     "formik": "^2.4.5",
@@ -39,6 +38,7 @@
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
     "@vitejs/plugin-react": "^4.0.3",
+    "@vitejs/plugin-react-swc": "^3.4.0",
     "eslint": "^8.45.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-react": "^7.32.2",
