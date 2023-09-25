@@ -28,35 +28,15 @@ export default function StyledDatepicker({ value, setFieldValue }) {
         }}
         dateFormat={'dd-MM-yyyy'}
         maxDate={new Date()}
-        // showYearDropdown
-        // scrollableMonthYearDropdown
+        showMonthDropdown
+        showMonthYearDropdown
         placeholderText={placeholder}
         calendarStartDay={1}
-        // formatWeekDay={(day) => day.substr(0, 1)}
+        
       />{' '}
       <CalendarGlobalStyles />
     </>
   );
 }
 
-// import React from "react";
-// import DateView from "react-datepicker";
-// import "react-datepicker/dist/react-datepicker-cssmodules.css";
-// import { Field } from "formik";
-// export default function DatePicker(props) {
-//   const {name, ...rest} = props
-//   return (
-//     <div>
-//       <Field name={name}>
-//         {
-//           ({form, field}) => {
-//             const { setFieldValue } = form
-//             const { value } = field
-//             return <DateView id={name} {...field} {...rest} selected={value} onChange={val=>{setFieldValue(name,val)}}/>
-//           }
-//         }
-// </Field>
 
-//     </div>
-//   )
-// }

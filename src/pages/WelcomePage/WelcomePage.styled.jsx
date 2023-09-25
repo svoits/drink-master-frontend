@@ -68,12 +68,12 @@ export const BackgroundImage = styled.div`
   background:
    radial-gradient(
       circle,
-      rgba(64, 112, 205, 0.5),
-      rgb(64, 112, 205, 0),
+      rgba(64, 112, 205, 1),
+      rgb(64, 112, 205, 0.5)
      
     ),
-    radial-gradient(circle, rgba(188, 230, 210, 0.4)),
-    radial-gradient(circle, rgba(64, 112, 205, 0.5));
+    radial-gradient(circle, rgba(188, 230, 210, 1), rgb(188, 230, 205, 0.5)),
+    radial-gradient(circle, rgba(64, 112, 205, 1),rgb(64, 112, 205, 0.5));
     /* linear-gradient(0deg, rgba(10, 10, 17, 0.2) 0%, rgba(10, 10, 17, 0.2) 100%),
     linear-gradient(1deg, #0a0a11 -0.56%, rgba(10, 10, 17, 0) 21.93%),
     linear-gradient(82deg, #0a0a11 11.89%, rgba(10, 10, 17, 0) 82.65%); */
@@ -87,6 +87,7 @@ export const BackgroundImage = styled.div`
     background-image:linear-gradient(0deg, rgba(10, 10, 17, 0.2) 0%, rgba(10, 10, 17, 0.2) 100%),
     linear-gradient(1deg, #0a0a11 -0.56%, rgba(10, 10, 17, 0) 21.93%),
     linear-gradient(82deg, #0a0a11 11.89%, rgba(10, 10, 17, 0) 82.65%),url(${bgImageMobile});
+    
   position: absolute;
   /* top: 0; */
   right: -145px;

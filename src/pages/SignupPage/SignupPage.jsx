@@ -4,10 +4,9 @@ import SignupForm from '../../components/SignupForm/SignupForm';
 import { BackgroundImage } from '../WelcomePage/WelcomePage.styled';
 import { Link, Wrap, Nav } from '../SignupPage/SignupPage.styled';
 export default function SignupPage() {
-  return (
-    <main>
+  return (<>
+   <BackgroundImage />
       <section>
-        <BackgroundImage />
         <Container>
           <Wrap>
             <PageTitle title="Sign Up" />
@@ -17,7 +16,8 @@ export default function SignupPage() {
             </Nav>
           </Wrap>
         </Container>
-      </section>
-    </main>
+    </section>
+  </>
+   
   );
 }

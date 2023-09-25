@@ -1,4 +1,6 @@
 import { Form, Field } from 'formik';
+import { AiOutlineEye } from 'react-icons/ai';
+import { AiOutlineEyeInvisible } from 'react-icons/ai';
 
 import styled from 'styled-components';
 
@@ -14,6 +16,7 @@ export const AuthForm = styled(Form)`
   }
 `;
 export const Input = styled(Field)`
+  width: 100%;
   background-color: transparent;
   padding: 18px 24px;
   color: rgba(243, 243, 243, 0.5);
@@ -55,5 +58,36 @@ export const Button = styled.button`
     background-color: transparent;
     color: ${({ theme }) => theme.mainText};
     border: 1px solid rgba(243, 243, 243, 0.58);
+  }
+`;
+
+export const TogglePasswordButton = styled.button`
+  background-color: transparent;
+  border: none;
+  /* &:focus,
+  &:hover {
+    background-color: transparent;
+    color: ${({ theme }) => theme.mainText};
+    border: 1px solid rgba(243, 243, 243, 0.58); }*/
+`;
+export const PasswordInputWrap = styled.div`
+  position: relative;
+`;
+export const StyledDontShowPasswordIcon = styled(AiOutlineEye)`
+  fill: ${({ theme }) => theme.mainText};
+  width: 18px;
+  height: 18px;
+  @media screen and (min-width: 768px) {
+    width: 20px;
+    height: 20px;
+  }
+`;
+export const StyledShowPasswordIcon = styled(AiOutlineEyeInvisible)`
+  fill: ${({ theme }) => theme.mainText};
+  width: 18px;
+  height: 18px;
+  @media screen and (min-width: 768px) {
+    width: 20px;
+    height: 20px;
   }
 `;

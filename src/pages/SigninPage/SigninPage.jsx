@@ -5,7 +5,7 @@ import { BackgroundImage } from "../WelcomePage/WelcomePage.styled";
 import { Link, Wrap, Nav} from "../SignupPage/SignupPage.styled";
 export default function SigninPage() {
   return (
-    <main>
+   
     <section>
       <BackgroundImage />
       <Container>
@@ -16,6 +16,6 @@ export default function SigninPage() {
        </Wrap>
       </Container>
    </section>
-  </main>
+  
   );
 }

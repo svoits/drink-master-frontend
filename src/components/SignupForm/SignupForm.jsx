@@ -1,9 +1,9 @@
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import React from 'react';
-// import { useState } from 'react';
-
+import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+
 import { signUp } from '../../redux/auth/auth-operation';
 // import { format } from "date-fns";
 import FormError from '../FormError/FormError';
@@ -11,7 +11,16 @@ import { format } from 'date-fns';
 
 // import DatePicker from '../StyledDatepicker/StyledDatepicker';
 import StyledDatepicker from '../StyledDatepicker/StyledDatepicker';
-import { AuthForm, Input, Button } from './SignupForm.styled';
+import {
+  AuthForm,
+  Input,
+  Button,
+  TogglePasswordButton,
+  PasswordInputWrap,
+  StyledShowPasswordIcon,
+  StyledDontShowPasswordIcon,
+
+} from './SignupForm.styled';
 // const today = new Date();
 const initialValues = { name: '', dateOfBirth: '', email: '', password: '' };
 const schema = Yup.object().shape({
@@ -37,19 +46,15 @@ const schema = Yup.object().shape({
 
 export default function SignupForm() {
   // const [selectedDate, setSelectedDate] = useState(null);
+  const [showPassword, setShowPassword] = useState(false);
+  const handleTogglePassword = () => {
+    setShowPassword(!showPassword);
+  };
 
   const dispatch = useDispatch();
   const handleSubmit = (values, { resetForm }) => {
     const { name, dateOfBirth, email, password } = values;
     const birthDate = format(new Date(dateOfBirth), "yyyy-MM-dd'T'HH:mm:ssXXX");
-
-    // const parsedDate = parse(
-    //   birthDate,
-    //   "EEE MMM dd yyyy HH:mm:ss 'GMT'XXX (zzzz)",
-    //   new Date(),
-    // );
-    // const newBirthDate = format(parsedDate, "yyyy-MM-dd'T'HH:mm:ssXXX");
-
     console.log('Name: ', name);
     console.log('birthDate: ', birthDate);
     console.log('email: ', email);
@@ -81,9 +86,18 @@ export default function SignupForm() {
 
             <Input type="email" name="email" placeholder="Email" />
             <FormError name="email" />
-
-            <Input type="password" name="password" placeholder="Password" />
+           <PasswordInputWrap>
+            <Input
+              type={showPassword ? 'text' : 'password'}
+              value={values.password}
+              name="password"
+              placeholder="Password"
+            />
             <FormError name="password" />
+            <TogglePasswordButton type="button" onClick={handleTogglePassword}>
+              {showPassword ? <StyledDontShowPasswordIcon  /> : <StyledShowPasswordIcon />}
+              </TogglePasswordButton>
+            </PasswordInputWrap>
           </>
 
           <Button type="submit">Sign Up</Button>

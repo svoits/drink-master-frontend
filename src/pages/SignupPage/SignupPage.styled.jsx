@@ -2,6 +2,9 @@ import styled from 'styled-components';
 import {  NavLink } from 'react-router-dom';
 export const Wrap = styled.div`
  margin-top:191px;
+     display: flex;
+    justify-content: center;
+    flex-direction: column;
 
   
 
