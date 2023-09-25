@@ -1,9 +1,9 @@
-import recipeDefaultMobile from '../../images/recipeDefaultFoto/recipe-default-mobile.jpg';
-import recipeDefaultMobile2x from '../../images/recipeDefaultFoto/recipe-default-mobile@2x.jpg';
-import recipeDefaultTablet from '../../images/recipeDefaultFoto/recipe-default-tablet.jpg';
-import recipeDefaultTablet2x from '../../images/recipeDefaultFoto/recipe-default-tablet@2x.jpg';
-import recipeDefaultDesktop from '../../images/recipeDefaultFoto/recipe-default-desktop.jpg';
-import recipeDefaultDesktop2x from '../../images/recipeDefaultFoto/recipe-default-desktop@2x.jpg';
+import recipeDefaultMobile from '../../images/recipeDefaultPhoto/recipe-default-mobile.jpg';
+import recipeDefaultMobile2x from '../../images/recipeDefaultPhoto/recipe-default-mobile@2x.jpg';
+import recipeDefaultTablet from '../../images/recipeDefaultPhoto/recipe-default-tablet.jpg';
+import recipeDefaultTablet2x from '../../images/recipeDefaultPhoto/recipe-default-tablet@2x.jpg';
+import recipeDefaultDesktop from '../../images/recipeDefaultPhoto/recipe-default-desktop.jpg';
+import recipeDefaultDesktop2x from '../../images/recipeDefaultPhoto/recipe-default-desktop@2x.jpg';
 
 import {
   RecipePreparationTitle,

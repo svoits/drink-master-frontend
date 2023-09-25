@@ -19,7 +19,7 @@ export const IngredientDescription = styled.div`
   }
 `;
 
-export const IngredientFoto = styled.img`
+export const IngredientPhoto = styled.img`
   width: 107px;
   height: 107px;
 
@@ -28,7 +28,7 @@ export const IngredientFoto = styled.img`
     height: 157px;
 `;
 
-export const IngredientFotoWrapper = styled.div`
+export const IngredientPhotoWrapper = styled.div`
   width: 157px;
   height: 157px;
   padding: 20px;

@@ -16,6 +16,7 @@ import { hanlePending, handleRejected } from '../handlers';
 const initialState = {
   // searchQuery: '',
   drinks: [],
+  favoriteDrinks: [],
   isLoading: false,
   error: null,
 };
@@ -61,10 +62,10 @@ const drinksSlice = createSlice({
       .addCase(removeDrink.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        const index = state.drinks.findIndex(
-          (drink) => drink._id === action.payload._id,
+        const index = state.favoriteDrinks.result.findIndex(
+          (drink) => drink._id === action.payload.result._id,
         );
-        state.drinks.splice(index, 1);
+        state.favoriteDrinks.result.splice(index, 1);
       })
       .addCase(removeDrink.rejected, handleRejected)
       .addCase(removeOwnDrink.pending, hanlePending)
@@ -82,14 +83,14 @@ const drinksSlice = createSlice({
       .addCase(getOwnDrinks.rejected, handleRejected)
       .addCase(addDrinkToFavorite.pending, hanlePending)
       .addCase(addDrinkToFavorite.fulfilled, (state, action) => {
-        state.drinks.push(action.payload);
+        state.favoriteDrinks.result.push(action.payload.result);
         state.isLoading = false;
         state.error = null;
       })
       .addCase(addDrinkToFavorite.rejected, handleRejected)
       .addCase(getFavoriteAll.pending, hanlePending)
       .addCase(getFavoriteAll.fulfilled, (state, action) => {
-        state.drinks = action.payload;
+        state.favoriteDrinks = action.payload;
         state.isLoading = false;
         state.error = null;
       })

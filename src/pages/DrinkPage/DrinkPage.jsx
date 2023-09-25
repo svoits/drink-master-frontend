@@ -3,8 +3,6 @@ import { DrinkPageHero } from '../../components/DrinkPageHero/DrinkPageHero';
 import { DrinkIngredientsList } from '../../components/DrinkIngredientsList/DrinkIngredientsList';
 import { RecipePreparation } from '../../components/RecipePreparation/RecipePreparation';
 import { getDrinkById } from '../../redux/drinks/drinks-operations';
-// import { getDrinkById } from '../../fakeApiRecipes';
-// import { getIngredientsListId } from '../../fakeApiRecipes';
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectDrinkById } from '../../redux/drinks/drinks-selectors';

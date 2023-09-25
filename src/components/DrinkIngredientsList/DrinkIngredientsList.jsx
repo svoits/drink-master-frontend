@@ -17,8 +17,6 @@ export const DrinkIngredientsList = ({ ingredients }) => {
 
   const ingredientsWithImages = useSelector(selectIngredients);
 
-  // console.log({ ingredientsWithImages });
-
   return (
     <div>
       <IngredientsTitle>Ingredients</IngredientsTitle>
