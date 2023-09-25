@@ -21,9 +21,9 @@ export const SwitchInput = styled.input`
   transition: background-color ${transition};
   cursor: pointer;
 
-  &:focus {
+  /* &:focus  {
     outline: auto;
-  }
+  } */
 
   &::before,
   &::after {

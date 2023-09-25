@@ -17,7 +17,6 @@ const initialState = {
 };
 const authSlice = createSlice({
   name: 'auth',
-
   initialState,
   reducers: {
     toggleTheme(state) {
@@ -71,4 +70,5 @@ const authSlice = createSlice({
   // }),
 });
 export const authReducer = authSlice.reducer;
+
 export const { toggleTheme } = authSlice.actions;
