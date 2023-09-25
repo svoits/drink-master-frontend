@@ -1,18 +1,18 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getCategories, getIngridients, getGlasses } from './filters-operation';
+import { getCategories, getIngredients, getGlasses } from './filters-operation';
 import { hanlePending, handleRejected } from '../handlers';
 
 const initialState = {
   searchQuery: '',
   categories: [],
-  ingridients: [],
+  ingredients: [],
   glasses: [],
   isLoading: false,
   error: null,
 };
 
 const filterSlice = createSlice({
-  name: 'filter',
+  name: 'filters',
   initialState,
 
   extraReducers: (builder) =>
@@ -36,12 +36,13 @@ const filterSlice = createSlice({
         state.error = null;
       })
       .addCase(getCategories.rejected, handleRejected)
-      .addCase(getIngridients.pending, handleRejected)
-      .addCase(getIngridients.fulfilled, (state, action) => {
-        state.drinks = action.payload;
+      .addCase(getIngredients.pending, handleRejected)
+      .addCase(getIngredients.fulfilled, (state, action) => {
+        state.ingredients = action.payload;
         state.isLoading = false;
+        state.error = null;
       })
-      .addCase(getIngridients.rejected, handleRejected)
+      .addCase(getIngredients.rejected, handleRejected)
       .addCase(getGlasses.pending, hanlePending)
       .addCase(getGlasses.fulfilled, (state, action) => {
         state.drinks = action.payload;
@@ -49,14 +50,14 @@ const filterSlice = createSlice({
         state.error = null;
       })
       .addCase(getGlasses.rejected, handleRejected),
-  
+
   reducers: {
     setSearchQuery: {
       reducer: (state, action) => {
         state.searchQuery = action.payload;
       },
 
-      prepare: searchQuery => {
+      prepare: (searchQuery) => {
         return { payload: searchQuery };
       },
     },
