@@ -1,4 +1,4 @@
-import{s as t,u as x,r as c,t as j,l as h,j as e,x as k,y as D,z as T,A as v,B as I,C as z}from"./index-70c82532.js";import{c as $,d as P}from"./drinks-selectors-571ed20b.js";import{a as S}from"./selectors-db944dbc.js";const g="/drink-master-frontend/assets/stub-74419cb3.svg",y=t.h1`
+import{s as t,u as x,r as c,t as j,l as h,j as e,x as k,y as D,z as T,A as v,B as I,C as z}from"./index-920a2eda.js";import{c as $,d as P}from"./drinks-selectors-571ed20b.js";import{a as S}from"./selectors-db944dbc.js";const g="/drink-master-frontend/assets/stub-74419cb3.svg",y=t.h1`
   color: ${({theme:i})=>i.mainText};
   text-shadow:
     0px 4px 4px rgba(0, 0, 0, 0.25),
