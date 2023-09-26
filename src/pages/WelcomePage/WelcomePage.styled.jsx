@@ -24,11 +24,16 @@ export const WelcomeWrap = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-      padding-top: 304px;
+  padding-top: 304px;
 
   
 
   @media screen and (min-width: 768px) {
+    justify-content: flex-start;
+    align-items: self-start;
+    padding-top: 275px;
+    padding-left: 32px;
+    width: 550px;
   }
   @media screen and (min-width: 1440px) {
   }
@@ -61,6 +66,7 @@ export const WelcomeSubtitle = styled.p`
     font-size: 18px;
     line-height: 1.33;
     letter-spacing: -0.36px;
+    text-align: left;
   }
 `;
 
@@ -68,12 +74,12 @@ export const BackgroundImage = styled.div`
   background:
    radial-gradient(
       circle,
-      rgba(64, 112, 205, 0.5),
-      rgb(64, 112, 205, 0),
+      rgba(64, 112, 205, 1),
+      rgb(64, 112, 205, 0.5)
      
     ),
-    radial-gradient(circle, rgba(188, 230, 210, 0.4)),
-    radial-gradient(circle, rgba(64, 112, 205, 0.5));
+    radial-gradient(circle, rgba(188, 230, 210, 1), rgb(188, 230, 205, 0.5)),
+    radial-gradient(circle, rgba(64, 112, 205, 1),rgb(64, 112, 205, 0.5));
     /* linear-gradient(0deg, rgba(10, 10, 17, 0.2) 0%, rgba(10, 10, 17, 0.2) 100%),
     linear-gradient(1deg, #0a0a11 -0.56%, rgba(10, 10, 17, 0) 21.93%),
     linear-gradient(82deg, #0a0a11 11.89%, rgba(10, 10, 17, 0) 82.65%); */
@@ -87,9 +93,10 @@ export const BackgroundImage = styled.div`
     background-image:linear-gradient(0deg, rgba(10, 10, 17, 0.2) 0%, rgba(10, 10, 17, 0.2) 100%),
     linear-gradient(1deg, #0a0a11 -0.56%, rgba(10, 10, 17, 0) 21.93%),
     linear-gradient(82deg, #0a0a11 11.89%, rgba(10, 10, 17, 0) 82.65%),url(${bgImageMobile});
+    
   position: absolute;
   /* top: 0; */
-  right: -145px;
+  right: -150px;
   z-index: -1;
   min-width: 320px;
   /* width: 70%;
@@ -98,6 +105,7 @@ export const BackgroundImage = styled.div`
   height: 100vh;
   /* /* background-repeat: no-repeat; */
   background-position: center;
+      background-size: cover;
 
   /* background-position-x: 498px , 84px , 20px , right , center , left ,  center;
   background-position-y: -251px,-368px,546px, bottom,center,left,center; */
@@ -113,26 +121,40 @@ export const BackgroundImage = styled.div`
   @media (min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {
-    background-image: url(${bgImageMobile2x});
+    background-image: linear-gradient(0deg, rgba(10, 10, 17, 0.2) 0%, rgba(10, 10, 17, 0.2) 100%),
+    linear-gradient(1deg, #0a0a11 -0.56%, rgba(10, 10, 17, 0) 21.93%),
+    linear-gradient(82deg, #0a0a11 11.89%, rgba(10, 10, 17, 0) 82.65%),url(${bgImageMobile2x});
   }
 
   @media screen and (min-width: 768px) {
-    background-image: url(${bgImageTablet});
-    right: -10px;
+    background-image: linear-gradient(0deg, rgba(10, 10, 17, 0.2) 0%, rgba(10, 10, 17, 0.2) 100%),
+    linear-gradient(1deg, #0a0a11 -0.56%, rgba(10, 10, 17, 0) 21.93%),
+    linear-gradient(82deg, #0a0a11 11.89%, rgba(10, 10, 17, 0) 82.65%),url(${bgImageTablet});
+    right: -90px;
 
   
     @media (min-device-pixel-ratio: 2),
       (min-resolution: 192dpi),
       (min-resolution: 2dppx) {
-      background-image: url(${bgImageTablet2x});
+      background-image: linear-gradient(0deg, rgba(10, 10, 17, 0.2) 0%, rgba(10, 10, 17, 0.2) 100%),
+    linear-gradient(1deg, #0a0a11 -0.56%, rgba(10, 10, 17, 0) 21.93%),
+    linear-gradient(82deg, #0a0a11 11.89%, rgba(10, 10, 17, 0) 82.65%),url(${bgImageTablet2x});
     }
   }
   @media screen and (min-width: 1440px) {
-    background-image: url(${bgImageDesc});
+    background-image: linear-gradient(0deg, rgba(10, 10, 17, 0.2) 0%, rgba(10, 10, 17, 0.2) 100%),
+    linear-gradient(1deg, #0a0a11 -0.56%, rgba(10, 10, 17, 0) 21.93%),
+    linear-gradient(82deg, #0a0a11 11.89%, rgba(10, 10, 17, 0) 82.65%),url(${bgImageDesc});
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 100%;
+    left: 500px;
     @media (min-device-pixel-ratio: 2),
       (min-resolution: 192dpi),
       (min-resolution: 2dppx) {
-      background-image: url(${bgImageDesc2x});
+      background-image: linear-gradient(0deg, rgba(10, 10, 17, 0.2) 0%, rgba(10, 10, 17, 0.2) 100%),
+    linear-gradient(1deg, #0a0a11 -0.56%, rgba(10, 10, 17, 0) 21.93%),
+    linear-gradient(82deg, #0a0a11 11.89%, rgba(10, 10, 17, 0) 82.65%),url(${bgImageDesc2x});
     }
   }`;
   /* &:before {
