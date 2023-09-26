@@ -15,6 +15,7 @@ import { hanlePending, handleRejected } from '../handlers';
 
 const initialState = {
   searchQuery: '',
+  mainPageDrinks: {},
   drinks: [],
   favoriteDrinks: [],
   isLoading: false,
@@ -30,9 +31,11 @@ const drinksSlice = createSlice({
     builder
       .addCase(getMainPageAllDrinks.pending, hanlePending)
       .addCase(getMainPageAllDrinks.fulfilled, (state, action) => {
-        state.drinks = action.payload;
+        console.log(action.payload);
+        state.mainPageDrinks = action.payload;
         state.isLoading = false;
         state.error = null;
+
       })
       .addCase(getMainPageAllDrinks.rejected, handleRejected)
       .addCase(getDrinkById.fulfilled, (state, action) => {

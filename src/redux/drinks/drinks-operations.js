@@ -8,6 +8,7 @@ export const getMainPageAllDrinks = createAsyncThunk(
     try {
       const response = await axios.get('api/drinks/mainpage');
       // console.log('response =>', response); // TEST LINE
+
       return response.data;
     } catch (error) {
       // console.log('error =>', error); // TEST LINE

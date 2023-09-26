@@ -1,4 +1,5 @@
 export const selectIsLoading = (state) => state.drinks.isLoading;
+export const selectMainPageDrinks = (state) => state.drinks.mainPageDrinks;
 export const selectDrinks = (state) => state.drinks.drinks;
 export const selectErrorDrinks = (state) => state.drinks.error;
 export const selectDrinkById = (state, drinkId) =>
