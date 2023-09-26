@@ -1,5 +1,6 @@
-import { createGlobalStyle, styled } from 'styled-components';
 import { AiOutlineCalendar } from 'react-icons/ai';
+import styled, { css, createGlobalStyle } from 'styled-components';
+import transition from '../../utils/transition';
 
 export const StyledCalendarIcon = styled(AiOutlineCalendar)`
   fill: ${({ theme }) => theme.mainText};
@@ -12,24 +13,25 @@ export const StyledCalendarIcon = styled(AiOutlineCalendar)`
 `;
 
 export const CalendarGlobalStyles = createGlobalStyle`
-/* .react-datepicker-wrapper {
-  max-width:375px;
-  } */
+.react-datepicker-popper {
+  z-index:100;
+  }
 .react-datepicker__input-container  {
     max-width:335px;
-    &:focus,
-  &:hover {
+  &:focus,
+  &:hover, &:active{
     border: 1px solid rgba(243, 243, 243, 0.5);
+    border-radius: 42px;
     background-color: transparent;
-    color: ${({ theme }) => theme.mainText};
+     transition:
+      border ${transition},
+      background-color ${transition};
   }}
 
-
-
-.react-datepicker {
+  .react-datepicker {
     display: inline-block;
     font-size: .8rem;
-    position: relative;
+    position: fixed;
   padding: 14px 14px;
     border-radius: 8px;
     background: #161F37;
@@ -140,22 +142,13 @@ export const CalendarGlobalStyles = createGlobalStyle`
     position: relative;
     text-align: center;}
 
-.react-datepicker__current-month {
-color: #F3F3F3;
-font-size: 16px;
-font-style: normal;
-font-weight: 500;
-line-height: normal;
-letter-spacing: -0.32px;
- margin-top: 0;
- border-bottom: 1px solid rgba(243, 243, 243, 0.20);
- padding-bottom:14px;
-}
+
 .react-datepicker__day-names {
     margin-bottom: -8px;
     white-space: nowrap;
     padding-top:14px;
     padding-bottom: 7px;
+    border-bottom: 1px solid rgba(243, 243, 243, 0.20);
 }
 .react-datepicker__day-name{
   
@@ -219,6 +212,7 @@ width: 1.7rem;
   display:none; }
  
 
+
 `;
 
 export const Button = styled.button`
@@ -228,7 +222,7 @@ export const Button = styled.button`
   display: flex;
   justify-content: space-between;
   background-color: transparent;
-  padding: 18px 24px;
+  padding: 19px 25px;
   border: 1px solid rgba(243, 243, 243, 0.2);
   font-size: 14px;
   border-radius: 42px;
@@ -243,4 +237,14 @@ export const Button = styled.button`
     background-color: transparent;
     color: ${({ theme }) => theme.mainText};
   }
+  ${({ error }) =>
+    error === 'true' &&
+    css`
+      border: 1px solid red;
+    `}
+  ${({ success }) =>
+    success === 'true' &&
+    css`
+      border: 1px solid green;
+    `}
 `;
