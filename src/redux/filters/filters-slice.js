@@ -36,7 +36,7 @@ const filterSlice = createSlice({
         state.error = null;
       })
       .addCase(getCategories.rejected, handleRejected)
-      .addCase(getIngredients.pending, handleRejected)
+      .addCase(getIngredients.pending, hanlePending)
       .addCase(getIngredients.fulfilled, (state, action) => {
         state.ingredients = action.payload;
         state.isLoading = false;
@@ -45,7 +45,7 @@ const filterSlice = createSlice({
       .addCase(getIngredients.rejected, handleRejected)
       .addCase(getGlasses.pending, hanlePending)
       .addCase(getGlasses.fulfilled, (state, action) => {
-        state.drinks = action.payload;
+        state.glasses = action.payload;
         state.isLoading = false;
         state.error = null;
       })

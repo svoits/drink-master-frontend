@@ -4,6 +4,7 @@ axios.defaults.baseURL = 'https://drink-master-api.onrender.com';
 
 const setAuthHeader = (token) => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+
 };
 
 const clearAuthHeader = () => {
