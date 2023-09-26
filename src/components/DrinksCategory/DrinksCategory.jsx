@@ -6,7 +6,7 @@ import {
 
 export const DrinksCategory = () => { 
     const { drinks } = useDrink();
-    console.log(drinks)
+    console.log("DrinksCategory =>", drinks)
  
     return (
         <>

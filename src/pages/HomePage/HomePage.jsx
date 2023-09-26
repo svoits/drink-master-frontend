@@ -9,12 +9,13 @@ import AddDrink from '../../components/AddDrink/AddDrink';
 
 export default function HomePage() {
   const dispatch = useDispatch();
-  const { isLoggedIn } = useAuth();
+  // const { isLoggedIn } = useAuth();
   const { isLoading, error } = useDrink();
 
   useEffect(() => {
-    if (isLoggedIn) dispatch(getMainPageAllDrinks());
-  }, [dispatch, isLoggedIn]);
+    dispatch(getMainPageAllDrinks());
+    console.log('HomePage');
+  }, [dispatch]);
 
   return (
     <>

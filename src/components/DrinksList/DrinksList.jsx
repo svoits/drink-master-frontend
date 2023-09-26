@@ -31,25 +31,26 @@ export const DrinksList = () => {
   };
 
   return (
-    <>
       <MyDrinksList>
-        {isLoading && <Loader />}
-        {error && <p> {error} </p>}
-        {drinks.drinks ?
-          (drinks.drinks.map(({_id, drinkThumb, drink, category, description}) => (
+      {isLoading ?
+        (<Loader />)
+        : (drinks.drinks && drinks.drinks.length > 0 ? (
+          drinks.drinks.map(({ _id, drinkThumb, drink, category, description }) => (
             <DrinkListItem key={_id}>
               <DrinkIMG src={drinkThumb} />
               <DrinkTITLE> {drink} </DrinkTITLE>
               <DrinkCATEGORY> {category} </DrinkCATEGORY>
               <AboutDRINK> {description} </AboutDRINK>
               <ButtonsWRAPPER>
-                <DrinkPageLINK to={`/drink/${_id}`}>See more</DrinkPageLINK>
+                <DrinkPageLINK to={`/drinks/${_id}`}>See more</DrinkPageLINK>
                 <DeleteDrinkBTN onClick={() => handleDeleteDrink(_id)}>x</DeleteDrinkBTN>
               </ButtonsWRAPPER>
             </DrinkListItem>
-          ))
-        ) : (<p>You have rached the end of your Drink List, try to set more own drinks...</p>)}
-      </MyDrinksList>
-    </>
+          )))
+          : drinks.drinks !== null ? (<p>You have no own drinks left or reached the end of your Drink List, try to set more own drinks...</p>)
+            : null
+        )
+      }
+    </MyDrinksList>
   );
 };
