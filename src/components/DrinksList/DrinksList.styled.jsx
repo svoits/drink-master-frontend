@@ -16,7 +16,7 @@ export const MyDrinksList = styled.ul`
   @media screen and (min-width: 1440px){
     grid-template-columns: repeat(3, 400px);
   }
-`;
+`
 
 export const DrinkListItem = styled.li`
   max-width: 100%;
@@ -50,18 +50,17 @@ export const DrinkCATEGORY = styled.span`
   @media screen and (min-width: 768px) {
     font-size: 16px;
   }
-
 `
 export const AboutDRINK = styled.p`
   font-size: 14px;
   line-height: 18px;
   
-  margin: 24px 0; /* Забезпечуємо відсутність внутрішніх відступів */
-  white-space: normal; /* Забезпечуємо відображення кількох рядків тексту */
-  -webkit-line-clamp: 4; /* Встановлюємо максимальну кількість видимих рядків */
+  margin: 24px 0;
+  white-space: normal;
+  -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   display: -webkit-box;
-  text-overflow: ellipsis; /* Вставляємо трьохкрапку, якщо текст не вміщується */
+  text-overflow: ellipsis;
   overflow: hidden;
   font-size: 14px;
   line-height: 18px;
@@ -92,7 +91,7 @@ export const DeleteDrinkBTN = styled.button`
   padding: 11px 0;
   box-sizing: border-box;
   cursor: pointer;
-  border-radius: 40px;
+  border-radius: 50px;
   background-color: #161F37;
   color: #F3F3F3;
   border: none;

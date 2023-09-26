@@ -6,11 +6,11 @@ export const getMainPageAllDrinks = createAsyncThunk(
   'drinks/getAll',
   async (_, thunkAPI) => {
     try {
-      const response = await axios.get('/api/drinks/mainpage');
-      console.log('response =>', response); // TEST LINE
+      const response = await axios.get('api/drinks/mainpage');
+      // console.log('response =>', response); // TEST LINE
       return response.data;
     } catch (error) {
-      console.log('error =>', error); // TEST LINE
+      // console.log('error =>', error); // TEST LINE
       return thunkAPI.rejectWithValue(error.message);
     }
   },
@@ -82,7 +82,7 @@ export const removeOwnDrink = createAsyncThunk(
   'drinks/own/remove/:id',
   async (drinkId, thunkAPI) => {
     try {
-      const response = await axios.get(`/api/drinks/own/remove/${drinkId}`);
+      const response = await axios.delete(`/api/drinks/own/remove/${drinkId}`);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
