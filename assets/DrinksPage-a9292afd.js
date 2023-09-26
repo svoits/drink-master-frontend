@@ -1,4 +1,4 @@
-import{b as i,h as w,a as m,r as g,i as u,j as e,d as j,e as f,u as p,k,l as b,F as D}from"./index-57b64c05.js";import{u as x}from"./useDrink-090bef59.js";import{s as y,a as P}from"./selectors-db944dbc.js";import{c as v,a as o}from"./index.esm-ce94f04f.js";import"./drinks-selectors-4d719f03.js";const L=i.ul`
+import{s as i,L as f,u as l,r as m,q as w,j as e,l as u,m as g,v as p,w as j,x as k,F as b}from"./index-ebc0d42d.js";import{u as D}from"./useDrink-9899c9a8.js";import{s as y,a as v}from"./selectors-dcee3de9.js";import{c as L,a as x}from"./index.esm-82d03825.js";import"./drinks-selectors-47583310.js";const P=i.ul`
   display: flex;
   flex-wrap: wrap;
   align-content: center;
@@ -31,7 +31,7 @@ import{b as i,h as w,a as m,r as g,i as u,j as e,d as j,e as f,u as p,k,l as b,F
     width: 400px;
     height: 438px;
   }
-`,c=i.img`
+`,o=i.img`
   width: 335px;
   height: 360px;
 
@@ -77,7 +77,7 @@ import{b as i,h as w,a as m,r as g,i as u,j as e,d as j,e as f,u as p,k,l as b,F
 
   @media screen and (min-width: 1440px) {
   }
-`,I=i(w)`
+`,I=i(f)`
   font-family: Manrope;
   font-size: 14px;
   font-weight: 500;
@@ -92,7 +92,7 @@ import{b as i,h as w,a as m,r as g,i as u,j as e,d as j,e as f,u as p,k,l as b,F
 
   @media screen and (min-width: 1440px) {
   }
-`,E=()=>{const n=m(),{drinks:r}=x(),s=x();return console.log(s),g.useEffect(()=>{n(u())},[n]),e.jsx(e.Fragment,{children:e.jsx(L,{children:r.map(({_id:d,drink:t,drinkThumb:a})=>e.jsxs(S,{children:[a?e.jsx(c,{src:a,alt:t}):e.jsx(c,{src:""}),e.jsxs(F,{children:[e.jsx(z,{children:t}),e.jsx(I,{to:`/drinks/${d}`,children:"See more"})]})]},d))})})},M=i(j)`
+`,E=()=>{const n=l(),{drinks:r}=D();return m.useEffect(()=>{n(w())},[n]),e.jsx(e.Fragment,{children:e.jsx(P,{children:r.map(({_id:a,drink:s,drinkThumb:t})=>e.jsxs(S,{children:[t?e.jsx(o,{src:t,alt:s}):e.jsx(o,{src:""}),e.jsxs(F,{children:[e.jsx(z,{children:s}),e.jsx(I,{to:`/drinks/${a}`,children:"See more"})]})]},a))})})},M=i(u)`
   display: flex;
   // width: 678px;
   // height: 465px;
@@ -108,7 +108,7 @@ import{b as i,h as w,a as m,r as g,i as u,j as e,d as j,e as f,u as p,k,l as b,F
 
   @media screen and (min-width: 1440px) {
   }
-`,T=i(f)`
+`,T=i(g)`
   background-color: #161f37;
   opacity: 0.8px;
   width: 335px;
@@ -146,7 +146,7 @@ import{b as i,h as w,a as m,r as g,i as u,j as e,d as j,e as f,u as p,k,l as b,F
     width: 264px;
     height: 56px;
   }
-`,h=i(f)`
+`,c=i(g)`
   background-color: #161f37;
 
   width: 335px;
@@ -185,7 +185,7 @@ import{b as i,h as w,a as m,r as g,i as u,j as e,d as j,e as f,u as p,k,l as b,F
 
   @media screen and (min-width: 1440px) {
   }
-`;const l=i.option`
+`;const h=i.option`
   background-color: #161f37;
   width: 199px;
   height: 405px;
@@ -197,7 +197,7 @@ import{b as i,h as w,a as m,r as g,i as u,j as e,d as j,e as f,u as p,k,l as b,F
 
   @media screen and (min-width: 1440px) {
   }
-`,C={searchQuery:"",category:"",ingredient:""},$=v({category:o().required("Please select a category"),ingredient:o().required("Please select a category")}),q=()=>{const n=m(),r=p(y),s=p(P);g.useEffect(()=>{n(k()),n(b())},[n]);const d=(t,a)=>{console.log(t),a.resetForm()};return e.jsx(D,{initialValues:C,validationSchema:$,onSubmit:d,children:e.jsxs(M,{autoComplete:"off",children:[e.jsx("div",{children:e.jsx("label",{htmlFor:"name",children:e.jsx(T,{name:"searchQuery",type:"text",placeholder:"Enter the text"})})}),e.jsxs("div",{children:[e.jsx("label",{htmlFor:"category"}),e.jsx("div",{children:r.length>0&&e.jsxs(h,{name:"categories",as:"select",children:[e.jsx("option",{value:"",children:"All categories"}),r.map(t=>e.jsx(l,{value:t,children:t},t))]})})]}),e.jsxs("div",{children:[e.jsx("label",{htmlFor:"ingredient"}),e.jsx("div",{children:s.length>0&&e.jsxs(h,{name:"ingredients",as:"select",children:[e.jsx("option",{value:"",children:"Ingredients"}),s.map(({_id:t,title:a})=>e.jsx(l,{value:a,children:a},t))]})})]})]})})},G=i.h1`
+`,C={searchQuery:"",category:"",ingredient:""},$=L({category:x().required("Please select a category"),ingredient:x().required("Please select a category")}),q=()=>{const n=l(),r=p(y),a=p(v);m.useEffect(()=>{n(j()),n(k())},[n]);const s=(t,d)=>{console.log(t),d.resetForm()};return e.jsx(b,{initialValues:C,validationSchema:$,onSubmit:s,children:e.jsxs(M,{autoComplete:"off",children:[e.jsx("div",{children:e.jsx("label",{htmlFor:"name",children:e.jsx(T,{name:"searchQuery",type:"text",placeholder:"Enter the text"})})}),e.jsxs("div",{children:[e.jsx("label",{htmlFor:"category"}),e.jsx("div",{children:r.length>0&&e.jsxs(c,{name:"categories",as:"select",children:[e.jsx("option",{value:"",children:"All categories"}),r.map(t=>e.jsx(h,{value:t,children:t},t))]})})]}),e.jsxs("div",{children:[e.jsx("label",{htmlFor:"ingredient"}),e.jsx("div",{children:a.length>0&&e.jsxs(c,{name:"ingredients",as:"select",children:[e.jsx("option",{value:"",children:"Ingredients"}),a.map(({_id:t,title:d})=>e.jsx(h,{value:d,children:d},t))]})})]})]})})},G=i.h1`
   // margin-top: 80px;
   margin-bottom: 40px;
   font-family: Manrope;
