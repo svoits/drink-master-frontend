@@ -8,8 +8,10 @@ export const lightTheme = {
 
   headerBorderBottom: '#161F371A',
   navLinkBorder: '#161F3733',
+  navLinkBorderHover: '#161F37',
   activeNavLinkBg: '#161F37',
   activeNavLinkText: '#F3F3F3',
+
   themeSwitcher: '#F3F3F3',
 
   subTitleText: '#0A0A1180',
@@ -18,6 +20,7 @@ export const lightTheme = {
   footerBorderHover: '#F3F3F380',
   footerText: '#F3F3F3',
   footerCopyright: '#F3F3F380',
+  footerBg: '#0A0A11',
 };
 
 export const darkTheme = {
@@ -30,6 +33,7 @@ export const darkTheme = {
 
   headerBorderBottom: '#F3F3F333',
   navLinkBorder: '#F3F3F333',
+  navLinkBorderHover: '#F3F3F380',
   activeNavLinkBg: '#161F37',
   activeNavLinkText: '#F3F3F3',
   themeSwitcher: '#161F37',
@@ -40,4 +44,5 @@ export const darkTheme = {
   footerBorderHover: '#F3F3F380',
   footerText: '#F3F3F3',
   footerCopyright: '#F3F3F380',
+  footerBg: '#0A0A11',
 };

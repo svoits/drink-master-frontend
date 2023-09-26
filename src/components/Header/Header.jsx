@@ -1,11 +1,5 @@
 import { useState } from 'react';
-import {
-  HeaderContainer,
-  MainWrapper,
-  Navigation,
-  StyledNavLink,
-  UserMenuWrap,
-} from './Header.styled';
+import { HeaderContainer, MainWrapper, UserMenuWrap } from './Header.styled';
 import Logo from '../Logo/Logo';
 import { Container } from '../Container/Container.styled';
 import { useResize } from 'src/hooks/useResize';
@@ -13,6 +7,7 @@ import UserLogo from '../UserLogo/UserLogo';
 import MenuBtn from '../MenuBtn/MenuBtn';
 import MobileMenu from '../MobileMenu/MobileMenu';
 import ThemeSwitcher from '../ThemeSwitcher/ThemeSwitcher';
+import Navigation from '../Navigation/Navigation';
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -27,21 +22,8 @@ export const Header = () => {
       <HeaderContainer isopen={isMenuOpen ? 'true' : 'false'}>
         <Container>
           <MainWrapper>
-            <Logo />
-            {windowWidth >= 1440 && (
-              <Navigation>
-                <StyledNavLink to="/welcome">Welcome</StyledNavLink>
-                <StyledNavLink to="/signup">Sign Up</StyledNavLink>
-                <StyledNavLink to="/signin">Sign In</StyledNavLink>
-
-                <StyledNavLink to="/home">Home</StyledNavLink>
-                <StyledNavLink to="/drinks">Drinks</StyledNavLink>
-                <StyledNavLink to="/add">Add Drink</StyledNavLink>
-                <StyledNavLink to="/favorites">Favorite Drinks</StyledNavLink>
-                <StyledNavLink to="/drink/123">Drink</StyledNavLink>
-                <StyledNavLink to="/my">My Drinks</StyledNavLink>
-              </Navigation>
-            )}
+            <Logo isInFooter="false" />
+            {windowWidth >= 1440 && <Navigation />}
             <UserMenuWrap>
               {windowWidth <= 1439.98 ? (
                 isMenuOpen && <ThemeSwitcher />

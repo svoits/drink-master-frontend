@@ -19,6 +19,7 @@ const initialState = {
   favoriteDrinks: [],
   isLoading: false,
   error: null,
+  total: 0,
 };
 
 const drinksSlice = createSlice({
@@ -91,6 +92,7 @@ const drinksSlice = createSlice({
       .addCase(getFavoriteAll.pending, hanlePending)
       .addCase(getFavoriteAll.fulfilled, (state, action) => {
         state.favoriteDrinks = action.payload.drinks;
+        state.total = action.payload.total;
         state.isLoading = false;
         state.error = null;
       })

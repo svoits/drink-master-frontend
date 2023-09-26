@@ -2,7 +2,8 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const StyledLink = styled(Link)`
-  color: ${({ theme }) => theme.headerText};
+  color: ${({ theme, isinfooter }) =>
+    isinfooter === 'true' ? theme.footerText : theme.headerText};
   font-size: 16px;
   font-weight: 600;
   line-height: 1.125;
