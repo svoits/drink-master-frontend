@@ -1,4 +1,4 @@
-import StubPhoto from '../../images/stub.svg';
+import StubPhoto from '../../assets/stub.svg';
 import {
   IngredientPhoto,
   IngredientPhotoWrapper,
