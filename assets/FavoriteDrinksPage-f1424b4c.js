@@ -1,4 +1,4 @@
-import{s as x,u as h,l as f,r as s,t as d,j as t,L as j}from"./index-920a2eda.js";import{a as u}from"./drinks-selectors-571ed20b.js";import{D as k}from"./DrinksList-999bc388.js";import{C as D,S as P,P as v}from"./Pagination-0b6a8e8c.js";import"./setPrototypeOf-8d862a7d.js";const F=x.h1`
+import{s as x,u as h,l as f,r as s,t as d,j as t,L as j}from"./index-ce4012c0.js";import{a as u}from"./drinks-selectors-571ed20b.js";import{D as k}from"./DrinksList-59030dc8.js";import{C as D,S as P,P as v}from"./Pagination-83811b42.js";import"./setPrototypeOf-8d862a7d.js";const F=x.h1`
   margin-top: 160px;
   margin-bottom: 62px;
   font-family: Manrope;
