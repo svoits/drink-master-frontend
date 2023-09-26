@@ -1,4 +1,4 @@
-import{b as e,N as o,a as p,u as d,j as i,r as a}from"./index-1a7ac950.js";import{a as x}from"./drinks-selectors-571ed20b.js";import{P as c}from"./PageTitle-e43efe82.js";const l=e.ul`
+import{b as i,N as h,a as m,r as g,g as o,j as e,L as u,e as k}from"./index-d0938234.js";import{u as w}from"./useDrink-39fa2ea9.js";import{P as f}from"./PageTitle-808b0b54.js";import"./drinks-selectors-571ed20b.js";const j=i.ul`
   display: grid;
   grid-template-columns: repeat(1, 335px);
   justify-content: center;
@@ -12,18 +12,18 @@ import{b as e,N as o,a as p,u as d,j as i,r as a}from"./index-1a7ac950.js";impor
   @media screen and (min-width: 1440px){
     grid-template-columns: repeat(3, 400px);
   }
-`,m=e.li`
+`,b=i.li`
   max-width: 100%;
   height: auto;
   
   @media screen and (min-width: 768px) {
     height: auto;
   }
-`,h=e.img`
+`,D=i.img`
   width: 100%;
   object-fit: cover;
   border-radius: 8px 8px 0 0;
-`,g=e.h5`
+`,F=i.h5`
   font-size: 18px;
   font-weight: 500;
   line-height: 24px;
@@ -33,24 +33,23 @@ import{b as e,N as o,a as p,u as d,j as i,r as a}from"./index-1a7ac950.js";impor
     font-size: 24px;
     line-height: 32px;
   }
-`,u=e.span`
+`,L=i.span`
   font-size: 14px;
   color: #F3F3F380;
 
   @media screen and (min-width: 768px) {
     font-size: 16px;
   }
-
-`,w=e.p`
+`,v=i.p`
   font-size: 14px;
   line-height: 18px;
   
-  margin: 24px 0; /* Забезпечуємо відсутність внутрішніх відступів */
-  white-space: normal; /* Забезпечуємо відображення кількох рядків тексту */
-  -webkit-line-clamp: 4; /* Встановлюємо максимальну кількість видимих рядків */
+  margin: 24px 0;
+  white-space: normal;
+  -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   display: -webkit-box;
-  text-overflow: ellipsis; /* Вставляємо трьохкрапку, якщо текст не вміщується */
+  text-overflow: ellipsis;
   overflow: hidden;
   font-size: 14px;
   line-height: 18px;
@@ -59,7 +58,7 @@ import{b as e,N as o,a as p,u as d,j as i,r as a}from"./index-1a7ac950.js";impor
     font-size: 16px;
     line-height: 22px;
   }
-`,b=e.div`
+`,y=i.div`
   display: grid;
   grid-template-columns: 143px 46px;
   grid-column-gap: 8px;
@@ -67,22 +66,22 @@ import{b as e,N as o,a as p,u as d,j as i,r as a}from"./index-1a7ac950.js";impor
   @media screen and (min-width: 768px) {
     grid-template-columns: 160px 56px;
   }
-`,k=e(o)`
+`,z=i(h)`
   padding: 14px 40px 14px 40px;
   cursor: pointer;
   border-radius: 42px;
   background-color: #161F37;
   color: #F3F3F3;
-`,D=e.button`
+`,E=i.button`
   width: 100%;
   padding: 11px 0;
   box-sizing: border-box;
   cursor: pointer;
-  border-radius: 40px;
+  border-radius: 50px;
   background-color: #161F37;
   color: #F3F3F3;
   border: none;
-`,f=()=>{const r=p(),{drinks:t,isLoading:F,error:v}=d(x),s=n=>{r(a(n))};return i.jsx(i.Fragment,{children:t.length>0&&i.jsx(l,{children:t.map(n=>i.jsxs(m,{children:[i.jsx(h,{src:n.drinkThumb}),i.jsxs(g,{children:[" ",n.drink," "]}),i.jsxs(u,{children:[" ",n.category," "]}),i.jsxs(w,{children:[" ",n.description," "]}),i.jsxs(b,{children:[i.jsx(k,{to:`/drink/${n._id}`,children:"See more"}),i.jsx(D,{onClick:()=>s(n._id),children:"Del"})]})]},n._id))})})},j=e.div` 
+`,P=()=>{const r=m(),{isLoading:d,drinks:t,error:s}=w();g.useEffect(()=>{r(o())},[r]);const p=n=>{r(k(n)).then(()=>{r(o())})};return e.jsx(e.Fragment,{children:e.jsxs(j,{children:[d&&e.jsx(u,{}),s&&e.jsxs("p",{children:[" ",s," "]}),t.drinks?t.drinks.map(({_id:n,drinkThumb:a,drink:x,category:c,description:l})=>e.jsxs(b,{children:[e.jsx(D,{src:a}),e.jsxs(F,{children:[" ",x," "]}),e.jsxs(L,{children:[" ",c," "]}),e.jsxs(v,{children:[" ",l," "]}),e.jsxs(y,{children:[e.jsx(z,{to:`/drink/${n}`,children:"See more"}),e.jsx(E,{onClick:()=>p(n),children:"x"})]})]},n)):e.jsx("p",{children:"You have rached the end of your Drink List, try to set more own drinks..."})]})})},I=i.div` 
   width: 335px; 
   margin: 0 auto;
 
@@ -93,4 +92,4 @@ import{b as e,N as o,a as p,u as d,j as i,r as a}from"./index-1a7ac950.js";impor
   @media screen and (min-width: 1440px){
     width: calc((400px * 3) + 40px);
   }
-`;function P(){return i.jsxs(j,{children:[i.jsx(c,{title:"My Drinks"}),i.jsx(f,{})]})}export{P as default};
+`;function A(){return e.jsxs(I,{children:[e.jsx(f,{title:"My Drinks"}),e.jsx(P,{})]})}export{A as default};

@@ -1,4 +1,4 @@
-import{b as t,a as x,e as c,p as j,u as h,j as e,q as k,v as D,i as T,w as v,x as I,C as z}from"./index-1a7ac950.js";import{c as $,d as P}from"./drinks-selectors-571ed20b.js";import{a as S}from"./selectors-db944dbc.js";const g="/drink-master-frontend/assets/stub-74419cb3.svg",F=t.h1`
+import{b as t,a as x,r as c,q as j,u as h,j as e,v as k,w as D,l as T,x as v,y as I,C as z}from"./index-d0938234.js";import{c as $,d as P}from"./drinks-selectors-571ed20b.js";import{a as S}from"./selectors-db944dbc.js";const g="/drink-master-frontend/assets/stub-74419cb3.svg",y=t.h1`
   color: ${({theme:i})=>i.mainText};
   text-shadow:
     0px 4px 4px rgba(0, 0, 0, 0.25),
@@ -20,7 +20,7 @@ import{b as t,a as x,e as c,p as j,u as h,j as e,q as k,v as D,i as T,w as v,x a
     line-height: 68px;
     margin-top: 158px;
   }
-`,y=t.h3`
+`,F=t.h3`
   color: ${({theme:i})=>i.subTitleText};
   font-size: 12px;
   font-weight: 400;
@@ -97,7 +97,7 @@ import{b as t,a as x,e as c,p as j,u as h,j as e,q as k,v as D,i as T,w as v,x a
   @media screen and (min-width: 1440px) {
     max-width: 593px;
   }
-`,C=({id:i,name:s,glass:n,alcoholic:r,description:p,imgPath:d})=>{const o=x();c.useEffect(()=>{o(j())},[o]);const a=h($),u=w=>{if(a)return a.find(b=>b._id===w)},f=d?`${d}`:g;return e.jsx(e.Fragment,{children:a&&e.jsxs(E,{children:[e.jsxs(B,{children:[e.jsx(F,{children:s}),e.jsxs(y,{children:[n," / ",r]}),e.jsx(R,{children:p}),u(i)?e.jsx(m,{onClick:()=>o(D(i)),children:"Delete from favorite drinks"}):e.jsx(m,{onClick:()=>o(k(i)),children:"Add to favorite drinks"})]}),e.jsx(A,{children:e.jsx(W,{src:f,alt:"img"})})]})})},L=t.div`
+`,C=({id:i,name:s,glass:n,alcoholic:r,description:p,imgPath:d})=>{const o=x();c.useEffect(()=>{o(j())},[o]);const a=h($),u=w=>{if(a)return a.find(b=>b._id===w)},f=d?`${d}`:g;return e.jsx(e.Fragment,{children:a&&e.jsxs(E,{children:[e.jsxs(B,{children:[e.jsx(y,{children:s}),e.jsxs(F,{children:[n," / ",r]}),e.jsx(R,{children:p}),u(i)?e.jsx(m,{onClick:()=>o(D(i)),children:"Delete from favorite drinks"}):e.jsx(m,{onClick:()=>o(k(i)),children:"Add to favorite drinks"})]}),e.jsx(A,{children:e.jsx(W,{src:f,alt:"img"})})]})})},L=t.div`
   width: 157px;
   display: flex;
   justify-content: space-between;

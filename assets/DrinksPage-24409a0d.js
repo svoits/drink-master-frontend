@@ -1,4 +1,4 @@
-import{b as i,L as w,a as m,e as g,f as u,j as e,c as j,d as f,u as p,h as k,i as b,F as D}from"./index-1a7ac950.js";import{u as x}from"./useDrink-b6b67295.js";import{s as y,a as L}from"./selectors-db944dbc.js";import{c as P,a as o}from"./index.esm-c128b40b.js";import"./drinks-selectors-571ed20b.js";const v=i.ul`
+import{b as i,h as w,a as m,r as g,i as u,j as e,c as j,d as f,u as p,k,l as b,F as D}from"./index-d0938234.js";import{u as x}from"./useDrink-39fa2ea9.js";import{s as y,a as P}from"./selectors-db944dbc.js";import{c as v,a as o}from"./index.esm-23adb34d.js";import"./drinks-selectors-571ed20b.js";const L=i.ul`
   display: flex;
   flex-wrap: wrap;
   align-content: center;
@@ -92,7 +92,7 @@ import{b as i,L as w,a as m,e as g,f as u,j as e,c as j,d as f,u as p,h as k,i a
 
   @media screen and (min-width: 1440px) {
   }
-`,E=()=>{const n=m(),{drinks:r}=x(),s=x();return console.log(s),g.useEffect(()=>{n(u())},[n]),e.jsx(e.Fragment,{children:e.jsx(v,{children:r.map(({_id:d,drink:t,drinkThumb:a})=>e.jsxs(S,{children:[a?e.jsx(c,{src:a,alt:t}):e.jsx(c,{src:""}),e.jsxs(F,{children:[e.jsx(z,{children:t}),e.jsx(I,{to:`/drinks/${d}`,children:"See more"})]})]},d))})})},M=i(j)`
+`,E=()=>{const n=m(),{drinks:r}=x(),s=x();return console.log(s),g.useEffect(()=>{n(u())},[n]),e.jsx(e.Fragment,{children:e.jsx(L,{children:r.map(({_id:d,drink:t,drinkThumb:a})=>e.jsxs(S,{children:[a?e.jsx(c,{src:a,alt:t}):e.jsx(c,{src:""}),e.jsxs(F,{children:[e.jsx(z,{children:t}),e.jsx(I,{to:`/drinks/${d}`,children:"See more"})]})]},d))})})},M=i(j)`
   display: flex;
   // width: 678px;
   // height: 465px;
@@ -197,7 +197,7 @@ import{b as i,L as w,a as m,e as g,f as u,j as e,c as j,d as f,u as p,h as k,i a
 
   @media screen and (min-width: 1440px) {
   }
-`,C={searchQuery:"",category:"",ingredient:""},$=P({category:o().required("Please select a category"),ingredient:o().required("Please select a category")}),q=()=>{const n=m(),r=p(y),s=p(L);g.useEffect(()=>{n(k()),n(b())},[n]);const d=(t,a)=>{console.log(t),a.resetForm()};return e.jsx(D,{initialValues:C,validationSchema:$,onSubmit:d,children:e.jsxs(M,{autoComplete:"off",children:[e.jsx("div",{children:e.jsx("label",{htmlFor:"name",children:e.jsx(T,{name:"searchQuery",type:"text",placeholder:"Enter the text"})})}),e.jsxs("div",{children:[e.jsx("label",{htmlFor:"category"}),e.jsx("div",{children:r.length>0&&e.jsxs(h,{name:"categories",as:"select",children:[e.jsx("option",{value:"",children:"All categories"}),r.map(t=>e.jsx(l,{value:t,children:t},t))]})})]}),e.jsxs("div",{children:[e.jsx("label",{htmlFor:"ingredient"}),e.jsx("div",{children:s.length>0&&e.jsxs(h,{name:"ingredients",as:"select",children:[e.jsx("option",{value:"",children:"Ingredients"}),s.map(({_id:t,title:a})=>e.jsx(l,{value:a,children:a},t))]})})]})]})})},G=i.h1`
+`,C={searchQuery:"",category:"",ingredient:""},$=v({category:o().required("Please select a category"),ingredient:o().required("Please select a category")}),q=()=>{const n=m(),r=p(y),s=p(P);g.useEffect(()=>{n(k()),n(b())},[n]);const d=(t,a)=>{console.log(t),a.resetForm()};return e.jsx(D,{initialValues:C,validationSchema:$,onSubmit:d,children:e.jsxs(M,{autoComplete:"off",children:[e.jsx("div",{children:e.jsx("label",{htmlFor:"name",children:e.jsx(T,{name:"searchQuery",type:"text",placeholder:"Enter the text"})})}),e.jsxs("div",{children:[e.jsx("label",{htmlFor:"category"}),e.jsx("div",{children:r.length>0&&e.jsxs(h,{name:"categories",as:"select",children:[e.jsx("option",{value:"",children:"All categories"}),r.map(t=>e.jsx(l,{value:t,children:t},t))]})})]}),e.jsxs("div",{children:[e.jsx("label",{htmlFor:"ingredient"}),e.jsx("div",{children:s.length>0&&e.jsxs(h,{name:"ingredients",as:"select",children:[e.jsx("option",{value:"",children:"Ingredients"}),s.map(({_id:t,title:a})=>e.jsx(l,{value:a,children:a},t))]})})]})]})})},G=i.h1`
   // margin-top: 80px;
   margin-bottom: 40px;
   font-family: Manrope;
