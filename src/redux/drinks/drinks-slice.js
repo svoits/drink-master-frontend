@@ -11,7 +11,7 @@ import {
   addDrinkToFavorite,
   getFavoriteAll,
 } from './drinks-operations';
-import { hanlePending, handleRejected } from '../handlers';
+import { handlePending, handleRejected } from '../handlers';
 
 const initialState = {
   searchQuery: '',
@@ -29,13 +29,11 @@ const drinksSlice = createSlice({
 
   extraReducers: (builder) =>
     builder
-      .addCase(getMainPageAllDrinks.pending, hanlePending)
+      .addCase(getMainPageAllDrinks.pending, handlePending)
       .addCase(getMainPageAllDrinks.fulfilled, (state, action) => {
-        console.log(action.payload);
         state.mainPageDrinks = action.payload;
         state.isLoading = false;
         state.error = null;
-
       })
       .addCase(getMainPageAllDrinks.rejected, handleRejected)
       .addCase(getDrinkById.fulfilled, (state, action) => {
@@ -48,22 +46,22 @@ const drinksSlice = createSlice({
         state.isLoading = false;
         state.error = null;
       })
-      .addCase(getRequestedDrink.pending, hanlePending)
+      .addCase(getRequestedDrink.pending, handlePending)
       .addCase(getRequestedDrink.fulfilled, (state, action) => {
         state.drinks = action.payload.drinks;
-        // state.total = action.payload;
+        state.total = action.payload.total;
         // state.searchQuery = action.payload;
         state.isLoading = false;
       })
       .addCase(getRequestedDrink.rejected, handleRejected)
-      .addCase(addMyDrink.pending, hanlePending)
+      .addCase(addMyDrink.pending, handlePending)
       .addCase(addMyDrink.fulfilled, (state, action) => {
         state.drinks = action.payload;
         state.isLoading = false;
         state.error = null;
       })
       .addCase(addMyDrink.rejected, handleRejected)
-      .addCase(removeDrink.pending, hanlePending)
+      .addCase(removeDrink.pending, handlePending)
       .addCase(removeDrink.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
@@ -73,27 +71,27 @@ const drinksSlice = createSlice({
         state.favoriteDrinks.splice(index, 1);
       })
       .addCase(removeDrink.rejected, handleRejected)
-      .addCase(removeOwnDrink.pending, hanlePending)
+      .addCase(removeOwnDrink.pending, handlePending)
       .addCase(removeOwnDrink.fulfilled, (state, action) => {
         state.drinks = action.payload;
         state.isLoading = false;
         state.error = null;
       })
-      .addCase(getOwnDrinks.pending, hanlePending)
+      .addCase(getOwnDrinks.pending, handlePending)
       .addCase(getOwnDrinks.fulfilled, (state, action) => {
-        state.drinks = action.payload;
+        state.drinks = action.payload.drinks;
         state.isLoading = false;
         state.error = null;
       })
       .addCase(getOwnDrinks.rejected, handleRejected)
-      .addCase(addDrinkToFavorite.pending, hanlePending)
+      .addCase(addDrinkToFavorite.pending, handlePending)
       .addCase(addDrinkToFavorite.fulfilled, (state, action) => {
         state.favoriteDrinks.push(action.payload.result);
         state.isLoading = false;
         state.error = null;
       })
       .addCase(addDrinkToFavorite.rejected, handleRejected)
-      .addCase(getFavoriteAll.pending, hanlePending)
+      .addCase(getFavoriteAll.pending, handlePending)
       .addCase(getFavoriteAll.fulfilled, (state, action) => {
         state.favoriteDrinks = action.payload.drinks;
         state.total = action.payload.total;
