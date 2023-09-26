@@ -1,4 +1,4 @@
-import{s as r,u as d,l as g,r as l,p as y,j as e,L as h,i as k,k as m,q as D,F as P,E as S}from"./index-e28fd262.js";import{a as f}from"./drinks-selectors-571ed20b.js";import{s as b}from"./selectors-db944dbc.js";import{c as L,a as w}from"./index.esm-b03bf5d1.js";import{C as E,S as F,P as T}from"./Pagination-84dd6539.js";import"./setPrototypeOf-8d862a7d.js";const C=r.ul`
+import{s as r,u as d,l as g,r as l,p as y,j as e,q as h,i as k,k as m,v as D,F as P,E as S}from"./index-7a2156fc.js";import{a as f}from"./drinks-selectors-571ed20b.js";import{s as b}from"./selectors-db944dbc.js";import{c as w,a as L}from"./index.esm-30c0ce22.js";import{C as E,S as F,P as T}from"./Pagination-1708864a.js";import"./setPrototypeOf-8d862a7d.js";const C=r.ul`
   display: flex;
   flex-wrap: wrap;
   align-content: center;
@@ -62,7 +62,7 @@ import{s as r,u as d,l as g,r as l,p as y,j as e,L as h,i as k,k as m,q as D,F a
   border-radius: 20px;
 `;const A=r.option`
   background-color: #161f37;
-`,B=[{id:"1",category:"Ordinary Drink"},{id:"2",category:"Cocktail"},{id:"3",category:"Shake"},{id:"4",category:"Other/Unknown"},{id:"5",category:"Cocoa"},{id:"6",category:"Shot"},{id:"7",category:"Coffee/Tea"},{id:"8",category:"Homemade Liqueur"},{id:"9",category:"Punch/Party Drink"},{id:"10",category:"Beer"},{id:"11",category:"Soft Drink"}],Q={name:"",category:""},V=L({category:w().required("Please select a category").oneOf(B)}),G=r.p`
+`,B=[{id:"1",category:"Ordinary Drink"},{id:"2",category:"Cocktail"},{id:"3",category:"Shake"},{id:"4",category:"Other/Unknown"},{id:"5",category:"Cocoa"},{id:"6",category:"Shot"},{id:"7",category:"Coffee/Tea"},{id:"8",category:"Homemade Liqueur"},{id:"9",category:"Punch/Party Drink"},{id:"10",category:"Beer"},{id:"11",category:"Soft Drink"}],Q={name:"",category:""},V=w({category:L().required("Please select a category").oneOf(B)}),G=r.p`
   color: red;
 `,H=({name:t})=>e.jsx(S,{name:t,render:s=>e.jsx(G,{children:s})}),R=()=>{const t=d(),s=g(b);l.useEffect(()=>{t(D())},[t]);const a=(i,{resetForm:n})=>{console.log(i),n()};return e.jsx(P,{initialValues:Q,validationSchema:V,onSubmit:a,children:e.jsxs($,{children:[e.jsx("div",{children:e.jsxs("label",{htmlFor:"name",children:[e.jsx(m,{name:"name",type:"text"}),e.jsx(H,{name:"name"})]})}),e.jsxs("div",{children:[e.jsx("label",{htmlFor:"categoty"}),e.jsx("div",{children:e.jsxs(q,{name:"categoty",as:"select",children:[e.jsx("option",{value:"",children:"All categories"}),s.map(({id:i,category:n})=>e.jsx(A,{value:n,children:n},i))]})})]}),e.jsx("button",{type:"submit",children:"submit"})]})})},U=r.h1`
   margin-top: 160px;

@@ -1,4 +1,4 @@
-import{s as t,j as i}from"./index-e28fd262.js";import{D as r}from"./DrinksList-09246396.js";import{P as s}from"./PageTitle-1116eb00.js";import"./drinks-selectors-571ed20b.js";const a=t.div` 
+import{s as t,j as i}from"./index-7a2156fc.js";import{D as r}from"./DrinksList-9425404e.js";import{P as s}from"./PageTitle-02429193.js";import"./drinks-selectors-571ed20b.js";const a=t.div` 
   width: 335px; 
   margin: 0 auto;
 
