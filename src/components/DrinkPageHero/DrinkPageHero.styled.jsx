@@ -74,11 +74,29 @@ export const AddToFavoriteButton = styled.button`
   }
 `;
 
-export const DrinkFoto = styled.img`
+export const DrinkPhoto = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 4px;
+
+  @media screen and (min-width: 1440px) {
+    width: 400px;
+  }
+`;
+
+export const DrinkHeroWrapper = styled.div`
+  @media screen and (min-width: 1440px) {
+    display: flex;
+    column-gap: 249px;
+  }
+`;
+
+export const DrinkPhotoWrapper = styled.div`
   width: 335px;
   height: 400px;
   margin-top: 80px;
-  border-radius: 4px;
 
   @media screen and (min-width: 768px) {
     width: 704px;
@@ -91,9 +109,8 @@ export const DrinkFoto = styled.img`
   }
 `;
 
-export const DrinkHeroWrapper = styled.div`
-  display: flex;
-  column-gap: 249px;
+export const DrinkDescriptionWrapper = styled.div`
+  @media screen and (min-width: 1440px) {
+    max-width: 593px;
+  }
 `;
-
-export const DrinkHeroDescriptionWrapper = styled.div``;

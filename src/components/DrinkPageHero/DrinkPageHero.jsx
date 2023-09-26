@@ -1,11 +1,22 @@
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { BiCheck } from 'react-icons/bi';
+import {
+  addDrinkToFavorite,
+  removeDrink,
+  getFavoriteAll,
+} from '../../redux/drinks/drinks-operations';
+import { selectFavoriteDrinks } from '../../redux/drinks/drinks-selectors';
+import StubPhoto from '../../images/stub.svg';
 import {
   DrinkTitle,
   DrinkSubTitle,
   DrinkDescription,
   AddToFavoriteButton,
-  DrinkFoto,
-  DrinkHeroDescriptionWrapper,
+  DrinkPhoto,
+  DrinkDescriptionWrapper,
   DrinkHeroWrapper,
+  DrinkPhotoWrapper,
 } from './DrinkPageHero.styled';
 
 export const DrinkPageHero = ({
@@ -16,24 +27,49 @@ export const DrinkPageHero = ({
   description,
   imgPath,
 }) => {
-  //   const dispatch = useDispatch();
-  const imgUrl = imgPath ? `${imgPath}` : 'https://via.placeholder.com/335x400';
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getFavoriteAll());
+  }, [dispatch]);
+
+  const favoriteDrinksList = useSelector(selectFavoriteDrinks);
+
+  const isDrinkInFavoriteList = (id) => {
+    if (favoriteDrinksList) {
+      return favoriteDrinksList.find((drink) => drink._id === id);
+    }
+  };
+
+  const imgUrl = imgPath ? `${imgPath}` : StubPhoto;
 
   return (
-    <DrinkHeroWrapper>
-      <DrinkHeroDescriptionWrapper>
-        <DrinkTitle>{name}</DrinkTitle>
-        <DrinkSubTitle>
-          {glass} / {alcoholic}
-        </DrinkSubTitle>
-        <DrinkDescription>{description}</DrinkDescription>
-        <AddToFavoriteButton
-        // onClick={() => dispatch(addDrinkToFavorite(id))}
-        >
-          Add to favorite drinks
-        </AddToFavoriteButton>
-      </DrinkHeroDescriptionWrapper>
-      <DrinkFoto src={imgUrl} alt="img"></DrinkFoto>
-    </DrinkHeroWrapper>
+    <>
+      {favoriteDrinksList && (
+        <DrinkHeroWrapper>
+          <DrinkDescriptionWrapper>
+            <DrinkTitle>{name}</DrinkTitle>
+            <DrinkSubTitle>
+              {glass} / {alcoholic}
+            </DrinkSubTitle>
+            <DrinkDescription>{description}</DrinkDescription>
+            {!isDrinkInFavoriteList(id) ? (
+              <AddToFavoriteButton
+                onClick={() => dispatch(addDrinkToFavorite(id))}
+              >
+                Add to favorite drinks
+              </AddToFavoriteButton>
+            ) : (
+              <AddToFavoriteButton onClick={() => dispatch(removeDrink(id))}>
+                Delete from favorite drinks
+              </AddToFavoriteButton>
+            )}
+          </DrinkDescriptionWrapper>
+          <DrinkPhotoWrapper>
+            <DrinkPhoto src={imgUrl} alt="img"></DrinkPhoto>
+          </DrinkPhotoWrapper>
+        </DrinkHeroWrapper>
+      )}
+    </>
   );
 };

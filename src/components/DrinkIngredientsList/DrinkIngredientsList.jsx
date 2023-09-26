@@ -1,33 +1,59 @@
-import React from 'react';
+import { useEffect } from 'react';
+import { selectIngredients } from '../../redux/filters/selectors';
+import { useSelector, useDispatch } from 'react-redux';
+import { getIngredients } from '../../redux/filters/filters-operation';
 import { DrinkIngredientItem } from '../DrinkIngredientItem/DrinkIngredientItem';
 import {
   IngredientsTitle,
   IngredientsList,
 } from './DrinkIngredientsList.styled';
 
-// import {
-//   selectContacts,
-//   selectVisibleContacts,
-// } from 'redux/contacts/selectors';
-// import { useSelector } from 'react-redux';
-
 export const DrinkIngredientsList = ({ ingredients }) => {
-  //   const contacts = useSelector(selectContacts);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getIngredients());
+  }, [dispatch]);
+
+  const ingredientsWithImages = useSelector(selectIngredients);
 
   return (
     <div>
       <IngredientsTitle>Ingredients</IngredientsTitle>
-      <IngredientsList>
-        {ingredients.map((ingredient) => (
-          <div key={ingredient.ingredientId.$oid}>
-            <DrinkIngredientItem
-              id={ingredient.ingredientId.$oid}
-              title={ingredient.title}
-              measure={ingredient.measure}
-            />
-          </div>
-        ))}
-      </IngredientsList>
+      {ingredientsWithImages.length && (
+        <IngredientsList>
+          {ingredients.map((ingredient) => {
+            const ingredientRec = ingredientsWithImages.find(
+              (ii) => ii._id === ingredient.ingredientId,
+            );
+
+            const images = {
+              ingredientThumb: '',
+              ['thumb-medium']: '',
+              ['thumb-small']: '',
+            };
+
+            if (ingredientRec) {
+              images.ingredientThumb = ingredientRec.ingredientThumb;
+              images['thumb-medium'] = ingredientRec['thumb-medium'];
+              images['thumb-small'] = ingredientRec['thumb-small'];
+            }
+
+            // console.log({ ingredient, ingredientRec, ingredientsWithImages });
+
+            return (
+              <div key={ingredient.ingredientId}>
+                <DrinkIngredientItem
+                  id={ingredient.ingredientId}
+                  title={ingredient.title}
+                  measure={ingredient.measure}
+                  images={images}
+                />
+              </div>
+            );
+          })}
+        </IngredientsList>
+      )}
     </div>
   );
 };
