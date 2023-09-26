@@ -1,11 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getCategories, getIngridients, getGlasses } from './filters-operation';
+import { getCategories, getIngredients, getGlasses } from './filters-operation';
 import { hanlePending, handleRejected } from '../handlers';
 
 const initialState = {
   searchQuery: '',
   categories: [],
-  ingridients: [],
+  ingredients: [],
   glasses: [],
   isLoading: false,
   error: null,
@@ -36,15 +36,15 @@ const filterSlice = createSlice({
         state.error = null;
       })
       .addCase(getCategories.rejected, handleRejected)
-      .addCase(getIngridients.pending, handleRejected)
-      .addCase(getIngridients.fulfilled, (state, action) => {
-        state.drinks = action.payload;
+      .addCase(getIngredients.pending, hanlePending)
+      .addCase(getIngredients.fulfilled, (state, action) => {
+        state.ingredients = action.payload;
         state.isLoading = false;
       })
-      .addCase(getIngridients.rejected, handleRejected)
+      .addCase(getIngredients.rejected, handleRejected)
       .addCase(getGlasses.pending, hanlePending)
       .addCase(getGlasses.fulfilled, (state, action) => {
-        state.drinks = action.payload;
+        state.glasses = action.payload;
         state.isLoading = false;
         state.error = null;
       })

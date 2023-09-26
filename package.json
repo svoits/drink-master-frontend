@@ -13,7 +13,7 @@
   "dependencies": {
     "@mui/material": "^5.14.10",
     "@reduxjs/toolkit": "^1.9.5",
-    "@vitejs/plugin-react-swc": "^3.3.2",
+    "@vitejs/plugin-react-swc": "^3.4.0",
     "axios": "^1.5.0",
     "date-fns": "^2.30.0",
     "formik": "^2.4.5",

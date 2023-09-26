@@ -1,4 +1,4 @@
-export const selectSearchQuery = (state) => state.filter.searchQuery;
-export const selectCategories = (state) => state.filter.categories;
-export const selectIngridients = (state) => state.filter.ingridients;
-export const selectGlasses = (state) => state.filter.glasses;
+export const selectSearchQuery = (state) => state.filters.searchQuery;
+export const selectCategories = (state) => state.filters.categories;
+export const selectIngredients = (state) => state.filters.ingredients;
+export const selectGlasses = (state) => state.filters.glasses;

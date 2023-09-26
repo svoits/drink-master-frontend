@@ -6,7 +6,7 @@ export const getCategories = createAsyncThunk(
   'filters/getCategories',
   async (data, thunkAPI) => {
     try {
-      const response = await axios.get('/categories', data);
+      const response = await axios.get('api/filters/categories', data);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -14,11 +14,11 @@ export const getCategories = createAsyncThunk(
   },
 );
 
-export const getIngridients = createAsyncThunk(
-  'filters/getIngridients',
+export const getIngredients = createAsyncThunk(
+  'filters/getIngredients',
   async (data, thunkAPI) => {
     try {
-      const response = await axios.get('/ingridients', data);
+      const response = await axios.get('api/filters/ingredients', data);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

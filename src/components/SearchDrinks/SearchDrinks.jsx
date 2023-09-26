@@ -1,83 +1,84 @@
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
+// import { useFilter } from '../../hooks/useFilter';
+// import { allIngredients } from '../../hooks/useFilter';
+
 import { getCategories } from '../../redux/filters/filters-operation';
-// import {  getIngridients } from '../../redux/filters/filters-operation';
+import { getIngredients } from '../../redux/filters/filters-operation';
 import {
   selectCategories,
   // selectError,
-  // selectIngridients,
+  selectIngredients,
 } from '../../redux/filters/selectors';
 
-import { Formik, Field, ErrorMessage } from 'formik';
+import { Formik } from 'formik';
+// import { ErrorMessage } from 'formik';
+
 // import Select from 'react-select';
 import * as Yup from 'yup';
-
+// import styled from 'styled-components';
 import {
   SearchDrinksForm,
+  SearchDrinksInput,
   SearchDrinksField,
   SearchDrinksOption,
 } from './SearchDrinks.styled';
-import { styled } from 'styled-components';
-
-const categorys = [
-  { id: '1', category: 'Ordinary Drink' },
-  { id: '2', category: 'Cocktail' },
-  { id: '3', category: 'Shake' },
-  { id: '4', category: 'Other/Unknown' },
-  { id: '5', category: 'Cocoa' },
-  { id: '6', category: 'Shot' },
-  { id: '7', category: 'Coffee/Tea' },
-  { id: '8', category: 'Homemade Liqueur' },
-  { id: '9', category: 'Punch/Party Drink' },
-  { id: '10', category: 'Beer' },
-  { id: '11', category: 'Soft Drink' },
-];
 
 const initialValues = {
-  name: '',
+  searchQuery: '',
   category: '',
+  ingredient: '',
 };
 const validationSchema = Yup.object({
-  category: Yup.string().required('Please select a category').oneOf(categorys),
+  // category: Yup.string().required('Please select a category').oneOf(category),
+  // ingredient: Yup.string().required('Please select a category').oneOf(ingredient),
+  category: Yup.string().required('Please select a category'),
+  ingredient: Yup.string().required('Please select a category'),
 });
 
-const ErrorText = styled.p`
-  color: red;
-`;
+// const ErrorText = styled.p`
+//   color: red;
+// `;
 
-const FormError = ({ name }) => {
-  return (
-    <ErrorMessage
-      name={name}
-      render={(message) => <ErrorText>{message}</ErrorText>}
-    />
-  );
-};
+// const FormError = ({ name }) => {
+//   return (
+//     <ErrorMessage
+//       name={name}
+//       render={(message) => <ErrorText>{message}</ErrorText>}
+//     />
+//   );
+// };
 
 export const SearchDrinks = () => {
   const dispatch = useDispatch();
 
-  // getting a list of contacts from the state
+  // const ingredients = useFilter();
+
   const categories = useSelector(selectCategories);
-  // const ingridient = useSelector(selectIngridients);
-  // getting isLoading value from the state
+  // console.log(categories);
+
+  const ingredients = useSelector(selectIngredients);
+  // console.log(ingredients);
   // const isLoading = useSelector(selectIsLoading);
-  // getting error value from the state
+
   // const error = useSelector(selectError);
+
   useEffect(() => {
     dispatch(getCategories());
+    dispatch(getIngredients());
   }, [dispatch]);
+
   //   // Отримуємо значення фільтру зі стану
   //   const filter = useSelector(selectFilter);
 
-  //   const dispatch = useDispatch();
   //   // Зміна значення фільтру
   //   const handleFilterChange = event => {
   //     dispatch(setFilter(event.target.value));
 
-  const handleSubmit = (values, { resetForm }) => {
+  const handleSubmit = (values, action) => {
     console.log(values);
-    resetForm();
+    action.resetForm();
   };
   return (
     <Formik
@@ -85,30 +86,45 @@ export const SearchDrinks = () => {
       validationSchema={validationSchema}
       onSubmit={handleSubmit}
     >
-      <SearchDrinksForm>
-        {/* <Select category={categorys} /> */}
+      <SearchDrinksForm autoComplete="off">
         <div>
           <label htmlFor="name">
-            <Field name="name" type="text" />
-            <FormError name="name" />
-            {/* <input type="text" value={value} onChange={onChange} /> */}
+            <SearchDrinksInput name="searchQuery" type="text" placeholder="Enter the text" />
+            {/* <button type="submit">submit</button> */}
+            {/* <FormError name="name" /> */}
           </label>
+        </div>
+        <div>
+          <label htmlFor="category"></label>
+          <div>
+            {categories.length > 0 && (
+              <SearchDrinksField name="categories" as="select">
+                <option value="">All categories</option>
+                {categories.map((category) => (
+                  <SearchDrinksOption value={category} key={category}>
+                    {category}
+                  </SearchDrinksOption>
+                ))}
+              </SearchDrinksField>
+            )}
+          </div>
         </div>
 
         <div>
-          <label htmlFor="categoty"></label>
+          <label htmlFor="ingredient"></label>
           <div>
-            <SearchDrinksField name="categoty" as="select">
-              <option value="">All categories</option>
-              {categories.map(({ id, category }) => (
-                <SearchDrinksOption value={category} key={id}>
-                  {category}
-                </SearchDrinksOption>
-              ))}
-            </SearchDrinksField>
+            {ingredients.length > 0 && (
+              <SearchDrinksField name="ingredients" as="select">
+                <option value="">Ingredients</option>
+                {ingredients.map(({ _id, title }) => (
+                  <SearchDrinksOption value={title} key={_id}>
+                    {title}
+                  </SearchDrinksOption>
+                ))}
+              </SearchDrinksField>
+            )}
           </div>
         </div>
-        <button type="submit">submit</button>
       </SearchDrinksForm>
     </Formik>
   );

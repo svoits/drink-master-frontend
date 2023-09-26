@@ -14,10 +14,11 @@ import {
 import { hanlePending, handleRejected } from '../handlers';
 
 const initialState = {
-  // searchQuery: '',
+  searchQuery: '',
   drinks: [],
   isLoading: false,
   error: null,
+  total: 0,
 };
 
 const drinksSlice = createSlice({
@@ -43,9 +44,10 @@ const drinksSlice = createSlice({
         state.isLoading = false;
         state.error = null;
       })
-      .addCase(getRequestedDrink.pending, handleRejected)
+      .addCase(getRequestedDrink.pending, hanlePending)
       .addCase(getRequestedDrink.fulfilled, (state, action) => {
-        state.drinks = action.payload;
+        state.drinks = action.payload.drinks;
+        // state.total = action.payload;
         // state.searchQuery = action.payload;
         state.isLoading = false;
       })

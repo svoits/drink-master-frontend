@@ -45,7 +45,7 @@ export const getRequestedDrink = createAsyncThunk(
   'drinks/search',
   async (data, thunkAPI) => {
     try {
-      const response = await axios.get('/search', { data });
+      const response = await axios.get('api/drinks/search', {data});
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
