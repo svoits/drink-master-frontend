@@ -5,10 +5,6 @@ import { HomeDrinksLIST } from '../HomeDrinksList/HomeDrinksList.styled';
 export const DrinksCategory = () => {
   const { mainPageDrinks } = useDrink();
 
-  console.log('DrinksCategory =>', mainPageDrinks);
-
-  console.log(mainPageDrinks);
-
   return (
     <>
       {Object.keys(mainPageDrinks).length > 0 &&

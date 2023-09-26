@@ -12,12 +12,8 @@ export default function HomePage() {
   // const { isLoggedIn } = useAuth();
   const { isLoading, error } = useDrink();
 
-
-
   useEffect(() => {
-    console.log('HomePage');
     dispatch(getMainPageAllDrinks());
-
   }, [dispatch]);
 
   return (
