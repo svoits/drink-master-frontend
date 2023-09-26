@@ -1,4 +1,4 @@
-import{s as e,N as o,u as p,l as d,j as i,I as a}from"./index-b846ff88.js";import{a as x}from"./drinks-selectors-571ed20b.js";import{P as c}from"./PageTitle-c994deaf.js";const l=e.ul`
+import{b as e,N as o,a as p,u as d,j as i,r as a}from"./index-1a7ac950.js";import{a as x}from"./drinks-selectors-571ed20b.js";import{P as c}from"./PageTitle-e43efe82.js";const l=e.ul`
   display: grid;
   grid-template-columns: repeat(1, 335px);
   justify-content: center;
@@ -93,4 +93,4 @@ import{s as e,N as o,u as p,l as d,j as i,I as a}from"./index-b846ff88.js";impor
   @media screen and (min-width: 1440px){
     width: calc((400px * 3) + 40px);
   }
-`;function I(){return i.jsxs(j,{children:[i.jsx(c,{title:"My Drinks"}),i.jsx(f,{})]})}export{I as default};
+`;function P(){return i.jsxs(j,{children:[i.jsx(c,{title:"My Drinks"}),i.jsx(f,{})]})}export{P as default};
