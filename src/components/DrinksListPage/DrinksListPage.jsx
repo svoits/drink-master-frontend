@@ -24,9 +24,9 @@ export const DrinksListPage = () => {
   const dispatch = useDispatch();
   const { drinks } = useDrink();
 
-  const  total  = useDrink();
+  // const  {total}  = useDrink();
 
-  console.log(total);
+  // console.log(total);
 
   // const {drinks, total} = drinks;
   // const { drinks  } = useDrink();

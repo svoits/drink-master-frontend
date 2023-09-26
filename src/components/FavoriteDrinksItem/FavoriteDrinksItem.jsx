@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { removeDrink } from '../../redux/drinks/drinks-operations';
-import DefoltImg from '../../images/recipeDefaultPhoto/recipe-default-desktop.jpg';
+import DefaultImg from '../../images/recipeDefaultPhoto/recipe-default-desktop.jpg';
 
 export default function FavoriteDrinksItem({ drink }) {
   const dispatch = useDispatch();
@@ -13,16 +13,16 @@ export default function FavoriteDrinksItem({ drink }) {
     drinkThumb: image,
     description,
   } = drink;
-  console.log(drink);
+
   const handleRemoveFromFavorites = () => {
     dispatch(removeDrink(_id));
   };
 
   return (
     <div>
-      <img src={image || DefoltImg} alt={title} />
+      <img src={image || DefaultImg} alt={title} />
       <h2>{title}</h2>
-      <p>{alcoholic ? 'Аlcoholic' : 'NonAlcoholic'}</p>
+      <p>{alcoholic ? 'Alcoholic' : 'NonAlcoholic'}</p>
       <p>{description}</p>
       <Link to={`/drink/${_id}`}>See More</Link>
       <button onClick={handleRemoveFromFavorites}>Delete</button>

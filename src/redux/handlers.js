@@ -1,4 +1,4 @@
-export const hanlePending = (state) => {
+export const handlePending = (state) => {
   state.isLoading = true;
 };
 

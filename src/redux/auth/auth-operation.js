@@ -4,7 +4,6 @@ axios.defaults.baseURL = 'https://drink-master-api.onrender.com';
 
 const setAuthHeader = (token) => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-
 };
 
 const clearAuthHeader = () => {
@@ -16,9 +15,9 @@ export const signUp = createAsyncThunk(
   async (credentials, thunkAPI) => {
     try {
       const response = await axios.post('/auth/signup', credentials);
-      console.log(response.data);
+
       setAuthHeader(response.data.token);
-      // console.log(response.data.token);
+
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -31,8 +30,7 @@ export const signIn = createAsyncThunk(
     try {
       const response = await axios.post('/auth/signin', credentials);
       setAuthHeader(response.data.token);
-      // console.log(response.data);
-      // console.log(response.data.token);
+
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -83,7 +81,7 @@ export const currentUser = createAsyncThunk(
 
     try {
       const res = await axios.get('/users/current');
-      console.log(res);
+
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -107,7 +105,6 @@ export const updateUser = createAsyncThunk(
 export const subscribeDrinks = createAsyncThunk(
   'auth/subscribe',
   async (data, thunkAPI) => {
-    console.log(data);
     try {
       await axios.post('/users/subscribe', data);
       //після цього має відображатись нотифікація, що юзер підписаний
