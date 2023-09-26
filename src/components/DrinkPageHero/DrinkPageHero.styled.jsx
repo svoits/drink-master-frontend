@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import transition from '../../utils/transition';
 
 export const DrinkTitle = styled.h1`
   color: ${({ theme }) => theme.mainText};
@@ -66,6 +67,24 @@ export const AddToFavoriteButton = styled.button`
   border-radius: 42px;
   border: 1px solid transparent;
   cursor: pointer;
+  transition:
+    color ${transition},
+    background-color ${transition};
+
+  &:active {
+    border: 2px solid rgba(64, 112, 205, 0.5);
+  }
+
+  &:hover,
+  &:focus {
+    color: ${({ theme }) => theme.activeNavLinkText};
+    background: ${({ theme }) => theme.activeNavLinkBg};
+  }
+
+  &:disabled {
+    color: ${({ theme }) => theme.navLinkBorder};
+    background: #434d67;
+  }
 
   @media screen and (min-width: 768px) {
     width: 250px;

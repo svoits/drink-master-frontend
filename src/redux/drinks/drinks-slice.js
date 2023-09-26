@@ -62,10 +62,10 @@ const drinksSlice = createSlice({
       .addCase(removeDrink.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        const index = state.favoriteDrinks.result.findIndex(
+        const index = state.favoriteDrinks.findIndex(
           (drink) => drink._id === action.payload.result._id,
         );
-        state.favoriteDrinks.result.splice(index, 1);
+        state.favoriteDrinks.splice(index, 1);
       })
       .addCase(removeDrink.rejected, handleRejected)
       .addCase(removeOwnDrink.pending, hanlePending)
@@ -83,14 +83,14 @@ const drinksSlice = createSlice({
       .addCase(getOwnDrinks.rejected, handleRejected)
       .addCase(addDrinkToFavorite.pending, hanlePending)
       .addCase(addDrinkToFavorite.fulfilled, (state, action) => {
-        state.favoriteDrinks.result.push(action.payload.result);
+        state.favoriteDrinks.push(action.payload.result);
         state.isLoading = false;
         state.error = null;
       })
       .addCase(addDrinkToFavorite.rejected, handleRejected)
       .addCase(getFavoriteAll.pending, hanlePending)
       .addCase(getFavoriteAll.fulfilled, (state, action) => {
-        state.favoriteDrinks = action.payload;
+        state.favoriteDrinks = action.payload.drinks;
         state.isLoading = false;
         state.error = null;
       })

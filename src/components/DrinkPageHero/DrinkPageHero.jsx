@@ -7,7 +7,7 @@ import {
   getFavoriteAll,
 } from '../../redux/drinks/drinks-operations';
 import { selectFavoriteDrinks } from '../../redux/drinks/drinks-selectors';
-import StubPhoto from '../../images/stub.svg';
+import StubPhoto from '../../assets/stub.svg';
 import {
   DrinkTitle,
   DrinkSubTitle,
@@ -61,7 +61,7 @@ export const DrinkPageHero = ({
               </AddToFavoriteButton>
             ) : (
               <AddToFavoriteButton onClick={() => dispatch(removeDrink(id))}>
-                Delete from favorite drinks
+                Remove from favorite drinks
               </AddToFavoriteButton>
             )}
           </DrinkDescriptionWrapper>
