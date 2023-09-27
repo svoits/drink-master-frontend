@@ -44,11 +44,11 @@ const drinksSlice = createSlice({
       })
       .addCase(getPopularDrinks.pending, handlePending)
       .addCase(getPopularDrinks.fulfilled, (state, action) => {
-        state.drinks = action.payload;
+        state.popularDrinks = action.payload;
         state.isLoading = false;
         state.error = null;
       })
-      .addCase(getPopularDrinks.rejected, handleRejected)
+      .addCase(getPopularDrinks.rejected, handleRejected)      
       .addCase(getRequestedDrink.pending, handlePending)
       .addCase(getRequestedDrink.fulfilled, (state, action) => {
         state.drinks = action.payload.drinks;
