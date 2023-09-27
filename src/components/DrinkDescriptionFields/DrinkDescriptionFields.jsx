@@ -102,7 +102,6 @@ const DrinkDescriptionFields = () => {
                         </Field>
                     </label>
 
-                    {/* <Select name='glasses' options={glasses} /> */}
                     <label htmlFor='glasses'>
                         <Field name='glasses'>
                             {({ field, form }) => (
@@ -148,34 +147,3 @@ const DrinkDescriptionFields = () => {
 };
 
 export default DrinkDescriptionFields;
-
-
-{/* <label htmlFor='ingredients'>
-<Field name='ingredients'>
-    {({ field, form }) => (
-        <Select 
-        closeMenuOnSelect={true}
-        components={animatedComponents}
-        isMulti
-        isClearable={true}
-            classNames={{
-                control: (state) =>
-                state.isFocused ? 'border-orange-600' : 'border-grey-300',
-            }}
-            options={ingredients.map(ingredient => ({ value: ingredient.title, label: ingredient.title}))}
-            name={field.name}
-            id="ingredients"
-            {...field}
-            value={selectedIngredient ? { value: selectedIngredient, label: selectedIngredient } : null}
-            onChange={(selectedOption) => {
-                setSelectedIngredient(selectedOption ? selectedOption.value : null);
-                form.setFieldValue('ingredients', selectedOption ? selectedOption.value : null)
-            }
-            }
-            placeholder='Ingredients'
-        />
-    )}
-</Field>
-</label> 
-
-    const [selectedIngredient, setSelectedIngredient] = useState(null);*/}
