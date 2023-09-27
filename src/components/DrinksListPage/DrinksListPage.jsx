@@ -36,9 +36,9 @@ export const DrinksListPage = () => {
   // const { drinks, isLoading, error } = useSelector(selectDrinks);
   // const { drinks } = useSelector(selectDrinks);
 
-  useEffect(() => {
-    dispatch(getRequestedDrink());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(getRequestedDrink());
+  // }, [dispatch]);
 
   return (
     <>
