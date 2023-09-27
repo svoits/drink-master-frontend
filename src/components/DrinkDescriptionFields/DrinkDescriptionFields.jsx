@@ -1,9 +1,10 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import Select from 'react-select';
+import makeAnimated from 'react-select/animated';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
-import { getCategories, getIngredients } from '../../redux/filters/filters-operation';
+import { getCategories, getGlasses } from '../../redux/filters/filters-operation';
 
 const validationSchema = Yup.object().shape({
     photo: Yup.string()
@@ -21,9 +22,8 @@ const validationSchema = Yup.object().shape({
     category: Yup.string()
       .required('Cocktail category is a required field'),
   
-    ingredients: Yup.array()
-      .of(Yup.string().required('Cocktail ingredients are mandatory fields'))
-      .min(1, 'Add at least one ingredient'),
+    glasses: Yup.string()
+    .required('Cocktail glasses is a required field'),
     textareaRecipe: Yup.string()
       .min(100, 'You need to add a description of at least 100 symbols')
   });
@@ -33,19 +33,23 @@ const initialValues = {
     title: '',
     recipe: '',
     category: '',
-    ingredients: [],
+    glasses: [],
     textareaRecipe: '',
 };
 
+const animatedComponents = makeAnimated();
+
 const DrinkDescriptionFields = () => {
     const dispatch = useDispatch();
-    const categories = useSelector((state) => state.filter.categories);
-    const ingredients = useSelector((state) => state.filter.ingredients);
+    const categories = useSelector((state) => state.filters.categories);
+    const glasses = useSelector((state) => state.filters.glasses);
     const [imagePreview, setImagePreview] = useState(null);
+    const [selectedCategory, setSelectedCategory] = useState(null);
+    const [selectedGlass, setSelectedGlass] = useState(null);
 
     useEffect(() => {
         dispatch(getCategories());
-        dispatch(getIngredients());
+        dispatch(getGlasses());
     }, [dispatch]);
 
     const handleImageChange = (evt) => {
@@ -73,8 +77,57 @@ const DrinkDescriptionFields = () => {
                     <Field name="recipe" placeholder="Enter about recipe" />
                     <ErrorMessage name="recipe" component="div" />
 
-                    <Select name='category' options={categories} />
-                    <Select name='ingredients' options={ingredients} />
+                    <label htmlFor='category'>
+                        <Field name='category'>
+                            {({ field, form }) => (
+                                <Select
+                                closeMenuOnSelect={true}
+                                isClearable={true}
+                                classNames={{
+                                    control: (state) =>
+                                        state.isFocused ? 'border-orange-600' : 'border-grey-300',
+                                }}
+                                options={categories.map((category) => ({ value: category, label: category }))}
+                                name={field.name}
+                                id='categories'
+                                {...field}
+                                value={selectedCategory ? { value: selectedCategory, label: selectedCategory } : null}
+                                onChange={(selectedOption) => {
+                                    setSelectedCategory(selectedOption ? selectedOption.value : null);
+                                    form.setFieldValue('categories', selectedOption ? selectedOption.value : null);
+                                }}
+                                placeholder="Category"
+                            />
+                            )}
+                        </Field>
+                    </label>
+
+                    {/* <Select name='glasses' options={glasses} /> */}
+                    <label htmlFor='glasses'>
+                        <Field name='glasses'>
+                            {({ field, form }) => (
+                                <Select 
+                                    closeMenuOnSelect={true}
+                                    components={animatedComponents}
+                                    isClearable={true}
+                                    classNames={{
+                                        control: (state) =>
+                                        state.isFocused ? 'border-orange-600' : 'border-grey-300',
+                                    }}
+                                    options={glasses.map((glass) => ({ value: glass, label: glass}))}
+                                    name={field.name}
+                                    id="glasses"
+                                    {...field}
+                                    value={selectedGlass ? { value: selectedGlass, label: selectedGlass } : null}
+                                    onChange={(selectedOption) => {
+                                        setSelectedGlass(selectedOption ? selectedOption.value : null);
+                                        form.setFieldValue('glasses', selectedOption ? selectedOption.value : null)
+                                    }}
+                                    placeholder='Glasses'
+                                />
+                            )}
+                        </Field>
+                    </label>
 
                     <div>
                         <label>
@@ -95,3 +148,34 @@ const DrinkDescriptionFields = () => {
 };
 
 export default DrinkDescriptionFields;
+
+
+{/* <label htmlFor='ingredients'>
+<Field name='ingredients'>
+    {({ field, form }) => (
+        <Select 
+        closeMenuOnSelect={true}
+        components={animatedComponents}
+        isMulti
+        isClearable={true}
+            classNames={{
+                control: (state) =>
+                state.isFocused ? 'border-orange-600' : 'border-grey-300',
+            }}
+            options={ingredients.map(ingredient => ({ value: ingredient.title, label: ingredient.title}))}
+            name={field.name}
+            id="ingredients"
+            {...field}
+            value={selectedIngredient ? { value: selectedIngredient, label: selectedIngredient } : null}
+            onChange={(selectedOption) => {
+                setSelectedIngredient(selectedOption ? selectedOption.value : null);
+                form.setFieldValue('ingredients', selectedOption ? selectedOption.value : null)
+            }
+            }
+            placeholder='Ingredients'
+        />
+    )}
+</Field>
+</label> 
+
+    const [selectedIngredient, setSelectedIngredient] = useState(null);*/}
