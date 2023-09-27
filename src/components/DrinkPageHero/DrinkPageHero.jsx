@@ -10,6 +10,7 @@ import {
   getFavoriteAll,
 } from '../../redux/drinks/drinks-operations';
 import { selectFavoriteDrinks } from '../../redux/drinks/drinks-selectors';
+import StubPhoto from '../../assets/stub.svg';
 import {
   DrinkTitle,
   DrinkSubTitle,
@@ -57,6 +58,8 @@ export const DrinkPageHero = ({
       return favoriteDrinksList.find((drink) => drink._id === id);
     }
   };
+
+  const imgUrl = imgPath ? `${imgPath}` : StubPhoto;
 
   return (
     <>
