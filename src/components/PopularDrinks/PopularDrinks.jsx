@@ -1,36 +1,35 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-// import { getPopularDrinks } from '../../redux/drinks/drinks-slice';
+import { getPopularDrinks } from "../../redux/drinks/drinks-operations";
+import { selectDrinks } from "../../redux/drinks/drinks-selectors";
+
 import Loader from '../Loader/Loader';
 
 
 const PopularDrinks = () => {
     const dispatch = useDispatch();
-    const popularList = useSelector(state => state.drinks.drinks.popular);
+    const popularList = useSelector(state => state.drinks.popularDrinks);
+    const { isLoading, error } = useSelector(selectDrinks);
 
     useEffect(() => {
-        dispatch();
-    });
+        dispatch(getPopularDrinks());
+    }, [dispatch]);
 
     return (
         <div>
-            {popularList.isLoading ? (
-                <Loader />
-            ) : popularList.error ? (
-                <p>{popularList.error}</p>
-            ) : (
-                <ul>
-                    {popularList.items.map(drink => (
-                        <li key={drink.id}>
-                            <a href={`/drink/${drink.id}`}>
-                                <img src={drink.drinkThumb} alt={drink.drink} />
-                                <h3>{drink.drink}</h3>
-                                <p>{drink.shortDescription}</p>
-                            </a>
-                        </li>
-                    ))}
-                </ul>
-            )}
+            {isLoading && <Loader />}
+            {error && <p>Sorry. There are no images ... 😭</p>}
+            <ul>
+                {popularList.map(({ _id, drinkThumb, drink, shortDescription }) => (
+                    <li key={_id}>
+                        <a href={`/api/drinks/popular/${_id}`}>
+                            <img src={drinkThumb} alt={drink} />
+                            <h3>{drink}</h3>
+                            <p>{shortDescription}</p>
+                        </a>
+                    </li>
+                ))}
+            </ul>
         </div>
     )
 };
