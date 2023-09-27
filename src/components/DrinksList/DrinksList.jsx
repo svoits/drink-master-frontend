@@ -17,6 +17,7 @@ import {
   removeOwnDrink,
 } from '../../redux/drinks/drinks-operations';
 import { useDrink } from '../../redux/hooks/useDrink';
+import {ReactComponent as RemoveIcon} from '../../images/icons/removeIcon.svg'
 
 export const DrinksList = () => {
   const dispatch = useDispatch();
@@ -34,11 +35,10 @@ export const DrinksList = () => {
 
   return (
     <MyDrinksList>
-      {isLoading ? (
-        <Loader />
-      ) : drinks.drinks && drinks.drinks.length > 0 ? (
-        drinks.drinks.map(
-          ({ _id, drinkThumb, drink, category, description }) => (
+      {isLoading ?
+        <Loader /> :
+        drinks.length > 0 ?
+          drinks.map(({_id, drinkThumb, drink, category, description}) => (
             <DrinkListItem key={_id}>
               <DrinkIMG src={drinkThumb} />
               <DrinkTITLE> {drink} </DrinkTITLE>
@@ -47,18 +47,18 @@ export const DrinksList = () => {
               <ButtonsWRAPPER>
                 <DrinkPageLINK to={`/drinks/${_id}`}>See more</DrinkPageLINK>
                 <DeleteDrinkBTN onClick={() => handleDeleteDrink(_id)}>
-                  x
+                  <RemoveIcon width="18" height="22" />
                 </DeleteDrinkBTN>
               </ButtonsWRAPPER>
             </DrinkListItem>
-          ),
-        )
-      ) : drinks.drinks !== null ? (
-        <p>
-          You have no own drinks left or reached the end of your Drink List, try
-          to set more own drinks...
-        </p>
-      ) : null}
-    </MyDrinksList>
+          )) :
+          drinks.length === 0 ?
+            (<p>You have no own drinks left or reached the end of your Drink List,
+              try to set more own drinks...
+            </p>) :
+            null
+      }
+      {error && <p>{ error }</p>}
+    </MyDrinksList>    
   );
 };
