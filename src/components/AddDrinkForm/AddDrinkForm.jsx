@@ -1,4 +1,5 @@
 import DrinkDescriptionFields from "../DrinkDescriptionFields/DrinkDescriptionFields";
+import RecipePreparationText from "../RecipePreparationText/RecipePreparationText";
 
 
 const AddDrinkForm = () => {
@@ -6,6 +7,7 @@ const AddDrinkForm = () => {
     return (
         <>
             <DrinkDescriptionFields />
+            <RecipePreparationText />
         </>
 
     )
