@@ -10,6 +10,7 @@ import {
   ButtonsWRAPPER,
   SeeMoreBtn,
   DeleteBtn,
+  TrashIcon,
 } from './FavoriteDrinksItem.styled';
 
 export default function FavoriteDrinksItem({ drink }) {
@@ -35,7 +36,10 @@ export default function FavoriteDrinksItem({ drink }) {
       <StyledDescr>{description}</StyledDescr>
       <ButtonsWRAPPER>
         <SeeMoreBtn to={`/drinks/${_id}`}>See More</SeeMoreBtn>
-        <DeleteBtn onClick={handleRemoveFromFavorites}>Delete</DeleteBtn>
+        <DeleteBtn onClick={handleRemoveFromFavorites}>
+          {' '}
+          <TrashIcon />
+        </DeleteBtn>
       </ButtonsWRAPPER>
     </StyledItem>
   );

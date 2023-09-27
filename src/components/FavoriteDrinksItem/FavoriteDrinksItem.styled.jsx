@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
+import { FiTrash2 } from 'react-icons/fi';
 
 export const StyledItem = styled.li`
   width: 335px;
@@ -120,8 +121,8 @@ export const SeeMoreBtn = styled(NavLink)`
     color 400ms ease;
 
   &:hover {
-    background-color: var(--text-btn-color);
-    color: var(--accent-color);
+    background-color: #f3f3f3;
+    color: #161f37;
   }
 
   @media (min-width: 768px) {
@@ -130,6 +131,43 @@ export const SeeMoreBtn = styled(NavLink)`
     line-height: calc(18 / 16);
   }
 `;
+// export const DeleteBtn = styled.button`
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   width: 46px;
+//   height: 46px;
+//   border-radius: 40px;
+//   border: none;
+//   background-color: #161f37;
+//   transition: background-color 0.3s ease;
+//   margin-left: 8px;
+
+//   @media (min-width: 768px) {
+//     width: 54px;
+//     height: 54px;
+//   }
+
+//   &:hover,
+//   &:active {
+//     background-color: #f3f3f3;
+//   }
+
+//   &:hover svg,
+//   &:active svg {
+//     stroke: #161f37;
+//     fill: #f3f3f3;
+//   }
+// `;
+// export const TrashIcon = styled(FiTrash2)`
+//   fill: ${({ theme }) => theme.mainText} (колір)
+//   width: 18px;
+//   height: 18px;
+//   @media screen and (min-width: 768px) {
+//     width: 20px;
+//     height: 20px;
+//   }`;
+
 export const DeleteBtn = styled.button`
   display: flex;
   justify-content: center;
@@ -152,9 +190,21 @@ export const DeleteBtn = styled.button`
     background-color: #f3f3f3;
   }
 
-  &:hover svg,
-  &:active svg {
-    stroke: #161f37;
-    fill: #f3f3f3;
+  ${FiTrash2} {
+    color: #f3f3f3;
+  }
+
+  &:hover ${FiTrash2}, &:active ${FiTrash2} {
+    color: #161f37;
+  }
+`;
+export const TrashIcon = styled(FiTrash2)`
+  fill: ${({ theme }) => theme.mainText};
+  width: 18px;
+  height: 18px;
+
+  @media screen and (min-width: 768px) {
+    width: 20px;
+    height: 20px;
   }
 `;
