@@ -6,7 +6,7 @@ export const Link = styled(NavLink)`
   background-color: transparent;
   border-radius: 42px;
   padding: 14px 40px;
-  color: ${({ theme }) => theme.mainText};
+  color: #f3f3f3;
   font-size: 14px;
   font-weight: 600;
   line-height: 1.28;
@@ -14,8 +14,8 @@ export const Link = styled(NavLink)`
   transition: border-color ${transition};
 
   &:hover {
-    background-color: ${({ theme }) => theme.mainText};
-    color: #161f37;
+    background-color: ${({ theme }) => theme.hoverBackgroundColorLink};
+    color: ${({ theme }) => theme.colorTextBtn};
     transition: background-color ${transition};
   }
 

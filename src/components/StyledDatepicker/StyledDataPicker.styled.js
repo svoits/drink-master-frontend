@@ -3,7 +3,7 @@ import styled, { css, createGlobalStyle } from 'styled-components';
 import transition from '../../utils/transition';
 
 export const StyledCalendarIcon = styled(AiOutlineCalendar)`
-  fill: ${({ theme }) => theme.mainText};
+  fill: #f3f3f3;
   width: 18px;
   height: 18px;
   @media screen and (min-width: 768px) {
