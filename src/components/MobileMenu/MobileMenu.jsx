@@ -2,7 +2,7 @@ import { MainContainer, StyledNavLink } from './MobileMenu.styled';
 
 export default function MobileMenu({ isMenuOpen, handleToggleMenu }) {
   return (
-    <MainContainer isopen={isMenuOpen ? 'true' : 'false'}>
+    <MainContainer isopen={isMenuOpen.toString()}>
       <StyledNavLink to="/home" onClick={handleToggleMenu}>
         Home
       </StyledNavLink>
