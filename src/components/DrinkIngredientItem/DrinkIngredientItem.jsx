@@ -8,7 +8,6 @@ import {
   StubPhotoWrapper,
 } from './DrinkIngredientItem.styled';
 import { ReactComponent as StubPhoto } from '../../assets/stub.svg';
-import StubPhoto1 from '../../assets/stub.svg';
 
 export const DrinkIngredientItem = ({ id, title, measure, images }) => {
   // if (images['ingredientThumb'] === '') {
