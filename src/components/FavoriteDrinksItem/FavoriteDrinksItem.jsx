@@ -1,7 +1,17 @@
-import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { removeDrink } from '../../redux/drinks/drinks-operations';
 import DefaultImg from '../../images/recipeDefaultPhoto/recipe-default-desktop.jpg';
+import {
+  StyledItem,
+  StyledImg,
+  StyledName,
+  StyledDescr,
+  StyledType,
+  ButtonsWRAPPER,
+  SeeMoreBtn,
+  DeleteBtn,
+  TrashIcon,
+} from './FavoriteDrinksItem.styled';
 
 export default function FavoriteDrinksItem({ drink }) {
   const dispatch = useDispatch();
@@ -19,13 +29,18 @@ export default function FavoriteDrinksItem({ drink }) {
   };
 
   return (
-    <div>
-      <img src={image || DefaultImg} alt={title} />
-      <h2>{title}</h2>
-      <p>{alcoholic ? 'Alcoholic' : 'NonAlcoholic'}</p>
-      <p>{description}</p>
-      <Link to={`/drink/${_id}`}>See More</Link>
-      <button onClick={handleRemoveFromFavorites}>Delete</button>
-    </div>
+    <StyledItem>
+      <StyledImg src={image || DefaultImg} alt={title} />
+      <StyledName>{title}</StyledName>
+      <StyledType>{alcoholic ? 'Alcoholic' : 'NonAlcoholic'}</StyledType>
+      <StyledDescr>{description}</StyledDescr>
+      <ButtonsWRAPPER>
+        <SeeMoreBtn to={`/drinks/${_id}`}>See More</SeeMoreBtn>
+        <DeleteBtn onClick={handleRemoveFromFavorites}>
+          {' '}
+          <TrashIcon />
+        </DeleteBtn>
+      </ButtonsWRAPPER>
+    </StyledItem>
   );
 }
