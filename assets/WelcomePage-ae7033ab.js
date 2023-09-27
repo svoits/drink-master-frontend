@@ -1,4 +1,4 @@
-import{s as r,t as o,N as t,j as e,C as a}from"./index-5b276998.js";import{S as s,B as c,W as d,a as l,b as p}from"./WelcomePage.styled-7df87e37.js";const i=r(t)`
+import{s as r,t as o,N as t,j as e,C as a}from"./index-fc79be6e.js";import{S as s,B as c,W as d,a as l,b as p}from"./WelcomePage.styled-948f51fd.js";const i=r(t)`
   text-decoration: none;
   background-color: transparent;
   border-radius: 42px;
