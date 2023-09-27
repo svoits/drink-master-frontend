@@ -1,4 +1,5 @@
 import FavoriteDrinksItem from '../FavoriteDrinksItem/FavoriteDrinksItem';
+import { FavoriteList } from './FavoriteDrinkList.styled';
 
 export default function FavoriteDrinkList({ drinks }) {
   return (
@@ -7,11 +8,11 @@ export default function FavoriteDrinkList({ drinks }) {
     //     <FavoriteDrinksItem key={drink._id} drink={drink} />
     //   ))}
     // </div>
-    <div>
+    <FavoriteList>
       {Array.isArray(drinks) &&
         drinks.map((drink) => (
           <FavoriteDrinksItem key={drink._id} drink={drink} />
         ))}
-    </div>
+    </FavoriteList>
   );
 }
