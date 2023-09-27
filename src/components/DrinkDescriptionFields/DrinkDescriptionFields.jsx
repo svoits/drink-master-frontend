@@ -24,8 +24,6 @@ const validationSchema = Yup.object().shape({
   
     glasses: Yup.string()
     .required('Cocktail glasses is a required field'),
-    textareaRecipe: Yup.string()
-      .min(100, 'You need to add a description of at least 100 symbols')
   });
 
 const initialValues = {
@@ -33,8 +31,7 @@ const initialValues = {
     title: '',
     recipe: '',
     category: '',
-    glasses: [],
-    textareaRecipe: '',
+    glasses: '',
 };
 
 const animatedComponents = makeAnimated();
@@ -127,7 +124,6 @@ const DrinkDescriptionFields = () => {
                             )}
                         </Field>
                     </label>
-
                     <div>
                         <label>
                             <Field type="radio" name="strength" value="alcoholic" />
