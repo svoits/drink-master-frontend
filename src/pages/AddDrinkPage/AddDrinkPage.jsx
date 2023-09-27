@@ -1,3 +1,9 @@
+import { PageTitle } from '../../components/PageTitle/PageTitle';
+
 export default function AddDrinkPage() {
-  return <div>AddDrinkPage</div>;
-}
+  return (
+    <div>
+      <PageTitle />
+    </div>
+  )
+};
