@@ -5,7 +5,7 @@ import makeAnimated from 'react-select/animated';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { getCategories, getGlasses } from '../../redux/filters/filters-operation';
-import { AiOutlinePlus } from 'react-icons/ai';
+import { AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai';
 import { PhotoContainer, PhotoField, PhotoPreview } from './DrinkDescriptionFields.styled';
 
 
@@ -35,7 +35,6 @@ const DrinkDescriptionFields = ({ formData, setFormData, handleSubmit }) => {
     const dispatch = useDispatch();
     const categories = useSelector((state) => state.filters.categories);
     const glasses = useSelector((state) => state.filters.glasses);
-    const [image, setImage] = useState(null);
     const [imagePreview, setImagePreview] = useState(null);
     const [isImageSelected, setIsImageSelected] = useState(false);
     const [selectedCategory, setSelectedCategory] = useState(null);
@@ -48,20 +47,25 @@ const DrinkDescriptionFields = ({ formData, setFormData, handleSubmit }) => {
 
     const handleImageChange = (evt) => {
         const file = evt.target.files[0];
-    
+      
         if (file) {
           const imageURL = URL.createObjectURL(file);
-          setImage(file);
+          setFormData({
+            ...formData,
+            photo: file,
+          });
           setImagePreview(imageURL);
-          setIsImageSelected(true);
         }
     };
-
+      
     const handleImageDelete = () => {
-        setImage(null);
+        setFormData({
+          ...formData,
+          photo: null,
+        });
         setImagePreview(null);
         setIsImageSelected(false);
-      };
+    };
 
     return (
         <div>
@@ -79,8 +83,13 @@ const DrinkDescriptionFields = ({ formData, setFormData, handleSubmit }) => {
                         onChange={handleImageChange}
                         style={{ display: 'none' }} 
                         />
-                        <AiOutlinePlus />
-                        <button type='button' >Add image</button>
+                        {isImageSelected ? (
+                        <button type="button" onClick={handleImageDelete}>
+                            <AiOutlineMinus />Delete image
+                            </button>
+                        ) : (
+                            <button type="button"><AiOutlinePlus /> Add image</button>
+                        )}
                         {imagePreview && <PhotoPreview src={imagePreview} alt="Preview" />}
                         <ErrorMessage name="photo" component="div" />
                     </PhotoContainer>
