@@ -1,9 +1,9 @@
-import { useEffect } from 'react';
+// import { useEffect } from 'react';
 import { useDrink } from '../../redux/hooks/useDrink';
-import { useDispatch } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 // import { useSelector } from 'react-redux';
 
-import { getRequestedDrink } from '../../redux/drinks/drinks-operations';
+// import { getRequestedDrink } from '../../redux/drinks/drinks-operations';
 
 // import Loader from 'components/Loader';
 
@@ -16,17 +16,9 @@ import {
   DrinksListPageTEXTDIV,
 } from './DrinksListPage.styled';
 
-// import drink from './drink.json'
 export const DrinksListPage = () => {
-  // const category = "Cocktail";
-  // const ingredient = 'Light rum';
-  // const query = "Milk";
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const { drinks } = useDrink();
-
-  // const  {total}  = useDrink();
-
-  // console.log(total);
 
   // const {drinks, total} = drinks;
   // const { drinks  } = useDrink();
@@ -36,9 +28,9 @@ export const DrinksListPage = () => {
   // const { drinks, isLoading, error } = useSelector(selectDrinks);
   // const { drinks } = useSelector(selectDrinks);
 
-  useEffect(() => {
-    dispatch(getRequestedDrink());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(getRequestedDrink());
+  // }, [dispatch]);
 
   return (
     <>
@@ -64,7 +56,7 @@ export const DrinksListPage = () => {
               <DrinksListPageLink to={`/drinks/${_id}`}>
                 See more
               </DrinksListPageLink>
-              {/* <DrinksListPageButton>See more</DrinksListPageButton> */}
+              
             </DrinksListPageTEXTDIV>
           </DrinksListPageITEM>
         ))}
