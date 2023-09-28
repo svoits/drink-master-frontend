@@ -12,10 +12,13 @@ import { selectIsRefreshing, selectTheme } from './redux/auth/auth-selectors';
 import { currentUser } from './redux/auth/auth-operation';
 import RestrictedRoute from './components/RestrictedRoute';
 import PrivateRoute from './components/PrivateRoute';
+import WelcomePage from './pages/WelcomePage/WelcomePage';
+import SignupPage from './pages/SignupPage/SignupPage';
+import SigninPage from './pages/SigninPage/SigninPage';
 
-const Welcome = lazy(() => import('./pages/WelcomePage/WelcomePage'));
-const Signup = lazy(() => import('./pages/SignupPage/SignupPage'));
-const Signin = lazy(() => import('./pages/SigninPage/SigninPage'));
+// const Welcome = lazy(() => import('./pages/WelcomePage/WelcomePage'));
+// const Signup = lazy(() => import('./pages/SignupPage/SignupPage'));
+// const Signin = lazy(() => import('./pages/SigninPage/SigninPage'));
 
 const Home = lazy(() => import('./pages/HomePage/HomePage'));
 const Drinks = lazy(() => import('./pages/DrinksPage/DrinksPage'));
@@ -41,20 +44,22 @@ function App() {
         <div>Refresh user</div>
       ) : (
         <Routes>
-          <Route path="/" element={<SharedLayout />}>
-            <Route
-              path="welcome"
-              element={<RestrictedRoute component={<Welcome />} />}
-            />
-            <Route
-              path="signup"
-              element={<RestrictedRoute component={<Signup />} />}
-            />
-            <Route
-              path="signin"
-              element={<RestrictedRoute component={<Signin />} />}
-            />
-
+          <Route
+            path="/welcome"
+            element={<RestrictedRoute component={<WelcomePage />} />}
+          />
+          <Route
+            path="/signup"
+            element={<RestrictedRoute component={<SignupPage />} />}
+          />
+          <Route
+            path="/signin"
+            element={<RestrictedRoute component={<SigninPage />} />}
+          />
+          <Route
+            path="/"
+            element={<PrivateRoute component={<SharedLayout />} />}
+          >
             <Route
               path="home"
               element={<PrivateRoute component={<Home />} />}
@@ -88,8 +93,6 @@ function App() {
       <GlobalStyles />
       <ToastContainer autoClose={2000} />
     </ThemeProvider>
-    
-  
   );
 }
 export default App;
