@@ -4,13 +4,11 @@ import {
   WelcomeTitle,
   WelcomeWrap,
   Section,
-
 } from './WelcomePage.styled';
 
 export default function WelcomePage() {
   return (
     <>
-      
       <Section>
         <WelcomeWrap>
           <WelcomeTitle>Welcome to the app!</WelcomeTitle>

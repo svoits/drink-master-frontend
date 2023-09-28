@@ -1,11 +1,12 @@
 import { DrinksList } from '../../components/DrinksList/DrinksList';
-import WelcomePageTitle from '../../components/WelcomePageTitle/WelcomePageTitle';
+import PageTitle from '../../components/PageTitle/PageTitle';
+
 import { Wrapper } from './MyDrinksPage.styled';
 
 export default function MyDrinksPage() {
   return (
     <Wrapper>
-      <WelcomePageTitle title={'My Drinks'} />
+      <PageTitle title={'My Drinks'} />
       {/* {drinks.length > 0 || !isLoading && <DrinksList />} */}
       <DrinksList />
     </Wrapper>
