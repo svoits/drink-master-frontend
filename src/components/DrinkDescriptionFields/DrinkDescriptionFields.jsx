@@ -6,6 +6,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { getCategories, getGlasses } from '../../redux/filters/filters-operation';
 import { AiOutlinePlus } from 'react-icons/ai';
+import { PhotoContainer, PhotoField, PhotoPreview } from './DrinkDescriptionFields.styled';
 
 
 const validationSchema = Yup.object().shape({
@@ -34,7 +35,9 @@ const DrinkDescriptionFields = ({ formData, setFormData, handleSubmit }) => {
     const dispatch = useDispatch();
     const categories = useSelector((state) => state.filters.categories);
     const glasses = useSelector((state) => state.filters.glasses);
+    const [image, setImage] = useState(null);
     const [imagePreview, setImagePreview] = useState(null);
+    const [isImageSelected, setIsImageSelected] = useState(false);
     const [selectedCategory, setSelectedCategory] = useState(null);
     const [selectedGlass, setSelectedGlass] = useState(null);
 
@@ -48,9 +51,17 @@ const DrinkDescriptionFields = ({ formData, setFormData, handleSubmit }) => {
     
         if (file) {
           const imageURL = URL.createObjectURL(file);
+          setImage(file);
           setImagePreview(imageURL);
+          setIsImageSelected(true);
         }
     };
+
+    const handleImageDelete = () => {
+        setImage(null);
+        setImagePreview(null);
+        setIsImageSelected(false);
+      };
 
     return (
         <div>
@@ -61,13 +72,18 @@ const DrinkDescriptionFields = ({ formData, setFormData, handleSubmit }) => {
             }}
             >
                 <Form>
-                    <label htmlFor='photo'>
-                        <Field type="file" id="photo" name="photo" onChange={handleImageChange} placeholder='' />
+                    <PhotoContainer htmlFor='photo'>
+                        <PhotoField type="file"
+                        id="photo"
+                        name="photo"
+                        onChange={handleImageChange}
+                        style={{ display: 'none' }} 
+                        />
                         <AiOutlinePlus />
-                        <span>Add image</span>
-                        {imagePreview && <img src={imagePreview} alt="Preview" />}
+                        <button type='button' >Add image</button>
+                        {imagePreview && <PhotoPreview src={imagePreview} alt="Preview" />}
                         <ErrorMessage name="photo" component="div" />
-                    </label>
+                    </PhotoContainer>
                     <Field name="title" placeholder="Enter item title" />
                     <ErrorMessage name="title" component="div" />
                         
