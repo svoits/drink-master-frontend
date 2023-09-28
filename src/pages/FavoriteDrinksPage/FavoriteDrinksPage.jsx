@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import PageTitle from '../../components/PageTitle/PageTitle';
 import { getFavoriteAll } from '../../redux/drinks/drinks-operations';
 import { selectFavoriteDrinks } from '../../redux/drinks/drinks-selectors';
 import FavoriteDrinkList from '../../components/FavoriteDrinkList/FavoriteDrinkList';
@@ -13,6 +12,7 @@ import {
 import { Container } from '../../components/Container/Container.styled';
 import CoctailImage from '../../images/heroImage/hero-img-desc-2x.png';
 import Loader from '../../components/Loader';
+import PageTitle from '../../components/PageTitle/PageTitle';
 export default function FavoriteDrinksPage() {
   const dispatch = useDispatch();
   const favoriteDrinks = useSelector(selectFavoriteDrinks);
