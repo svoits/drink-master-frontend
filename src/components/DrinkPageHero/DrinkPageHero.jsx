@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useDrink } from '../../redux/hooks/useDrink';
 import { BiTrash, BiHeart } from 'react-icons/bi';
 
 import { ToastContainer, toast } from 'react-toastify';
@@ -10,7 +11,7 @@ import {
   getFavoriteAll,
 } from '../../redux/drinks/drinks-operations';
 import { selectFavoriteDrinks } from '../../redux/drinks/drinks-selectors';
-import StubPhoto from '../../assets/stub.svg';
+import { ReactComponent as StubPhoto } from '../../assets/stub.svg';
 import {
   DrinkTitle,
   DrinkSubTitle,
@@ -20,6 +21,7 @@ import {
   DrinkDescriptionWrapper,
   DrinkHeroWrapper,
   DrinkPhotoWrapper,
+  ImageBgBlue,
 } from './DrinkPageHero.styled';
 import { toastConfig } from '../../helpers/toast';
 
@@ -45,6 +47,7 @@ export const DrinkPageHero = ({
         icon: <BiTrash />,
       }),
     );
+  const { isLoading } = useDrink();
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -58,8 +61,6 @@ export const DrinkPageHero = ({
       return favoriteDrinksList.find((drink) => drink._id === id);
     }
   };
-
-  const imgUrl = imgPath ? `${imgPath}` : StubPhoto;
 
   return (
     <>
@@ -76,6 +77,7 @@ export const DrinkPageHero = ({
                 onClick={() =>
                   dispatch(addDrinkToFavorite(id)).then(() => notifyAdded())
                 }
+                disabled={isLoading}
               >
                 Add to favorite drinks
               </AddToFavoriteButton>
@@ -84,6 +86,7 @@ export const DrinkPageHero = ({
                 onClick={() =>
                   dispatch(removeDrink(id)).then(() => notifyRemoved())
                 }
+                disabled={isLoading}
               >
                 Remove from favorite drinks
               </AddToFavoriteButton>
@@ -91,7 +94,11 @@ export const DrinkPageHero = ({
             <ToastContainer icon={false} />
           </DrinkDescriptionWrapper>
           <DrinkPhotoWrapper>
-            <DrinkPhoto src={imgUrl} alt="img"></DrinkPhoto>
+            {imgPath ? (
+              <DrinkPhoto src={imgUrl} alt="img"></DrinkPhoto>
+            ) : (
+              <StubPhoto />
+            )}
           </DrinkPhotoWrapper>
         </DrinkHeroWrapper>
       )}

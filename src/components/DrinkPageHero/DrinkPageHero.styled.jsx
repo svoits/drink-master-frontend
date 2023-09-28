@@ -116,15 +116,20 @@ export const DrinkPhotoWrapper = styled.div`
   width: 335px;
   height: 400px;
   margin-top: 80px;
+  padding: 133px 102px;
+  background-color: rgba(22, 31, 55, 0.5);
+  border-radius: 8px;
 
   @media screen and (min-width: 768px) {
     width: 704px;
     height: 400px;
+    padding: 133px 286px;
   }
 
   @media screen and (min-width: 1440px) {
     width: 400px;
     height: 400px;
+    padding: 133px 135px;
   }
 `;
 
@@ -133,3 +138,4 @@ export const DrinkDescriptionWrapper = styled.div`
     max-width: 593px;
   }
 `;
+
