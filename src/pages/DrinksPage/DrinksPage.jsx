@@ -2,7 +2,6 @@
 // import { useState } from 'react';
 // // import { useDispatch } from 'react-redux';
 
-
 // import { Container, Pagination, Stack } from '@mui/material';
 
 // import { DrinksListPage } from 'components/DrinksListPage/DrinksListPage';
@@ -82,8 +81,15 @@
 //   );
 // }
 //===================================
-
+// import { useEffect } from 'react';
+// import { useState } from 'react';
+// import { useDispatch } from 'react-redux';
+// import { getRequestedDrink } from '../../redux/drinks/drinks-operations';
 // import { Container, Pagination, Stack } from '@mui/material';
+// import Loader from '../../components/Loader';
+// import { usePagination } from 'components/Paginator/Paginator';
+
+// import { useDrink } from '../../redux/hooks/useDrink';
 
 import { DrinksListPage } from 'components/DrinksListPage/DrinksListPage';
 
@@ -98,6 +104,30 @@ import {
 // import { Container } from '@mui/material';
 
 export default function DrinksPage() {
+  // const [page, setPage] = useState(1);
+  //   const [pageQty, setPageQty] = useState(0);
+  //   const per_page = 9;
+  //   const dispatch = useDispatch();
+
+  //   // const { isLoading, error } = useDrink();
+  //   const { drinks, total, isLoading, error } = useDrink();
+  //   console.log(total);
+
+  // if(total > 0) {
+  //   setPageQty(Math.ceil(total / per_page));
+  // }
+
+  //   // setPageQty(Math.ceil(total / per_page));
+
+  //   const datapag = usePagination(drinks, per_page);
+
+  //   const handleChangePagination = (e, p) => {
+  //     // setPage(e);
+  //     datapag.jump(p);
+  //   };
+  //   useEffect(() => {
+  //     dispatch(getRequestedDrink());
+  //   }, [dispatch]);
 
   return (
     <DrinksPageSECTION>
@@ -106,11 +136,25 @@ export default function DrinksPage() {
         {/* {isLoading && !error && <Loader />} */}
         <SearchDrinks />
         <DrinksListPage />
-        {/* <DrinksListPage
-      id={drink._id}
-      drink={drink.drink}
-      drinkThumb={drink.drinkThumb} /> */}
+
         {/* {drinks.length > 0 && <DrinksListPage />} */}
+        {/* <Container>
+
+
+        <Stack spacing={2}>
+         <DrinksListPage />
+          <Pagination
+            color="primary"
+            count={10}
+            // count={pageQty}
+            // size="large"
+            page={1}
+            // variant="outlined"
+            // shape="rounded"
+            // onChange={handleChangePagination}
+          />
+        </Stack>
+      </Container>  */}
 
         {/* <Container>
         <Stack spacing={2}>

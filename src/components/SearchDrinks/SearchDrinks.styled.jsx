@@ -20,7 +20,9 @@ export const SearchDrinksForm = styled(Form)`
   }
 `;
 
-export const SearchDrinksInput = styled(Field)`
+export const SearchDrinksInput = styled.input`
+  position: relative;
+
   background-color: #161f37;
   opacity: 0.8px;
   width: 335px;
@@ -77,6 +79,13 @@ export const SearchDrinksField = styled(Field)`
   line-height: 27px;
   letter-spacing: 0em;
   text-align: center;
+  &.active {
+    background-color: var(--brand-orange);
+    color: var(--text-white);
+  }
+  &::placeholder {
+    color: #f3f3f3;
+  }
 
   @media screen and (min-width: 768px) {
     width: 199px;
@@ -108,7 +117,6 @@ export const SearchDrinksOption = styled.option`
   width: 199px;
   height: 405px;
   padding: 14px, 23px, 14px, 23px;
-  border-radius: 20px;
 
   @media screen and (min-width: 768px) {
   }
