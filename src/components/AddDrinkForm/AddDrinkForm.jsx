@@ -14,6 +14,7 @@ const AddDrinkForm = () => {
         recipe: '',
         category: '',
         glasses: '',
+        strength: '',
         ingredients: [
             { ingredient: '', measure: '', quantity: '' },
             { ingredient: '', measure: '', quantity: '' },
