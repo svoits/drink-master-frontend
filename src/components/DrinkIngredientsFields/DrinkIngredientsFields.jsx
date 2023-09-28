@@ -17,13 +17,13 @@ const measures = [
     { value: 'tblsp',label: 'tblsp' },
 ]
 
-const initialValues = {
-    ingredients: [
-      { ingredient: '', measure: '', quantity: '' },
-      { ingredient: '', measure: '', quantity: '' },
-      { ingredient: '', measure: '', quantity: '' },
-    ],
-};
+// const initialValues = {
+//     ingredients: [
+//       { ingredient: '', measure: '', quantity: '' },
+//       { ingredient: '', measure: '', quantity: '' },
+//       { ingredient: '', measure: '', quantity: '' },
+//     ],
+// };
 
 const validationSchema = Yup.object().shape({
     ingredients: Yup.array().of(
@@ -38,7 +38,7 @@ const validationSchema = Yup.object().shape({
     ),
 });
 
-const DrinkIngredientsFields = () => {
+const DrinkIngredientsFields = ({ formData, setFormData, handleSubmit }) => {
     const dispatch = useDispatch();
     const [selectedIngredient, setSelectedIngredient] = useState(null);
     const [selectedMeasure, setSelectedMeasure] = useState(null);
@@ -77,7 +77,12 @@ const DrinkIngredientsFields = () => {
                 <span>{ingredientCount}</span>
                 <button type='button' onClick={handleAddIngredient}>+</button>
             </div>
-            <Formik initialValues={initialValues} validationSchema={validationSchema} >
+            <Formik initialValues={formData} validationSchema={validationSchema}
+                onSubmit={(values) => {
+                setFormData({ ...formData, ...values });
+                handleSubmit();
+            }}
+            >
                 <Form>
                     {[...Array(ingredientCount)].map((_, index) => (
                     <div key={index}>
