@@ -1,4 +1,4 @@
-import{s as i,N as m,r as s,u as g,U as a,j as e,a as u,V as w,P as k}from"./index-17130884.js";import{u as f}from"./useDrink-4b0bab2b.js";import"./drinks-selectors-89e130f8.js";const j=i.ul`
+import{s as i,N as m,r as s,u as g,T as a,j as e,a as u,U as w}from"./index-8fbdc1ea.js";import{u as k}from"./useDrink-21399ffe.js";import{P as f}from"./PageTitle-8b1ee6ee.js";import"./drinks-selectors-89e130f8.js";const j=i.ul`
   display: grid;
   grid-template-columns: repeat(1, 335px);
   justify-content: center;
@@ -82,7 +82,7 @@ import{s as i,N as m,r as s,u as g,U as a,j as e,a as u,V as w,P as k}from"./ind
   background-color: #161F37;
   color: #F3F3F3;
   border: none;
-`,C=n=>s.createElement("svg",{xmlns:"http://www.w3.org/2000/svg",width:20,height:22,fill:"none",...n},s.createElement("path",{stroke:"#F3F3F3",d:"M14 5v-.8c0-1.12 0-1.68-.218-2.108a2 2 0 0 0-.874-.874C12.48 1 11.92 1 10.8 1H9.2c-1.12 0-1.68 0-2.108.218a2 2 0 0 0-.874.874C6 2.52 6 3.08 6 4.2V5m2 5.5v5m4-5v5M1 5h18m-2 0v11.2c0 1.68 0 2.52-.327 3.162a3 3 0 0 1-1.311 1.311C14.72 21 13.88 21 12.2 21H7.8c-1.68 0-2.52 0-3.162-.327a3 3 0 0 1-1.311-1.311C3 18.72 3 17.88 3 16.2V5"})),I=()=>{const n=g(),{isLoading:d,drinks:r,error:o}=f();s.useEffect(()=>{n(a())},[n]);const p=t=>{n(w(t)).then(()=>{n(a())})};return e.jsxs(j,{children:[d?e.jsx(u,{}):r.length>0?r.map(({_id:t,drinkThumb:c,drink:x,category:l,description:h})=>e.jsxs(D,{children:[e.jsx(b,{src:c}),e.jsxs(v,{children:[" ",x," "]}),e.jsxs(F,{children:[" ",l," "]}),e.jsxs(y,{children:[" ",h," "]}),e.jsxs(L,{children:[e.jsx(z,{to:`/drinks/${t}`,children:"See more"}),e.jsx(E,{onClick:()=>p(t),children:e.jsx(C,{width:"18",height:"22"})})]})]},t)):r.length===0?e.jsx("p",{children:"You have no own drinks left or reached the end of your Drink List, try to set more own drinks..."}):null,o&&e.jsx("p",{children:o})]})},M=i.div` 
+`,C=n=>s.createElement("svg",{xmlns:"http://www.w3.org/2000/svg",width:20,height:22,fill:"none",...n},s.createElement("path",{stroke:"#F3F3F3",d:"M14 5v-.8c0-1.12 0-1.68-.218-2.108a2 2 0 0 0-.874-.874C12.48 1 11.92 1 10.8 1H9.2c-1.12 0-1.68 0-2.108.218a2 2 0 0 0-.874.874C6 2.52 6 3.08 6 4.2V5m2 5.5v5m4-5v5M1 5h18m-2 0v11.2c0 1.68 0 2.52-.327 3.162a3 3 0 0 1-1.311 1.311C14.72 21 13.88 21 12.2 21H7.8c-1.68 0-2.52 0-3.162-.327a3 3 0 0 1-1.311-1.311C3 18.72 3 17.88 3 16.2V5"})),I=()=>{const n=g(),{isLoading:d,drinks:r,error:o}=k();s.useEffect(()=>{n(a())},[n]);const p=t=>{n(w(t)).then(()=>{n(a())})};return e.jsxs(j,{children:[d?e.jsx(u,{}):r.length>0?r.map(({_id:t,drinkThumb:c,drink:x,category:l,description:h})=>e.jsxs(D,{children:[e.jsx(b,{src:c}),e.jsxs(v,{children:[" ",x," "]}),e.jsxs(F,{children:[" ",l," "]}),e.jsxs(y,{children:[" ",h," "]}),e.jsxs(L,{children:[e.jsx(z,{to:`/drinks/${t}`,children:"See more"}),e.jsx(E,{onClick:()=>p(t),children:e.jsx(C,{width:"18",height:"22"})})]})]},t)):r.length===0?e.jsx("p",{children:"You have no own drinks left or reached the end of your Drink List, try to set more own drinks..."}):null,o&&e.jsx("p",{children:o})]})},M=i.div` 
   width: 335px; 
   margin: 0 auto;
 
@@ -93,4 +93,4 @@ import{s as i,N as m,r as s,u as g,U as a,j as e,a as u,V as w,P as k}from"./ind
   @media screen and (min-width: 1440px){
     width: calc((400px * 3) + 40px);
   }
-`;function T(){return e.jsxs(M,{children:[e.jsx(k,{title:"My Drinks"}),e.jsx(I,{})]})}export{T as default};
+`;function A(){return e.jsxs(M,{children:[e.jsx(f,{title:"My Drinks"}),e.jsx(I,{})]})}export{A as default};

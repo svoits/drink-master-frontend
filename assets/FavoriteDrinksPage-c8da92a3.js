@@ -1,4 +1,4 @@
-import{s as i,N as x,H as g,u as c,j as e,I as m,y as f,r as s,J as u,C as w,P as v,a as b}from"./index-17130884.js";import{s as j}from"./drinks-selectors-89e130f8.js";import{D as y}from"./stub-8ba9e7f6.js";import{C as k}from"./hero-img-desc-2x-e8906f30.js";const D=i.li`
+import{s as i,N as x,H as g,u as c,j as e,I as m,y as f,r as s,J as u,C as w,a as v}from"./index-8fbdc1ea.js";import{s as b}from"./drinks-selectors-89e130f8.js";import{D as j}from"./stub-5a3fe548.js";import{C as y}from"./hero-img-desc-2x-e8906f30.js";import{P as k}from"./PageTitle-8b1ee6ee.js";const D=i.li`
   width: 335px;
   margin-left: auto;
   margin-right: auto;
@@ -151,7 +151,7 @@ import{s as i,N as x,H as g,u as c,j as e,I as m,y as f,r as s,J as u,C as w,P a
   &:hover ${a}, &:active ${a} {
     color: #161f37; /* Color on hover or active state */
   }
-`;function A({drink:t}){const n=c(),{_id:o,drink:r,alcoholic:d,drinkThumb:p,description:l}=t,h=()=>{n(m(o))};return e.jsxs(D,{children:[e.jsx(z,{src:p||y,alt:r}),e.jsx(S,{children:r}),e.jsx(F,{children:d?"Alcoholic":"NonAlcoholic"}),e.jsx(C,{children:l}),e.jsxs(I,{children:[e.jsx(T,{to:`/drinks/${o}`,children:"See More"}),e.jsxs($,{onClick:h,children:[" ",e.jsx(a,{})]})]})]})}const E=i.ul`
+`;function A({drink:t}){const n=c(),{_id:o,drink:r,alcoholic:d,drinkThumb:p,description:l}=t,h=()=>{n(m(o))};return e.jsxs(D,{children:[e.jsx(z,{src:p||j,alt:r}),e.jsx(S,{children:r}),e.jsx(F,{children:d?"Alcoholic":"NonAlcoholic"}),e.jsx(C,{children:l}),e.jsxs(I,{children:[e.jsx(T,{to:`/drinks/${o}`,children:"See More"}),e.jsxs($,{onClick:h,children:[" ",e.jsx(a,{})]})]})]})}const E=i.ul`
   display: grid;
   grid-row-gap: 40px;
   list-style: none;
@@ -243,4 +243,4 @@ import{s as i,N as x,H as g,u as c,j as e,I as m,y as f,r as s,J as u,C as w,P a
     width: 261px;
     height: 326px;
   }
-`;function W(){const t=c(),n=f(j),[o,r,d]=s.useState("");return s.useEffect(()=>{t(u()).catch(p=>{console.error(p),r("Something went wrong please try later.")})},[t]),e.jsx(w,{children:e.jsxs(M,{children:[e.jsx(v,{title:"Favorite"}),d&&e.jsx(b,{}),n.length===0&&e.jsxs(P,{children:[e.jsx(R,{src:k,alt:"Cocktail"}),e.jsx(N,{children:"You have not added any cocktails yet"})]}),n.length>0&&e.jsx("div",{children:e.jsx(L,{drinks:n})}),o&&e.jsx("div",{children:o})]})})}export{W as default};
+`;function Y(){const t=c(),n=f(b),[o,r,d]=s.useState("");return s.useEffect(()=>{t(u()).catch(p=>{console.error(p),r("Something went wrong please try later.")})},[t]),e.jsx(w,{children:e.jsxs(M,{children:[e.jsx(k,{title:"Favorite"}),d&&e.jsx(v,{}),n.length===0&&e.jsxs(P,{children:[e.jsx(R,{src:y,alt:"Cocktail"}),e.jsx(N,{children:"You have not added any cocktails yet"})]}),n.length>0&&e.jsx("div",{children:e.jsx(L,{drinks:n})}),o&&e.jsx("div",{children:o})]})})}export{Y as default};
