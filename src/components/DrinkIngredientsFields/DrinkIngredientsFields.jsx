@@ -58,15 +58,15 @@ const DrinkIngredientsFields = () => {
 
     
     const handleAddIngredient = () => {
-      if (ingredientCount < maxIngredientCount) {
-        setIngredientCount(ingredientCount + 1);
-      }
+        if (ingredientCount < maxIngredientCount) {
+          setIngredientCount(ingredientCount + 1);
+        }
     };
     
     const handleRemoveIngredient = () => {
-      if (ingredientCount > 1) {
-        setIngredientCount(ingredientCount - 1);
-      }
+        if (ingredientCount > 1) {
+          setIngredientCount(ingredientCount - 1);
+        }
     };
 
     return(
@@ -74,6 +74,7 @@ const DrinkIngredientsFields = () => {
             <h2>Ingredients</h2>
             <div>
                 <button type='button' onClick={handleAddIngredient}>+</button>
+                <span>{ingredientCount}</span>
                 <button type='button' onClick={handleRemoveIngredient}>-</button>
             </div>
             <Formik initialValues={initialValues} validationSchema={validationSchema} >
