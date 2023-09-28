@@ -30,7 +30,7 @@ export const getDrinkById = createAsyncThunk(
 );
 
 export const getPopularDrinks = createAsyncThunk(
-  'drinks/popular',
+  'drinks/getPopularDrinks',
   async (_, thunkAPI) => {
     try {
       const response = await axios.get('/api/drinks/popular');
