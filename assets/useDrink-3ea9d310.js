@@ -1,0 +1,1 @@
+import{A as s}from"./index-e68a2bf2.js";import{b as a,c as i,d as c,e as l,f as k}from"./drinks-selectors-89e130f8.js";const d=()=>{const r=s(a),e=s(i),t=s(c),n=s(l),o=s(k);return{isLoading:r,drinks:e,mainPageDrinks:t,error:n,total:o}};export{d as u};

@@ -1,6 +1,6 @@
-import{s as e}from"./index-720b5775.js";const i="/drink-master-frontend/assets/bg-welcome-mobile-4764bbe3.jpg",n="/drink-master-frontend/assets/bg-welcome-mobile@2x-b8f15be0.jpg",a="/drink-master-frontend/assets/bg-welcome-tablet-7e09e23a.jpg",r="/drink-master-frontend/assets/bg-welcome-tablet@2x-480b929a.jpg",o="/drink-master-frontend/assets/bg-welcome-desc-ac45039b.jpg",d="/drink-master-frontend/assets/bg-welcome-desc@2x-2b9ac8e0.jpg",p=e.section`
- background-image: url(${i});
- background-color:${({theme:t})=>t.sectionBackgroundColor};
+import{s as e}from"./index-e68a2bf2.js";const i="/drink-master-frontend/assets/bg-welcome-mobile-4764bbe3.jpg",n="/drink-master-frontend/assets/bg-welcome-mobile@2x-b8f15be0.jpg",a="/drink-master-frontend/assets/bg-welcome-tablet-7e09e23a.jpg",r="/drink-master-frontend/assets/bg-welcome-tablet@2x-480b929a.jpg",o="/drink-master-frontend/assets/bg-welcome-desc-ac45039b.jpg",d="/drink-master-frontend/assets/bg-welcome-desc@2x-2b9ac8e0.jpg",p=e.section`
+  background-image: url(${i});
+  background-color: ${({theme:t})=>t.sectionBackgroundColor};
   background-position: center;
   background-size: contain;
   background-position: right center;
@@ -23,6 +23,7 @@ import{s as e}from"./index-720b5775.js";const i="/drink-master-frontend/assets/b
     border-radius: 257px;
     filter: blur(104.8543701171875px);
     z-index: 1;
+    pointer-events: none;
     @media screen and (min-width: 768px) {
       width: 387px;
       height: 372.442px;
@@ -54,6 +55,7 @@ import{s as e}from"./index-720b5775.js";const i="/drink-master-frontend/assets/b
     background: rgba(64, 112, 205, 0.5);
     filter: blur(104.8543701171875px);
     z-index: 1;
+    pointer-events: none;
     @media screen and (min-width: 768px) {
       width: 784px;
       height: 829.931px;
