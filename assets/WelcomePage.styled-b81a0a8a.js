@@ -1,4 +1,4 @@
-import{s as e}from"./index-7d55b1b4.js";const i="/drink-master-frontend/assets/bg-welcome-mobile-4764bbe3.jpg",n="/drink-master-frontend/assets/bg-welcome-mobile@2x-b8f15be0.jpg",a="/drink-master-frontend/assets/bg-welcome-tablet-7e09e23a.jpg",r="/drink-master-frontend/assets/bg-welcome-tablet@2x-480b929a.jpg",o="/drink-master-frontend/assets/bg-welcome-desc-ac45039b.jpg",d="/drink-master-frontend/assets/bg-welcome-desc@2x-2b9ac8e0.jpg",p=e.section`
+import{s as e}from"./index-eb24717f.js";const i="/drink-master-frontend/assets/bg-welcome-mobile-4764bbe3.jpg",n="/drink-master-frontend/assets/bg-welcome-mobile@2x-b8f15be0.jpg",a="/drink-master-frontend/assets/bg-welcome-tablet-7e09e23a.jpg",r="/drink-master-frontend/assets/bg-welcome-tablet@2x-480b929a.jpg",o="/drink-master-frontend/assets/bg-welcome-desc-ac45039b.jpg",d="/drink-master-frontend/assets/bg-welcome-desc@2x-2b9ac8e0.jpg",p=e.section`
  background-image: url(${i});
  background-color:${({theme:t})=>t.sectionBackgroundColor};
   background-position: center;
