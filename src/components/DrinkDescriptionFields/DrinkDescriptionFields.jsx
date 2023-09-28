@@ -5,6 +5,8 @@ import makeAnimated from 'react-select/animated';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { getCategories, getGlasses } from '../../redux/filters/filters-operation';
+import { AiOutlinePlus } from 'react-icons/ai';
+
 
 const validationSchema = Yup.object().shape({
     photo: Yup.string()
@@ -62,8 +64,9 @@ const DrinkDescriptionFields = () => {
         <div>
             <Formik initialValues={initialValues} validationSchema={validationSchema}>
                 <Form>
-                    <label>
-                        <Field type="file" id="photo" name="photo" onChange={handleImageChange}  />
+                    <label htmlFor='photo'>
+                        <Field type="file" id="photo" name="photo" onChange={handleImageChange} placeholder='' />
+                        <AiOutlinePlus />
                         <span>Add image</span>
                         {imagePreview && <img src={imagePreview} alt="Preview" />}
                         <ErrorMessage name="photo" component="div" />
