@@ -56,7 +56,7 @@ const DrinkDescriptionFields = () => {
           const imageURL = URL.createObjectURL(file);
           setImagePreview(imageURL);
         }
-      };
+    };
 
     return (
         <div>
