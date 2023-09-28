@@ -19,19 +19,12 @@ import {
   ErrorIcon,
   SuccessIcon,
 } from './SignupForm.styled';
-// const today = new Date();
+
 
 const initialValues = { name: '', dateOfBirth: '', email: '', password: '' };
 const schema = Yup.object().shape({
   name: Yup.string().min(3).required('Name is required'),
   dateOfBirth: Yup.date().required('dateOfBirth is required'),
-  // .matches(/^\d{2}-\d{2}-\d{4}$/, 'Invalid date format (DD-MM-YYYY)'),
-  // .test("max-date", "Future date not allowed", function (value) {
-  //   if (!value) return true;
-  //   const [day, month, year] = value.split('-');
-  //   const birthDate = new Date(`${year}-${month}-${day}`);
-  //   return birthDate <= today;
-  // }),
   email: Yup.string()
     .email('Invalid email format, test@mail.com')
     .required('Email is required')
@@ -53,10 +46,7 @@ export default function SignupForm() {
   const handleSubmit = (values, { resetForm }) => {
     const { name, dateOfBirth, email, password } = values;
     const birthDate = format(new Date(dateOfBirth), "yyyy-MM-dd'T'HH:mm:ssXXX");
-    console.log('Name: ', name);
-    console.log('birthDate: ', birthDate);
-    console.log('email: ', email);
-    console.log('password: ', password);
+    
 
     dispatch(signUp({ name, birthDate, email, password }))
       .unwrap()
