@@ -22,6 +22,7 @@ export const IngredientDescription = styled.div`
 export const IngredientPhoto = styled.img`
   width: 107px;
   height: 107px;
+  margin: 0 auto;
 
   @media screen and (min-width: 768px) {
     width: 157px;
@@ -31,7 +32,7 @@ export const IngredientPhoto = styled.img`
 export const IngredientPhotoWrapper = styled.div`
   width: 157px;
   height: 157px;
-  padding: 20px;
+  padding: 25px;
   border-radius: 8px;
   background-color: rgba(22, 31, 55, 0.5);
 
@@ -61,4 +62,13 @@ export const IngredientMeasure = styled.p`
     font-size: 16px;
     line-height: 20px;
   }
+`;
+
+export const StubPhotoWrapper = styled.div`
+  width: 107px;
+  height: 107px;
+
+  @media screen and (min-width: 768px) {
+    width: 157px;
+    height: 157px;
 `;

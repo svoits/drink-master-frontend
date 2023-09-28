@@ -1,11 +1,15 @@
 import styled from 'styled-components';
 import {  NavLink } from 'react-router-dom';
 export const Wrap = styled.div`
- margin-top:191px;
-     display: flex;
+
+    display: flex;
     justify-content: center;
     flex-direction: column;
-
+    width: 335px;
+@media screen and (max-width: 374.98px) {
+  padding-left:20px;
+  padding-right:20px;
+  }
   
 
   @media screen and (min-width: 768px) {

@@ -39,6 +39,12 @@ export const Input = styled(Field)`
       border ${transition},
       background-color ${transition};
   }
+  /* &::placeholder {
+    color: rgba(243, 243, 243, 0.5);
+  } */
+  /* &::selection {
+    color: rgba(243, 243, 243, 0.5);
+  } */
 
   ${({ error }) =>
     error === 'true' &&
@@ -59,7 +65,7 @@ export const Input = styled(Field)`
 
 export const Button = styled.button`
   padding: 18px;
-  background-color: ${({ theme }) => theme.mainText};
+  background-color: #f3f3f3;
   border-radius: 42px;
   line-height: 1.28;
   color: #161f37;
@@ -76,7 +82,7 @@ export const Button = styled.button`
   &:focus,
   &:hover {
     background-color: transparent;
-    color: ${({ theme }) => theme.mainText};
+    color: #f3f3f3;
     border: 1px solid rgba(243, 243, 243, 0.58);
     transition:
       border ${transition},
@@ -92,37 +98,35 @@ export const PasswordInputWrap = styled.div`
   position: relative;
 `;
 export const StyledDontShowPasswordIcon = styled(AiOutlineEye)`
-  fill: ${({ theme }) => theme.mainText};
+  fill: #f3f3f3;
   width: 18px;
   height: 18px;
   position: absolute;
   top: 20px;
   left: 239px;
   @media screen and (min-width: 375px) {
-    left: 275px;
+    left: 290px;
   }
 
   @media screen and (min-width: 768px) {
     width: 20px;
     height: 20px;
-    left: 290px;
   }
 `;
 export const StyledShowPasswordIcon = styled(AiOutlineEyeInvisible)`
-  fill: ${({ theme }) => theme.mainText};
+  fill: #f3f3f3;
   width: 18px;
   height: 18px;
   position: absolute;
   top: 20px;
   left: 239px;
   @media screen and (min-width: 375px) {
-    left: 275px;
+    left: 290px;
   }
 
   @media screen and (min-width: 768px) {
     width: 20px;
     height: 20px;
-    left: 290px;
   }
 `;
 export const ErrorBorder = styled.div`
@@ -140,13 +144,12 @@ export const ErrorIcon = styled(AiOutlineExclamationCircle)`
   top: 20px;
   left: 239px;
   @media screen and (min-width: 375px) {
-    left: 275px;
+    left: 290px;
   }
 
   @media screen and (min-width: 768px) {
     width: 20px;
     height: 20px;
-    left: 290px;
   }
 `;
 
@@ -158,12 +161,11 @@ export const SuccessIcon = styled(AiOutlineCheckCircle)`
   top: 20px;
   left: 239px;
   @media screen and (min-width: 375px) {
-    left: 275px;
+    left: 290px;
   }
 
   @media screen and (min-width: 768px) {
     width: 20px;
     height: 20px;
-    left: 290px;
   }
 `;
