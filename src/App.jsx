@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import SharedLayout from './components/SharedLayout/SharedLayout';
-import ErrorPage from './pages/TMP_ErrorPage/ErrorPage';
+import ErrorPage from './pages/ErrorPage/ErrorPage';
 import { ThemeProvider } from 'styled-components';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
