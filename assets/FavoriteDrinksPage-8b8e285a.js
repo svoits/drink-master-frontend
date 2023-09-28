@@ -1,4 +1,4 @@
-import{s as i,N as x,H as g,u as c,j as e,I as m,y as f,r as s,J as u,C as w,a as v}from"./index-65207599.js";import{s as b}from"./drinks-selectors-89e130f8.js";import{D as j}from"./stub-9bca9b69.js";import{C as y}from"./hero-img-desc-2x-e8906f30.js";import{P as k}from"./PageTitle-29b74f63.js";const D=i.li`
+import{s as i,W as x,X as g,u as c,j as e,Y as m,e as f,r as s,Z as u,C as w,a as v}from"./index-2f817d50.js";import{a as b}from"./drinks-selectors-db0f3074.js";import{D as j}from"./stub-ff156161.js";import{C as k}from"./hero-img-desc-2x-e8906f30.js";import{P as y}from"./PageTitle-5059101f.js";const D=i.li`
   width: 335px;
   margin-left: auto;
   margin-right: auto;
@@ -221,7 +221,7 @@ import{s as i,N as x,H as g,u as c,j as e,I as m,y as f,r as s,J as u,C as w,a a
   @media screen and (min-width: 1440px) {
     padding-top: 67px;
   }
-`,N=i.p`
+`,R=i.p`
   width: 205px;
   font-size: 14px;
   font-weight: 500;
@@ -235,7 +235,7 @@ import{s as i,N as x,H as g,u as c,j as e,I as m,y as f,r as s,J as u,C as w,a a
     font-weight: 500;
     line-height: 1.38;
   }
-`,R=i.img`
+`,B=i.img`
   width: 198px;
   height: 247px;
 
@@ -243,4 +243,4 @@ import{s as i,N as x,H as g,u as c,j as e,I as m,y as f,r as s,J as u,C as w,a a
     width: 261px;
     height: 326px;
   }
-`;function Y(){const t=c(),n=f(b),[o,r,d]=s.useState("");return s.useEffect(()=>{t(u()).catch(p=>{console.error(p),r("Something went wrong please try later.")})},[t]),e.jsx(w,{children:e.jsxs(M,{children:[e.jsx(k,{title:"Favorite"}),d&&e.jsx(v,{}),n.length===0&&e.jsxs(P,{children:[e.jsx(R,{src:y,alt:"Cocktail"}),e.jsx(N,{children:"You have not added any cocktails yet"})]}),n.length>0&&e.jsx("div",{children:e.jsx(L,{drinks:n})}),o&&e.jsx("div",{children:o})]})})}export{Y as default};
+`;function Z(){const t=c(),n=f(b),[o,r,d]=s.useState("");return s.useEffect(()=>{t(u()).catch(p=>{console.error(p),r("Something went wrong please try later.")})},[t]),e.jsx(w,{children:e.jsxs(M,{children:[e.jsx(y,{title:"Favorite"}),d&&e.jsx(v,{}),n.length===0&&e.jsxs(P,{children:[e.jsx(B,{src:k,alt:"Cocktail"}),e.jsx(R,{children:"You have not added any cocktails yet"})]}),n.length>0&&e.jsx("div",{children:e.jsx(L,{drinks:n})}),o&&e.jsx("div",{children:o})]})})}export{Z as default};

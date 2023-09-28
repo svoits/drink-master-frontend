@@ -1,1 +1,0 @@
-const r=s=>s.drinks.isLoading,e=s=>s.drinks.mainPageDrinks,t=s=>s.drinks.drinks,a=s=>s.drinks.error,k=(s,n)=>s.drinks.drinks.find(i=>i._id===n),o=s=>s.drinks.favoriteDrinks,c=s=>s.drinks.total;export{k as a,r as b,t as c,e as d,a as e,c as f,o as s};
