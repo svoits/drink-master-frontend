@@ -8,13 +8,20 @@ import MenuBtn from '../MenuBtn/MenuBtn';
 import MobileMenu from '../MobileMenu/MobileMenu';
 import ThemeSwitcher from '../ThemeSwitcher/ThemeSwitcher';
 import Navigation from '../Navigation/Navigation';
+import UserLogoPopup from '../UserLogoPopup/UserLogoPopup';
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isUserPopupOpen, setIsUserPopupOpen] = useState(false);
+
   const { width: windowWidth } = useResize();
 
   const handleToggleMenu = () => {
     setIsMenuOpen((prevState) => !prevState);
+  };
+
+  const handleToggleUserPopup = () => {
+    setIsUserPopupOpen((prevState) => !prevState);
   };
 
   return (
@@ -31,9 +38,9 @@ export const Header = () => {
                 <ThemeSwitcher />
               )}
               {windowWidth <= 1439.98 ? (
-                !isMenuOpen && <UserLogo />
+                !isMenuOpen && <UserLogo togglePopup={handleToggleUserPopup} />
               ) : (
-                <UserLogo />
+                <UserLogo togglePopup={handleToggleUserPopup} />
               )}
               {windowWidth <= 1439.98 && (
                 <MenuBtn
@@ -45,6 +52,7 @@ export const Header = () => {
           </MainWrapper>
         </Container>
       </HeaderContainer>
+      <UserLogoPopup isPopupOpen={isUserPopupOpen} />
 
       {/* {isMenuOpen && <MobileMenu isMenuOpen={isMenuOpen} />} */}
 

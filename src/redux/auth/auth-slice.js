@@ -8,8 +8,8 @@ import {
   subscribeDrinks,
 } from './auth-operation';
 const initialState = {
-  user: { name: null, email: null, birthDate: null, avatarURL: null },
-  token: null,
+  user: { name: '', email: '', birthDate: '', avatarURL: '' },
+  token: '',
   isLoggedIn: false,
   isSubscribed: false,
   isRefreshing: false,
@@ -40,19 +40,23 @@ const authSlice = createSlice({
         state.token = null;
         state.isLoggedIn = false;
       })
+      .addCase(signOut.rejected, (state) => {
+        state.user = { name: null, email: null, birthDate: null };
+        state.token = null;
+        state.isLoggedIn = false;
+      })
       .addCase(currentUser.fulfilled, (state, { payload }) => {
         state.user = payload.user;
         state.token = payload.token;
         state.isLoggedIn = true;
       })
       .addCase(updateUser.fulfilled, (state, { payload }) => {
-        state.user = payload.user;
-        state.token = payload.token;
-        state.isLoggedIn = true;
+        state.user.name = payload.name;
+        payload.avatarURL && (state.user.avatarURL = payload.avatarURL);
       })
       .addCase(subscribeDrinks.fulfilled, (state) => {
         state.user = { name: null, email: null, birthDate: null };
-        state.token = null;
+
         state.isLoggedIn = true;
         state.isSubscribed = true;
       }),

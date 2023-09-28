@@ -10,6 +10,8 @@ import { darkTheme, lightTheme } from './components/Themes';
 import { GlobalStyles } from './components/globalStyles';
 import { selectIsRefreshing, selectTheme } from './redux/auth/auth-selectors';
 import { currentUser } from './redux/auth/auth-operation';
+import RestrictedRoute from './components/RestrictedRoute';
+import PrivateRoute from './components/PrivateRoute';
 
 const Welcome = lazy(() => import('./pages/WelcomePage/WelcomePage'));
 const Signup = lazy(() => import('./pages/SignupPage/SignupPage'));
@@ -40,16 +42,43 @@ function App() {
       ) : (
         <Routes>
           <Route path="/" element={<SharedLayout />}>
-            <Route path="welcome" element={<Welcome />} />
-            <Route path="signup" element={<Signup />} />
-            <Route path="signin" element={<Signin />} />
+            <Route
+              path="welcome"
+              element={<RestrictedRoute component={<Welcome />} />}
+            />
+            <Route
+              path="signup"
+              element={<RestrictedRoute component={<Signup />} />}
+            />
+            <Route
+              path="signin"
+              element={<RestrictedRoute component={<Signin />} />}
+            />
 
-            <Route path="home" element={<Home />} />
-            <Route path="drinks" element={<Drinks />} />
-            <Route path="add" element={<AddDrink />} />
-            <Route path="favorites" element={<FavoriteDrinks />} />
-            <Route path="drinks/:drinkId" element={<Drink />} />
-            <Route path="my" element={<MyDrinks />} />
+            <Route
+              path="home"
+              element={<PrivateRoute component={<Home />} />}
+            />
+            <Route
+              path="drinks"
+              element={<PrivateRoute component={<Drinks />} />}
+            />
+            <Route
+              path="add"
+              element={<PrivateRoute component={<AddDrink />} />}
+            />
+            <Route
+              path="favorites"
+              element={<PrivateRoute component={<FavoriteDrinks />} />}
+            />
+            <Route
+              path="drinks/:drinkId"
+              element={<PrivateRoute component={<Drink />} />}
+            />
+            <Route
+              path="my"
+              element={<PrivateRoute component={<MyDrinks />} />}
+            />
 
             <Route path="*" element={<ErrorPage />} />
           </Route>
