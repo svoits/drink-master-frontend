@@ -73,9 +73,9 @@ const DrinkIngredientsFields = () => {
         <div>
             <h2>Ingredients</h2>
             <div>
-                <button type='button' onClick={handleAddIngredient}>+</button>
-                <span>{ingredientCount}</span>
                 <button type='button' onClick={handleRemoveIngredient}>-</button>
+                <span>{ingredientCount}</span>
+                <button type='button' onClick={handleAddIngredient}>+</button>
             </div>
             <Formik initialValues={initialValues} validationSchema={validationSchema} >
                 <Form>
