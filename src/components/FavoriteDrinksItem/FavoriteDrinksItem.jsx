@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { removeDrink } from '../../redux/drinks/drinks-operations';
-import DefaultImg from '../../images/recipeDefaultPhoto/recipe-default-desktop.jpg';
+import DefaultImg from '../../assets/stub.svg';
 import {
   StyledItem,
   StyledImg,
