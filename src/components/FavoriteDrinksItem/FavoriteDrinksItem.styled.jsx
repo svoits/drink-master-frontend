@@ -73,12 +73,14 @@ export const StyledDescr = styled.p`
   font-weight: 400;
   line-height: 1.28;
   margin-top: 18px;
+  margin-bottom: 18px;
 
   @media screen and (min-width: 768px) {
     height: 110px;
     font-size: 16px;
     line-height: 1.38;
     margin-top: 24px;
+    margin-bottom: 24px;
   }
 
   @media screen and (min-width: 1440px) {
