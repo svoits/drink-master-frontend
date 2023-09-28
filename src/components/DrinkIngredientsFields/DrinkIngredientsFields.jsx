@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
+import * as Yup from 'yup';
 import Select from 'react-select';
 import { getIngredients } from '../../redux/filters/filters-operation';
 
@@ -17,15 +18,33 @@ const measures = [
 ]
 
 const initialValues = {
-    ingredient: '',
-    measure: '',
-}
+    ingredients: [
+      { ingredient: '', measure: '', quantity: '' },
+      { ingredient: '', measure: '', quantity: '' },
+      { ingredient: '', measure: '', quantity: '' },
+    ],
+};
+
+const validationSchema = Yup.object().shape({
+    ingredients: Yup.array().of(
+      Yup.object().shape({
+        ingredient: Yup.string().required('The ingredient is mandatory'),
+        measure: Yup.string().required('Measure is mandatory'),
+        quantity: Yup.number()
+          .typeError('The quantity must be a number')
+          .positive('The number must be positive')
+          .required('Quantity is required'),
+      })
+    ),
+});
 
 const DrinkIngredientsFields = () => {
     const dispatch = useDispatch();
     const [selectedIngredient, setSelectedIngredient] = useState(null);
     const [selectedMeasure, setSelectedMeasure] = useState(null);
+    const [ingredientCount, setIngredientCount] = useState(3); 
     const ingredients = useSelector((state) => state.filters.ingredients);
+    const maxIngredientCount = 10;
 
     const handleIngredientChange = (selectedOption, form) => {
         setSelectedIngredient(selectedOption);
@@ -37,48 +56,64 @@ const DrinkIngredientsFields = () => {
         dispatch(getIngredients())
     }, [dispatch]);
 
+    
+    const handleAddIngredient = () => {
+      if (ingredientCount < maxIngredientCount) {
+        setIngredientCount(ingredientCount + 1);
+      }
+    };
+    
+    const handleRemoveIngredient = () => {
+      if (ingredientCount > 1) {
+        setIngredientCount(ingredientCount - 1);
+      }
+    };
 
     return(
         <div>
-            <h2>Підзаголовок</h2>
+            <h2>Ingredients</h2>
             <div>
-                <button >+</button>
-                <button >-</button>
+                <button type='button' onClick={handleAddIngredient}>+</button>
+                <button type='button' onClick={handleRemoveIngredient}>-</button>
             </div>
-            <Formik>
+            <Formik initialValues={initialValues} validationSchema={validationSchema} >
                 <Form>
-                <label htmlFor="ingredient">
-                    <Field name="ingredient">
-                        {({ field, form }) => (
-                        <Select
-                            closeMenuOnSelect={true}
-                            isMulti={false}
-                            isClearable={true}
-                            options={ingredients.map(({ title }) => ({ value: title,label: title }))}
-                            name={field.name}
-                            id="ingredient"
-                            {...field}
-                            value={selectedIngredient}
-                            onChange={(selectedOption) => handleIngredientChange(selectedOption, form)}
-                            placeholder=""
-                        />
-                        )}
-                    </Field>
-                </label>
-                <div>
-                    <Field name="quantity" placeholder="Enter the quantity" />
-                    <ErrorMessage name="title" component="div" />
-                    <label htmlFor="measure">
-                        <Select
-                        options={measures}
-                        name="measure"
-                        value={selectedMeasure}
-                        onChange={(selectedOption) => setSelectedMeasure(selectedOption)}
-                        placeholder="cl"
-                        />
-                    </label>
-                    <button >X</button>
-                </div>
+                    {[...Array(ingredientCount)].map((_, index) => (
+                    <div key={index}>
+                        <label htmlFor={`ingredient${index}`}>
+                        <Field name={`ingredient${index}`}>
+                            {({ field, form }) => (
+                            <Select
+                                closeMenuOnSelect={true}
+                                isMulti={false}
+                                isClearable={true}
+                                options={ingredients.map(({ title }) => ({ value: title, label: title }))}
+                                name={field.name}
+                                id={`ingredient${index}`}
+                                {...field}
+                                value={selectedIngredient}
+                                onChange={(selectedOption) => handleIngredientChange(selectedOption, form)}
+                                placeholder=""
+                            />
+                            )}
+                        </Field>
+                        </label>
+                        <div>
+                        <Field name={`quantity${index}`} placeholder="Enter the quantity" />
+                        <ErrorMessage name={`quantity${index}`} component="div" />
+                        <label htmlFor={`measure${index}`}>
+                            <Select
+                            options={measures}
+                            name={`measure${index}`}
+                            value={selectedMeasure}
+                            onChange={(selectedOption) => setSelectedMeasure(selectedOption)}
+                            placeholder="cl"
+                            />
+                        </label>
+                        <button>X</button>
+                        </div>
+                    </div>
+                ))}
                 </Form>
             </Formik>
         </div>
