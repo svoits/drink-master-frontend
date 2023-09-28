@@ -19,7 +19,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { updateUser } from '../../redux/auth/auth-operation';
 
-export default function UserInfoModal({ ...props }) {
+export default function UserInfoModal({ isOpen, handleClose }) {
   const {
     user: { avatarURL, name },
   } = useAuth();
@@ -48,11 +48,11 @@ export default function UserInfoModal({ ...props }) {
 
   const handleSubmit = () => {
     const formData = new FormData();
-
     formData.append('avatar', file);
     formData.append('name', username);
 
     dispatch(updateUser(formData));
+    handleClose();
   };
 
   useEffect(() => {
@@ -62,7 +62,7 @@ export default function UserInfoModal({ ...props }) {
   }, [avatarURL]);
 
   return (
-    <Modal {...props}>
+    <Modal isOpen={isOpen} handleClose={handleClose}>
       <Formik initialValues={{ name: username }} onSubmit={handleSubmit}>
         <Form>
           <FileInputWrapper>
