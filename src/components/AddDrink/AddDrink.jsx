@@ -1,7 +1,7 @@
 import { Container } from '../../components/Container/Container.styled';
 import {
   Gradient,
-  ImageBgBlue,
+  // ImageBgBlue,
   ImageBgYellow,
   ImageWrap,
   MainDescr,
@@ -52,7 +52,7 @@ export default function AddDrink() {
               />
               <img src={heroImgdescS} alt="main-coctail" />
             </picture>
-            <ImageBgBlue></ImageBgBlue>
+            {/* <ImageBgBlue></ImageBgBlue> */}
           </ImageWrap>
         </SectionWrap>
       </Container>
