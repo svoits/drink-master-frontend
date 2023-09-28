@@ -26,19 +26,11 @@ const validationSchema = Yup.object().shape({
   
     glasses: Yup.string()
     .required('Cocktail glasses is a required field'),
-  });
-
-const initialValues = {
-    photo: '',
-    title: '',
-    recipe: '',
-    category: '',
-    glasses: '',
-};
+});
 
 const animatedComponents = makeAnimated();
 
-const DrinkDescriptionFields = () => {
+const DrinkDescriptionFields = ({ formData, setFormData, handleSubmit }) => {
     const dispatch = useDispatch();
     const categories = useSelector((state) => state.filters.categories);
     const glasses = useSelector((state) => state.filters.glasses);
@@ -62,7 +54,12 @@ const DrinkDescriptionFields = () => {
 
     return (
         <div>
-            <Formik initialValues={initialValues} validationSchema={validationSchema}>
+            <Formik initialValues={formData} validationSchema={validationSchema}
+                onSubmit={(values) => {
+                setFormData({ ...formData, ...values });
+                handleSubmit();
+            }}
+            >
                 <Form>
                     <label htmlFor='photo'>
                         <Field type="file" id="photo" name="photo" onChange={handleImageChange} placeholder='' />
