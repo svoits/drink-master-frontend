@@ -1,4 +1,4 @@
-import{s as i,W as m,r as s,u as g,a8 as a,j as e,a as u,a9 as w}from"./index-ece99a63.js";import{u as k}from"./useDrink-d041eedf.js";import{P as f}from"./PageTitle-a4927607.js";import"./drinks-selectors-db0f3074.js";const j=i.ul`
+import{s as i,W as m,r as s,u as g,a8 as a,j as e,a as u,a9 as w}from"./index-b05abc74.js";import{u as k}from"./useDrink-be37ddee.js";import{P as f}from"./PageTitle-05bb034d.js";import"./drinks-selectors-db0f3074.js";const j=i.ul`
   display: grid;
   grid-template-columns: repeat(1, 335px);
   justify-content: center;
