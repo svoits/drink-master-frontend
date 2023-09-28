@@ -23,7 +23,7 @@ const PopularDrinks = () => {
                 {popularList.map(({ _id, drinkThumb, drink, shortDescription }) => (
                     <li key={_id}>
                         <a href={`/api/drinks/popular/${_id}`}>
-                            <img src={drinkThumb} alt={drink} />
+                            <img src={drinkThumb} alt={drink} width={90} height={90} />
                             <h3>{drink}</h3>
                             <p>{shortDescription}</p>
                         </a>
