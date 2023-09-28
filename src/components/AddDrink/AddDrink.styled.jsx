@@ -35,19 +35,19 @@ export const MainTitle = styled.h1`
   font-size: 32px;
   font-style: normal;
   font-weight: 600;
-  line-height: 38px;
+  line-height: 1.1;
   margin-bottom: 16px;
 
   @media screen and (min-width: 768px) {
     width: 641px;
     font-size: 56px;
-    line-height: 60px;
+    line-height: 1.07;
   }
 
   @media screen and (min-width: 1440px) {
     width: 715px;
     font-size: 64px;
-    line-height: 68px;
+    line-height: 1.06;
   }
 `;
 
@@ -57,20 +57,20 @@ export const MainDescr = styled.p`
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
-  line-height: 20px;
+  line-height: 1.4;
   margin-bottom: 32px;
 
   @media screen and (min-width: 768px) {
     max-width: 619px;
     font-size: 18px;
-    line-height: 24px;
+    line-height: 1.3;
     margin-bottom: 48px;
   }
 
   @media screen and (min-width: 1440px) {
     max-width: 486px;
     font-size: 18px;
-    line-height: 24px;
+    line-height: 1.3;
     margin-bottom: 40px;
   }
 `;
@@ -83,8 +83,11 @@ export const MainLink = styled(Link)`
   height: 46px;
   border-radius: 42px;
   background: #f3f3f3;
+  background: ${({ theme }) => theme.userPopupBtnText};
 
   color: #161f37;
+  color: ${({ theme }) => theme.userPopupText};
+
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
