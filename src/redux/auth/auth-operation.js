@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 axios.defaults.baseURL = 'https://drink-master-api.onrender.com';
 
 const setAuthHeader = (token) => {
@@ -20,7 +21,11 @@ export const signUp = createAsyncThunk(
 
       return response.data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+      if (error.response.status === 409) {
+        toast.error('User with this email is already registered');
+      } else {
+        return thunkAPI.rejectWithValue(error.message);
+      }
     }
   },
 );
@@ -49,25 +54,6 @@ export const signOut = createAsyncThunk(
   },
 );
 
-// export const currentUser = createAsyncThunk(
-//   'auth/current',
-//   async (_, thunkAPI) => {
-//     const { token } = thunkAPI.getState().auth;
-//     const persistedToken = state.auth.token;
-//     if (persistedToken === null) {
-//       return thunkAPI.rejectWithValue('No valid token');
-//     }
-//     try {
-//       const response = await axios.get('/users/current');
-//       console.log(response.data);
-//       setAuthHeader(response.data.token);
-//       console.log(response.data.token);
-//       return response.data;
-//     } catch (error) {
-//       return thunkAPI.rejectWithValue(error.message);
-//     }
-//   },
-// );
 export const currentUser = createAsyncThunk(
   'auth/currentUser',
   async (_, thunkAPI) => {

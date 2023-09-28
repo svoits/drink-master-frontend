@@ -2,6 +2,8 @@ import { Route, Routes } from 'react-router-dom';
 import SharedLayout from './components/SharedLayout/SharedLayout';
 import ErrorPage from './pages/TMP_ErrorPage/ErrorPage';
 import { ThemeProvider } from 'styled-components';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { lazy, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { darkTheme, lightTheme } from './components/Themes';
@@ -55,7 +57,10 @@ function App() {
       )}
 
       <GlobalStyles />
+      <ToastContainer autoClose={2000} />
     </ThemeProvider>
+    
+  
   );
 }
 export default App;

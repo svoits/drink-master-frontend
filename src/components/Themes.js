@@ -21,6 +21,9 @@ export const lightTheme = {
   footerText: '#F3F3F3',
   footerCopyright: '#F3F3F380',
   footerBg: '#0A0A11',
+
+  sectionBackgroundColor: 'rgb(11 11 11)',
+  hoverBackgroundColorLink: '#161f37',
 };
 
 export const darkTheme = {
@@ -45,4 +48,7 @@ export const darkTheme = {
   footerText: '#F3F3F3',
   footerCopyright: '#F3F3F380',
   footerBg: '#0A0A11',
+
+  sectionBackgroundColor: 'transparent',
+  hoverBackgroundColorLink: '#F3F3F3',
 };

@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux';
 import { signUp } from '../../redux/auth/auth-operation';
 import FormError from '../FormError/FormError';
 import { format } from 'date-fns';
+import { toast } from 'react-toastify';
 import StyledDatepicker from '../StyledDatepicker/StyledDatepicker';
 import {
   AuthForm,
@@ -57,8 +58,10 @@ export default function SignupForm() {
     console.log('email: ', email);
     console.log('password: ', password);
 
-    dispatch(signUp({ name, birthDate, email, password }));
-
+    dispatch(signUp({ name, birthDate, email, password }))
+      .unwrap()
+      .then(() => toast.success('Registration succesfully'))
+      .catch(() => toast.error('Something went wrong. Try again'));
     resetForm();
   };
 
@@ -92,8 +95,12 @@ export default function SignupForm() {
               name="dateOfBirth"
               value={values.dateOfBirth}
               setFieldValue={setFieldValue}
-              error={errors.dateOfBirth && touched.dateOfBirth ? 'true' : 'false'}
-              success={values.dateOfBirth && !errors.dateOfBirth ? 'true' : 'false'}
+              error={
+                errors.dateOfBirth && touched.dateOfBirth ? 'true' : 'false'
+              }
+              success={
+                values.dateOfBirth && !errors.dateOfBirth ? 'true' : 'false'
+              }
             />
             <FormError name="dateOfBirth" />
 
