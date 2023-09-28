@@ -15,15 +15,7 @@ const measures = [
     { value: 'cup',label: 'cup' },
     { value: 'cups',label: 'cups' },
     { value: 'tblsp',label: 'tblsp' },
-]
-
-// const initialValues = {
-//     ingredients: [
-//       { ingredient: '', measure: '', quantity: '' },
-//       { ingredient: '', measure: '', quantity: '' },
-//       { ingredient: '', measure: '', quantity: '' },
-//     ],
-// };
+];
 
 const validationSchema = Yup.object().shape({
     ingredients: Yup.array().of(
