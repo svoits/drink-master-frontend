@@ -10,7 +10,9 @@ export const StyledBox = styled(Box)`
   background-color: ${({ theme }) => theme.modalBg};
   border-radius: 16px;
   box-shadow: 0px 4px 48px 0px rgba(0, 0, 0, 0.1);
-  padding: 50px;
+  padding: 25px;
+  padding-top: 50px;
+  padding-bottom: 50px;
 `;
 
 export const CloseBtn = styled.button`

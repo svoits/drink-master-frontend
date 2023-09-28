@@ -25,6 +25,7 @@ export const lightTheme = {
   userPopupBtnText: '#161F37',
   userPopupBtnBorderHover: '#F3F3F333',
   modalInputBorder: '#F3F3F380',
+  modalInputBorderFocus: '#F3F3F3',
 };
 
 export const darkTheme = {
@@ -54,4 +55,5 @@ export const darkTheme = {
   modalBtnText: '#161F37',
   modalBtnBorderHover: '#F3F3F333',
   modalInputBorder: '#F3F3F380',
+  modalInputBorderFocus: '#F3F3F3',
 };

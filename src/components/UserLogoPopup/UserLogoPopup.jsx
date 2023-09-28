@@ -1,17 +1,14 @@
 import { FiEdit2 } from 'react-icons/fi';
 import { EditProfile, LogoutBtn, Wrapper } from './UserLogoPopup.styled';
-import { useDispatch } from 'react-redux';
-import { signOut } from '../../redux/auth/auth-operation';
+
 import { useState } from 'react';
-import Modal from '../Modal/Modal';
+
 import UserInfoModal from '../UserInfoModal/UserInfoModal';
 import LogoutModal from '../LogoutModal/LogoutModal';
 
 export default function UserLogoPopup({ isPopupOpen }) {
   const [isUserInfoModalOpen, setIsUserInfoModalOpen] = useState(false);
   const [isLogoutModalOpen, setIsLogoutModalOpen] = useState(false);
-
-  const dispatch = useDispatch();
 
   const handleToggleUserModal = () => {
     setIsUserInfoModalOpen((state) => !state);

@@ -93,12 +93,7 @@ export const updateUser = createAsyncThunk(
   'auth/update',
   async (data, thunkAPI) => {
     try {
-      const formData = new FormData();
-      console.log(data);
-      formData.append('avatar', data.file);
-      formData.append('name', data.name);
-      console.log(formData);
-      const response = await axios.patch('/users/update', formData, {
+      const response = await axios.patch('/users/update', data, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },

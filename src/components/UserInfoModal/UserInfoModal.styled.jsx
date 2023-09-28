@@ -6,7 +6,6 @@ export const Form = styled(FormikForm)`
   display: flex;
   flex-direction: column;
   align-items: center;
-  row-gap: 39px;
 `;
 
 export const SelectAvatarInput = styled(Field)`
@@ -27,18 +26,40 @@ export const ChangeNameInput = styled(Field)`
   color: ${({ theme }) => theme.modalText};
   line-height: 1.285;
   width: 100%;
+  transition: border-color ${transition};
+
+  &:focus {
+    outline: transparent;
+    border-color: ${({ theme }) => theme.modalInputBorderFocus};
+  }
 `;
 
 export const Image = styled.img`
   position: absolute;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
 `;
 
-export const InputWrapper = styled.div`
+export const FileInputWrapper = styled.div`
   position: relative;
   border-radius: 50%;
   height: 80px;
   width: 80px;
+  margin-bottom: 38px;
+`;
+
+export const NameInputWrapper = styled.div`
+  position: relative;
+  width: 100%;
+  margin-bottom: 18px;
+`;
+
+export const EditIconWrapper = styled.span`
+  position: absolute;
+  top: 19px;
+  right: 24px;
+  pointer-events: none;
 `;
 
 export const SubmitBtn = styled.button`
@@ -49,6 +70,7 @@ export const SubmitBtn = styled.button`
   border-radius: 42px;
   background-color: ${({ theme }) => theme.modalBtnBg};
   border: 1px solid ${({ theme }) => theme.modalBg};
+  color: ${({ theme }) => theme.modalBtnText};
 
   transition:
     background-color ${transition},
@@ -61,12 +83,13 @@ export const SubmitBtn = styled.button`
     background-color: ${({ theme }) => theme.modalBg};
     border: 1px solid ${({ theme }) => theme.modalBtnBorderHover};
   }
+
   @media screen and (min-width: 768px) {
     min-width: 400px;
   }
 `;
 
-export const IconWrapper = styled.span`
+export const AddIconWrapper = styled.span`
   position: absolute;
   z-index: 9;
   bottom: -14px;
@@ -79,4 +102,5 @@ export const IconWrapper = styled.span`
   justify-content: center;
   width: 28px;
   height: 28px;
+  pointer-events: none;
 `;
