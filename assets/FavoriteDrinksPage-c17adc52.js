@@ -1,4 +1,4 @@
-import{s as i,W as x,X as g,u as c,j as e,Y as m,e as f,r as s,Z as u,C as w,a as v}from"./index-2f817d50.js";import{a as b}from"./drinks-selectors-db0f3074.js";import{D as j}from"./stub-ff156161.js";import{C as k}from"./hero-img-desc-2x-e8906f30.js";import{P as y}from"./PageTitle-5059101f.js";const D=i.li`
+import{s as t,W as v,X as y,u as j,j as e,Y as P,r as h,Z as C,$ as D,e as S,a0 as z,C as F,a as I}from"./index-ece99a63.js";import{a as M}from"./drinks-selectors-db0f3074.js";import{D as $}from"./stub-5ba7fc06.js";import{C as T}from"./hero-img-desc-2x-e8906f30.js";import{P as A}from"./PageTitle-a4927607.js";const L=t.li`
   width: 335px;
   margin-left: auto;
   margin-right: auto;
@@ -10,7 +10,7 @@ import{s as i,W as x,X as g,u as c,j as e,Y as m,e as f,r as s,Z as u,C as w,a a
   @media screen and (min-width: 1440px) {
     width: 400px;
   }
-`,z=i.img`
+`,N=t.img`
   width: 335px;
   height: 360px;
   border-radius: 8px;
@@ -31,7 +31,7 @@ import{s as i,W as x,X as g,u as c,j as e,Y as m,e as f,r as s,Z as u,C as w,a a
     width: 400px;
     height: 400px;
   }
-`,F=i.h3`
+`,E=t.h3`
   font-size: 14px;
   font-weight: 400;
   line-height: 1.28;
@@ -43,7 +43,7 @@ import{s as i,W as x,X as g,u as c,j as e,Y as m,e as f,r as s,Z as u,C as w,a a
     font-size: 16px;
     line-height: 1.13;
   }
-`,S=i.h2`
+`,R=t.h2`
   font-size: 18px;
   font-weight: 500;
   line-height: 1.33;
@@ -53,7 +53,7 @@ import{s as i,W as x,X as g,u as c,j as e,Y as m,e as f,r as s,Z as u,C as w,a a
     font-size: 24px;
     margin-top: 24px;
   }
-`,C=i.p`
+`,B=t.p`
   height: 74px;
   text-overflow: ellipsis;
   overflow: hidden;
@@ -61,18 +61,20 @@ import{s as i,W as x,X as g,u as c,j as e,Y as m,e as f,r as s,Z as u,C as w,a a
   font-weight: 400;
   line-height: 1.28;
   margin-top: 18px;
+  margin-bottom: 18px;
 
   @media screen and (min-width: 768px) {
     height: 110px;
     font-size: 16px;
     line-height: 1.38;
     margin-top: 24px;
+    margin-bottom: 24px;
   }
 
   @media screen and (min-width: 1440px) {
     height: 90px;
   }
-`,I=i.div`
+`,W=t.div`
   display: grid;
   grid-template-columns: 143px 46px;
   grid-column-gap: 8px;
@@ -80,13 +82,13 @@ import{s as i,W as x,X as g,u as c,j as e,Y as m,e as f,r as s,Z as u,C as w,a a
   @media screen and (min-width: 768px) {
     grid-template-columns: 160px 56px;
   }
-`;i(x)`
+`;t(v)`
   padding: 14px 40px 14px 40px;
   cursor: pointer;
   border-radius: 42px;
   background-color: #161f37;
   color: #f3f3f3;
-`;const T=i(x)`
+`;const Y=t(v)`
   border-radius: 42px;
   background-color: #161f37;
   color: #f3f3f3;
@@ -113,8 +115,8 @@ import{s as i,W as x,X as g,u as c,j as e,Y as m,e as f,r as s,Z as u,C as w,a a
     font-size: 16px;
     line-height: calc(18 / 16);
   }
-`,a=i(g)`
-  fill: ${({theme:t})=>t.mainText};
+`,g=t(y)`
+  fill: ${({theme:n})=>n.mainText};
   width: 18px;
   height: 18px;
 
@@ -122,7 +124,7 @@ import{s as i,W as x,X as g,u as c,j as e,Y as m,e as f,r as s,Z as u,C as w,a a
     width: 20px;
     height: 20px;
   }
-`,$=i.button`
+`,_=t.button`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -144,14 +146,14 @@ import{s as i,W as x,X as g,u as c,j as e,Y as m,e as f,r as s,Z as u,C as w,a a
     background-color: #f3f3f3;
   }
 
-  ${a} {
+  ${g} {
     color: #f3f3f3; /* Default color */
   }
 
-  &:hover ${a}, &:active ${a} {
+  &:hover ${g}, &:active ${g} {
     color: #161f37; /* Color on hover or active state */
   }
-`;function A({drink:t}){const n=c(),{_id:o,drink:r,alcoholic:d,drinkThumb:p,description:l}=t,h=()=>{n(m(o))};return e.jsxs(D,{children:[e.jsx(z,{src:p||j,alt:r}),e.jsx(S,{children:r}),e.jsx(F,{children:d?"Alcoholic":"NonAlcoholic"}),e.jsx(C,{children:l}),e.jsxs(I,{children:[e.jsx(T,{to:`/drinks/${o}`,children:"See More"}),e.jsxs($,{onClick:h,children:[" ",e.jsx(a,{})]})]})]})}const E=i.ul`
+`;function O({drink:n}){const o=j(),{_id:s,drink:d,alcoholic:a,drinkThumb:p,description:c}=n,r=()=>{o(P(s))};return e.jsxs(L,{children:[e.jsx(N,{src:p||$,alt:d}),e.jsx(R,{children:d}),e.jsx(E,{children:a?"Alcoholic":"NonAlcoholic"}),e.jsx(B,{children:c}),e.jsxs(W,{children:[e.jsx(Y,{to:`/drinks/${s}`,children:"See More"}),e.jsxs(_,{onClick:r,children:[" ",e.jsx(g,{})]})]})]})}const V=t.ul`
   display: grid;
   grid-row-gap: 40px;
   list-style: none;
@@ -168,7 +170,7 @@ import{s as i,W as x,X as g,u as c,j as e,Y as m,e as f,r as s,Z as u,C as w,a a
     grid-template-columns: repeat(3, 1fr);
     margin-top: 62px;
   }
-`;function L({drinks:t}){return e.jsx(E,{children:Array.isArray(t)&&t.map(n=>e.jsx(A,{drink:n},n._id))})}const M=i.div`
+`;function X({drinks:n}){return e.jsx(V,{children:Array.isArray(n)&&n.map(o=>e.jsx(O,{drink:o},o._id))})}const Z=t.div`
   width: 100%;
   margin: 0;
   padding-top: 80px;
@@ -183,7 +185,7 @@ import{s as i,W as x,X as g,u as c,j as e,Y as m,e as f,r as s,Z as u,C as w,a a
     padding-top: 158px;
     padding-bottom: 140px;
   }
-`;i.h1`
+`;t.h1`
   margin-top: 160px;
   margin-bottom: 62px;
   font-family: Manrope;
@@ -192,8 +194,8 @@ import{s as i,W as x,X as g,u as c,j as e,Y as m,e as f,r as s,Z as u,C as w,a a
   line-height: 68px;
   letter-spacing: 0em;
   text-align: left;
-  color: ${({theme:t})=>t.mainText};
-`;i.div`
+  color: ${({theme:n})=>n.mainText};
+`;t.div`
   margin: 0 auto;
   padding-top: 91px;
   display: flex;
@@ -207,7 +209,7 @@ import{s as i,W as x,X as g,u as c,j as e,Y as m,e as f,r as s,Z as u,C as w,a a
   @media screen and (min-width: 1440px) {
     padding-top: 67px;
   }
-`;const P=i.div`
+`;const q=t.div`
   margin: 0 auto;
   padding-top: 91px;
   display: flex;
@@ -221,7 +223,7 @@ import{s as i,W as x,X as g,u as c,j as e,Y as m,e as f,r as s,Z as u,C as w,a a
   @media screen and (min-width: 1440px) {
     padding-top: 67px;
   }
-`,R=i.p`
+`,G=t.p`
   width: 205px;
   font-size: 14px;
   font-weight: 500;
@@ -235,7 +237,7 @@ import{s as i,W as x,X as g,u as c,j as e,Y as m,e as f,r as s,Z as u,C as w,a a
     font-weight: 500;
     line-height: 1.38;
   }
-`,B=i.img`
+`,H=t.img`
   width: 198px;
   height: 247px;
 
@@ -243,4 +245,42 @@ import{s as i,W as x,X as g,u as c,j as e,Y as m,e as f,r as s,Z as u,C as w,a a
     width: 261px;
     height: 326px;
   }
-`;function Z(){const t=c(),n=f(b),[o,r,d]=s.useState("");return s.useEffect(()=>{t(u()).catch(p=>{console.error(p),r("Something went wrong please try later.")})},[t]),e.jsx(w,{children:e.jsxs(M,{children:[e.jsx(y,{title:"Favorite"}),d&&e.jsx(v,{}),n.length===0&&e.jsxs(P,{children:[e.jsx(B,{src:k,alt:"Cocktail"}),e.jsx(R,{children:"You have not added any cocktails yet"})]}),n.length>0&&e.jsx("div",{children:e.jsx(L,{drinks:n})}),o&&e.jsx("div",{children:o})]})})}export{Z as default};
+`,J=t.div`
+  padding: 14px 0;
+  @media screen and (min-width: 768px) {
+    padding: 14px 24px;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  button {
+    width: 27px;
+    height: 27px;
+    border-radius: 50%;
+    color: #f3f3f3;
+    transition: background-color 0.5s;
+    font-size: 12px;
+    font-weight: 500;
+    background-color: transparent;
+    border: none;
+    font-style: normal;
+    margin: 0 10px;
+  }
+
+  button.active {
+    background-color: rgba(64, 112, 205, 0.5);
+  }
+`,b=t.button`
+  width: 27px;
+  height: 27px;
+  fill: rgba(243, 243, 243, 0.3);
+  background-color: transparent;
+  border: none;
+  margin: 0 10px;
+`,K=({drinksPerPage:n,totalDrinks:o,onPageChange:s,pageNumbersToShow:d})=>{const[a,p]=h.useState(1),c=i=>{p(i),s(i)},r=[];for(let i=1;i<=Math.ceil(o/n);i++)r.push(i);const m=()=>{const i=Math.floor(d/2),x=r.indexOf(a),l=Math.max(0,x-i),f=Math.min(r.length-1,l+d-1);return r.slice(l,f+1)};return e.jsx(J,{children:e.jsxs("ul",{children:[e.jsx(b,{type:"button",onClick:()=>c(a-1),disabled:a===1,children:e.jsx(C,{size:20})}),m().map(i=>e.jsx("li",{children:e.jsx("button",{onClick:()=>c(i),className:i===a?"active":"",children:i})},i)),e.jsx(b,{onClick:()=>c(a+1),disabled:a===Math.ceil(o/n),children:e.jsx(D,{size:20})})]})})},Q=K;function oe(){const n=j(),o=S(M),[s,d]=h.useState(""),[a,p]=h.useState(!0),[c,r]=h.useState(1),m=5,i=u=>{r(u)};h.useEffect(()=>{p(!0),n(z()).then(()=>p(!1)).catch(u=>{console.error(u),d("Something went wrong, please try later."),p(!1)})},[n]);const x=o.length,l=9,f=Math.ceil(x/l),w=(c-1)*l,k=Math.min(w+l,x);return e.jsxs(F,{children:[e.jsxs(Z,{children:[e.jsx(A,{title:"Favorite"}),a&&e.jsx(I,{}),o.length===0&&e.jsxs(q,{children:[e.jsx(H,{src:T,alt:"Cocktail"}),e.jsx(G,{children:"You have not added any cocktails yet"})]}),o.length>0&&e.jsx("div",{children:e.jsx(X,{drinks:o.slice(w,k)})}),s&&e.jsx("div",{children:s})]}),f>1&&e.jsx(Q,{drinksPerPage:l,totalDrinks:x,onPageChange:i,pageNumbersToShow:m})]})}export{oe as default};
