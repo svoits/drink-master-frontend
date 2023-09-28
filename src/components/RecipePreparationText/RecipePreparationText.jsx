@@ -6,14 +6,15 @@ const validationSchema = Yup.object().shape({
       .min(100, 'You need to add a description of at least 100 symbols')
 });
 
-const initialValue = {
-    textareaRecipe: '',
-}
-
-const RecipePreparationText = () => {
+const RecipePreparationText = ({ formData, setFormData, handleSubmit }) => {
     return(
         <>
-            <Formik initialValues={initialValue} validationSchema={validationSchema}> 
+            <Formik initialValues={formData} validationSchema={validationSchema}
+                onSubmit={(values) => {
+                setFormData({ ...formData, ...values });
+                handleSubmit();
+            }}
+            > 
                 <Form>
                     <h2 htmlFor="textareaRecipe">Recipe Preparation</h2>
                     <Field name="textareaRecipe">
