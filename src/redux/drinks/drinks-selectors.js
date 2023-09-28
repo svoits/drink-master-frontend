@@ -6,3 +6,4 @@ export const selectDrinkById = (state, drinkId) =>
   state.drinks.drinks.find((drink) => drink._id === drinkId);
 export const selectFavoriteDrinks = (state) => state.drinks.favoriteDrinks;
 export const selectDrinksPopular = (state) => state.drinks.popularDrinks;
+export const selectTotalDrinks = (state) => state.drinks.total;

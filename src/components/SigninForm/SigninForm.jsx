@@ -2,6 +2,7 @@ import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
+import { toast } from 'react-toastify';
 import FormError from '../FormError/FormError';
 import {
   AuthForm,
@@ -11,7 +12,7 @@ import {
   PasswordInputWrap,
   StyledShowPasswordIcon,
   StyledDontShowPasswordIcon,
-   ErrorIcon,
+  ErrorIcon,
   SuccessIcon,
 } from '../SignupForm/SignupForm.styled';
 import { signIn } from '../../redux/auth/auth-operation';
@@ -37,8 +38,10 @@ export default function SigninForm() {
   const dispatch = useDispatch();
   const handleSubmit = (values, { resetForm }) => {
     const { email, password } = values;
-    dispatch(signIn({ email, password }));
-
+    dispatch(signIn({ email, password }))
+      .unwrap()
+      .then(() => toast.success('Login  succesfully'))
+      .catch(() => toast.error('Something went wrong. Try again'));
     resetForm();
   };
 

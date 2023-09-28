@@ -1,13 +1,10 @@
 import styled from 'styled-components';
 
-export const HeaderAndMenuWrapper = styled.div`
-  position: relative;
-`;
-
 export const MainWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: relative;
 `;
 
 export const HeaderContainer = styled.header`

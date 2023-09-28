@@ -80,11 +80,12 @@ export const ButtonsWRAPPER = styled.div`
   }
 `
 export const DrinkPageLINK = styled(NavLink)`
-  padding: 14px 40px 14px 40px;
+  padding: 14px 40px;
   cursor: pointer;
   border-radius: 42px;
   background-color: #161F37;
   color: #F3F3F3;
+  text-align: center;
 `
 export const DeleteDrinkBTN = styled.button`
   width: 100%;

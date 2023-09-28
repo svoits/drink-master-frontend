@@ -43,9 +43,11 @@ export const getPopularDrinks = createAsyncThunk(
 
 export const getRequestedDrink = createAsyncThunk(
   'drinks/search',
-  async (data, thunkAPI) => {
+  async ({ query, category, ingredient }, thunkAPI) => {
     try {
-      const response = await axios.get('/api/drinks/search', { data });
+      const response = await axios.get(
+        `/api/drinks/search?query=${query}&category=${category}&ingredient=${ingredient}`,
+      );
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
