@@ -7,11 +7,9 @@ import bgImageTablet2x from '../../images/welcome/bg-welcome-tablet@2x.jpg';
 import bgImageDesc from '../../images/welcome/bg-welcome-desc.jpg';
 import bgImageDesc2x from '../../images/welcome/bg-welcome-desc@2x.jpg';
 
-
-
 export const Section = styled.section`
- background-image: url(${bgImageMobile});
- background-color:${({ theme }) => theme.sectionBackgroundColor};
+  background-image: url(${bgImageMobile});
+  background-color: ${({ theme }) => theme.sectionBackgroundColor};
   background-position: center;
   background-size: contain;
   background-position: right center;
@@ -34,6 +32,7 @@ export const Section = styled.section`
     border-radius: 257px;
     filter: blur(104.8543701171875px);
     z-index: 1;
+    pointer-events: none;
     @media screen and (min-width: 768px) {
       width: 387px;
       height: 372.442px;
@@ -65,6 +64,7 @@ export const Section = styled.section`
     background: rgba(64, 112, 205, 0.5);
     filter: blur(104.8543701171875px);
     z-index: 1;
+    pointer-events: none;
     @media screen and (min-width: 768px) {
       width: 784px;
       height: 829.931px;

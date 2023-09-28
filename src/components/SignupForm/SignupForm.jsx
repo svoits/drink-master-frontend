@@ -91,18 +91,20 @@ export default function SignupForm() {
               ) : null}
             </PasswordInputWrap>
 
-            <StyledDatepicker
-              name="dateOfBirth"
-              value={values.dateOfBirth}
-              setFieldValue={setFieldValue}
-              error={
-                errors.dateOfBirth && touched.dateOfBirth ? 'true' : 'false'
-              }
-              success={
-                values.dateOfBirth && !errors.dateOfBirth ? 'true' : 'false'
-              }
-            />
-            <FormError name="dateOfBirth" />
+            <div>
+              <StyledDatepicker
+                name="dateOfBirth"
+                value={values.dateOfBirth}
+                setFieldValue={setFieldValue}
+                error={
+                  errors.dateOfBirth && touched.dateOfBirth ? 'true' : 'false'
+                }
+                success={
+                  values.dateOfBirth && !errors.dateOfBirth ? 'true' : 'false'
+                }
+              />
+              <FormError name="dateOfBirth" />
+            </div>
 
             <PasswordInputWrap>
               <Input
