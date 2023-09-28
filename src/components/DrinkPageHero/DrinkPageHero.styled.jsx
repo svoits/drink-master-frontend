@@ -116,9 +116,29 @@ export const DrinkPhotoWrapper = styled.div`
   width: 335px;
   height: 400px;
   margin-top: 80px;
-  padding: 133px 102px;
-  background-color: rgba(22, 31, 55, 0.5);
   border-radius: 8px;
+
+  @media screen and (min-width: 768px) {
+    width: 704px;
+    height: 400px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 400px;
+    height: 400px;
+  }
+`;
+
+export const DrinkDescriptionWrapper = styled.div`
+  @media screen and (min-width: 1440px) {
+    max-width: 593px;
+  }
+`;
+
+export const DrinkSvgWrapper = styled.div`
+  padding: 133px 102px;
+  margin-top: 80px;
+  background-color: rgba(22, 31, 55, 0.5);
 
   @media screen and (min-width: 768px) {
     width: 704px;
@@ -132,10 +152,3 @@ export const DrinkPhotoWrapper = styled.div`
     padding: 133px 135px;
   }
 `;
-
-export const DrinkDescriptionWrapper = styled.div`
-  @media screen and (min-width: 1440px) {
-    max-width: 593px;
-  }
-`;
-
