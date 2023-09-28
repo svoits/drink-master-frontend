@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import PageTitle from '../../components/PageTitle/PageTitle';
+import WelcomePageTitle from '../../components/WelcomePageTitle/WelcomePageTitle';
 import { getFavoriteAll } from '../../redux/drinks/drinks-operations';
 import { selectFavoriteDrinks } from '../../redux/drinks/drinks-selectors';
 import FavoriteDrinkList from '../../components/FavoriteDrinkList/FavoriteDrinkList';
@@ -28,7 +28,7 @@ export default function FavoriteDrinksPage() {
   return (
     <Container>
       <FavoritesContainer>
-        <PageTitle title="Favorite" />
+        <WelcomePageTitle title="Favorite" />
         {isLoading && <Loader />}
         {favoriteDrinks.length === 0 && (
           <DefaultContainer>
