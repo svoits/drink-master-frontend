@@ -26,7 +26,7 @@ export const Input = styled(Field)`
   border: none;
   border: 1px solid ${({ theme }) => theme.footerBorder};
   border-radius: 40px;
-  margin-bottom: 18px;
+
   outline: transparent;
   transition: border-color ${transition};
   color: ${({ theme }) => theme.footerText};
@@ -58,6 +58,7 @@ export const Button = styled.button`
   font-weight: 600;
   line-height: 1.125;
   width: 100%;
+  margin-top: 18px;
 
   &:hover,
   &:focus {

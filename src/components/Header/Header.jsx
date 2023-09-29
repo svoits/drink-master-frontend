@@ -17,11 +17,11 @@ export const Header = () => {
   const { width: windowWidth } = useResize();
 
   const handleToggleMenu = () => {
-    setIsMenuOpen((prevState) => !prevState);
+    setIsMenuOpen((state) => !state);
   };
 
   const handleToggleUserPopup = () => {
-    setIsUserPopupOpen((prevState) => !prevState);
+    setIsUserPopupOpen((state) => !state);
   };
 
   return (
@@ -52,7 +52,10 @@ export const Header = () => {
           </MainWrapper>
         </Container>
       </HeaderContainer>
-      <UserLogoPopup isPopupOpen={isUserPopupOpen} />
+      <UserLogoPopup
+        isPopupOpen={isUserPopupOpen}
+        handleTogglePopup={handleToggleUserPopup}
+      />
 
       {/* {isMenuOpen && <MobileMenu isMenuOpen={isMenuOpen} />} */}
 

@@ -6,16 +6,18 @@ import { useState } from 'react';
 import UserInfoModal from '../UserInfoModal/UserInfoModal';
 import LogoutModal from '../LogoutModal/LogoutModal';
 
-export default function UserLogoPopup({ isPopupOpen }) {
+export default function UserLogoPopup({ isPopupOpen, handleTogglePopup }) {
   const [isUserInfoModalOpen, setIsUserInfoModalOpen] = useState(false);
   const [isLogoutModalOpen, setIsLogoutModalOpen] = useState(false);
 
   const handleToggleUserModal = () => {
     setIsUserInfoModalOpen((state) => !state);
+    handleTogglePopup();
   };
 
   const handleToggleLogoutModal = () => {
     setIsLogoutModalOpen((state) => !state);
+    handleTogglePopup();
   };
 
   return (

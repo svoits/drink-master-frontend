@@ -1,6 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
 import SharedLayout from './components/SharedLayout/SharedLayout';
-import ErrorPage from './pages/ErrorPage/ErrorPage';
 import { ThemeProvider } from 'styled-components';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -8,17 +7,14 @@ import { lazy, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { darkTheme, lightTheme } from './components/Themes';
 import { GlobalStyles } from './components/globalStyles';
-import { selectIsRefreshing, selectTheme } from './redux/auth/auth-selectors';
+import { selectTheme } from './redux/auth/auth-selectors';
 import { currentUser } from './redux/auth/auth-operation';
 import RestrictedRoute from './components/RestrictedRoute';
 import PrivateRoute from './components/PrivateRoute';
 import WelcomePage from './pages/WelcomePage/WelcomePage';
 import SignupPage from './pages/SignupPage/SignupPage';
 import SigninPage from './pages/SigninPage/SigninPage';
-
-// const Welcome = lazy(() => import('./pages/WelcomePage/WelcomePage'));
-// const Signup = lazy(() => import('./pages/SignupPage/SignupPage'));
-// const Signin = lazy(() => import('./pages/SigninPage/SigninPage'));
+import { useAuth } from './redux/hooks/useAuth';
 
 const Home = lazy(() => import('./pages/HomePage/HomePage'));
 const Drinks = lazy(() => import('./pages/DrinksPage/DrinksPage'));
@@ -28,10 +24,12 @@ const FavoriteDrinks = lazy(() =>
 );
 const Drink = lazy(() => import('./pages/DrinkPage/DrinkPage'));
 const MyDrinks = lazy(() => import('./pages/MyDrinksPage/MyDrinksPage'));
+const Error = lazy(() => import('./pages/ErrorPage/ErrorPage'));
 
 function App() {
   const theme = useSelector(selectTheme);
-  const isRefreshing = useSelector(selectIsRefreshing);
+  const { isRefreshing } = useAuth();
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -41,7 +39,7 @@ function App() {
   return (
     <ThemeProvider theme={theme === 'dark' ? darkTheme : lightTheme}>
       {isRefreshing ? (
-        <div>Refresh user</div>
+        <b>Refresh user</b>
       ) : (
         <Routes>
           <Route
@@ -60,32 +58,13 @@ function App() {
             path="/"
             element={<PrivateRoute component={<SharedLayout />} />}
           >
-            <Route
-              path="home"
-              element={<PrivateRoute component={<Home />} />}
-            />
-            <Route
-              path="drinks"
-              element={<PrivateRoute component={<Drinks />} />}
-            />
-            <Route
-              path="add"
-              element={<PrivateRoute component={<AddDrink />} />}
-            />
-            <Route
-              path="favorites"
-              element={<PrivateRoute component={<FavoriteDrinks />} />}
-            />
-            <Route
-              path="drinks/:drinkId"
-              element={<PrivateRoute component={<Drink />} />}
-            />
-            <Route
-              path="my"
-              element={<PrivateRoute component={<MyDrinks />} />}
-            />
-
-            <Route path="*" element={<ErrorPage />} />
+            <Route path="home" element={<Home />} />
+            <Route path="drinks" element={<Drinks />} />
+            <Route path="add" element={<AddDrink />} />
+            <Route path="favorites" element={<FavoriteDrinks />} />
+            <Route path="drinks/:drinkId" element={<Drink />} />
+            <Route path="my" element={<MyDrinks />} />
+            <Route path="*" element={<Error />} />
           </Route>
         </Routes>
       )}
