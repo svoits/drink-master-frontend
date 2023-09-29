@@ -91,7 +91,8 @@ import { useDispatch } from 'react-redux';
 import { getRequestedDrink } from '../../redux/drinks/drinks-operations';
 
 import Loader from '../../components/Loader';
-import { Paginator } from '../../components/Paginator/Paginator';
+
+import  Paginator  from '../../components/Pagi/Paginator';
 import { Container } from '../../components/Container/Container.styled';
 
 import { useDrink } from '../../redux/hooks/useDrink';
