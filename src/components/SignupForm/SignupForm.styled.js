@@ -64,6 +64,7 @@ export const Input = styled(Field)`
 `;
 
 export const Button = styled.button`
+  position: relative;
   padding: 18px;
   background-color: #f3f3f3;
   border-radius: 42px;

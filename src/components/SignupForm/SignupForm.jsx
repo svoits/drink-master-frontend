@@ -46,9 +46,10 @@ export default function SignupForm() {
   const dispatch = useDispatch();
   const handleSubmit = (values, { resetForm }) => {
     const { name, dateOfBirth, email, password } = values;
+    // const parsedDateOfBirth = parse(dateOfBirth, 'dd/MM/yyyy', new Date());
     const birthDate = format(new Date(dateOfBirth), "yyyy-MM-dd'T'HH:mm:ssXXX");
     console.log(name, dateOfBirth, email, password);
-
+    console.log(birthDate);
     dispatch(signUp({ name, birthDate, email, password }))
       .unwrap()
       .then(() => toast.success('Registration succesfully'))
@@ -87,6 +88,7 @@ export default function SignupForm() {
                 
             
               <DatePicker
+                name="dateOfBirth"
                 type="text"
                 value={values.dateOfBirth}
                 setFieldValue={setFieldValue} 

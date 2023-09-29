@@ -92,9 +92,11 @@
 //         dateFormat={'dd-MM-yyyy'}
 //         maxDate={new Date()}
 //         placeholderText={placeholder}
-//         calendarStartDay={1}
+//               calendarStartDay={1}
+//               showMonthYearPicker
 //       />{' '}
 //       <CalendarGlobalStyles />
 //     </>
 //   );
 // }
+
