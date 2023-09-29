@@ -126,18 +126,14 @@ export const addDrinkToFavorite = createAsyncThunk(
 
 export const getFavoriteAll = createAsyncThunk(
   'drinks/favorite/all',
-  async (_, thunkAPI) => {
+  async ({ page, limit }, thunkAPI) => {
     try {
-      const response = await axios.get('/api/drinks/favorite/all');
+      const response = await axios.get(
+        `/api/drinks/favorite/all?page=${page}&limit=${limit}`,
+      );
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
   },
 );
-
-// /own/remove/:id
-// /own/all
-// /favorite/add/:id
-// /favorite/remove/:id
-// /favorite/all
