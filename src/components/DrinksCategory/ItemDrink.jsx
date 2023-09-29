@@ -1,6 +1,7 @@
 import React from 'react';
 import { CategoryDrinksITEM, CategoryDrinksIMG, CategoryDrinksTEXTDIV, CategoryDrinksP } from './DrinksCategory.styled';
-import { DrinkPageLINK } from '../DrinksList/DrinksList.styled';
+
+import { NavLink } from 'react-router-dom';
 
 export const ItemDrink = ({item}) => {
  
@@ -15,7 +16,7 @@ export const ItemDrink = ({item}) => {
       )}
       <CategoryDrinksTEXTDIV>
         <CategoryDrinksP>{drink}</CategoryDrinksP>
-        <DrinkPageLINK to={`/drinks/${id}`}>See more</DrinkPageLINK>
+        <NavLink to={`/drinks/${id}`}>See more</NavLink>
       </CategoryDrinksTEXTDIV>
     </CategoryDrinksITEM>
   );
