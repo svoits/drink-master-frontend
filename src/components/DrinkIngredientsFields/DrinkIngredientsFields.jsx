@@ -4,6 +4,7 @@ import { ErrorMessage, Field, Form, Formik } from 'formik';
 import * as Yup from 'yup';
 import Select from 'react-select';
 import { getIngredients } from '../../redux/filters/filters-operation';
+import { IoMdClose } from 'react-icons/io';
 
 const measures = [
     { value: 'ml',label: 'ml' },
@@ -32,17 +33,32 @@ const validationSchema = Yup.object().shape({
 
 const DrinkIngredientsFields = ({ formData, setFormData, handleSubmit }) => {
     const dispatch = useDispatch();
-    const [selectedIngredient, setSelectedIngredient] = useState(null);
-    const [selectedMeasure, setSelectedMeasure] = useState(null);
     const [ingredientCount, setIngredientCount] = useState(3); 
     const ingredients = useSelector((state) => state.filters.ingredients);
+    const [selectedIngredients, setSelectedIngredients] = useState(Array(ingredientCount).fill(null));
+    const [selectedMeasures, setSelectedMeasures] = useState(Array(ingredientCount).fill(null));
+
     const maxIngredientCount = 10;
 
-    const handleIngredientChange = (selectedOption, form) => {
-        setSelectedIngredient(selectedOption);
-        setSelectedMeasure(selectedOption);
-        form.setFieldValue('ingredients', selectedOption ? selectedOption.value : '');
+    const handleIngredientChange = (selectedOption, index, form) => {
+        const newSelectedIngredients = [...selectedIngredients];
+        newSelectedIngredients[index] = selectedOption;
+        setSelectedIngredients(newSelectedIngredients);
+        const updatedFormData = {
+          ...formData,
+          ingredients: formData.ingredients.map((ingredient, i) =>
+            i === index ? { ...ingredient, ingredient: selectedOption ? selectedOption.value : '' } : ingredient
+          ),
+        };
+        setFormData(updatedFormData);
     };
+    
+    const handleMeasureChange = (selectedOption, index) => {
+        const newSelectedMeasures = [...selectedMeasures];
+        newSelectedMeasures[index] = selectedOption;
+        setSelectedMeasures(newSelectedMeasures);
+    };
+    
 
     useEffect(() => {
         dispatch(getIngredients())
@@ -79,18 +95,18 @@ const DrinkIngredientsFields = ({ formData, setFormData, handleSubmit }) => {
                     {[...Array(ingredientCount)].map((_, index) => (
                     <div key={index}>
                         <label htmlFor={`ingredient${index}`}>
-                        <Field name={`ingredient${index}`}>
+                        <Field name={`ingredient${index}`} >
                             {({ field, form }) => (
                             <Select
                                 closeMenuOnSelect={true}
                                 isMulti={false}
                                 isClearable={true}
                                 options={ingredients.map(({ title }) => ({ value: title, label: title }))}
-                                name={field.name}
+                                name={`ingredients[${index}]`}
                                 id={`ingredient${index}`}
                                 {...field}
-                                value={selectedIngredient}
-                                onChange={(selectedOption) => handleIngredientChange(selectedOption, form)}
+                                value={selectedIngredients[index]}
+                                onChange={(selectedOption) => handleIngredientChange(selectedOption, index, form)}
                                 placeholder=""
                             />
                             )}
@@ -101,14 +117,14 @@ const DrinkIngredientsFields = ({ formData, setFormData, handleSubmit }) => {
                         <ErrorMessage name={`quantity${index}`} component="div" />
                         <label htmlFor={`measure${index}`}>
                             <Select
-                            options={measures}
-                            name={`measure${index}`}
-                            value={selectedMeasure}
-                            onChange={(selectedOption) => setSelectedMeasure(selectedOption)}
-                            placeholder="cl"
+                                options={measures}
+                                name={`measures[${index}]`}
+                                value={selectedMeasures[index]}
+                                onChange={(selectedOption) => handleMeasureChange(selectedOption, index)}
+                                placeholder="cl"
                             />
                         </label>
-                        <button>X</button>
+                        <button type='button' onClick={handleRemoveIngredient}><IoMdClose /></button>
                         </div>
                     </div>
                 ))}
