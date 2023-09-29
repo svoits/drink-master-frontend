@@ -5,6 +5,7 @@ import Loader from '../Loader/Loader';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { getMainPageAllDrinks } from '../../redux/drinks/drinks-operations'
+import { NavLink } from 'react-router-dom';
 
 export const DrinksCategory = () => {
   
@@ -22,7 +23,7 @@ export const DrinksCategory = () => {
   return (
     <>
       <section>
-        <div className="container">
+        <div>
         {isLoading ?
           <Loader /> :
           Object.keys(mainPageDrinks).length > 0 &&
@@ -36,6 +37,7 @@ export const DrinksCategory = () => {
               </CategoryDrinksLIST>
             </div>
           ))}
+          <div><NavLink to={`/drinks`}>See more</NavLink></div>
         </div>
       </section>
     </>

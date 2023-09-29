@@ -6,7 +6,7 @@ import { NavLink } from 'react-router-dom';
 export const ItemDrink = ({item}) => {
  
   const { _id: id, drink, drinkThumb } = item;
-  console.log(id, drink, drinkThumb);
+ 
   return (
     <CategoryDrinksITEM key={id}>
       {drinkThumb ? ( 
