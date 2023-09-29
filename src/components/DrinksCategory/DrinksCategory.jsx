@@ -1,6 +1,6 @@
 import { useDrink } from '../../redux/hooks/useDrink';
 import { ItemDrink } from './ItemDrink';
-import { CategoryDrinksLIST } from './DrinksCategory.styled'
+import { CategoryDrinksLIST, DrinkCategoryTitle, CategoryDrinksDiv } from './DrinksCategory.styled'
 import Loader from '../Loader/Loader';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
@@ -13,13 +13,13 @@ export const DrinksCategory = () => {
 
   
   useEffect(() => {
-    console.log("mainPageDrinks")
+   
     dispatch(getMainPageAllDrinks())
 
   }, [dispatch])
 
   const { mainPageDrinks, isLoading, error } = useDrink();
-  console.log(mainPageDrinks)
+ 
   return (
     <>
       <section>
@@ -28,14 +28,15 @@ export const DrinksCategory = () => {
           <Loader /> :
           Object.keys(mainPageDrinks).length > 0 &&
           Object.keys(mainPageDrinks).map((category, idx) => (
-            <div key={idx}>
-              <p>{category} </p>
+            <CategoryDrinksDiv key={idx}>
+              <DrinkCategoryTitle>{category} </DrinkCategoryTitle>
               <CategoryDrinksLIST>
-                {mainPageDrinks[category].map((item) => (
-                  <ItemDrink key={item._id} item={item} />
+
+                {mainPageDrinks[category].map((item, i) => (
+                  <ItemDrink key={item._id} item={item} idx={i}/>
                 ))}
               </CategoryDrinksLIST>
-            </div>
+            </CategoryDrinksDiv>
           ))}
           <div><NavLink to={`/drinks`}>See more</NavLink></div>
         </div>
