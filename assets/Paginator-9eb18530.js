@@ -1,4 +1,4 @@
-import{s,t as i,r as b,j as n,aa as j,ab as m}from"./index-b978d3bf.js";const y=s.ul`
+import{s,t as i,r as b,j as n,ab as j,ac as m}from"./index-7394366a.js";const y=s.ul`
   list-style: none;
   padding: 0;
   display: flex;
@@ -31,8 +31,8 @@ import{s,t as i,r as b,j as n,aa as j,ab as m}from"./index-b978d3bf.js";const y=
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  width: 27px;
-  height: 27px;
+  width: 24px;
+  height: 24px;
   color: rgba(243, 243, 243, 0.3);
   background-color: transparent;
   border: none;
@@ -40,15 +40,15 @@ import{s,t as i,r as b,j as n,aa as j,ab as m}from"./index-b978d3bf.js";const y=
   transition: color ${i};
 
   &:first-child {
-    margin-right: 44px;
+    margin-right: 30px;
   }
 
   &:last-child {
-    margin-left: 44px;
+    margin-left: 30px;
   }
 
   &:hover:not([disabled]),
   &:focus:not([disabled]) {
     color: #f3f3f3;
   }
-`,P=({drinksPerPage:a,totalDrinks:c,onPageChange:g,pageNumbersToShow:l})=>{const[e,p]=b.useState(1),r=t=>{p(t),g(t)},o=[];for(let t=1;t<=Math.ceil(c/a);t++)o.push(t);const x=()=>{const t=Math.floor(l/2),f=o.indexOf(e),d=Math.max(0,f-t),u=Math.min(o.length-1,d+l-1);return o.slice(d,u+1)};return n.jsx(C,{children:n.jsxs(y,{children:[n.jsx(h,{type:"button",onClick:()=>r(e-1),disabled:e===1,children:n.jsx(j,{size:20})}),x().map(t=>n.jsx("li",{children:n.jsx(v,{onClick:()=>r(t),className:t===e?"active":"",children:t})},t)),n.jsx(h,{onClick:()=>r(e+1),disabled:e===Math.ceil(c/a),children:n.jsx(m,{size:20})})]})})},M=P;export{M as P};
+`,P=({drinksPerPage:a,totalDrinks:c,onPageChange:g,pageNumbersToShow:l})=>{const[e,p]=b.useState(1),r=t=>{p(t),g(t)},o=[];for(let t=1;t<=Math.ceil(c/a);t++)o.push(t);const x=()=>{const t=Math.floor(l/2),f=o.indexOf(e),d=Math.max(0,f-t),u=Math.min(o.length-1,d+l-1);return o.slice(d,u+1)};return n.jsx(C,{children:n.jsxs(y,{children:[n.jsx(h,{type:"button",onClick:()=>r(e-1),disabled:e===1,children:n.jsx(j,{size:24})}),x().map(t=>n.jsx("li",{children:n.jsx(v,{onClick:()=>r(t),className:t===e?"active":"",children:t})},t)),n.jsx(h,{onClick:()=>r(e+1),disabled:e===Math.ceil(c/a),children:n.jsx(m,{size:24})})]})})},M=P;export{M as P};
