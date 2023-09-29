@@ -1,10 +1,14 @@
 import React from 'react';
-import { CategoryDrinksITEM, CategoryDrinksIMG, CategoryDrinksTEXTDIV, CategoryDrinksP } from './DrinksCategory.styled';
+import { CategoryDrinksITEM, CategoryDrinksIMG, CategoryDrinksTEXTDIV, CategoryDrinksP, CategoryDrinksLink} from './DrinksCategory.styled';
 
-import { NavLink } from 'react-router-dom';
 
-export const ItemDrink = ({item}) => {
- 
+
+export const ItemDrink = ({item, idx}) => {
+  if ((window.innerWidth <= 768 && idx > 0) || (window.innerWidth <= 1440 && idx > 1)) {
+  
+    return(``);
+  } 
+  
   const { _id: id, drink, drinkThumb } = item;
  
   return (
@@ -16,7 +20,7 @@ export const ItemDrink = ({item}) => {
       )}
       <CategoryDrinksTEXTDIV>
         <CategoryDrinksP>{drink}</CategoryDrinksP>
-        <NavLink to={`/drinks/${id}`}>See more</NavLink>
+        <CategoryDrinksLink to={`/drinks/${id}`}>See more</CategoryDrinksLink>
       </CategoryDrinksTEXTDIV>
     </CategoryDrinksITEM>
   );
