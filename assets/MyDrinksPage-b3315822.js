@@ -1,4 +1,4 @@
-import{s as t,N as f,r as a,j as e,u as j,a8 as h,L as D,a9 as b}from"./index-367ff29a.js";import{C as v}from"./hero-img-desc-2x-e8906f30.js";import{P}from"./PageTitle-eafa8bdd.js";import{P as F}from"./Paginator-adc32c9e.js";import{u as C}from"./useDrink-23448879.js";import"./drinks-selectors-db0f3074.js";const I=t.ul`
+import{s as t,N as f,r as a,j as e,u as j,a8 as h,L as D,a9 as b}from"./index-d655e38b.js";import{C as v}from"./hero-img-desc-2x-e8906f30.js";import{P}from"./PageTitle-a3cf9345.js";import{P as F}from"./Paginator-1858b8f4.js";import{u as C}from"./useDrink-9328bb91.js";import"./drinks-selectors-db0f3074.js";const I=t.ul`
   display: grid;
   grid-template-columns: repeat(1, 335px);
   justify-content: center;
