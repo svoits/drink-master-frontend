@@ -23,11 +23,11 @@ export const CategoryDrinksLIST = styled.ul`
   align-content: center;
   justify-content: center;
   align-items: center;
-  column-gap: 14px;
-  row-gap: 80px;
+  
 
   @media screen and (min-width: 768px) {
     display: flex;
+    gap:20px;
   }
 `;
 
