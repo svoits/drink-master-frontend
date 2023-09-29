@@ -99,22 +99,22 @@ export const StyledSelect = styled(ReactSelect)`
   & .Select__menu {
     margin: 0;
     margin-top: 4px;
-    border-radius: 20px;
+    border-radius: 24px;
     background-color: ${({ theme }) => theme.selectDropdownBackground};
   }
 
   & .Select__menu-list {
-    padding: 14px;
-    border-radius: 20px;
+    padding: 8px;
+    border-radius: 24px;
     background-color: ${({ theme }) => theme.selectDropdownBackground};
     display: flex;
     flex-direction: column;
-    row-gap: 8px;
+    row-gap: 4px;
     max-height: 400px;
   }
 
   & .Select__option {
-    padding: 0 8px;
+    padding: 4px 14px;
     border-radius: 20px;
     color: ${({ theme }) => theme.selectDropdownOptionText};
     transition:
