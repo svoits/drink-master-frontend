@@ -122,7 +122,6 @@ export const MainLink = styled(Link)`
 
   &:disabled {
     color: rgba(243, 243, 243, 0.2);
-
     background: #434d67;
   }
 `;
