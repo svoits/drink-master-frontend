@@ -1,22 +1,22 @@
-// import { useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
-// import {
-//   // selectSearchQuery,
-//   selectCategories,
-//   selectIngredients,
-//   selectGlasses,
-// } from '../redux/filters/selectors';
+import {
+  // selectSearchQuery,
+  selectCategories,
+  selectIngredients,
+  selectGlasses,
+} from '../filters/selectors';
 
-// export const useFilter = () => {
-//   // const searchQuery = useSelector(selectSearchQuery);
-//   const allCategories = useSelector(selectCategories);
-//   const allIngredients = useSelector(selectIngredients);
-//   const allGlasses = useSelector(selectGlasses);
+export const useFilter = () => {
+  // const searchQuery = useSelector(selectSearchQuery);
+  const categories = useSelector(selectCategories);
+  const ingredients = useSelector(selectIngredients);
+  const glasses = useSelector(selectGlasses);
 
-//   return {
-//     // searchQuery,
-//     allCategories,
-//     allIngredients,
-//     allGlasses,
-//   };
-// };
+  return {
+    // searchQuery,
+    categories,
+    ingredients,
+    glasses,
+  };
+};

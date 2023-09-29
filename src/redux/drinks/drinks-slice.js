@@ -53,7 +53,6 @@ const drinksSlice = createSlice({
       .addCase(getRequestedDrink.fulfilled, (state, action) => {
         state.drinks = action.payload.drinks;
         state.total = action.payload.total;
-        // state.searchQuery = action.payload;
         state.isLoading = false;
         state.error = null;
       })
