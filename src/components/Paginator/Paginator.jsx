@@ -46,49 +46,6 @@
 //   );
 // }
 //====================================================
-// import {
-//   Container,
-//   PaginationItem,
-//   Pagination,
-//   Stack,
-//   Link
-// } from "@mui/material";
-// // import KeyboardArrowLeft from "@mui/icons-material/KeyboardArrowLeft";
-// // import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
-// import { useDrink } from "../../redux/hooks/useDrink";
-// import { useState } from "react";
-
-// export const Paginator = () => {
-//   const { drinks } = useDrink();
-
-//   return (
-//       drinks.length >= 6 ?
-//           (<Stack
-//               sx={{
-//                   marginTop: '80px',
-//                   marginBottom: '140px',
-//               }}>
-//               <Pagination
-//                color="primary"
-//                   count={8}
-//                   boundaryCount={2}
-//                   sx={{
-//                       display: 'flex',
-//                       justifyContent: 'center',
-//                       '& .MuiPaginationItem-page.Mui-selected': {
-//                           backgroundColor: "#4070CD80",
-//                           color: "#F3F3F3",
-//                       },
-//                       '& .MuiPaginationItem-page': {
-//                           color: "#F3F3F3",
-//                       },
-//                   }}
-//               />
-//           </Stack>) :
-//           null
-//   );
-// }
-
 import { useState } from 'react';
 import { StyledArrows, StyledPagination } from './Paginator.styled';
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
