@@ -1,11 +1,13 @@
 import { useDrink } from '../../redux/hooks/useDrink';
 import { ItemDrink } from './ItemDrink';
-import { CategoryDrinksLIST, DrinkCategoryTitle, CategoryDrinksDiv } from './DrinksCategory.styled'
 import Loader from '../Loader/Loader';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { getMainPageAllDrinks } from '../../redux/drinks/drinks-operations'
 import { NavLink } from 'react-router-dom';
+
+import { CategoryDrinksLIST, DrinkCategoryTitle, CategoryDrinksDiv, CategoryDrinkToDrink } from './DrinksCategory.styled'
+import { Container } from '../Container/Container.styled';
 
 export const DrinksCategory = () => {
   
@@ -23,7 +25,7 @@ export const DrinksCategory = () => {
   return (
     <>
       <section>
-        <div>
+        <Container>
         {isLoading ?
           <Loader /> :
           Object.keys(mainPageDrinks).length > 0 &&
@@ -38,8 +40,8 @@ export const DrinksCategory = () => {
               </CategoryDrinksLIST>
             </CategoryDrinksDiv>
           ))}
-          <div><NavLink to={`/drinks`}>See more</NavLink></div>
-        </div>
+          <div><CategoryDrinkToDrink to={`/drinks`}>Other drinks</CategoryDrinkToDrink></div>
+        </Container>
       </section>
     </>
   );

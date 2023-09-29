@@ -21,7 +21,7 @@ export const CategoryDrinksLIST = styled.ul`
   align-items: center;
   column-gap: 14px;
   row-gap: 80px;
-  
+
   @media screen and (min-width: 768px) {
     display: flex;
   }
@@ -68,6 +68,20 @@ export const CategoryDrinksTEXTDIV = styled.div`
   justify-content: space-between;
   align-items: center;
 `;
+
+export const CategoryDrinkToDrink = styled(NavLink)`
+  display: block;
+  margin: 60px auto;
+  max-width: 168px;
+  min-height: 46px;
+  border-radius: 42px;
+  padding: 14px 40px;
+  background: #F3F3F3;
+  color: #161F37;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+`
 // @media screen and (min-width: 768px) {
 //   padding-top: 120px;
 //   padding-bottom: 123px;
