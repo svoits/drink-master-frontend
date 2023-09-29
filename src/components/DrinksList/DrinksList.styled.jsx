@@ -7,14 +7,19 @@ export const MyDrinksList = styled.ul`
   grid-template-columns: repeat(1, 335px);
   justify-content: center;
   grid-row-gap: 40px;
+  padding-top: 40px;
+  padding-bottom: 80px;
 
   @media screen and (min-width: 768px) {
     grid-template-columns: repeat(2, 342px);
     grid-gap: 80px 20px;
+    padding-top: 60px;
+    padding-bottom: 140px;
   }
 
   @media screen and (min-width: 1440px){
     grid-template-columns: repeat(3, 400px);
+    padding-top: 62px;
   }
 `
 
