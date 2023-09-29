@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
 export const StyledPagination = styled.div`
-  padding: 14px 0;
+  padding-top: 40px;
   @media screen and (min-width: 768px) {
-    padding: 14px 24px;
+    padding-top: 80px;
   }
 
   ul {

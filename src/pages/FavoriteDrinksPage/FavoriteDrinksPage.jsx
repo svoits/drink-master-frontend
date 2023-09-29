@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getFavoriteAll } from '../../redux/drinks/drinks-operations';
 import { selectFavoriteDrinks } from '../../redux/drinks/drinks-selectors';
@@ -66,15 +66,15 @@ export default function FavoriteDrinksPage() {
           </div>
         )}
         {errorMessage && <div>{errorMessage}</div>}
+        {totalPages > 1 && (
+          <Paginator
+            drinksPerPage={itemsPerPage}
+            totalDrinks={totalItems}
+            onPageChange={onPageChange}
+            pageNumbersToShow={pageNumbersToShow}
+          />
+        )}
       </FavoritesContainer>
-      {totalPages > 1 && (
-        <Paginator
-          drinksPerPage={itemsPerPage}
-          totalDrinks={totalItems}
-          onPageChange={onPageChange}
-          pageNumbersToShow={pageNumbersToShow}
-        />
-      )}
     </Container>
   );
 }
