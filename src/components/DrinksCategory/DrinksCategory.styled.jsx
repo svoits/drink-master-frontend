@@ -4,6 +4,10 @@ import { NavLink } from 'react-router-dom';
 
 export const CategoryDrinksDiv = styled.div`
   margin-bottom: 40px;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 80px;
+  }
 `;
 
 export const DrinkCategoryTitle = styled.h2`
@@ -82,22 +86,3 @@ export const CategoryDrinkToDrink = styled(NavLink)`
   font-size: 14px;
   line-height: 18px;
 `
-// @media screen and (min-width: 768px) {
-//   padding-top: 120px;
-//   padding-bottom: 123px;
-//   gap: 54px;
-// }
-
-// @media screen and (min-width: 1440px) {
-//   padding-top: 185px;
-//   padding-bottom: 218px;
-//   display: flex;
-//   flex-direction: row;
-//   align-items: center;
-//   gap: 130px;
-// }
-// if (window.innerWidth >= 1440) {
-//   imagePlaceholder = placeholderDesk;
-// } else if (window.innerWidth >= 768) {
-//   imagePlaceholder = placeholderTablet;
-// }

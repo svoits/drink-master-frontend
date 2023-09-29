@@ -5,7 +5,7 @@ import { CategoryDrinksITEM, CategoryDrinksIMG, CategoryDrinksTEXTDIV, CategoryD
 
 export const ItemDrink = ({item, idx}) => {
   if ((window.innerWidth <= 768 && idx > 0) || (window.innerWidth <= 1440 && idx > 1)) {
-   console.log(idx)
+  
     return(``);
   } 
   
