@@ -21,7 +21,7 @@ import {
   DrinkDescriptionWrapper,
   DrinkHeroWrapper,
   DrinkPhotoWrapper,
-  ImageBgBlue,
+  // ImageBgBlue,
 } from './DrinkPageHero.styled';
 import { toastConfig } from '../../helpers/toast';
 
@@ -95,7 +95,7 @@ export const DrinkPageHero = ({
           </DrinkDescriptionWrapper>
           <DrinkPhotoWrapper>
             {imgPath ? (
-              <DrinkPhoto src={imgUrl} alt="img"></DrinkPhoto>
+              <DrinkPhoto src={imgPath} alt="img"></DrinkPhoto>
             ) : (
               <StubPhoto />
             )}
