@@ -1,10 +1,7 @@
 import styled from 'styled-components';
 
 export const StyledPagination = styled.div`
-  padding-top: 40px;
-  @media screen and (min-width: 768px) {
-    padding-top: 80px;
-  }
+  padding: 14px 0px;
 
   ul {
     list-style: none;

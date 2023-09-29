@@ -8,12 +8,14 @@ import {
   DefaultDescr,
   DefaultImg,
   FavoritesContainer,
+  ListFavorite,
 } from './FavoriteDrinksPage.styled';
 import { Container } from '../../components/Container/Container.styled';
 import CoctailImage from '../../images/heroImage/hero-img-desc-2x.png';
 import Loader from '../../components/Loader';
 import PageTitle from '../../components/PageTitle/PageTitle';
 import Paginator from '../../components/Pagi/Paginator';
+import { List } from '@mui/material';
 
 export default function FavoriteDrinksPage() {
   const dispatch = useDispatch();
@@ -59,11 +61,11 @@ export default function FavoriteDrinksPage() {
           </DefaultContainer>
         )}
         {favoriteDrinks.length > 0 && (
-          <div>
+          <ListFavorite>
             <FavoriteDrinkList
               drinks={favoriteDrinks.slice(startIndex, endIndex)}
             />
-          </div>
+          </ListFavorite>
         )}
         {errorMessage && <div>{errorMessage}</div>}
         {totalPages > 1 && (

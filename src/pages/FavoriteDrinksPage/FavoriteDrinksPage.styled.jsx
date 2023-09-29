@@ -83,3 +83,10 @@ export const DefaultImg = styled.img`
     height: 326px;
   }
 `;
+export const ListFavorite = styled.div`
+  margin-bottom: 40px;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 80px;
+  }
+`;
