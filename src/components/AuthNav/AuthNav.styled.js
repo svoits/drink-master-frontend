@@ -15,7 +15,7 @@ export const Link = styled(NavLink)`
 
   &:hover {
     background-color: ${({ theme }) => theme.hoverBackgroundColorLink};
-    color: ${({ theme }) => theme.colorTextBtn};
+    color: #161f37;
     transition: background-color ${transition};
   }
 
