@@ -13,7 +13,7 @@ const initialState = {
   token: '',
   isLoggedIn: false,
   isSubscribed: false,
-  isRefreshing: false,
+  isRefreshing: true,
   theme: 'dark',
 };
 
@@ -47,11 +47,9 @@ const authSlice = createSlice({
         state.token = '';
         state.isLoggedIn = false;
       })
-      .addCase(currentUser.pending, (state) => {
-        state.isRefreshing = true;
-      })
       .addCase(currentUser.rejected, (state) => {
         state.isRefreshing = false;
+        state.token = '';
       })
       .addCase(currentUser.fulfilled, (state, { payload }) => {
         state.user = payload.user;

@@ -23,7 +23,7 @@ export default function FavoriteDrinksPage() {
       console.error(err);
       setErrorMessage('Something went wrong please try later.');
     });
-  }, [dispatch]);
+  }, [dispatch, setErrorMessage]);
 
   return (
     <Container>
