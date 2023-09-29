@@ -1,26 +1,23 @@
-import {
-    HomeDrinksITEM,
-    HomeDrinksIMG,
-    HomeDrinksTEXTDIV,
-    HomeDrinksP,
-    HomeDrinksButton,
-  } from '../HomeDrinksList/HomeDrinksList.styled';
+import React from 'react';
+import { CategoryDrinksITEM, CategoryDrinksIMG, CategoryDrinksTEXTDIV, CategoryDrinksP } from './DrinksCategory.styled';
 
-export const ItemDrink = ({ id, drink, drinkThumb }) => {
-    return (
-        <>
-        <HomeDrinksITEM key={id}>
-            {drinkThumb ? (
-              <HomeDrinksIMG src={drinkThumb} alt={drink} />
-            ) : (
-              <HomeDrinksIMG src="" />
-            )}
-            <HomeDrinksTEXTDIV>
-              <HomeDrinksP>{drink}</HomeDrinksP>
-              <HomeDrinksButton>See more</HomeDrinksButton>
-            </HomeDrinksTEXTDIV>
-          </HomeDrinksITEM>
-        </>
-    )
+import { NavLink } from 'react-router-dom';
 
-}
+export const ItemDrink = ({item}) => {
+ 
+  const { _id: id, drink, drinkThumb } = item;
+ 
+  return (
+    <CategoryDrinksITEM key={id}>
+      {drinkThumb ? ( 
+        <CategoryDrinksIMG src={drinkThumb} alt={drink} />
+      ) : (
+        <CategoryDrinksIMG src="" alt={drink} />
+      )}
+      <CategoryDrinksTEXTDIV>
+        <CategoryDrinksP>{drink}</CategoryDrinksP>
+        <NavLink to={`/drinks/${id}`}>See more</NavLink>
+      </CategoryDrinksTEXTDIV>
+    </CategoryDrinksITEM>
+  );
+};

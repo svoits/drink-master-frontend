@@ -32,6 +32,7 @@ const drinksSlice = createSlice({
     builder
       .addCase(getMainPageAllDrinks.pending, handlePending)
       .addCase(getMainPageAllDrinks.fulfilled, (state, action) => {
+        
         state.mainPageDrinks = action.payload;
         state.isLoading = false;
         state.error = null;
