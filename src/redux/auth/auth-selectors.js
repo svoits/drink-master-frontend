@@ -23,3 +23,4 @@ export const selectIsRefreshing = (state) => state.auth.isRefreshing;
 export const selectToken = (state) => state.auth.token;
 export const selectSubscribe = (state) => state.auth.isSubscribed;
 export const selectavatarURL = (state) => state.auth.user.avatarURL;
+export const selectBirthDate = (state) => state.auth.user.birthDate;
