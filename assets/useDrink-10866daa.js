@@ -1,1 +1,0 @@
-import{h as s}from"./index-f3d1ea3c.js";import{c as a,s as i,d as c,e as l,f as k}from"./drinks-selectors-db0f3074.js";const d=()=>{const r=s(a),e=s(i),t=s(c),n=s(l),o=s(k);return{isLoading:r,drinks:e,mainPageDrinks:t,error:n,total:o}};export{d as u};
