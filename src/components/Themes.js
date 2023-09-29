@@ -9,7 +9,6 @@ export const lightTheme = {
   activeNavLinkBg: '#161F37',
   activeNavLinkText: '#F3F3F3',
   themeSwitcher: '#F3F3F3',
-  searchBackground: '#161f37',
 
   subTitleText: '#0A0A1180',
 
@@ -28,6 +27,14 @@ export const lightTheme = {
   userPopupBtnBorderHover: '#F3F3F333',
   modalInputBorder: '#F3F3F380',
   modalInputBorderFocus: '#F3F3F3',
+
+  selectDropdownBackground: '#FFFFFF',
+  selectDropdownOptionText: '#0A0A1166',
+  selectDropdownOptionTextActive: '#F3F3F3',
+  selectDropdownOptionBgActive: '#161F37',
+
+  inputBorder: '#0A0A1133',
+  inputBorderFocus: '#0A0A11',
 };
 
 export const darkTheme = {
@@ -42,7 +49,6 @@ export const darkTheme = {
   activeNavLinkBg: '#161F37',
   activeNavLinkText: '#F3F3F3',
   themeSwitcher: '#161F37',
-  searchBackground: '#FFFFFF',
 
   subTitleText: '#F3F3F380',
 
@@ -61,4 +67,12 @@ export const darkTheme = {
   modalBtnBorderHover: '#F3F3F333',
   modalInputBorder: '#F3F3F380',
   modalInputBorderFocus: '#F3F3F3',
+
+  selectDropdownBackground: '#161f37',
+  selectDropdownOptionText: '#F3F3F366',
+  selectDropdownOptionTextActive: '#0A0A11',
+  selectDropdownOptionBgActive: '#F3F3F3',
+
+  inputBorder: '#F3F3F333',
+  inputBorderFocus: '#F3F3F380',
 };
