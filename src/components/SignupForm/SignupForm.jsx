@@ -91,8 +91,13 @@ export default function SignupForm() {
                 name="dateOfBirth"
                 type="text"
                 value={values.dateOfBirth}
-                setFieldValue={setFieldValue} 
+                setFieldValue={setFieldValue}
                 placeholder="dd/mm/yyyy"
+                error={
+                  errors.dateOfBirth && touched.dateOfBirth ? 'true' : 'false'
+                }
+                success={
+                  values.dateOfBirth && !errors.dateOfBirth ? 'true' : 'false'}
               />
               {/* <StyledDatepicker
                 name="dateOfBirth"

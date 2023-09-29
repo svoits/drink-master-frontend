@@ -7,7 +7,7 @@ import {
   CalendarGlobalStyles,
 } from '../../components/DatePicker/DatePicker.styled';
 
-const DatePicker = ({ type, value, setFieldValue, name }) => {
+const DatePicker = ({ type, value, setFieldValue, name, error, success }) => {
   const inputRef = useRef(null);
 
   useEffect(() => {
@@ -27,17 +27,18 @@ const DatePicker = ({ type, value, setFieldValue, name }) => {
       datepicker.destroy();
     };
   }, [type, value, setFieldValue]);
-
+const inputClassName = `date-airpicker-input ${error === 'true' && 'error'} ${success === 'true' && 'success'}`;
   return (
     <>
       <CalendarGlobalStyles />
       <div className="date-airpicker-wrapper">
         <input
-          id="input"
-          ref={inputRef}
-          placeholder="dd/mm/yyyy"
-          name={name}
-          className="date-airpicker-input"
+                  id="input"
+                  ref={inputRef}
+                  placeholder="dd/mm/yyyy"
+                  name={name}
+        
+                  className={inputClassName }
         />
         <StyledCalendarIcon />
       </div>

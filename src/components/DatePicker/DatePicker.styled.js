@@ -1,5 +1,5 @@
 import { AiOutlineCalendar } from 'react-icons/ai';
-import styled, { css, createGlobalStyle } from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 import transition from '../../utils/transition';
 
 export const StyledCalendarIcon = styled(AiOutlineCalendar)`
@@ -40,12 +40,22 @@ export const CalendarGlobalStyles = createGlobalStyle`
     transition:
       border ${transition},
       background-color ${transition};
+     
 
     @media screen and (min-width: 768px) {
     font-size: 17px;
     line-height: 1.56;
   }
+  
   }};
+  
+  .date-airpicker-input.error {
+  border: 1px solid red;
+}
+
+.date-airpicker-input.success {
+  border: 1px solid green;
+}
   .air-datepicker {
     background:#161F37;
     border-radius: 8px;
