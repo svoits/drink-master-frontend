@@ -38,7 +38,7 @@ const Paginator = ({
           onClick={() => handlePageChange(currentPage - 1)}
           disabled={currentPage === 1}
         >
-          <HiChevronLeft size={20} />
+          <HiChevronLeft size={24} />
         </StyledArrows>
         {getVisiblePageNumbers().map((number) => (
           <li key={number}>
@@ -54,7 +54,7 @@ const Paginator = ({
           onClick={() => handlePageChange(currentPage + 1)}
           disabled={currentPage === Math.ceil(totalDrinks / drinksPerPage)}
         >
-          <HiChevronRight size={20} />
+          <HiChevronRight size={24} />
         </StyledArrows>
       </List>
     </Wrapper>

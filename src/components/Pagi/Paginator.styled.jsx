@@ -40,8 +40,8 @@ export const StyledArrows = styled.button`
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  width: 27px;
-  height: 27px;
+  width: 24px;
+  height: 24px;
   color: rgba(243, 243, 243, 0.3);
   background-color: transparent;
   border: none;
@@ -49,11 +49,11 @@ export const StyledArrows = styled.button`
   transition: color ${transition};
 
   &:first-child {
-    margin-right: 44px;
+    margin-right: 30px;
   }
 
   &:last-child {
-    margin-left: 44px;
+    margin-left: 30px;
   }
 
   &:hover:not([disabled]),
