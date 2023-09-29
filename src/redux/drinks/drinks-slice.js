@@ -32,7 +32,6 @@ const drinksSlice = createSlice({
     builder
       .addCase(getMainPageAllDrinks.pending, handlePending)
       .addCase(getMainPageAllDrinks.fulfilled, (state, action) => {
-        
         state.mainPageDrinks = action.payload;
         state.isLoading = false;
         state.error = null;
@@ -49,13 +48,14 @@ const drinksSlice = createSlice({
         state.isLoading = false;
         state.error = null;
       })
-      .addCase(getPopularDrinks.rejected, handleRejected)      
+      .addCase(getPopularDrinks.rejected, handleRejected)
       .addCase(getRequestedDrink.pending, handlePending)
       .addCase(getRequestedDrink.fulfilled, (state, action) => {
         state.drinks = action.payload.drinks;
         state.total = action.payload.total;
         // state.searchQuery = action.payload;
         state.isLoading = false;
+        state.error = null;
       })
       .addCase(getRequestedDrink.rejected, handleRejected)
       .addCase(addMyDrink.pending, handlePending)
