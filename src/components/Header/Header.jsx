@@ -9,6 +9,7 @@ import MobileMenu from '../MobileMenu/MobileMenu';
 import ThemeSwitcher from '../ThemeSwitcher/ThemeSwitcher';
 import Navigation from '../Navigation/Navigation';
 import UserLogoPopup from '../UserLogoPopup/UserLogoPopup';
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -18,6 +19,7 @@ export const Header = () => {
 
   const handleToggleMenu = () => {
     setIsMenuOpen((state) => !state);
+    isMenuOpen ? enableBodyScroll(document) : disableBodyScroll(document);
   };
 
   const handleToggleUserPopup = () => {
