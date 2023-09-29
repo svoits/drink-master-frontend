@@ -1,132 +1,31 @@
-// // import { useEffect } from 'react';
-// import { useState } from 'react';
-// // import { useDispatch } from 'react-redux';
-
-// import { Container, Pagination, Stack } from '@mui/material';
-
-// import { DrinksListPage } from 'components/DrinksListPage/DrinksListPage';
-
-// // import { SearchDrinks } from 'components/SearchDrinks/SearchDrinks';
-
-// // import { useDrink } from '../../redux/hooks/useDrink';
-
-// // import Loader from '../../components/Loader'
-
-// // import { usePagination } from 'components/Paginator/Paginator';
-
-// import { DrinksPageTITLE } from './DrinksPage.styled';
-
-// export default function DrinksPage() {
-//   // const dispatch = useDispatch();
-
-//   // const { isLoggedIn } = useAuth();
-//   // const { isLoading, error } = useDrink();
-
-//   // const { drinks } = useDrink();
-//   // console.log(drinks.total)
-
-//   // useEffect(() => {
-
-//   //   if(isLoggedIn) dispatch(getMainPageAllDrinks());
-
-//   // }, [dispatch, isLoggedIn]);
-
-//   // const { drinks, isLoading, error } = useSelector(selectDrinks);
-
-//   // const { isLoading, error } = useSelector(selectDrinks);
-
-//   // const isLoading = useSelector(selectIsLoading);
-
-//   // const error = useSelector(selectError);
-
-//   // useEffect(() => {
-//   //   dispatch(drinksOperations.getRequestedDrink());
-//   // }, [dispatch]);
-
-//   // const [page, setPage] = useState(1);
-//   // const [pageQty, setPageQty] = useState(0);
-//   // const per_page = 9;
-//   // // const filteredDrinks = useSelector(selectFilteredDrinks);
-//   // setPageQty(Math.ceil(drinks.total / per_page));
-
-//   // const datapag = usePagination(drinks, per_page);
-//   // const handleChangePagination = (e, p) => {
-//   //   setPage(e);
-//   //   datapag.jump(p);
-//   // };
-
-//   return (
-//     <>
-//       <DrinksPageTITLE>Drinks</DrinksPageTITLE>
-//       {/* {isLoading && !error && <Loader />}
-//       <DrinksListPage /> */}
-//       {/* {drinks.length > 0 && <DrinksListPage />} */}
-//       {/* <SearchDrinks /> */}
-//       {/* <Container> */}
-//         {/* <Stack spacing={2}> */}
-//           <DrinksListPage />
-//           {/* <Pagination
-//             color="primary"
-//             count={10}
-//             count={pageQty}
-//             size="large"
-//             page={page}
-//             variant="outlined"
-//             shape="rounded"
-//             onChange={handleChangePagination}
-//           /> */}
-//         {/* </Stack> */}
-//       {/* </Container> */}
-//     </>
-//   );
-// }
-//===================================
-
-
-//===================================
 import { useEffect } from 'react';
 import { useState } from 'react';
-// import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { getRequestedDrink } from '../../redux/drinks/drinks-operations';
-
 import Loader from '../../components/Loader';
-
-import  Paginator  from '../../components/Pagi/Paginator';
+import Paginator from '../../components/Pagi/Paginator';
 import { Container } from '../../components/Container/Container.styled';
-
 import { useDrink } from '../../redux/hooks/useDrink';
-// import {selectDrinks} from '../../redux/drinks/drinks-selectors';
-
 import { DrinksListPage } from 'components/DrinksListPage/DrinksListPage';
-
 import { SearchDrinks } from 'components/SearchDrinks/SearchDrinks';
-
-import {
-  // DrinksPageSECTION,
-  DrinksPageContainer,
-  DrinksPageTITLE,
-} from './DrinksPage.styled';
+import { DrinksPageContainer, DrinksPageTITLE } from './DrinksPage.styled';
+import { useResize } from '../../hooks/useResize';
 
 export default function DrinksPage() {
   const dispatch = useDispatch();
-  const { isLoading, drinks, error } = useDrink();
+  const { width } = useResize();
+  const { isLoading, drinks, error, total } = useDrink();
 
   const [currentPage, setCurrentPage] = useState(1);
   const pageNumbersToShow = 5;
 
-  const totalItems = drinks.length;
-  console.log(totalItems);
-  const itemsPerPage = 9;
+  const itemsPerPage = width < 1440 ? 10 : 9;
 
-  const totalPages = Math.ceil(totalItems / itemsPerPage);
+  const totalPages = Math.ceil(total / itemsPerPage);
 
-  const startIndex = (currentPage - 1) * itemsPerPage;
-  const endIndex = Math.min(startIndex + itemsPerPage, totalItems);
-
-  useEffect(() => {
-    dispatch(getRequestedDrink());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(getRequestedDrink({ page: currentPage, limit: itemsPerPage }));
+  // }, [currentPage, dispatch, itemsPerPage]);
 
   const onPageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
@@ -151,23 +50,17 @@ export default function DrinksPage() {
     <Container>
       <DrinksPageContainer>
         <DrinksPageTITLE>Drinks</DrinksPageTITLE>
-        {/* {isLoading && !error && <Loader />} */}
-        <SearchDrinks />
+        <SearchDrinks page={currentPage} limit={itemsPerPage} />
         {/* <DrinksListPage /> */}
         <div>
           {isLoading && <Loader />}
-          {error && <p>{error}</p>}
-          {drinks.length > 0 && (
-            <DrinksListPage
-              drinks={drinks.slice(startIndex, endIndex)}
-              //  drinks={drinks}
-            />
-          )}
+          {error && <p>No drinks found for your query. Please try again.</p>}
+          {total > 0 && !error && <DrinksListPage drinks={drinks} />}
         </div>
         {totalPages > 1 && (
           <Paginator
             drinksPerPage={itemsPerPage}
-            totalDrinks={totalItems}
+            totalDrinks={total}
             onPageChange={onPageChange}
             pageNumbersToShow={pageNumbersToShow}
           />

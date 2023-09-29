@@ -48,7 +48,7 @@ const validationSchema = Yup.object().shape({
 
 // const animatedComponents = makeAnimated();
 
-export const SearchDrinks = () => {
+export const SearchDrinks = ({ page, limit }) => {
   // const [searchParams, setSearchParams] = useSearchParams();
   // const theme = useTheme()
   // const formThemeColors = getSelectTheme(theme)
@@ -96,8 +96,8 @@ export const SearchDrinks = () => {
     //   return;
     // }
 
-    dispatch(getRequestedDrink({ query, category, ingredient }));
-  }, [dispatch, query, category, ingredient]);
+    dispatch(getRequestedDrink({ query, category, ingredient, page, limit }));
+  }, [dispatch, query, category, ingredient, page, limit]);
 
   // console.log(query);
   console.log(category);
@@ -221,4 +221,3 @@ export const SearchDrinks = () => {
 };
 
 //==========================================
-
