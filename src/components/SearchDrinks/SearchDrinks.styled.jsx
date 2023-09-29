@@ -2,10 +2,54 @@ import styled from 'styled-components';
 
 import { Field, Form } from 'formik';
 
+import ReactSelect from "react-select";
+
+
+export const MultiSelect = styled(ReactSelect)`
+&. control  {
+  background-color: #161f37;
+}
+    &.Select--multi  {
+
+        .Select-value {
+            display: inline-flex;
+            align-items: center;
+        }
+    }
+
+    & .Select-placeholder {
+      color: #f3f3f3;
+      fontSize: 17px;
+      fontWeight: 400;
+      lineHeight: 1.5;
+      letterSpacing: 0em;
+      textAlign: center;
+    }
+`
+export const EditIconWrapper = styled.span`
+  position: absolute;
+  top: 16px;
+  right: 24px;
+  pointer-events: none;
+`;
+
+export const FileInputWrapper = styled.div`
+  position: relative;
+
+  @media screen and (min-width: 768px) {
+    width: 262px;
+    // border-radius: 50%;
+    // height: 80px;
+    // width: 80px;
+    // margin-bottom: 38px;
+  }
+
+  @media screen and (min-width: 1440px) {
+  }
+`;
+
 export const SearchDrinksForm = styled(Form)`
   display: flex;
-  // width: 678px;
-  // height: 465px;
   color: #f3f3f3;
   align-items: center;
   margin-bottom: 40px;
@@ -33,10 +77,9 @@ export const SearchDrinksInput = styled.input`
   border: 1px solid #f3f3f333;
 
   color: #f3f3f3;
-  font-family: Manrope;
   font-size: 17px;
   font-weight: 400;
-  line-height: 27px;
+  line-height: 1.5;
   letter-spacing: 0em;
   text-align: center;
 
@@ -44,7 +87,7 @@ export const SearchDrinksInput = styled.input`
     font-family: Manrope;
     font-size: 14px;
     font-weight: 400;
-    line-height: 18px;
+    line-height: 1.2;
     letter-spacing: 0em;
     text-align: center;
 
@@ -76,7 +119,7 @@ export const SearchDrinksField = styled(Field)`
   font-family: Manrope;
   font-size: 17px;
   font-weight: 400;
-  line-height: 27px;
+  line-height: 1.5;
   letter-spacing: 0em;
   text-align: center;
   &.active {
@@ -98,29 +141,3 @@ export const SearchDrinksField = styled(Field)`
   }
 `;
 
-export const SearchDrinksUL = styled.ul`
-  background-color: #161f37;
-  width: 199px;
-  height: 405px;
-  padding: 14px, 23px, 14px, 23px;
-  border-radius: 20px;
-
-  @media screen and (min-width: 768px) {
-  }
-
-  @media screen and (min-width: 1440px) {
-  }
-`;
-
-export const SearchDrinksOption = styled.option`
-  background-color: #161f37;
-  width: 199px;
-  height: 405px;
-  padding: 14px, 23px, 14px, 23px;
-
-  @media screen and (min-width: 768px) {
-  }
-
-  @media screen and (min-width: 1440px) {
-  }
-`;

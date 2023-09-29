@@ -3,13 +3,13 @@ export const lightTheme = {
   headerText: '#161F37',
   mainAccent: '#161F37',
   mainBackground: '#F3F3F3',
-
   headerBorderBottom: '#161F371A',
   navLinkBorder: '#161F3733',
   navLinkBorderHover: '#161F37',
   activeNavLinkBg: '#161F37',
   activeNavLinkText: '#F3F3F3',
   themeSwitcher: '#F3F3F3',
+  searchBackground: '#161f37',
 
   subTitleText: '#0A0A1180',
 
@@ -42,6 +42,7 @@ export const darkTheme = {
   activeNavLinkBg: '#161F37',
   activeNavLinkText: '#F3F3F3',
   themeSwitcher: '#161F37',
+  searchBackground: '#FFFFFF',
 
   subTitleText: '#F3F3F380',
 

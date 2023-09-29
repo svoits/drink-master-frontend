@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
+// import { useSearchParams } from 'react-router-dom';
 import { LuSearch } from 'react-icons/lu';
 import { getCategories } from '../../redux/filters/filters-operation';
 import { getIngredients } from '../../redux/filters/filters-operation';
@@ -13,19 +14,22 @@ import {
   // selectError,
   selectIngredients,
 } from '../../redux/filters/selectors';
-
+import { toast } from 'react-toastify';
 import Select from 'react-select';
 import { Formik, Field } from 'formik';
 import * as Yup from 'yup';
 
 // import { ErrorMessage } from 'formik';
 // import styled from 'styled-components';
-import {colourStyles} from './colourStyles';
+import { colourStyles } from './colourStyles';
+// import { useTheme } from '@mui/material/styles';
 
 import {
+  FileInputWrapper,
   SearchDrinksForm,
-  // SearchDrinksField,
+  EditIconWrapper,
   SearchDrinksInput,
+  // MultiSelect,
 } from './SearchDrinks.styled';
 
 const initialValues = {
@@ -45,12 +49,14 @@ const validationSchema = Yup.object().shape({
 // const animatedComponents = makeAnimated();
 
 export const SearchDrinks = () => {
+  // const [searchParams, setSearchParams] = useSearchParams();
+  // const theme = useTheme()
+  // const formThemeColors = getSelectTheme(theme)
   const [query, setQuery] = useState('');
   const [category, setCategory] = useState('');
   const [ingredient, setIngredient] = useState('');
 
   const dispatch = useDispatch();
-
 
   const categories = useSelector(selectCategories);
 
@@ -58,25 +64,41 @@ export const SearchDrinks = () => {
 
   // Опрацювання форми
   const handleSubmit = (values) => {
+    if (query.trim() === '') {
+      toast('🦄 Type a name of picture.', {
+        position: 'top-right',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'light',
+      });
+      return;
+    }
     setQuery(values.searchQuery);
     setCategory(values.categories);
     setIngredient(values.ingredients);
 
     console.log(category);
+
     // Очистка полів
+    setQuery('');
   };
+  // const movieName = searchParams.get('query');
 
   useEffect(() => {
     dispatch(getCategories());
     dispatch(getIngredients());
 
-    // if(category === null) {
+    // if (!query) {
     //   return;
     // }
+
     dispatch(getRequestedDrink({ query, category, ingredient }));
   }, [dispatch, query, category, ingredient]);
 
-  // console.log(formValues);
   // console.log(query);
   console.log(category);
   // console.log(ingredient);
@@ -92,29 +114,24 @@ export const SearchDrinks = () => {
       {(props) => (
         <SearchDrinksForm onSubmit={props.handleSubmit}>
           <div>
-            <label htmlFor="searchQuery">
-              <SearchDrinksInput
-                name="searchQuery"
-                type="text"
-                // className={searchQuery ? "active" : ""}
-                placeholder="Enter the text"
-                // autoCorrect="off"
-                // autoComplete="name"
-                onChange={handleSearchChange}
-                // valid={touched.fullname && !errors.fullname}
-                // error={touched.fullname && errors.fullname}
-              />
-              <LuSearch
-                style={{
-                  color: '#F3F3F3',
-                  position: 'absolute',
-                  width: '20px',
-                  height: '20px',
-                  top: '10%',
-                  left: '37%',
-                }}
-              />
-            </label>
+            <FileInputWrapper>
+              <label htmlFor="searchQuery">
+                <SearchDrinksInput
+                  name="searchQuery"
+                  type="text"
+                  // className={searchQuery ? "active" : ""}
+                  placeholder="Enter the text"
+                  // autoCorrect="off"
+                  // autoComplete="name"
+                  onChange={handleSearchChange}
+                  // valid={touched.fullname && !errors.fullname}
+                  // error={touched.fullname && errors.fullname}
+                />
+                <EditIconWrapper>
+                  <LuSearch size={24} />
+                </EditIconWrapper>
+              </label>
+            </FileInputWrapper>
           </div>
           <div>
             <label htmlFor="categories">
@@ -136,6 +153,8 @@ export const SearchDrinks = () => {
                       value: category,
                       label: category,
                     }))}
+                    // theme={theme => ({
+                    //   ...theme,})}
                     name={field.name}
                     id="categories"
                     {...field}
@@ -203,98 +222,3 @@ export const SearchDrinks = () => {
 
 //==========================================
 
-// <Formik
-//   initialValues={initialValues}
-//   validationSchema={validationSchema}
-//   onSubmit={handleSubmit}
-// >
-//   {(props) => (
-//     <SearchDrinksForm onSubmit={props.handleSubmit}>
-//       <div>
-//         <label htmlFor="searchQuery">
-
-//           <SearchDrinksField
-//             name="searchQuery"
-//             type="text"
-//             placeholder="Enter the text"
-//             autoCorrect="off"
-//             autoComplete="name"
-//             // valid={touched.fullname && !errors.fullname}
-//             // error={touched.fullname && errors.fullname}
-//           />
-
-//         </label>
-//       </div>
-//       <div>
-//         <label htmlFor="categories"></label>
-
-//         <div>
-//           {categories.length > 0 && (
-//             <select
-//               name="categories"
-//               value={props.values.categories}
-//               onChange={props.handleChange}
-//               onBlur={props.handleBlur}
-//             >
-//               <SearchDrinksOption value="" label="All categories">
-//                 {' '}
-//                 All categories{' '}
-//               </SearchDrinksOption>
-
-//               {categories.map((category) => (
-//                 <option
-//                   value={props.values.category}
-//                   key={category}
-//                   label={props.values.category}
-//                   className="bg-white"
-//                 >
-//                   {category}
-//                 </option>
-//               ))}
-//             </select>
-//           )}
-//         </div>
-//         {props.errors.categories && (
-//           <div className="input-feedback">{props.errors.categories}</div>
-//         )}
-//       </div>
-
-//       <div>
-//         <label htmlFor="ingredients"></label>
-
-//         <div>
-//           {ingredients.length > 0 && (
-//             <select
-//               name="ingredients"
-//               value={props.values.ingredients}
-//               onChange={props.handleChange}
-//               onBlur={props.handleBlur}
-//               style={{ display: 'block' }}
-//             >
-//               <option value="" label="Ingredients">
-//                 {' '}
-//                 Ingredients{' '}
-//               </option>
-
-//               {ingredients.map(({ _id, title }) => (
-//                 <option
-//                   value={props.values.title}
-//                   key={_id}
-//                   label={props.values.title}
-//                 >
-//                   {title}
-//                 </option>
-//               ))}
-//             </select>
-//           )}
-//         </div>
-//         {props.errors.ingredients && (
-//           <div className="input-feedback">{props.errors.ingredients}</div>
-//         )}
-//       </div>
-//       <button type="submit" disabled={props.isSubmitting}>
-//         Submit
-//       </button>
-//     </SearchDrinksForm>
-//   )}
-// </Formik>

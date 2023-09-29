@@ -81,97 +81,97 @@
 //   );
 // }
 //===================================
-// import { useEffect } from 'react';
-// import { useState } from 'react';
-// import { useDispatch } from 'react-redux';
-// import { getRequestedDrink } from '../../redux/drinks/drinks-operations';
-// import { Container, Pagination, Stack } from '@mui/material';
-// import Loader from '../../components/Loader';
-// import { usePagination } from 'components/Paginator/Paginator';
 
-// import { useDrink } from '../../redux/hooks/useDrink';
+
+//===================================
+import { useEffect } from 'react';
+import { useState } from 'react';
+// import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { getRequestedDrink } from '../../redux/drinks/drinks-operations';
+
+import Loader from '../../components/Loader';
+import { Paginator } from '../../components/Paginator/Paginator';
+import { Container } from '../../components/Container/Container.styled';
+
+import { useDrink } from '../../redux/hooks/useDrink';
+// import {selectDrinks} from '../../redux/drinks/drinks-selectors';
 
 import { DrinksListPage } from 'components/DrinksListPage/DrinksListPage';
 
 import { SearchDrinks } from 'components/SearchDrinks/SearchDrinks';
 
 import {
-  DrinksPageSECTION,
+  // DrinksPageSECTION,
   DrinksPageContainer,
   DrinksPageTITLE,
 } from './DrinksPage.styled';
 
-// import { Container } from '@mui/material';
-
 export default function DrinksPage() {
-  // const [page, setPage] = useState(1);
-  //   const [pageQty, setPageQty] = useState(0);
-  //   const per_page = 9;
-  //   const dispatch = useDispatch();
+  const dispatch = useDispatch();
+  const { isLoading, drinks, error } = useDrink();
 
-  //   // const { isLoading, error } = useDrink();
-  //   const { drinks, total, isLoading, error } = useDrink();
-  //   console.log(total);
+  const [currentPage, setCurrentPage] = useState(1);
+  const pageNumbersToShow = 5;
 
-  // if(total > 0) {
-  //   setPageQty(Math.ceil(total / per_page));
-  // }
+  const totalItems = drinks.length;
+  console.log(totalItems);
+  const itemsPerPage = 9;
 
-  //   // setPageQty(Math.ceil(total / per_page));
+  const totalPages = Math.ceil(totalItems / itemsPerPage);
 
-  //   const datapag = usePagination(drinks, per_page);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = Math.min(startIndex + itemsPerPage, totalItems);
 
-  //   const handleChangePagination = (e, p) => {
-  //     // setPage(e);
-  //     datapag.jump(p);
-  //   };
-  //   useEffect(() => {
-  //     dispatch(getRequestedDrink());
-  //   }, [dispatch]);
+  useEffect(() => {
+    dispatch(getRequestedDrink());
+  }, [dispatch]);
+
+  const onPageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
+  // useEffect(() => {
+  //   dispatch(getRequestedDrink()).catch((err) => {
+  //     console.error(err);
+  //     setErrorMessage('Something went wrong please try later.');
+  //   });
+  //   setIsLoading(true);
+  //   dispatch(getRequestedDrink())
+  //     .then(() => setIsLoading(false))
+  //     .catch((err) => {
+  //       console.error(err);
+  //       setErrorMessage('Something went wrong, please try later.');
+  //       setIsLoading(false);
+  //     });
+  // }, [dispatch]);
 
   return (
-    <DrinksPageSECTION>
+    <Container>
       <DrinksPageContainer>
         <DrinksPageTITLE>Drinks</DrinksPageTITLE>
         {/* {isLoading && !error && <Loader />} */}
         <SearchDrinks />
-        <DrinksListPage />
-
-        {/* {drinks.length > 0 && <DrinksListPage />} */}
-        {/* <Container>
-
-
-        <Stack spacing={2}>
-         <DrinksListPage />
-          <Pagination
-            color="primary"
-            count={10}
-            // count={pageQty}
-            // size="large"
-            page={1}
-            // variant="outlined"
-            // shape="rounded"
-            // onChange={handleChangePagination}
+        {/* <DrinksListPage /> */}
+        <div>
+          {isLoading && <Loader />}
+          {error && <p>{error}</p>}
+          {drinks.length > 0 && (
+            <DrinksListPage
+              drinks={drinks.slice(startIndex, endIndex)}
+              //  drinks={drinks}
+            />
+          )}
+        </div>
+        {totalPages > 1 && (
+          <Paginator
+            drinksPerPage={itemsPerPage}
+            totalDrinks={totalItems}
+            onPageChange={onPageChange}
+            pageNumbersToShow={pageNumbersToShow}
           />
-        </Stack>
-      </Container>  */}
-
-        {/* <Container>
-        <Stack spacing={2}>
-          {drinks.length > 0 && <DrinksListPage />}
-          <Pagination
-            color="primary"
-            // count={10}
-            count={pageQty}
-            // size="large"
-            page={page}
-            // variant="outlined"
-            // shape="rounded"
-            onChange={handleChangePagination}
-          />
-        </Stack>
-      </Container> */}
+        )}
       </DrinksPageContainer>
-    </DrinksPageSECTION>
+    </Container>
   );
 }
