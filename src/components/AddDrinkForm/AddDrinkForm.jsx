@@ -5,6 +5,7 @@ import DrinkDescriptionFields from "../DrinkDescriptionFields/DrinkDescriptionFi
 import DrinkIngredientsFields from "../DrinkIngredientsFields";
 import RecipePreparationText from "../RecipePreparationText/RecipePreparationText";
 
+
 const AddDrinkForm = () => {
     const dispatch = useDispatch();
 
@@ -15,11 +16,7 @@ const AddDrinkForm = () => {
         category: '',
         glasses: '',
         strength: '',
-        ingredients: [
-            { ingredient: '', measure: '', quantity: '' },
-            { ingredient: '', measure: '', quantity: '' },
-            { ingredient: '', measure: '', quantity: '' },
-        ],
+        ingredients: [],
         textareaRecipe: '',
     });
 
@@ -44,7 +41,7 @@ const AddDrinkForm = () => {
                 setFormData={setFormData}
             />
 
-            <button type="button" onClick={handleSubmit}>Add</button>
+            <button type="submit" onClick={handleSubmit}>Add</button>
         </>
     );
 };

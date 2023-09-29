@@ -34,11 +34,16 @@ const animatedComponents = makeAnimated();
 const DrinkDescriptionFields = ({ formData, setFormData, handleSubmit }) => {
     const dispatch = useDispatch();
     const categories = useSelector((state) => state.filters.categories);
+    const birthDate = useSelector((state) => state.auth.user.birthDate);
     const glasses = useSelector((state) => state.filters.glasses);
     const [imagePreview, setImagePreview] = useState(null);
     const [isImageSelected, setIsImageSelected] = useState(false);
     const [selectedCategory, setSelectedCategory] = useState(null);
     const [selectedGlass, setSelectedGlass] = useState(null);
+    const currentDate = new Date();
+    const userBirthDate = new Date(birthDate);
+    const ageDiff = currentDate.getFullYear() - userBirthDate.getFullYear();
+    const defaultStrength = ageDiff >= 18 ? "alcoholic" : "nonAlcoholic";
 
     useEffect(() => {
         dispatch(getCategories());
@@ -50,10 +55,11 @@ const DrinkDescriptionFields = ({ formData, setFormData, handleSubmit }) => {
       
         if (file) {
           const imageURL = URL.createObjectURL(file);
-          setFormData({
+          const updatedFormData = {
             ...formData,
             photo: file,
-          });
+          };
+          setFormData(updatedFormData);
           setImagePreview(imageURL);
         }
     };
@@ -67,9 +73,10 @@ const DrinkDescriptionFields = ({ formData, setFormData, handleSubmit }) => {
         setIsImageSelected(false);
     };
 
+
     return (
         <div>
-            <Formik initialValues={formData} validationSchema={validationSchema}
+            <Formik initialValues={{ ...formData, strength: defaultStrength }} validationSchema={validationSchema}
                 onSubmit={(values) => {
                 setFormData({ ...formData, ...values });
                 handleSubmit();
@@ -81,7 +88,7 @@ const DrinkDescriptionFields = ({ formData, setFormData, handleSubmit }) => {
                         id="photo"
                         name="photo"
                         onChange={handleImageChange}
-                        style={{ display: 'none' }} 
+                        style={{ display: 'none' }}
                         />
                         {isImageSelected ? (
                         <button type="button" onClick={handleImageDelete}>
@@ -93,7 +100,7 @@ const DrinkDescriptionFields = ({ formData, setFormData, handleSubmit }) => {
                         {imagePreview && <PhotoPreview src={imagePreview} alt="Preview" />}
                         <ErrorMessage name="photo" component="div" />
                     </PhotoContainer>
-                    <Field name="title" placeholder="Enter item title" />
+                    <Field name="title" placeholder="Enter item title"/>
                     <ErrorMessage name="title" component="div" />
                         
                     <Field name="recipe" placeholder="Enter about recipe" />
@@ -125,7 +132,7 @@ const DrinkDescriptionFields = ({ formData, setFormData, handleSubmit }) => {
                     </label>
 
                     <label htmlFor='glasses'>
-                        <Field name='glasses'>
+                        <Field name='glasses' >
                             {({ field, form }) => (
                                 <Select 
                                     closeMenuOnSelect={true}
@@ -157,7 +164,7 @@ const DrinkDescriptionFields = ({ formData, setFormData, handleSubmit }) => {
                     </div>
                     <div>
                         <label>
-                            <Field type="radio" name="strength" value="nonAlcoholic" />
+                            <Field type="radio" name="strength" value="nonAlcoholic"/>
                             <span>Non-alcoholic</span>
                         </label>
                     </div>
