@@ -4,7 +4,6 @@ export const FavoriteList = styled.ul`
   display: grid;
   grid-row-gap: 40px;
   list-style: none;
-  margin-top: 40px;
 
   @media screen and (min-width: 768px) {
     grid-template-columns: repeat(2, 1fr);

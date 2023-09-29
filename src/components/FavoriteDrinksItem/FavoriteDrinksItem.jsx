@@ -37,7 +37,6 @@ export default function FavoriteDrinksItem({ drink }) {
       <ButtonsWRAPPER>
         <SeeMoreBtn to={`/drinks/${_id}`}>See More</SeeMoreBtn>
         <DeleteBtn onClick={handleRemoveFromFavorites}>
-          {' '}
           <TrashIcon />
         </DeleteBtn>
       </ButtonsWRAPPER>

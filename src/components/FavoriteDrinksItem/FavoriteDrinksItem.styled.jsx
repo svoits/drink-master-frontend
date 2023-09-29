@@ -1,33 +1,16 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import { FiTrash2 } from 'react-icons/fi';
+import transition from '../../utils/transition';
 
 export const StyledItem = styled.li`
-  width: 335px;
   margin-left: auto;
   margin-right: auto;
-
-  @media screen and (min-width: 768px) {
-    width: 342px;
-  }
-
-  @media screen and (min-width: 1440px) {
-    width: 400px;
-  }
 `;
 
 export const StyledImg = styled.img`
-  width: 335px;
-  height: 360px;
+  width: 100%;
   border-radius: 8px;
-  background:
-    linear-gradient(
-      180deg,
-      rgba(10, 10, 17, 0.02) 51.18%,
-      rgba(10, 10, 17, 0.77) 97.66%
-    ),
-    url(<path-to-image>),
-    lightgray 50% / cover no-repeat;
 
   @media screen and (min-width: 768px) {
     width: 342px;
@@ -89,13 +72,8 @@ export const StyledDescr = styled.p`
 `;
 
 export const ButtonsWRAPPER = styled.div`
-  display: grid;
-  grid-template-columns: 143px 46px;
-  grid-column-gap: 8px;
-
-  @media screen and (min-width: 768px) {
-    grid-template-columns: 160px 56px;
-  }
+  display: flex;
+  column-gap: 8px;
 `;
 export const DrinkPageLINK = styled(NavLink)`
   padding: 14px 40px 14px 40px;
@@ -109,18 +87,15 @@ export const SeeMoreBtn = styled(NavLink)`
   border-radius: 42px;
   background-color: #161f37;
   color: #f3f3f3;
-  //   font-size: 14px;
-  //   font-weight: 600;
-  //   line-height: calc(18 / 14);
-  //   text-align: center;
   padding: 14px 40px;
+  font-weight: 600;
   cursor: pointer;
   transition: background-color 0.3s ease;
   border: 1px solid transparent;
   transition:
-    background-color 400ms ease,
-    border-color 400ms ease,
-    color 400ms ease;
+    background-color ${transition},
+    border-color ${transition},
+    color ${transition};
 
   &:hover {
     background-color: #f3f3f3;
@@ -135,43 +110,39 @@ export const SeeMoreBtn = styled(NavLink)`
 `;
 
 export const TrashIcon = styled(FiTrash2)`
-  fill: ${({ theme }) => theme.mainText};
-  width: 18px;
-  height: 18px;
+  width: 24px;
+  height: 24px;
 
   @media screen and (min-width: 768px) {
-    width: 20px;
-    height: 20px;
+    width: 26px;
+    height: 26px;
   }
 `;
 
 export const DeleteBtn = styled.button`
-  display: flex;
+  display: inline-flex;
   justify-content: center;
   align-items: center;
   width: 46px;
   height: 46px;
   border-radius: 40px;
   border: none;
+  padding: 0;
   background-color: #161f37;
-  transition: background-color 0.3s ease;
-  margin-left: 8px;
+  color: #f3f3f3;
+
+  transition:
+    background-color ${transition},
+    color ${transition};
 
   @media (min-width: 768px) {
-    width: 54px;
-    height: 54px;
+    width: 56px;
+    height: 56px;
   }
 
   &:hover,
-  &:active {
+  &:focus {
     background-color: #f3f3f3;
-  }
-
-  ${TrashIcon} {
-    color: #f3f3f3; /* Default color */
-  }
-
-  &:hover ${TrashIcon}, &:active ${TrashIcon} {
-    color: #161f37; /* Color on hover or active state */
+    color: #161f37;
   }
 `;

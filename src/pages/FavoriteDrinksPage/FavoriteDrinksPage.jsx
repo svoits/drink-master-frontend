@@ -15,7 +15,6 @@ import CoctailImage from '../../images/heroImage/hero-img-desc-2x.png';
 import Loader from '../../components/Loader';
 import PageTitle from '../../components/PageTitle/PageTitle';
 import Paginator from '../../components/Pagi/Paginator';
-import { List } from '@mui/material';
 
 export default function FavoriteDrinksPage() {
   const dispatch = useDispatch();
@@ -50,8 +49,8 @@ export default function FavoriteDrinksPage() {
   const endIndex = Math.min(startIndex + itemsPerPage, totalItems);
 
   return (
-    <Container>
-      <FavoritesContainer>
+    <FavoritesContainer>
+      <Container>
         <PageTitle title="Favorite" />
         {isLoading && <Loader />}
         {favoriteDrinks.length === 0 && (
@@ -76,7 +75,7 @@ export default function FavoriteDrinksPage() {
             pageNumbersToShow={pageNumbersToShow}
           />
         )}
-      </FavoritesContainer>
-    </Container>
+      </Container>
+    </FavoritesContainer>
   );
 }
