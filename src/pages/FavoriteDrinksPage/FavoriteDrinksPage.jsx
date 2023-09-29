@@ -8,6 +8,7 @@ import {
   DefaultDescr,
   DefaultImg,
   FavoritesContainer,
+  ListFavorite,
 } from './FavoriteDrinksPage.styled';
 import { Container } from '../../components/Container/Container.styled';
 import CoctailImage from '../../images/heroImage/hero-img-desc-2x.png';
@@ -48,8 +49,8 @@ export default function FavoriteDrinksPage() {
   const endIndex = Math.min(startIndex + itemsPerPage, totalItems);
 
   return (
-    <Container>
-      <FavoritesContainer>
+    <FavoritesContainer>
+      <Container>
         <PageTitle title="Favorite" />
         {isLoading && <Loader />}
         {favoriteDrinks.length === 0 && (
@@ -59,22 +60,22 @@ export default function FavoriteDrinksPage() {
           </DefaultContainer>
         )}
         {favoriteDrinks.length > 0 && (
-          <div>
+          <ListFavorite>
             <FavoriteDrinkList
               drinks={favoriteDrinks.slice(startIndex, endIndex)}
             />
-          </div>
+          </ListFavorite>
         )}
         {errorMessage && <div>{errorMessage}</div>}
-      </FavoritesContainer>
-      {totalPages > 1 && (
-        <Paginator
-          drinksPerPage={itemsPerPage}
-          totalDrinks={totalItems}
-          onPageChange={onPageChange}
-          pageNumbersToShow={pageNumbersToShow}
-        />
-      )}
-    </Container>
+        {totalPages > 1 && (
+          <Paginator
+            drinksPerPage={itemsPerPage}
+            totalDrinks={totalItems}
+            onPageChange={onPageChange}
+            pageNumbersToShow={pageNumbersToShow}
+          />
+        )}
+      </Container>
+    </FavoritesContainer>
   );
 }
