@@ -7,12 +7,12 @@ import FormError from '../FormError/FormError';
 import { format } from 'date-fns';
 import { toast } from 'react-toastify';
 // import StyledDatepicker from '../StyledDatepicker/StyledDatepicker';
-import DatePicker  from '../DatePicker/DatePicker';
+import DatePicker from '../DatePicker/DatePicker';
 import {
   AuthForm,
   Input,
   Button,
-  TogglePasswordButton, 
+  TogglePasswordButton,
   PasswordInputWrap,
   StyledShowPasswordIcon,
   StyledDontShowPasswordIcon,
@@ -20,12 +20,15 @@ import {
   SuccessIcon,
 } from './SignupForm.styled';
 
-
 const initialValues = { name: '', dateOfBirth: '', email: '', password: '' };
 const schema = Yup.object().shape({
   name: Yup.string().min(3).required('Name is required'),
   dateOfBirth: Yup.date().required('dateOfBirth is required'),
   email: Yup.string()
+    .matches(
+      /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
+      'Email must contain only digits, letters and . - _ symbols. e.g. test@mail.com',
+    )
     .email('Invalid email format, test@mail.com')
     .required('Email is required'),
   password: Yup.string()
@@ -82,9 +85,6 @@ export default function SignupForm() {
             </PasswordInputWrap>
 
             <div>
-              
-                
-            
               <DatePicker
                 name="dateOfBirth"
                 type="text"
@@ -95,7 +95,8 @@ export default function SignupForm() {
                   errors.dateOfBirth && touched.dateOfBirth ? 'true' : 'false'
                 }
                 success={
-                  values.dateOfBirth && !errors.dateOfBirth ? 'true' : 'false'}
+                  values.dateOfBirth && !errors.dateOfBirth ? 'true' : 'false'
+                }
               />
               {/* <StyledDatepicker
                 name="dateOfBirth"

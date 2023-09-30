@@ -20,6 +20,10 @@ import { signIn } from '../../redux/auth/auth-operation';
 const initialValues = { email: '', password: '' };
 const schema = Yup.object().shape({
   email: Yup.string()
+    .matches(
+      /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
+      'Email must contain only digits, letters and . - _ symbols. e.g. test@mail.com',
+    )
     .email('Invalid email format, test@mail.com')
     .required('Email is required'),
   password: Yup.string()
