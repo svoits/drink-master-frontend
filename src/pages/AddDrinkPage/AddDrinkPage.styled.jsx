@@ -16,7 +16,6 @@ export const DrinksPageSection = styled.section`
     padding-bottom: 160px;
   }
 `;
-<<<<<<< Updated upstream
 
 export const DrinksPageContainer = styled.div`
 dispay: flex;
@@ -29,5 +28,3 @@ dispay: flex;
 
   }
 `;
-=======
->>>>>>> Stashed changes
