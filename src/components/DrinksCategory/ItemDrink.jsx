@@ -1,12 +1,16 @@
 import React from 'react';
+import { useResize } from '../../hooks/useResize';
 import { CategoryDrinksITEM, CategoryDrinksIMG, CategoryDrinksTEXTDIV, CategoryDrinksP, CategoryDrinksLink} from './DrinksCategory.styled';
 
 
 
 export const ItemDrink = ({item, idx}) => {
-  if ((window.innerWidth <= 768 && idx > 0) || (window.innerWidth <= 1440 && idx > 1)) {
+  const { width } = useResize();
+
+  if ((width <= 768 && idx > 0) || (width <= 1440 && idx > 1)) {
   
     return(``);
+    
   } 
   
   const { _id: id, drink, drinkThumb } = item;

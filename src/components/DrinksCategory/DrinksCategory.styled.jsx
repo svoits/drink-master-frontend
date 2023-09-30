@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
+import transition from '../../utils/transition';
 
 
 export const CategoryDrinksDiv = styled.div`
@@ -62,7 +63,7 @@ export const CategoryDrinksLink = styled(NavLink)`
   line-height: 18px;
   letter-spacing: 0em;
   text-align: right;
-  color: #f3f3f380;
+  color: ${({ theme }) => theme.subTitleText};
   
 `;
 
@@ -75,13 +76,18 @@ export const CategoryDrinksTEXTDIV = styled.div`
 
 export const CategoryDrinkToDrink = styled(NavLink)`
   display: block;
-  margin: 60px auto;
   max-width: 168px;
   min-height: 46px;
-  border-radius: 42px;
+  margin: 60px auto;
   padding: 14px 40px;
-  background: #F3F3F3;
-  color: #161F37;
+
+
+  background: ${({ theme }) => theme.hoverBackgroundColorLink};
+  color: ${({ theme }) => theme.themeSwitcher};
+  border: 2px solid transparent;
+  border-radius: 42px;
+  transition: color ${transition};
+  transition: background ${transition};
   font-weight: 500;
   font-size: 14px;
   line-height: 18px;

@@ -21,15 +21,18 @@ export const DrinksCategory = () => {
   }, [dispatch])
 
   const { mainPageDrinks, isLoading, error } = useDrink();
- 
+
+  const  drinksCategory =  Object.keys(mainPageDrinks).slice(0, 4);
+  console.log(drinksCategory)
+  
   return (
     <>
       <section>
         <Container>
         {isLoading ?
           <Loader /> :
-          Object.keys(mainPageDrinks).length > 0 &&
-          Object.keys(mainPageDrinks).map((category, idx) => (
+          drinksCategory.length > 0 &&
+          drinksCategory.map((category, idx) => (
             <CategoryDrinksDiv key={idx}>
               <DrinkCategoryTitle>{category} </DrinkCategoryTitle>
               <CategoryDrinksLIST>
