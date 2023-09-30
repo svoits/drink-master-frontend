@@ -2,8 +2,9 @@ import { useDispatch } from 'react-redux';
 import { useState, useRef, useEffect } from 'react';
 import { addMyDrink } from '../../redux/drinks/drinks-operations';
 import DrinkDescriptionFields from '../DrinkDescriptionFields/DrinkDescriptionFields';
-import DrinkIngredientsFields from '../DrinkIngredientsFields';
+// import DrinkIngredientsFields from '../DrinkIngredientsFields';
 import RecipePreparationText from '../RecipePreparationText/RecipePreparationText';
+import DrinkIngredientsFields1 from '../DrinkIngredientsFields1/DrinkIngredientsFields1';
 
 const AddDrinkForm = () => {
   const dispatch = useDispatch();
@@ -45,14 +46,14 @@ const AddDrinkForm = () => {
       ...values,
 
       // Stringify ingredients field to make it work with API
-      ingredients: JSON.stringify(values.ingredients),
+      ingredients: JSON.stringify(formData.ingredients),
       drinkThumb: formData.drinkThumb,
       instructions: valuesPrep.instructions,
     };
 
     console.log({ formData, valuesPrep, valuesIng, data });
 
-    // dispatch(addMyDrink(data));
+    dispatch(addMyDrink(data));
   };
 
   return (
@@ -62,7 +63,12 @@ const AddDrinkForm = () => {
         setFormData={setFormData}
         refId={formAref}
       />
-      <DrinkIngredientsFields
+      {/* <DrinkIngredientsFields
+        formData={formData}
+        setFormData={setFormData}
+        refId={formBref}
+      /> */}
+      <DrinkIngredientsFields1
         formData={formData}
         setFormData={setFormData}
         refId={formBref}
