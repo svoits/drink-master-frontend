@@ -55,12 +55,12 @@ const DrinkDescriptionFields = ({ setFormData, formData, refId }) => {
     const [file] = evt.target.files;
 
     if (file) {
-      // const imageURL = URL.createObjectURL(file);
+      const imageURL = URL.createObjectURL(file);
       setFormData({
         ...formData,
         drinkThumb: file,
       });
-      // setImagePreview(imageURL);
+      setImagePreview(imageURL);
     }
   };
 
@@ -81,7 +81,7 @@ const DrinkDescriptionFields = ({ setFormData, formData, refId }) => {
           ...formData,
           alcoholic: ageDiff >= 18 ? 'Alcoholic' : 'Non alcoholic',
         }}
-        // validationSchema={validationSchema}
+        validationSchema={validationSchema}
       >
         <Form>
           <PhotoContainer htmlFor="photo">

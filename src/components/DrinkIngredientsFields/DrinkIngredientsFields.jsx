@@ -134,7 +134,7 @@ const DrinkIngredientsFields = ({
                         label: title,
                       }))}
                       name={`ingredients[${index}]`}
-                      id={`ingredient${index}`}
+                      id={`ingredientId${index}`}
                       {...field}
                       value={selectedIngredients[index]}
                       onChange={(selectedOption) => {

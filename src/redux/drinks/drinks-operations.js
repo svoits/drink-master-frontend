@@ -66,7 +66,11 @@ export const addMyDrink = createAsyncThunk(
   'drinks/own/add',
   async (data, thunkAPI) => {
     try {
-      const response = await axios.postForm('/api/drinks/own/add/', data);
+      const response = await axios.post('/api/drinks/own/add', data, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -102,9 +106,11 @@ export const removeOwnDrink = createAsyncThunk(
 
 export const getOwnDrinks = createAsyncThunk(
   'drinks/own/all',
-  async ({page, limit}, thunkAPI) => {
+  async ({ page, limit }, thunkAPI) => {
     try {
-      const response = await axios.get(`/api/drinks/own/all?page=${page}&limit=${limit}`);
+      const response = await axios.get(
+        `/api/drinks/own/all?page=${page}&limit=${limit}`,
+      );
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
