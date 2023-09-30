@@ -10,10 +10,10 @@ import {
   ListFavorite,
 } from './FavoriteDrinksPage.styled';
 import { Container } from '../../components/Container/Container.styled';
-import CoctailImage from '../../images/heroImage/hero-img-desc-2x.png';
+import CocktailImage from '../../images/heroImage/hero-img-desc-2x.png';
 import Loader from '../../components/Loader';
 import PageTitle from '../../components/PageTitle/PageTitle';
-import Paginator from '../../components/Pagi/Paginator';
+import Paginator from '../../components/Paginator/Paginator';
 import { useDrink } from '../../redux/hooks/useDrink';
 import { useResize } from '../../hooks/useResize';
 
@@ -25,7 +25,7 @@ export default function FavoriteDrinksPage() {
   const [isLoading, setIsLoading] = useState(true);
 
   const [currentPage, setCurrentPage] = useState(1);
-  const pageNumbersToShow = 5;
+  const pageNumbersToShow = width < 768 ? 5 : 8;
   const itemsPerPage = width < 1440 ? 8 : 9;
 
   const onPageChange = (pageNumber) => {
@@ -52,11 +52,11 @@ export default function FavoriteDrinksPage() {
         {isLoading && <Loader />}
         {total === 0 && (
           <DefaultContainer>
-            <DefaultImg src={CoctailImage} alt="Cocktail" />
+            <DefaultImg src={CocktailImage} alt="Cocktail" />
             <DefaultDescr>You have not added any cocktails yet</DefaultDescr>
           </DefaultContainer>
         )}
-        {favoriteDrinks.length > 0 && (
+        {favoriteDrinks.length && (
           <ListFavorite>
             <FavoriteDrinkList drinks={favoriteDrinks} />
           </ListFavorite>

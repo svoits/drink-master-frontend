@@ -9,13 +9,11 @@ export const StyledSelect = styled(ReactSelect)`
   & .Select__control {
     width: 100%;
     background-color: #161f37;
-
     border: none;
     border-radius: 40px;
-
-    color: #f3f3f3;
     box-shadow: none;
     cursor: pointer;
+
     svg {
       transform: rotate(0deg);
       transition: transform ${transition};
@@ -50,7 +48,6 @@ export const StyledSelect = styled(ReactSelect)`
     color: #f3f3f3;
     padding: 17px 24px;
     padding-left: 8px;
-
     cursor: pointer;
 
     &:hover {
@@ -76,6 +73,7 @@ export const StyledSelect = styled(ReactSelect)`
       font-size: 17px;
     }
   }
+
   & .Select__input {
     line-height: 1.285 !important;
 
@@ -104,7 +102,7 @@ export const StyledSelect = styled(ReactSelect)`
   }
 
   & .Select__menu-list {
-    padding: 8px;
+    padding: 10px;
     border-radius: 24px;
     background-color: ${({ theme }) => theme.selectDropdownBackground};
     display: flex;

@@ -3,19 +3,21 @@ import { useEffect, useState } from 'react';
 import { DrinksList } from '../../components/DrinksList/DrinksList';
 import Loader from '../../components/Loader';
 import PageTitle from '../../components/PageTitle/PageTitle';
-import Paginator from '../../components/Pagi/Paginator';
+import Paginator from '../../components/Paginator/Paginator';
 import { MyDrinksContainer, ListMyDrinks } from './MyDrinksPage.styled';
 import { useDrink } from '../../redux/hooks/useDrink';
 import { getOwnDrinks } from '../../redux/drinks/drinks-operations';
 import { Container } from '../../components/Container/Container.styled';
+import { useResize } from '../../hooks/useResize';
 
 export default function MyDrinksPage() {
   const dispatch = useDispatch();
   const { total, drinks } = useDrink();
+  const { width } = useResize();
   const [errorMessage, setErrorMessage] = useState('');
   const [isLoading, setIsLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
-  const pageNumbersToShow = 5;
+  const pageNumbersToShow = width < 768 ? 5 : 8;
   const itemsPerPage = 6;
 
   const onPageChange = (pageNumber) => {

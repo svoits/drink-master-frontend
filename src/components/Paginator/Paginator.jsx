@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import { StyledArrows, StyledPagination } from './Paginator.styled';
-import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
+import { Button, List, StyledArrows, Wrapper } from './Paginator.styled';
+import { HiChevronLeft, HiChevronRight } from 'react-icons/hi';
 
-export const Paginator = ({
+const Paginator = ({
   drinksPerPage,
   totalDrinks,
   onPageChange,
@@ -31,34 +31,34 @@ export const Paginator = ({
   };
 
   return (
-    <StyledPagination>
-      <ul>
+    <Wrapper>
+      <List>
         <StyledArrows
           type="button"
           onClick={() => handlePageChange(currentPage - 1)}
           disabled={currentPage === 1}
         >
-          <FiChevronLeft size={20} />
+          <HiChevronLeft size={24} />
         </StyledArrows>
         {getVisiblePageNumbers().map((number) => (
           <li key={number}>
-            <button
+            <Button
               onClick={() => handlePageChange(number)}
               className={number === currentPage ? 'active' : ''}
             >
               {number}
-            </button>
+            </Button>
           </li>
         ))}
         <StyledArrows
           onClick={() => handlePageChange(currentPage + 1)}
           disabled={currentPage === Math.ceil(totalDrinks / drinksPerPage)}
         >
-          <FiChevronRight size={20} />
+          <HiChevronRight size={24} />
         </StyledArrows>
-      </ul>
-    </StyledPagination>
+      </List>
+    </Wrapper>
   );
 };
 
-// export default Paginator;
+export default Paginator;
