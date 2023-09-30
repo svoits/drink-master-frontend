@@ -95,9 +95,9 @@ export const removeOwnDrink = createAsyncThunk(
 
 export const getOwnDrinks = createAsyncThunk(
   'drinks/own/all',
-  async (_, thunkAPI) => {
+  async ({page, limit}, thunkAPI) => {
     try {
-      const response = await axios.get('/api/drinks/own/all');
+      const response = await axios.get(`/api/drinks/own/all?page=${page}&limit=${limit}`);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

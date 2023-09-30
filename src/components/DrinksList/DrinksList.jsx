@@ -8,11 +8,19 @@ import {
   ButtonsWRAPPER,
   DrinkPageLINK,
   DeleteDrinkBTN,
+  TrashIcon
 } from './DrinksList.styled';
 import { ReactComponent as RemoveIcon } from '../../images/icons/removeIcon.svg';
 import CoctailImage from '../../images/heroImage/hero-img-desc-2x.png';
+import { removeOwnDrink } from '../../redux/drinks/drinks-operations';
+import { useDispatch } from 'react-redux';
 
-export const DrinksList = ({drinks, deleteDrink}) => {
+export const DrinksList = ({ drinks }) => {
+  const dispatch = useDispatch();
+  
+  const handleDeleteDrink = (id) => {
+    dispatch(removeOwnDrink(id));
+  };
 
   return (
     <MyDrinksList>
@@ -37,10 +45,8 @@ export const DrinksList = ({drinks, deleteDrink}) => {
               See more
             </DrinkPageLINK>
             <DeleteDrinkBTN
-              onClick={() => deleteDrink(_id)}>
-              <RemoveIcon
-                width="18"
-                height="22" />
+              onClick={() => handleDeleteDrink(_id)}>
+              <TrashIcon />
             </DeleteDrinkBTN>
           </ButtonsWRAPPER>
         </DrinkListItem>))
