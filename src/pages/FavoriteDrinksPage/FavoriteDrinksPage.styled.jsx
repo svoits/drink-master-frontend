@@ -60,7 +60,17 @@ export const DefaultDescr = styled.p`
 
 export const DefaultImg = styled.img`
   width: 100%;
+
+  @media screen and (min-width: 375px) {
+    width: 198px;
+    height: 247px;
+  }
+  @media screen and (min-width: 1440px) {
+    width: 261px;
+    height: 326px;
+  }
 `;
+
 export const ListFavorite = styled.div`
   margin-top: 40px;
   margin-bottom: 40px;
