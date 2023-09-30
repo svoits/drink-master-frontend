@@ -1,4 +1,4 @@
-import{s as i,b as P,j as t,G as $,t as u,F as y,c as j,d as S,e as L,f as k,r as x,a as T,h as C,i as I,k as z,l as F,m as B,u as E,C as M,L as Q}from"./index-a0f7dbc8.js";import{P as G}from"./Paginator-a3ba9909.js";import{u as D}from"./useDrink-57a74ffb.js";import{D as V}from"./stub-3c0bc97e.js";import{S as A}from"./react-select.esm-6aa39b5d.js";import{s as N,a as R,b as W}from"./selectors-a7d85374.js";import{P as q}from"./PageTitle-7ee38cc5.js";import"./drinks-selectors-db0f3074.js";const H=i.ul`
+import{s as i,b as P,j as t,G as $,t as u,F as y,c as j,d as S,e as L,f as k,r as x,a as T,h as C,i as I,k as z,l as F,m as B,u as E,C as M,L as Q}from"./index-8875d208.js";import{P as G}from"./Paginator-c8110abf.js";import{u as D}from"./useDrink-e8c17209.js";import{D as V}from"./stub-fc4fa0cc.js";import{S as A}from"./react-select.esm-31503343.js";import{s as N,a as R,b as W}from"./selectors-a7d85374.js";import{P as q}from"./PageTitle-69336900.js";import"./drinks-selectors-db0f3074.js";const H=i.ul`
   margin-bottom: 40px;
 
   display: grid;
@@ -94,13 +94,11 @@ import{s as i,b as P,j as t,G as $,t as u,F as y,c as j,d as S,e as L,f as k,r a
   & .Select__control {
     width: 100%;
     background-color: #161f37;
-
     border: none;
     border-radius: 40px;
-
-    color: #f3f3f3;
     box-shadow: none;
     cursor: pointer;
+
     svg {
       transform: rotate(0deg);
       transition: transform ${u};
@@ -135,7 +133,6 @@ import{s as i,b as P,j as t,G as $,t as u,F as y,c as j,d as S,e as L,f as k,r a
     color: #f3f3f3;
     padding: 17px 24px;
     padding-left: 8px;
-
     cursor: pointer;
 
     &:hover {
@@ -161,6 +158,7 @@ import{s as i,b as P,j as t,G as $,t as u,F as y,c as j,d as S,e as L,f as k,r a
       font-size: 17px;
     }
   }
+
   & .Select__input {
     line-height: 1.285 !important;
 
@@ -189,7 +187,7 @@ import{s as i,b as P,j as t,G as $,t as u,F as y,c as j,d as S,e as L,f as k,r a
   }
 
   & .Select__menu-list {
-    padding: 8px;
+    padding: 10px;
     border-radius: 24px;
     background-color: ${({theme:e})=>e.selectDropdownBackground};
     display: flex;
@@ -303,4 +301,4 @@ import{s as i,b as P,j as t,G as $,t as u,F as y,c as j,d as S,e as L,f as k,r a
     padding-top: 160px;
     padding-bottom: 160px;
   }
-`;function fe(){const{width:e}=E(),{isLoading:r,drinks:a,error:s,total:o}=D(),[m,d]=x.useState(1),h=5,p=e<1440?10:9,f=Math.ceil(o/p),l=w=>{d(w)};return t.jsx(de,{children:t.jsxs(M,{children:[t.jsx(q,{title:"Drinks"}),t.jsx(se,{page:m,limit:p}),r&&t.jsx(Q,{}),o>0&&!s&&t.jsx(Z,{drinks:a}),f>1&&t.jsx(G,{drinksPerPage:p,totalDrinks:o,onPageChange:l,pageNumbersToShow:h})]})})}export{fe as default};
+`;function fe(){const{width:e}=E(),{isLoading:r,drinks:a,error:s,total:o}=D(),[m,d]=x.useState(1),h=e<768?5:8,p=e<1440?10:9,f=Math.ceil(o/p),l=w=>{d(w)};return t.jsx(de,{children:t.jsxs(M,{children:[t.jsx(q,{title:"Drinks"}),t.jsx(se,{page:m,limit:p}),r&&t.jsx(Q,{}),o>0&&!s&&t.jsx(Z,{drinks:a}),f>1&&t.jsx(G,{drinksPerPage:p,totalDrinks:o,onPageChange:l,pageNumbersToShow:h})]})})}export{fe as default};

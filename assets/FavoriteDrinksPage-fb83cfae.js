@@ -1,4 +1,4 @@
-import{s as e,t as a,N as m,U as v,a as f,j as t,V as k,u as y,r as c,W as D,C as P,L as S}from"./index-a0f7dbc8.js";import{D as F}from"./stub-3c0bc97e.js";import{C as z}from"./hero-img-desc-2x-e8906f30.js";import{P as C}from"./PageTitle-7ee38cc5.js";import{P as I}from"./Paginator-a3ba9909.js";import{u as L}from"./useDrink-57a74ffb.js";import"./drinks-selectors-db0f3074.js";const $=e.li`
+import{s as e,t as s,N as m,U as v,a as f,j as t,V as k,u as y,r as c,W as D,C as P,L as S}from"./index-8875d208.js";import{D as F}from"./stub-fc4fa0cc.js";import{C as z}from"./hero-img-desc-2x-e8906f30.js";import{P as C}from"./PageTitle-69336900.js";import{P as I}from"./Paginator-c8110abf.js";import{u as L}from"./useDrink-e8c17209.js";import"./drinks-selectors-db0f3074.js";const $=e.li`
   margin-left: auto;
   margin-right: auto;
 `,A=e.img`
@@ -75,9 +75,9 @@ import{s as e,t as a,N as m,U as v,a as f,j as t,V as k,u as y,r as c,W as D,C a
   transition: background-color 0.3s ease;
   border: 1px solid transparent;
   transition:
-    background-color ${a},
-    border-color ${a},
-    color ${a};
+    background-color ${s},
+    border-color ${s},
+    color ${s};
 
   &:hover {
     background-color: #f3f3f3;
@@ -110,8 +110,8 @@ import{s as e,t as a,N as m,U as v,a as f,j as t,V as k,u as y,r as c,W as D,C a
   color: #f3f3f3;
 
   transition:
-    background-color ${a},
-    color ${a};
+    background-color ${s},
+    color ${s};
 
   @media (min-width: 768px) {
     width: 56px;
@@ -123,7 +123,7 @@ import{s as e,t as a,N as m,U as v,a as f,j as t,V as k,u as y,r as c,W as D,C a
     background-color: #f3f3f3;
     color: #161f37;
   }
-`;function _({drink:n}){const i=f(),{_id:o,drink:s,alcoholic:d,drinkThumb:x,description:l}=n,r=()=>{i(k(o))};return t.jsxs($,{children:[t.jsx(A,{src:x||F,alt:s}),t.jsx(E,{children:s}),t.jsx(T,{children:d?"Alcoholic":"NonAlcoholic"}),t.jsx(M,{children:l}),t.jsxs(N,{children:[t.jsx(R,{to:`/drinks/${o}`,children:"See More"}),t.jsx(W,{onClick:r,children:t.jsx(B,{})})]})]})}const U=e.ul`
+`;function _({drink:n}){const i=f(),{_id:o,drink:r,alcoholic:d,drinkThumb:x,description:l}=n,a=()=>{i(k(o))};return t.jsxs($,{children:[t.jsx(A,{src:x||F,alt:r}),t.jsx(E,{children:r}),t.jsx(T,{children:d?"Alcoholic":"NonAlcoholic"}),t.jsx(M,{children:l}),t.jsxs(N,{children:[t.jsx(R,{to:`/drinks/${o}`,children:"See More"}),t.jsx(W,{onClick:a,children:t.jsx(B,{})})]})]})}const U=e.ul`
   display: grid;
   grid-row-gap: 40px;
   list-style: none;
@@ -201,4 +201,4 @@ import{s as e,t as a,N as m,U as v,a as f,j as t,V as k,u as y,r as c,W as D,C a
     margin-top: 60px;
     margin-bottom: 80px;
   }
-`;function it(){const n=f(),{total:i,favoriteDrinks:o}=L(),{width:s}=y(),[d,x]=c.useState(""),[l,r]=c.useState(!0),[h,u]=c.useState(1),w=5,p=s<1440?8:9,b=g=>{u(g)};c.useEffect(()=>{r(!0),n(D({page:h,limit:p})).then(()=>r(!1)).catch(g=>{console.error(g),x("Something went wrong, please try later."),r(!1)})},[h,n,p]);const j=Math.ceil(i/p);return t.jsx(Y,{children:t.jsxs(P,{children:[t.jsx(C,{title:"Favorites"}),l&&t.jsx(S,{}),i===0&&t.jsxs(q,{children:[t.jsx(H,{src:z,alt:"Cocktail"}),t.jsx(G,{children:"You have not added any cocktails yet"})]}),o.length>0&&t.jsx(J,{children:t.jsx(V,{drinks:o})}),d&&t.jsx("div",{children:d}),j>1&&t.jsx(I,{drinksPerPage:p,totalDrinks:i,onPageChange:b,pageNumbersToShow:w})]})})}export{it as default};
+`;function it(){const n=f(),{total:i,favoriteDrinks:o}=L(),{width:r}=y(),[d,x]=c.useState(""),[l,a]=c.useState(!0),[h,u]=c.useState(1),w=r<768?5:8,p=r<1440?8:9,b=g=>{u(g)};c.useEffect(()=>{a(!0),n(D({page:h,limit:p})).then(()=>a(!1)).catch(g=>{console.error(g),x("Something went wrong, please try later."),a(!1)})},[h,n,p]);const j=Math.ceil(i/p);return t.jsx(Y,{children:t.jsxs(P,{children:[t.jsx(C,{title:"Favorites"}),l&&t.jsx(S,{}),i===0&&t.jsxs(q,{children:[t.jsx(H,{src:z,alt:"Cocktail"}),t.jsx(G,{children:"You have not added any cocktails yet"})]}),o.length&&t.jsx(J,{children:t.jsx(V,{drinks:o})}),d&&t.jsx("div",{children:d}),j>1&&t.jsx(I,{drinksPerPage:p,totalDrinks:i,onPageChange:b,pageNumbersToShow:w})]})})}export{it as default};
