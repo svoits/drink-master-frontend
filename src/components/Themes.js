@@ -11,6 +11,7 @@ export const lightTheme = {
   themeSwitcher: '#F3F3F3',
 
   subTitleText: '#0A0A1180',
+  subTitleTextHover: '#0A0A11',
 
   footerBorder: '#F3F3F333',
   footerBorderHover: '#F3F3F380',
@@ -60,6 +61,7 @@ export const darkTheme = {
   themeSwitcher: '#161F37',
 
   subTitleText: '#F3F3F380',
+  subTitleTextHover: '#F3F3F3',
 
   footerBorder: '#F3F3F333',
   footerBorderHover: '#F3F3F380',
