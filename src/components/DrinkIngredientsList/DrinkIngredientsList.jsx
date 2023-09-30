@@ -18,7 +18,7 @@ export const DrinkIngredientsList = ({ ingredients }) => {
   const ingredientsWithImages = useSelector(selectIngredients);
 
   return (
-    <div>
+    <>
       <IngredientsTitle>Ingredients</IngredientsTitle>
       {ingredientsWithImages.length && (
         <IngredientsList>
@@ -42,18 +42,17 @@ export const DrinkIngredientsList = ({ ingredients }) => {
             // console.log({ ingredient, ingredientRec, ingredientsWithImages });
 
             return (
-              <div key={ingredient.ingredientId}>
+              <li key={ingredient.ingredientId}>
                 <DrinkIngredientItem
-                  id={ingredient.ingredientId}
                   title={ingredient.title}
                   measure={ingredient.measure}
                   images={images}
                 />
-              </div>
+              </li>
             );
           })}
         </IngredientsList>
       )}
-    </div>
+    </>
   );
 };

@@ -3,11 +3,12 @@ import Loader from '../../components/Loader';
 import Paginator from '../../components/Paginator/Paginator';
 import { Container } from '../../components/Container/Container.styled';
 import { useDrink } from '../../redux/hooks/useDrink';
-import { DrinksListPage } from 'components/DrinksListPage/DrinksListPage';
+
 import { SearchDrinks } from 'components/SearchDrinks/SearchDrinks';
 import { DrinksPageContainer } from './DrinksPage.styled';
 import { useResize } from '../../hooks/useResize';
 import PageTitle from '../../components/PageTitle/PageTitle';
+import { AllDrinksList } from '../../components/AllDrinksList/AllDrinksList';
 // import { toast } from 'react-toastify';
 
 export default function DrinksPage() {
@@ -30,10 +31,11 @@ export default function DrinksPage() {
         {/* <DrinksListPage /> */}
 
         {isLoading && <Loader />}
-        {total > 0 && !error && <DrinksListPage drinks={drinks} />}
+        {total > 0 && !error && <AllDrinksList drinks={drinks} />}
 
         {totalPages > 1 && (
           <Paginator
+            currentPage={currentPage}
             drinksPerPage={itemsPerPage}
             totalDrinks={total}
             onPageChange={onPageChange}

@@ -3,7 +3,7 @@ import { FiTrash2 } from 'react-icons/fi';
 import styled from 'styled-components';
 import transition from '../../utils/transition';
 
-export const MyDrinksList = styled.ul`
+export const List = styled.ul`
   display: grid;
   grid-row-gap: 40px;
   list-style: none;
@@ -19,12 +19,12 @@ export const MyDrinksList = styled.ul`
     grid-template-columns: repeat(3, 1fr);
     margin-top: 62px;
   }
-`
+`;
 
 export const DrinkListItem = styled.li`
   margin-left: auto;
   margin-right: auto;
-`
+`;
 
 export const DrinkIMG = styled.img`
   width: 100%;
@@ -38,7 +38,7 @@ export const DrinkIMG = styled.img`
     width: 400px;
     height: 400px;
   }
-`
+`;
 export const DrinkTITLE = styled.h2`
   font-size: 18px;
   font-weight: 500;
@@ -49,7 +49,7 @@ export const DrinkTITLE = styled.h2`
     font-size: 24px;
     margin-top: 24px;
   }
-`
+`;
 export const DrinkCATEGORY = styled.span`
   font-size: 14px;
   font-weight: 400;
@@ -62,7 +62,7 @@ export const DrinkCATEGORY = styled.span`
     font-size: 16px;
     line-height: 1.13;
   }
-`
+`;
 export const AboutDRINK = styled.p`
   height: 74px;
   text-overflow: ellipsis;
@@ -84,11 +84,11 @@ export const AboutDRINK = styled.p`
   @media screen and (min-width: 1440px) {
     height: 90px;
   }
-`
+`;
 export const ButtonsWRAPPER = styled.div`
   display: flex;
   column-gap: 8px;
-`
+`;
 export const DrinkPageLINK = styled(NavLink)`
   border-radius: 42px;
   background-color: #161f37;
@@ -113,7 +113,7 @@ export const DrinkPageLINK = styled(NavLink)`
     font-size: 16px;
     line-height: calc(18 / 16);
   }
-`
+`;
 export const DeleteDrinkBTN = styled.button`
   display: inline-flex;
   justify-content: center;
@@ -140,7 +140,7 @@ export const DeleteDrinkBTN = styled.button`
     background-color: #f3f3f3;
     color: #161f37;
   }y
-`
+`;
 export const TrashIcon = styled(FiTrash2)`
   width: 24px;
   height: 24px;

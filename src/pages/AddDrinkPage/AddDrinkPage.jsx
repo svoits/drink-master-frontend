@@ -3,16 +3,28 @@ import FollowUs from '../../components/FollowUs/FollowUs';
 import PopularDrinks from '../../components/PopularDrinks/PopularDrinks';
 import PageTitle from '../../components/PageTitle/PageTitle';
 import { Container } from '../../components/Container/Container.styled';
+import { DrinksPageSection,
+  DrinksPageContainer
+ } from './AddDrinkPage.styled';
+
 
 export default function AddDrinkPage() {
   return (
-    <div>
+    <DrinksPageSection>
       <Container>
+        <DrinksPageContainer>
         <PageTitle title="Add drink" />
+        <div>
         <AddDrinkForm />
-        <FollowUs />
+        </div>
+      <div>
+      <FollowUs />
         <PopularDrinks />
+
+      </div>
+     
+        </DrinksPageContainer>
       </Container>
-    </div>
+    </DrinksPageSection>
   );
 }

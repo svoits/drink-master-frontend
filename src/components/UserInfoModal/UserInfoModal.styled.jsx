@@ -60,6 +60,7 @@ export const EditIconWrapper = styled.span`
   top: 19px;
   right: 24px;
   pointer-events: none;
+  color: ${({ theme }) => theme.modalText};
 `;
 
 export const SubmitBtn = styled.button`

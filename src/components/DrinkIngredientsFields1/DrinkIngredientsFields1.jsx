@@ -28,36 +28,22 @@ const measures = [
   { value: 'tblsp', label: 'tblsp' },
 ];
 
-const handleMeasureChange = (selectedOption, index) => {
-  const newSelectedMeasures = [...selectedMeasures];
-  newSelectedMeasures[index] = selectedOption;
-  setSelectedMeasures(newSelectedMeasures);
-};
+
 
 const DrinkIngredientsFields1 = ({
   formData,
   setFormData,
-  handleSubmit,
   refId,
 }) => {
   const maxIngredientCount = 10;
   const dispatch = useDispatch();
   const ingredientsList = useSelector((state) => state.filters.ingredients);
-  let ingredientsCount = formData.ingredients.length;
-  // const ingredientsList = formData.ingredients;
-  console.log(ingredientsList);
+  const [ingredientsCount, setIngredientsCount] = useState(formData.ingredients.length);
+
   const handleFieldChange = (field, val, index) => {
-    const ing = formData.ingredients[index];
-
-    if (ing) {
-      // console.log(val);
-
-      const ingredients = [...formData.ingredients];
-      ingredients[index][field] = val;
-
-      // console.log('ingredients', _.clone(ingredients));
-      setFormData({ ...formData, ingredients });
-    }
+    const ingredients = [...formData.ingredients];
+    ingredients[index][field] = val;
+    setFormData({ ...formData, ingredients });
   };
 
   useEffect(() => {
@@ -66,13 +52,21 @@ const DrinkIngredientsFields1 = ({
 
   const handleAddIngredient = () => {
     if (ingredientsCount < maxIngredientCount) {
-      return (ingredientsCount += 1);
+      setFormData((prevState) => ({
+        ...prevState,
+        ingredients: [...prevState.ingredients, { ingredient: '', measure: '', quantity: '' }],
+      }));
+      setIngredientsCount(ingredientsCount + 1);
     }
   };
 
-  const handleRemoveIngredient = () => {
+  const handleRemoveIngredient = (index) => {
     if (ingredientsCount > 1) {
-      return (ingredientsCount -= 1);
+      setFormData((prevState) => ({
+        ...prevState,
+        ingredients: prevState.ingredients.filter((_, i) => i !== index),
+      }));
+      setIngredientsCount(ingredientsCount - 1);
     }
   };
   return (
@@ -84,11 +78,10 @@ const DrinkIngredientsFields1 = ({
             name="ingredients"
             render={(arrayHelpers, index) => (
               <>
-                <div key={index}>
+                <div >
                 <button
                   type="button"
-                  onClick={() => arrayHelpers.remove(index)}
-                  // onClick={handleRemoveIngredient}
+                  onClick={handleRemoveIngredient(index)}
                 >
                   -
                 </button>
@@ -168,7 +161,7 @@ const DrinkIngredientsFields1 = ({
                             />
                           </label>
                           </IngredientsDIV>
-                          <button type="button" onClick={handleRemoveIngredient}>
+                          <button type="button" >
                             <IoMdClose />
                           </button>
                         </ListDIV>

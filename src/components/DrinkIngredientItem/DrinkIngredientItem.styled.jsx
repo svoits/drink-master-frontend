@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const IngredientDescription = styled.div`
-  width: 157px;
   display: flex;
   justify-content: space-between;
   margin-top: 8px;
@@ -12,38 +11,35 @@ export const IngredientDescription = styled.div`
   align-items: center;
 
   @media screen and (min-width: 768px) {
-    width: 220px;
     font-size: 18px;
-    line-height: 24px;
+    line-height: 1.33;
     margin-top: 14px;
   }
 `;
 
 export const IngredientPhoto = styled.img`
-  width: 107px;
-  height: 107px;
-  margin: 0 auto;
+  width: 100%;
 
   @media screen and (min-width: 768px) {
     width: 157px;
     height: 157px;
+  }
 `;
 
 export const IngredientPhotoWrapper = styled.div`
-  width: 157px;
-  height: 157px;
+  width: 100%;
+  /* max-width: 158px; */
   padding: 25px;
   border-radius: 8px;
-  background-color: rgba(22, 31, 55, 0.5);
+  background-color: ${({ theme }) => theme.drinkPageIngredientBg};
 
   @media screen and (min-width: 768px) {
-    width: 220px;
     height: 220px;
     padding: 31px;
+  }
 `;
 
 export const IngredientTitle = styled.p`
-  width: 100px;
   margin-bottom: 0;
 
   @media screen and (min-width: 768px) {
@@ -65,10 +61,10 @@ export const IngredientMeasure = styled.p`
 `;
 
 export const StubPhotoWrapper = styled.div`
-  width: 107px;
-  height: 107px;
+  width: 100%;
 
   @media screen and (min-width: 768px) {
     width: 157px;
     height: 157px;
+  }
 `;
