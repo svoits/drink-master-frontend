@@ -21,8 +21,6 @@ export const lightTheme = {
 
   sectionBackgroundColor: 'rgb(11 11 11)',
   hoverBackgroundColorLink: '#161f37',
-  hoverColorTextLink: '#F3F3F3',
-
   modalBg: '#161F37',
   modalText: '#F3F3F3',
   modalBtnBg: '#F3F3F3',
@@ -38,7 +36,6 @@ export const lightTheme = {
 
   inputBorder: '#0A0A1133',
   inputBorderFocus: '#0A0A11',
-  errorFour: 'rgba(64, 112, 205, 0.10)',
 
   paginatorArrow: '#0A0A114D',
   paginatorArrowHover: '#0A0A11B2',
@@ -48,6 +45,10 @@ export const lightTheme = {
 
   drinkPageSubtitle: '#0A0A1180',
   drinkPageIngredientBg: '#161F37',
+  AddPhotoBackgroundColor: '#161F37',
+
+  selectDownOptionText: '#0A0A11',
+  selectDownOptionRegular: '#0A0A1180',
 };
 
 export const darkTheme = {
@@ -74,8 +75,6 @@ export const darkTheme = {
 
   sectionBackgroundColor: 'transparent',
   hoverBackgroundColorLink: '#F3F3F3',
-  hoverColorTextLink: '#161f37',
-
   modalBg: '#161F37',
   modalText: '#F3F3F3',
   modalBtnBg: '#F3F3F3',
@@ -91,7 +90,6 @@ export const darkTheme = {
 
   inputBorder: '#F3F3F333',
   inputBorderFocus: '#F3F3F380',
-  errorFour: 'rgba(243, 243, 243, 0.1)',
 
   paginatorArrow: '#F3F3F34D',
   paginatorArrowHover: '#F3F3F3',
@@ -101,4 +99,8 @@ export const darkTheme = {
 
   drinkPageSubtitle: '#F3F3F380',
   drinkPageIngredientBg: '#161F3780',
+  AddPhotoBackgroundColor: '#161F3780',
+
+  selectDownOptionText: '#f3f3f3',
+  selectDownOptionRegular: '#F3F3F380',
 };

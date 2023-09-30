@@ -5,6 +5,16 @@ import { ErrorMessage, Field, Form, Formik, FieldArray } from 'formik';
 import Select from 'react-select';
 import _ from 'lodash';
 
+import {
+  SearchDrinkTitle,
+  SearchDrinkForm,
+  ContainerDIV,
+  ListDIV,
+  IngredientsDIV,
+  IngredientsInput,
+  StyledSelect,
+  StyledSelectCL,
+} from './DrinkIngredientsFields1.styled'
 const measures = [
   { value: 'ml', label: 'ml' },
   { value: 'oz', label: 'oz' },
@@ -66,9 +76,9 @@ const DrinkIngredientsFields1 = ({
   };
   return (
     <>
-      <h2>Ingredients</h2>
+      <SearchDrinkTitle>Ingredients</SearchDrinkTitle>
       <Formik initialValues={{ ...formData }} innerRef={refId}>
-        <Form>
+        <SearchDrinkForm>
           <FieldArray
             name="ingredients"
             render={(arrayHelpers) => (
@@ -95,7 +105,7 @@ const DrinkIngredientsFields1 = ({
                   +
                 </button>
                 {ingredientsList && (
-                  <div>
+                  <ContainerDIV>
                     {formData.ingredients.map((ingredient, index) => {
                       const measureVal = measures.find(
                         (m) => m.value === ingredient.measure,
@@ -106,11 +116,11 @@ const DrinkIngredientsFields1 = ({
                       );
 
                       return (
-                        <div key={index}>
+                        <ListDIV key={index}>
                           <label htmlFor={`ingredients[${index}]`}>
-                            <Select
+                            <StyledSelect
                               className="basic-single"
-                              classNamePrefix="select"
+                              classNamePrefix="Select"
                               closeMenuOnSelect={true}
                               isMulti={false}
                               isClearable={true}
@@ -129,7 +139,8 @@ const DrinkIngredientsFields1 = ({
                               placeholder="Lem"
                             />
                           </label>
-                          <Field
+                          <IngredientsDIV>
+                          <IngredientsInput
                             name={`ingredients[${index}].quantity`}
                             value={ingredient.quantity}
                             onChange={(e) =>
@@ -141,9 +152,9 @@ const DrinkIngredientsFields1 = ({
                             }
                           />
                           <label htmlFor={`ingredients[${index}].measure`}>
-                            <Select
+                            <StyledSelectCL
                               className="basic-single"
-                              classNamePrefix="select"
+                              classNamePrefix="Select"
                               options={measures}
                               name={`ingredients[${index}].measure`}
                               value={measureVal}
@@ -153,15 +164,16 @@ const DrinkIngredientsFields1 = ({
                               placeholder="cl"
                             />
                           </label>
-                        </div>
+                          </IngredientsDIV>
+                        </ListDIV>
                       );
                     })}
-                  </div>
+                  </ContainerDIV>
                 )}
               </>
             )}
           />
-        </Form>
+        </SearchDrinkForm>
       </Formik>
     </>
   );

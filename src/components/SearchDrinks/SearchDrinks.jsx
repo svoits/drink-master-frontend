@@ -16,7 +16,7 @@ import {
   StyledSelect,
 } from './SearchDrinks.styled';
 import { useFilter } from '../../redux/hooks/useFilter';
-import { useDrink } from '../../redux/hooks/useDrink';
+// import { useDrink } from '../../redux/hooks/useDrink';
 import throttle from 'lodash.throttle';
 
 const initialValues = {
@@ -35,7 +35,7 @@ export const SearchDrinks = ({ page, limit }) => {
   const [category, setCategory] = useState('');
   const [ingredient, setIngredient] = useState('');
   const { categories, ingredients } = useFilter();
-  const { error } = useDrink();
+  // const { error } = useDrink();
   const dispatch = useDispatch();
 
   const handleSubmit = (values) => {
