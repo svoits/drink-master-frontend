@@ -38,21 +38,14 @@ export const PhotoContainer = styled.label`
   align-items: center;
 
   width: 335px;
-<<<<<<< Updated upstream
   height: 320px;
-=======
-//   height: 320px;
->>>>>>> Stashed changes
   background-color: ${({ theme }) => theme.AddPhotoBackgroundColor};
 
   border-radius: 8px;
 
   @media screen and (min-width: 768px) {
     width: 320px;
-<<<<<<< Updated upstream
     height: auto;
-=======
->>>>>>> Stashed changes
   }
 `;
 
@@ -64,11 +57,7 @@ export const PhotoPreview = styled.img`
 `;
 
 export const PhotoField = styled(Field)`
-<<<<<<< Updated upstream
   background-color: pink;
-=======
-background-color: pink;
->>>>>>> Stashed changes
   position: absolute;
   width: 0;
   height: 0;
@@ -111,10 +100,6 @@ export const SearchContainer = styled.div`
 
   @media screen and (min-width: 768px) {
     width: 352px;
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
   }
 `;
 
@@ -145,22 +130,11 @@ export const SearchDrinkInput = styled(Field)`
 
   @media screen and (min-width: 768px) {
     // width: 352px;
-<<<<<<< Updated upstream
     font-size: 16px;
 
     line-height: 22px;
 
     padding-bottom: 19px;
-=======
-font-size: 16px;
-
-line-height: 22px;
-
-
-    padding-bottom: 19px;
-
-
->>>>>>> Stashed changes
   }
 `;
 export const SearchDrinkLabel = styled.label`
@@ -169,11 +143,7 @@ export const SearchDrinkLabel = styled.label`
   flex-direction: row;
   justify-content: space-between;
 
-<<<<<<< Updated upstream
   //   position: relative;
-=======
-//   position: relative;
->>>>>>> Stashed changes
 
   @media screen and (min-width: 768px) {
   }
@@ -182,13 +152,8 @@ export const SearchDrinkLabel = styled.label`
 export const SearchDrinkInput2 = styled(Field)`
   padding-bottom: 15px;
 
-<<<<<<< Updated upstream
   //   width: 100%;
   width: 120px;
-=======
-//   width: 100%;
-width: 120px;
->>>>>>> Stashed changes
   border: none;
   border-bottom: 1px solid ${({ theme }) => theme.inputBorder};
   background-color: transparent;
@@ -211,28 +176,16 @@ width: 120px;
 
   @media screen and (min-width: 768px) {
     // width: 352px;
-<<<<<<< Updated upstream
     font-size: 16px;
 
     line-height: 22px;
 
     padding-bottom: 19px;
-=======
-font-size: 16px;
-
-line-height: 22px;
-
-
-    padding-bottom: 19px;
-
-
->>>>>>> Stashed changes
   }
 `;
 
 export const StyledSelect = styled(ReactSelect)`
   & .Select__control {
-<<<<<<< Updated upstream
     width: 200px;
     background-color: transparent;
     border: none;
@@ -240,22 +193,6 @@ export const StyledSelect = styled(ReactSelect)`
     cursor: pointer;
     border-bottom: 1px solid ${({ theme }) => theme.inputBorder};
 
-=======
-    // position: absolute;
-    // top: 0%;
-    // left: 59%;
-    width: 81px;
-    // width: 200px;
-    // width: 100%;
-    background-color: transparent;
-
-    border: none;
-    border-radius: 40px;
-
-    color: #f3f3f3;
-    box-shadow: none;
-    cursor: pointer;
->>>>>>> Stashed changes
     svg {
       transform: rotate(0deg);
       transition: transform ${transition};
@@ -287,7 +224,6 @@ export const StyledSelect = styled(ReactSelect)`
   }
 
   & .Select__indicator {
-<<<<<<< Updated upstream
     color: ${({ theme }) => theme.selectDownOptionText};
     padding: 17px 24px;
     padding-left: 8px;
@@ -296,16 +232,6 @@ export const StyledSelect = styled(ReactSelect)`
     &:hover {
       //   color: #f3f3f3;
       color: ${({ theme }) => theme.selectDownOptionText};
-=======
-    color: #f3f3f3;
-    padding: 17px 24px;
-    padding-left: 8px;
-
-    cursor: pointer;
-
-    &:hover {
-      color: #f3f3f3;
->>>>>>> Stashed changes
     }
 
     @media screen and (min-width: 768px) {
@@ -315,19 +241,12 @@ export const StyledSelect = styled(ReactSelect)`
   }
 
   & .Select__input-container {
-<<<<<<< Updated upstream
     color: ${({ theme }) => theme.selectDropdownOptionTextActive};
-=======
-    color: #f3f3f3;
->>>>>>> Stashed changes
     margin: 0;
     padding: 0;
 
     &:hover {
-<<<<<<< Updated upstream
       // color: ${({ theme }) => theme.selectDropdownOptionTextActive};
-=======
->>>>>>> Stashed changes
       color: #f3f3f3;
     }
 
@@ -335,10 +254,6 @@ export const StyledSelect = styled(ReactSelect)`
       font-size: 17px;
     }
   }
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
   & .Select__input {
     line-height: 1.285 !important;
 
@@ -349,11 +264,7 @@ export const StyledSelect = styled(ReactSelect)`
 
   & .Select__placeholder,
   & .Select__single-value {
-<<<<<<< Updated upstream
     color: ${({ theme }) => theme.selectDownOptionText};
-=======
-    color: #f3f3f3;
->>>>>>> Stashed changes
     line-height: 1.285;
     margin: 0;
 
@@ -364,10 +275,6 @@ export const StyledSelect = styled(ReactSelect)`
   }
 
   & .Select__menu {
-<<<<<<< Updated upstream
-=======
-    max-height: 131px;
->>>>>>> Stashed changes
     margin: 0;
     margin-top: 4px;
     border-radius: 24px;
@@ -375,21 +282,13 @@ export const StyledSelect = styled(ReactSelect)`
   }
 
   & .Select__menu-list {
-<<<<<<< Updated upstream
     padding: 10px;
-=======
-    padding: 8px;
->>>>>>> Stashed changes
     border-radius: 24px;
     background-color: ${({ theme }) => theme.selectDropdownBackground};
     display: flex;
     flex-direction: column;
     row-gap: 4px;
-<<<<<<< Updated upstream
     max-height: 400px;
-=======
-    max-height: 131px;
->>>>>>> Stashed changes
   }
 
   & .Select__option {
@@ -419,10 +318,6 @@ export const StyledSelect = styled(ReactSelect)`
     }
   }
 `;
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
 //=========================================
 export const RadioButtonDiv = styled.div`
   display: flex;
@@ -446,27 +341,15 @@ export const RadioLabel = styled.label`
   gap: 4px;
 
   @media screen and (min-width: 768px) {
-<<<<<<< Updated upstream
     font-size: 16px;
 
     line-height: 22px;
-=======
-  
-font-size: 16px;
-
-line-height: 22px;
-
->>>>>>> Stashed changes
 
     gap: 8px;
   }
 `;
 
 export const RadioField = styled(Field)`
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
   border: 1px solid ${({ theme }) => theme.inputBorder};
 
   &:active {
