@@ -21,9 +21,9 @@ const AddDrinkForm = () => {
     instructions: '',
     drinkThumb: '',
     ingredients: [
-      { ingredient: '', measure: '', quantity: '' },
-      { ingredient: '', measure: '', quantity: '' },
-      { ingredient: '', measure: '', quantity: '' },
+      { ingredientId: '', measure: '', quantity: '' },
+      { ingredientId: '', measure: '', quantity: '' },
+      { ingredientId: '', measure: '', quantity: '' },
       // {
       //   _id: '65172c12b39fc60288e8037a',
       //   title: 'Dark rum',
