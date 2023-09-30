@@ -6,12 +6,13 @@ import { signUp } from '../../redux/auth/auth-operation';
 import FormError from '../FormError/FormError';
 import { format } from 'date-fns';
 import { toast } from 'react-toastify';
-import StyledDatepicker from '../StyledDatepicker/StyledDatepicker';
+// import StyledDatepicker from '../StyledDatepicker/StyledDatepicker';
+import DatePicker  from '../DatePicker/DatePicker';
 import {
   AuthForm,
   Input,
   Button,
-  TogglePasswordButton,
+  TogglePasswordButton, 
   PasswordInputWrap,
   StyledShowPasswordIcon,
   StyledDontShowPasswordIcon,
@@ -43,9 +44,10 @@ export default function SignupForm() {
   const dispatch = useDispatch();
   const handleSubmit = (values, { resetForm }) => {
     const { name, dateOfBirth, email, password } = values;
+    // const parsedDateOfBirth = parse(dateOfBirth, 'dd/MM/yyyy', new Date());
     const birthDate = format(new Date(dateOfBirth), "yyyy-MM-dd'T'HH:mm:ssXXX");
-    
-
+    console.log(name, dateOfBirth, email, password);
+    console.log(birthDate);
     dispatch(signUp({ name, birthDate, email, password }))
       .unwrap()
       .then(() => toast.success('Registration succesfully'))
@@ -80,7 +82,22 @@ export default function SignupForm() {
             </PasswordInputWrap>
 
             <div>
-              <StyledDatepicker
+              
+                
+            
+              <DatePicker
+                name="dateOfBirth"
+                type="text"
+                value={values.dateOfBirth}
+                setFieldValue={setFieldValue}
+                placeholder="dd/mm/yyyy"
+                error={
+                  errors.dateOfBirth && touched.dateOfBirth ? 'true' : 'false'
+                }
+                success={
+                  values.dateOfBirth && !errors.dateOfBirth ? 'true' : 'false'}
+              />
+              {/* <StyledDatepicker
                 name="dateOfBirth"
                 value={values.dateOfBirth}
                 setFieldValue={setFieldValue}
@@ -90,7 +107,7 @@ export default function SignupForm() {
                 success={
                   values.dateOfBirth && !errors.dateOfBirth ? 'true' : 'false'
                 }
-              />
+              /> */}
               <FormError name="dateOfBirth" />
             </div>
 
