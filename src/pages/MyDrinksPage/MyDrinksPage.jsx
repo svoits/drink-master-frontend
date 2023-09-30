@@ -56,9 +56,7 @@ export default function MyDrinksPage() {
         {total === 0 && (
           <DefaultContainer>
             <DefaultImg src={CocktailImage} alt="Cocktail" />
-            <DefaultDescr>
-              You have no own drinks, try to set more own drinks...
-            </DefaultDescr>
+            <DefaultDescr>You haven't added any own cocktails yet</DefaultDescr>
           </DefaultContainer>
         )}
         {drinks.length > 0 && (
