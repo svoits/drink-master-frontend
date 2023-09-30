@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { DrinksCategory } from '../../components/DrinksCategory/DrinksCategory';
+import { PreviewDrinks } from '../../components/PreviewDrinks/PreviewDrinks';
 import { getMainPageAllDrinks } from '../../redux/drinks/drinks-operations';
 import { useDrink } from '../../redux/hooks/useDrink';
 
@@ -21,7 +21,7 @@ export default function HomePage() {
       <AddDrink />
       {isLoading && <Loader />}
       {error && <p>{error}</p>}
-      <DrinksCategory />
+      <PreviewDrinks />
     </>
   );
 }

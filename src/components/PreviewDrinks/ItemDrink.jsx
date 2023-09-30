@@ -1,6 +1,6 @@
 import React from 'react';
 import { useResize } from '../../hooks/useResize';
-import { CategoryDrinksITEM, CategoryDrinksIMG, CategoryDrinksTEXTDIV, CategoryDrinksP, CategoryDrinksLink} from './DrinksCategory.styled';
+import { CategoryDrinksITEM, CategoryDrinksIMG, CategoryDrinksTEXTDIV, CategoryDrinksP, CategoryDrinksLink} from './PreviewDrinks.styled';
 
 
 
