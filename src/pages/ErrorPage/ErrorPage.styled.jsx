@@ -42,7 +42,7 @@ export const ContainerError = styled.div`
 `;
 
 export const Title = styled.div`
-  color: rgba(243, 243, 243, 0.1);
+  color:${({ theme }) => theme.errorFour};
   font-size: 120px;
   font-weight: 600;
   line-height: 1.02;

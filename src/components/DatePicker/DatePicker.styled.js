@@ -40,13 +40,11 @@ export const CalendarGlobalStyles = createGlobalStyle`
     transition:
       border ${transition},
       background-color ${transition};
+     }
      
-
     @media screen and (min-width: 768px) {
     font-size: 17px;
     line-height: 1.56;
-  }
-  
   }};
   
   .date-airpicker-input.error {
@@ -82,6 +80,7 @@ background-color:transparent;
 }
 .air-datepicker-nav--title:hover {
     background: transparent;}
+
 .air-datepicker-nav--title i{
   color: #F3F3F3;
   font-size: 16px;
@@ -167,6 +166,9 @@ font-style: normal;
 font-weight: 400;
 line-height: 1.28; 
 letter-spacing: -0.28px;
+   }
+  .air-datepicker-cell.-year-:hover{
+background: transparent;
    }
    .air-datepicker-cell.-year-.-other-decade-{
 color: rgba(243, 243, 243, 0.20);

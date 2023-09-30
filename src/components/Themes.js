@@ -36,6 +36,7 @@ export const lightTheme = {
 
   inputBorder: '#0A0A1133',
   inputBorderFocus: '#0A0A11',
+  errorFour: 'rgba(64, 112, 205, 0.10)',
 };
 
 export const darkTheme = {
@@ -77,4 +78,5 @@ export const darkTheme = {
 
   inputBorder: '#F3F3F333',
   inputBorderFocus: '#F3F3F380',
+  errorFour: 'rgba(243, 243, 243, 0.1)',
 };
