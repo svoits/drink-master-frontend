@@ -6,7 +6,6 @@ import { signUp } from '../../redux/auth/auth-operation';
 import FormError from '../FormError/FormError';
 import { format } from 'date-fns';
 import { toast } from 'react-toastify';
-// import StyledDatepicker from '../StyledDatepicker/StyledDatepicker';
 import DatePicker from '../DatePicker/DatePicker';
 import {
   AuthForm,
@@ -47,10 +46,7 @@ export default function SignupForm() {
   const dispatch = useDispatch();
   const handleSubmit = (values, { resetForm }) => {
     const { name, dateOfBirth, email, password } = values;
-    // const parsedDateOfBirth = parse(dateOfBirth, 'dd/MM/yyyy', new Date());
     const birthDate = format(new Date(dateOfBirth), "yyyy-MM-dd'T'HH:mm:ssXXX");
-    console.log(name, dateOfBirth, email, password);
-    console.log(birthDate);
     dispatch(signUp({ name, birthDate, email, password }))
       .unwrap()
       .then(() => toast.success('Registration succesfully'))
@@ -90,7 +86,7 @@ export default function SignupForm() {
                 type="text"
                 value={values.dateOfBirth}
                 setFieldValue={setFieldValue}
-                placeholder="dd/mm/yyyy"
+                placeholder="Date of birth"
                 error={
                   errors.dateOfBirth && touched.dateOfBirth ? 'true' : 'false'
                 }
@@ -98,17 +94,6 @@ export default function SignupForm() {
                   values.dateOfBirth && !errors.dateOfBirth ? 'true' : 'false'
                 }
               />
-              {/* <StyledDatepicker
-                name="dateOfBirth"
-                value={values.dateOfBirth}
-                setFieldValue={setFieldValue}
-                error={
-                  errors.dateOfBirth && touched.dateOfBirth ? 'true' : 'false'
-                }
-                success={
-                  values.dateOfBirth && !errors.dateOfBirth ? 'true' : 'false'
-                }
-              /> */}
               <FormError name="dateOfBirth" />
             </div>
 

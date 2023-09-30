@@ -1,13 +1,21 @@
 import AirDatepicker from 'air-datepicker';
 import 'air-datepicker/air-datepicker.css';
 import localeEn from 'air-datepicker/locale/en';
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import {
   StyledCalendarIcon,
   CalendarGlobalStyles,
 } from '../../components/DatePicker/DatePicker.styled';
 
-const DatePicker = ({ type, value, setFieldValue, name, error, success }) => {
+const DatePicker = ({
+  type,
+  value,
+  setFieldValue,
+  name,
+  error,
+  success,
+  placeholder,
+}) => {
   const inputRef = useRef(null);
 
   useEffect(() => {
@@ -27,18 +35,19 @@ const DatePicker = ({ type, value, setFieldValue, name, error, success }) => {
       datepicker.destroy();
     };
   }, [type, value, setFieldValue]);
-const inputClassName = `date-airpicker-input ${error === 'true' && 'error'} ${success === 'true' && 'success'}`;
+  const inputClassName = `date-airpicker-input ${error === 'true' && 'error'} ${
+    success === 'true' && 'success'
+  }`;
   return (
     <>
       <CalendarGlobalStyles />
       <div className="date-airpicker-wrapper">
         <input
-                  id="input"
-                  ref={inputRef}
-                  placeholder="dd/mm/yyyy"
-                  name={name}
-        
-                  className={inputClassName }
+          id="input"
+          ref={inputRef}
+          placeholder={placeholder}
+          name={name}
+          className={inputClassName}
         />
         <StyledCalendarIcon />
       </div>

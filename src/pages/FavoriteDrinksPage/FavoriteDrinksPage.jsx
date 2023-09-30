@@ -56,7 +56,7 @@ export default function FavoriteDrinksPage() {
             <DefaultDescr>You have not added any cocktails yet</DefaultDescr>
           </DefaultContainer>
         )}
-        {!favoriteDrinks.length && (
+        {favoriteDrinks.length > 0 && (
           <ListFavorite>
             <FavoriteDrinkList drinks={favoriteDrinks} />
           </ListFavorite>

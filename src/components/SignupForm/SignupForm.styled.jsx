@@ -21,7 +21,8 @@ export const AuthForm = styled(Form)`
 export const Input = styled(Field)`
   width: 100%;
   background-color: transparent;
-  padding: 18px 24px;
+  padding: 17px 24px;
+  min-height: 54px;
   color: rgba(243, 243, 243, 0.5);
   border: 1px solid rgba(243, 243, 243, 0.2);
   font-size: 14px;
@@ -60,6 +61,8 @@ export const Input = styled(Field)`
   @media screen and (min-width: 768px) {
     font-size: 17px;
     line-height: 1.56;
+    padding: 13px 24px;
+    min-height: 56px;
   }
 `;
 
