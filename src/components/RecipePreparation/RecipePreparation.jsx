@@ -13,8 +13,6 @@ import {
 } from './RecipePreparation.styled';
 
 export const RecipePreparation = ({ instructions }) => {
-  //   const dispatch = useDispatch();
-
   return (
     <>
       <RecipePreparationTitle>Recipe Preparation</RecipePreparationTitle>
@@ -22,26 +20,25 @@ export const RecipePreparation = ({ instructions }) => {
         <RecipePreparationDescription>
           {instructions}
         </RecipePreparationDescription>
-        <div>
-          <picture>
-            <source
-              media="(min-width: 1440px)"
-              srcSet={`${recipeDefaultDesktop} 1x, ${recipeDefaultDesktop2x} 2x`}
-            />
-            <source
-              media="(min-width: 768px)"
-              srcSet={`${recipeDefaultTablet} 1x, ${recipeDefaultTablet2x} 2x`}
-            />
-            <source
-              media="(min-width: 375px)"
-              srcSet={`${recipeDefaultMobile} 1x, ${recipeDefaultMobile2x} 2x`}
-            />
-            <RecipePreparationImage
-              src={recipeDefaultMobile}
-              alt="drins photo"
-            ></RecipePreparationImage>
-          </picture>
-        </div>
+
+        <picture>
+          <source
+            media="(min-width: 1440px)"
+            srcSet={`${recipeDefaultDesktop} 1x, ${recipeDefaultDesktop2x} 2x`}
+          />
+          <source
+            media="(min-width: 768px)"
+            srcSet={`${recipeDefaultTablet} 1x, ${recipeDefaultTablet2x} 2x`}
+          />
+          <source
+            media="(min-width: 375px)"
+            srcSet={`${recipeDefaultMobile} 1x, ${recipeDefaultMobile2x} 2x`}
+          />
+          <RecipePreparationImage
+            src={recipeDefaultMobile}
+            alt="drinks photo"
+          />
+        </picture>
       </RecipePreparationWrap>
     </>
   );

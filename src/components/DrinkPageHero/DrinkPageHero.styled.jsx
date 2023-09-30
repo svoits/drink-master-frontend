@@ -1,32 +1,8 @@
 import styled from 'styled-components';
 import transition from '../../utils/transition';
 
-export const DrinkTitle = styled.h1`
-  color: ${({ theme }) => theme.mainText};
-  text-shadow:
-    0px 4px 4px rgba(0, 0, 0, 0.25),
-    0px 4px 4px rgba(0, 0, 0, 0.25);
-  font-size: 32px;
-  font-weight: 600;
-  line-height: 38px;
-  margin-top: 80px;
-  margin-bottom: 0;
-
-  @media screen and (min-width: 768px) {
-    font-size: 56px;
-    line-height: 60px;
-    margin-top: 140px;
-  }
-
-  @media screen and (min-width: 1440px) {
-    font-size: 64px;
-    line-height: 68px;
-    margin-top: 158px;
-  }
-`;
-
-export const DrinkSubTitle = styled.h3`
-  color: ${({ theme }) => theme.subTitleText};
+export const DrinkSubTitle = styled.p`
+  color: ${({ theme }) => theme.drinkPageSubtitle};
   font-size: 12px;
   font-weight: 400;
   line-height: 14px;
@@ -54,25 +30,24 @@ export const DrinkDescription = styled.p`
 `;
 
 export const AddToFavoriteButton = styled.button`
-  width: 224px;
-  height: 46px;
+  padding: 13.5px 39px;
   color: ${({ theme }) => theme.themeSwitcher};
   font-family: inherit;
-  font-size: 14px;
+  font: inherit;
   font-weight: 600;
-  line-height: 18px;
+  line-height: 1.285;
   margin-top: 40px;
 
   background-color: ${({ theme }) => theme.mainAccent};
   border-radius: 42px;
   border: 1px solid transparent;
-  cursor: pointer;
   transition:
     color ${transition},
-    background-color ${transition};
+    background-color ${transition},
+    border ${transition};
 
   &:active {
-    border: 2px solid rgba(64, 112, 205, 0.5);
+    border: 1px solid rgba(64, 112, 205, 0.5);
   }
 
   &:hover,
@@ -87,9 +62,9 @@ export const AddToFavoriteButton = styled.button`
   }
 
   @media screen and (min-width: 768px) {
-    width: 250px;
-    height: 54px;
     font-size: 16px;
+    line-height: 1.16;
+    padding: 17px 43.5px;
   }
 `;
 
@@ -99,39 +74,31 @@ export const DrinkPhoto = styled.img`
   object-fit: cover;
   object-position: top;
   border-radius: 4px;
-
-  @media screen and (min-width: 1440px) {
-    width: 400px;
-  }
 `;
 
 export const DrinkHeroWrapper = styled.div`
   @media screen and (min-width: 1440px) {
     display: flex;
-    column-gap: 249px;
+    justify-content: space-between;
   }
 `;
 
 export const DrinkPhotoWrapper = styled.div`
-  width: 335px;
+  width: 100%;
   height: 400px;
   margin-top: 80px;
   border-radius: 8px;
 
-  @media screen and (min-width: 768px) {
-    width: 704px;
-    height: 400px;
-  }
-
   @media screen and (min-width: 1440px) {
+    margin: 0;
     width: 400px;
-    height: 400px;
   }
 `;
 
 export const DrinkDescriptionWrapper = styled.div`
   @media screen and (min-width: 1440px) {
-    max-width: 593px;
+    padding-top: 26px;
+    max-width: 592px;
   }
 `;
 

@@ -1,10 +1,10 @@
 import { useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
-import { DrinksList } from '../../components/DrinksList/DrinksList';
+
 import Loader from '../../components/Loader';
 import PageTitle from '../../components/PageTitle/PageTitle';
 import Paginator from '../../components/Paginator/Paginator';
-import CoctailImage from '../../images/heroImage/hero-img-desc-2x.png';
+import CocktailImage from '../../images/heroImage/hero-img-desc-2x.png';
 import {
   MyDrinksContainer,
   ListMyDrinks,
@@ -16,6 +16,7 @@ import { useDrink } from '../../redux/hooks/useDrink';
 import { getOwnDrinks } from '../../redux/drinks/drinks-operations';
 import { Container } from '../../components/Container/Container.styled';
 import { useResize } from '../../hooks/useResize';
+import { MyDrinksList } from '../../components/MyDrinksList/MyDrinksList';
 
 export default function MyDrinksPage() {
   const dispatch = useDispatch();
@@ -54,15 +55,13 @@ export default function MyDrinksPage() {
         <PageTitle title={'My Drinks'} />
         {total === 0 && (
           <DefaultContainer>
-            <DefaultImg src={CoctailImage} alt="Cocktail" />
-            <DefaultDescr>
-              You have no own drinks, try to set more own drinks...
-            </DefaultDescr>
+            <DefaultImg src={CocktailImage} alt="Cocktail" />
+            <DefaultDescr>You haven't added any own cocktails yet</DefaultDescr>
           </DefaultContainer>
         )}
         {drinks.length > 0 && (
           <ListMyDrinks>
-            <DrinksList drinks={drinks} />
+            <MyDrinksList drinks={drinks} />
           </ListMyDrinks>
         )}
         {errorMessage && <p>{errorMessage}</p>}

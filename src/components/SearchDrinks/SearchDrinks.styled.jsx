@@ -99,6 +99,7 @@ export const StyledSelect = styled(ReactSelect)`
     margin-top: 4px;
     border-radius: 24px;
     background-color: ${({ theme }) => theme.selectDropdownBackground};
+    overflow: hidden;
   }
 
   & .Select__menu-list {
