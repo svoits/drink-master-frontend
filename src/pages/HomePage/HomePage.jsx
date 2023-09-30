@@ -18,9 +18,9 @@ export default function HomePage() {
 
   return (
     <>
+      <AddDrink />
       {isLoading && <Loader />}
       {error && <p>{error}</p>}
-      <AddDrink />
       <DrinksCategory />
     </>
   );
