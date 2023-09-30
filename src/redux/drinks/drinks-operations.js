@@ -66,7 +66,7 @@ export const addMyDrink = createAsyncThunk(
   'drinks/own/add',
   async (data, thunkAPI) => {
     try {
-      const response = await axios.get('/api/drinks/own/add/', { data });
+      const response = await axios.postForm('/api/drinks/own/add/', data);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
