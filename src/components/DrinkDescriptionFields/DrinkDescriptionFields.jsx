@@ -164,8 +164,9 @@ const DrinkDescriptionFields = ({ formData, setFormData, handleSubmit }) => {
        
                     </SearchDrinkLabel>
 
-                    <label htmlFor='glasses'>
-                        <SearchDrinkInput name='glasses' placeholder="Glasses">
+                    <SearchDrinkLabel htmlFor='glasses'>
+                    <SearchDrinkInput name="category" placeholder="Glasses" />
+                        <SearchDrinkInput2 name='glasses' placeholder="Glasses">
                             {({ field, form }) => (
                                 <StyledSelect
                                 classNamePrefix="Select" 
@@ -188,8 +189,8 @@ const DrinkDescriptionFields = ({ formData, setFormData, handleSubmit }) => {
                                     placeholder='Glasses'
                                 />
                             )}
-                        </SearchDrinkInput>
-                    </label>
+                        </SearchDrinkInput2>
+                    </SearchDrinkLabel>
                     </SearchContainer>
 
                     <RadioButtonDiv>
