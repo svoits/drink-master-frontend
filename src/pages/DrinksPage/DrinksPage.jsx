@@ -34,6 +34,7 @@ export default function DrinksPage() {
 
         {totalPages > 1 && (
           <Paginator
+            currentPage={currentPage}
             drinksPerPage={itemsPerPage}
             totalDrinks={total}
             onPageChange={onPageChange}

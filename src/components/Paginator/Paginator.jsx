@@ -3,15 +3,16 @@ import { Button, List, StyledArrows, Wrapper } from './Paginator.styled';
 import { HiChevronLeft, HiChevronRight } from 'react-icons/hi';
 
 const Paginator = ({
+  currentPage,
   drinksPerPage,
   totalDrinks,
   onPageChange,
   pageNumbersToShow,
 }) => {
-  const [currentPage, setCurrentPage] = useState(1);
+  // const [currentPage, setCurrentPage] = useState(1);
 
   const handlePageChange = (pageNumber) => {
-    setCurrentPage(pageNumber);
+    // setCurrentPage(pageNumber);
     onPageChange(pageNumber);
   };
 

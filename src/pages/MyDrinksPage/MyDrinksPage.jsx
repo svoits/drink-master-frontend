@@ -68,6 +68,7 @@ export default function MyDrinksPage() {
         {errorMessage && <p>{errorMessage}</p>}
         {totalPages > 1 && (
           <Paginator
+            currentPage={currentPage}
             drinksPerPage={itemsPerPage}
             totalDrinks={total}
             onPageChange={onPageChange}

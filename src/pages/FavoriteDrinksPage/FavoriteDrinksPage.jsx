@@ -64,6 +64,7 @@ export default function FavoriteDrinksPage() {
         {errorMessage && <div>{errorMessage}</div>}
         {totalPages > 1 && (
           <Paginator
+            currentPage={currentPage}
             drinksPerPage={itemsPerPage}
             totalDrinks={total}
             onPageChange={onPageChange}
