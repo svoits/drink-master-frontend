@@ -45,7 +45,6 @@ const DrinkIngredientsFields1 = ({
       ingredients[index][field] = val;
 
       // console.log('ingredients', _.clone(ingredients));
-
       setFormData({ ...formData, ingredients });
     }
   };
@@ -125,7 +124,7 @@ const DrinkIngredientsFields1 = ({
                               id={`ingredient${index}`}
                               value={ingredientVal}
                               onChange={({ value }) =>
-                                handleFieldChange('ingredient', value, index)
+                                handleFieldChange('ingredientId', value, index)
                               }
                               placeholder="Lem"
                             />
