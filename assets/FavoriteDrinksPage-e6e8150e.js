@@ -1,4 +1,4 @@
-import{s as e,t as s,N as m,U as v,a as f,j as t,V as k,u as y,r as c,W as D,C as P,L as S}from"./index-32fefd10.js";import{D as F}from"./stub-3e97f8b2.js";import{C as z}from"./hero-img-desc-2x-e8906f30.js";import{P as C}from"./PageTitle-e9617e47.js";import{P as I}from"./Paginator-8e0d0294.js";import{u as L}from"./useDrink-31e998c6.js";import"./drinks-selectors-db0f3074.js";const $=e.li`
+import{s as e,t as s,N as m,U as v,a as f,j as t,V as k,u as y,r as c,W as D,C as P,L as S}from"./index-af8e399b.js";import{D as F}from"./stub-ab5eeccc.js";import{C as z}from"./hero-img-desc-2x-e8906f30.js";import{P as C}from"./PageTitle-d740d79f.js";import{P as I}from"./Paginator-65d1cfc7.js";import{u as L}from"./useDrink-d1482713.js";import"./drinks-selectors-db0f3074.js";const $=e.li`
   margin-left: auto;
   margin-right: auto;
 `,A=e.img`
