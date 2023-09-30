@@ -1,8 +1,7 @@
 import { NavLink } from 'react-router-dom';
+import { FiTrash2 } from 'react-icons/fi';
 import styled from 'styled-components';
 import transition from '../../utils/transition';
-import { ReactComponent as RemoveIcon } from '../../images/icons/removeIcon.svg';
-
 
 export const MyDrinksList = styled.ul`
   display: grid;
@@ -140,23 +139,14 @@ export const DeleteDrinkBTN = styled.button`
   &:focus {
     background-color: #f3f3f3;
     color: #161f37;
-  }
+  }y
 `
-export const TrashIcon = styled(RemoveIcon)`
+export const TrashIcon = styled(FiTrash2)`
   width: 24px;
   height: 24px;
-  stroke: #f3f3f3;
-
-  transition:
-    stroke ${transition},
 
   @media screen and (min-width: 768px) {
     width: 26px;
     height: 26px;
-  }
-  
-   ${DeleteDrinkBTN}:hover &,
-   ${DeleteDrinkBTN}:focus & {
-    stroke: #161f37;
   }
 `;
