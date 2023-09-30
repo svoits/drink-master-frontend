@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-export const IngredientsTitle = styled.h4`
-  color: ${({ theme }) => theme.subTitleText};
+export const IngredientsTitle = styled.h2`
+  color: ${({ theme }) => theme.drinkPageSubtitle};
   font-size: 16px;
   font-weight: 500;
   line-height: 20px;
@@ -17,20 +17,24 @@ export const IngredientsTitle = styled.h4`
   }
 `;
 
-export const IngredientsList = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  column-gap: 21px;
-  row-gap: 20px;
+export const IngredientsList = styled.ul`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-row-gap: 20px;
+  grid-column-gap: 20px;
   margin-top: 42px;
 
   @media screen and (min-width: 768px) {
-    column-gap: 22px;
-    row-gap: 22px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 22px;
+    grid-row-gap: 22px;
     margin-top: 24px;
   }
 
   @media screen and (min-width: 1440px) {
-    column-gap: 35px;
+    grid-template-columns: repeat(5, 1fr);
+
+    grid-column-gap: 35px;
+    grid-row-gap: 35px;
   }
 `;

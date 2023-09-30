@@ -13,7 +13,6 @@ import {
 import { selectFavoriteDrinks } from '../../redux/drinks/drinks-selectors';
 import { ReactComponent as StubPhoto } from '../../assets/stub.svg';
 import {
-  DrinkTitle,
   DrinkSubTitle,
   DrinkDescription,
   AddToFavoriteButton,
@@ -24,6 +23,7 @@ import {
   DrinkSvgWrapper,
 } from './DrinkPageHero.styled';
 import { toastConfig } from '../../helpers/toast';
+import PageTitle from '../PageTitle/PageTitle';
 
 export const DrinkPageHero = ({
   id,
@@ -67,7 +67,7 @@ export const DrinkPageHero = ({
       {favoriteDrinksList && (
         <DrinkHeroWrapper>
           <DrinkDescriptionWrapper>
-            <DrinkTitle>{name}</DrinkTitle>
+            <PageTitle title={name} />
             <DrinkSubTitle>
               {glass} / {alcoholic}
             </DrinkSubTitle>

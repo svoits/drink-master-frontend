@@ -16,7 +16,7 @@ export default function DrinkPage() {
 
   useEffect(() => {
     dispatch(getDrinkById(drinkId));
-  }, [dispatch]);
+  }, [dispatch, drinkId]);
 
   return (
     <DrinkPageWrapper>

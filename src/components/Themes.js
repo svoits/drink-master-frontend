@@ -24,10 +24,10 @@ export const lightTheme = {
   hoverColorTextLink: '#F3F3F3',
 
   modalBg: '#161F37',
-  userPopupText: '#F3F3F3',
-  userPopupBtnBg: '#F3F3F3',
-  userPopupBtnText: '#161F37',
-  userPopupBtnBorderHover: '#F3F3F333',
+  modalText: '#F3F3F3',
+  modalBtnBg: '#F3F3F3',
+  modalBtnText: '#161F37',
+  modalBtnBorderHover: '#F3F3F333',
   modalInputBorder: '#F3F3F380',
   modalInputBorderFocus: '#F3F3F3',
 
@@ -45,6 +45,9 @@ export const lightTheme = {
   paginatorBtnText: '#0A0A11',
   paginatorBtnTextActive: '#F3F3F3',
   paginatorBtnBgActive: '#4070CD',
+
+  drinkPageSubtitle: '#0A0A1180',
+  drinkPageIngredientBg: '#161F37',
 };
 
 export const darkTheme = {
@@ -95,4 +98,7 @@ export const darkTheme = {
   paginatorBtnText: '#F3F3F3',
   paginatorBtnTextActive: '#F3F3F3',
   paginatorBtnBgActive: '#4070CD80',
+
+  drinkPageSubtitle: '#F3F3F380',
+  drinkPageIngredientBg: '#161F3780',
 };
