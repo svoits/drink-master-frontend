@@ -75,7 +75,7 @@ export const Button = styled.button`
   color: #161f37;
   font-size: 14px;
   font-weight: 600;
-  line-height: 1.28;
+  line-height: 1.286;
   margin-bottom: 14px;
   margin-top: 14px;
   display: flex;
@@ -92,11 +92,20 @@ export const Button = styled.button`
       border ${transition},
       background-color ${transition};
   }
+
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+    line-height: 1.125;
+  }
 `;
 
 export const TogglePasswordButton = styled.button`
   background-color: transparent;
   border: none;
+  position: absolute;
+  top: 18px;
+  right: 24px;
+  padding: 0;
 `;
 export const PasswordInputWrap = styled.div`
   position: relative;
@@ -105,9 +114,9 @@ export const StyledDontShowPasswordIcon = styled(AiOutlineEye)`
   fill: #f3f3f3;
   width: 18px;
   height: 18px;
-  position: absolute;
+  /* position: absolute;
   top: 20px;
-  left: 239px;
+  left: 239px; */
   @media screen and (min-width: 375px) {
     left: 290px;
   }
@@ -121,9 +130,7 @@ export const StyledShowPasswordIcon = styled(AiOutlineEyeInvisible)`
   fill: #f3f3f3;
   width: 18px;
   height: 18px;
-  position: absolute;
-  top: 20px;
-  left: 239px;
+
   @media screen and (min-width: 375px) {
     left: 290px;
   }
@@ -145,11 +152,8 @@ export const ErrorIcon = styled(AiOutlineExclamationCircle)`
   width: 18px;
   height: 18px;
   position: absolute;
-  top: 20px;
-  left: 239px;
-  @media screen and (min-width: 375px) {
-    left: 290px;
-  }
+  top: 18px;
+  right: 24px;
 
   @media screen and (min-width: 768px) {
     width: 20px;
@@ -162,11 +166,8 @@ export const SuccessIcon = styled(AiOutlineCheckCircle)`
   width: 18px;
   height: 18px;
   position: absolute;
-  top: 20px;
-  left: 239px;
-  @media screen and (min-width: 375px) {
-    left: 290px;
-  }
+  top: 18px;
+  right: 24px;
 
   @media screen and (min-width: 768px) {
     width: 20px;
