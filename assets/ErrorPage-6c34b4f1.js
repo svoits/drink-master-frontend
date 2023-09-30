@@ -1,4 +1,4 @@
-import{s as r,j as e,C as i}from"./index-8875d208.js";const o=r.section`
+import{s as r,j as e,C as i}from"./index-f7d10a81.js";const o=r.section`
   position: relative;
   padding-left: 47px;
   padding-right: 47px;
