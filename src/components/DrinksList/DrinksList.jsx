@@ -10,7 +10,6 @@ import {
   DeleteDrinkBTN,
   TrashIcon
 } from './DrinksList.styled';
-import { ReactComponent as RemoveIcon } from '../../images/icons/removeIcon.svg';
 import CoctailImage from '../../images/heroImage/hero-img-desc-2x.png';
 import { removeOwnDrink } from '../../redux/drinks/drinks-operations';
 import { useDispatch } from 'react-redux';

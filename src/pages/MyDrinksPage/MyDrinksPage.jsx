@@ -4,7 +4,14 @@ import { DrinksList } from '../../components/DrinksList/DrinksList';
 import Loader from '../../components/Loader';
 import PageTitle from '../../components/PageTitle/PageTitle';
 import Paginator from '../../components/Pagi/Paginator';
-import { MyDrinksContainer, ListMyDrinks } from './MyDrinksPage.styled';
+import CoctailImage from '../../images/heroImage/hero-img-desc-2x.png';
+import {
+  MyDrinksContainer,
+  ListMyDrinks,
+  DefaultContainer,
+  DefaultDescr,
+  DefaultImg
+} from './MyDrinksPage.styled';
 import { useDrink } from '../../redux/hooks/useDrink';
 import { getOwnDrinks } from '../../redux/drinks/drinks-operations';
 import { Container } from '../../components/Container/Container.styled';
@@ -44,7 +51,12 @@ export default function MyDrinksPage() {
       <Container>
         <PageTitle title={'My Drinks'} />
         {total === 0 && (
-          <p>You have no own drinks, try to set more own drinks...</p>
+          <DefaultContainer>
+            <DefaultImg src={CoctailImage} alt="Cocktail"/>
+            <DefaultDescr>
+              You have no own drinks, try to set more own drinks...
+            </DefaultDescr>
+          </DefaultContainer>
         )}
         {drinks.length > 0 && (
           <ListMyDrinks>
