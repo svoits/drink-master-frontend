@@ -4,12 +4,12 @@ import Loader from '../Loader/Loader';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { getMainPageAllDrinks } from '../../redux/drinks/drinks-operations'
-import { NavLink } from 'react-router-dom';
 
-import { CategoryDrinksLIST, DrinkCategoryTitle, CategoryDrinksDiv, CategoryDrinkToDrink } from './DrinksCategory.styled'
+
+import { CategoryDrinksLIST, DrinkCategoryTitle, CategoryDrinksDiv, CategoryDrinkToDrink } from './PreviewDrinks.styled'
 import { Container } from '../Container/Container.styled';
 
-export const DrinksCategory = () => {
+export const PreviewDrinks = () => {
   
   const dispatch = useDispatch();
 

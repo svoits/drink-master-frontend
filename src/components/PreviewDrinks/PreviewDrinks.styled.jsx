@@ -91,4 +91,19 @@ export const CategoryDrinkToDrink = styled(NavLink)`
   font-weight: 500;
   font-size: 14px;
   line-height: 18px;
+
+  &:active {
+    border: 2px solid rgba(64, 112, 205, 0.5);
+  }
+
+  &:hover,
+  &:focus {
+    color: #f3f3f3;
+    background: #161f37;
+  }
+
+  &:disabled {
+    color: rgba(243, 243, 243, 0.2);
+    background: #434d67;
+  }
 `
