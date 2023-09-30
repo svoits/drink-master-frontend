@@ -61,6 +61,8 @@ export const CalendarGlobalStyles = createGlobalStyle`
     border-radius: 8px;
    font-family: Manrope;
     font-size: 14px;}
+
+  
     
     .air-datepicker-nav--title{
 color: #F3F3F3;
@@ -71,11 +73,21 @@ line-height: normal;
 letter-spacing: -0.32px;
 margin-bottom:14px;
 margin-top:14px;
+background-color:transparent;
 }
  
 .air-datepicker-nav--title:active{
     background: transparent;
     border: 0.5px solid #F3F3F3;
+}
+.air-datepicker-nav--title:hover {
+    background: transparent;}
+.air-datepicker-nav--title i{
+  color: #F3F3F3;
+  font-size: 16px;
+font-style: normal;
+font-weight: 500;
+letter-spacing: -0.32px;
 }
 .air-datepicker-nav{
     border-bottom: 1px solid  rgba(243, 243, 243, 0.20);
@@ -109,6 +121,11 @@ font-style: normal;
 font-weight: 400;
 line-height: 1.28; 
 letter-spacing: -0.28px;
+   }
+   .air-datepicker-cell.-selected-{
+    border-radius:50%;
+    background-color:#F3F3F3;
+    color:#161F37;
    }
    .air-datepicker-cell.-year-.-selected-{
     border-radius:50%;
@@ -159,6 +176,11 @@ font-style: normal;
 font-weight: 400;
 line-height: 1.28 ;
 letter-spacing: -0.28px;
+   }
+   .-selected-.air-datepicker-cell.-year-.-other-decade-{
+     border-radius:50%;
+    background-color:#F3F3F3;
+    color:#161F37;
    }
    .air-datepicker-cell.-selected-.-current- {
     color: #161F37;
