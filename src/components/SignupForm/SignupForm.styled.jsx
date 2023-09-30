@@ -33,7 +33,7 @@ export const Input = styled(Field)`
   &:hover {
     border: 1px solid rgba(243, 243, 243, 0.5);
     background-color: transparent;
-    color: ${({ theme }) => theme.mainText};
+    color: rgba(243, 243, 243, 0.5);
 
     transition:
       border ${transition},
