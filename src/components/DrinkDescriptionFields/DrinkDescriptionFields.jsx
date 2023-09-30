@@ -28,8 +28,13 @@ import {
 
  const style = {
     backgroundColor: "#F3F3F3",
+<<<<<<< Updated upstream
      width: "50px",
     height: "50px",
+=======
+     width: "28px",
+    height: "28px",
+>>>>>>> Stashed changes
     borderRadius: "6px",
     color: "#161F37",
 
@@ -127,6 +132,7 @@ const DrinkDescriptionFields = ({ formData, setFormData, handleSubmit }) => {
                         {imagePreview && <PhotoPreview src={imagePreview} alt="Preview" />}
                         <ErrorMessage name="photo" component="div" />
                     </PhotoContainer>
+<<<<<<< Updated upstream
 
                     <SearchandRarioDiv>
                     <SearchContainer>
@@ -139,6 +145,20 @@ const DrinkDescriptionFields = ({ formData, setFormData, handleSubmit }) => {
                     <SearchDrinkLabel htmlFor='category'>
                     <SearchDrinkInput name="category" placeholder="Category" />
                         <SearchDrinkInput2 name='category' placeholder="Category">
+=======
+
+                    <SearchandRarioDiv>
+                    <SearchContainer>
+                    <SearchDrinkInput name="title" placeholder="Enter item title" />
+                    {/* <ErrorMessage name="title" component="div" /> */}
+                        
+                    <SearchDrinkInput name="recipe" placeholder="Enter about recipe" />
+                    {/* <ErrorMessage name="recipe" component="div" /> */}
+
+                    <SearchDrinkLabel htmlFor='category'>
+                    <SearchDrinkInput name="category" placeholder="Category" />
+                        <SearchDrinkInput2 name='category' placeholder="Coctail">
+>>>>>>> Stashed changes
                             {({ field, form }) => (
                                 <StyledSelect
                                 classNamePrefix="Select"
@@ -166,7 +186,11 @@ const DrinkDescriptionFields = ({ formData, setFormData, handleSubmit }) => {
 
                     <label htmlFor='glasses'>
                         <SearchDrinkInput name='glasses' placeholder="Glasses">
+<<<<<<< Updated upstream
                             {({ field, form }) => (
+=======
+                            {/* {({ field, form }) => (
+>>>>>>> Stashed changes
                                 <StyledSelect
                                 classNamePrefix="Select" 
                                     closeMenuOnSelect={true}
@@ -187,7 +211,11 @@ const DrinkDescriptionFields = ({ formData, setFormData, handleSubmit }) => {
                                     }}
                                     placeholder='Glasses'
                                 />
+<<<<<<< Updated upstream
                             )}
+=======
+                            )} */}
+>>>>>>> Stashed changes
                         </SearchDrinkInput>
                     </label>
                     </SearchContainer>

@@ -37,9 +37,12 @@ export const lightTheme = {
   inputBorderFocus: '#0A0A11',
 
   AddPhotoBackgroundColor: '#161F37',
+<<<<<<< Updated upstream
 
   selectDownOptionText: '#0A0A11',
   selectDownOptionRegular: '#0A0A1180',
+=======
+>>>>>>> Stashed changes
 };
 
 export const darkTheme = {
@@ -82,9 +85,12 @@ export const darkTheme = {
   inputBorderFocus: '#F3F3F380',
 
   AddPhotoBackgroundColor: '#161F3780',
+<<<<<<< Updated upstream
 
   selectDownOptionText: '#f3f3f3',
   selectDownOptionRegular: '#F3F3F380',
 
+=======
+>>>>>>> Stashed changes
 };
 
