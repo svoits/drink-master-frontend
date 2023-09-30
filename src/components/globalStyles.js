@@ -39,4 +39,27 @@ button {
   cursor: pointer;
 }
 
+/* Hide scrollbar background */
+::-webkit-scrollbar {
+  background-color: transparent; /* For Chrome, Safari, and Opera */
+  width: 8px;
+}
+
+/* Optional: Style the scrollbar thumb and track */
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #434D67; /* Color of the thumb */
+  // width: 8px;
+
+  &:hover {
+    background-color: lightgrey;
+  }
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent; /* Color of the track */
+}
+
+
+
   `;

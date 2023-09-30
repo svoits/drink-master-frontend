@@ -11,7 +11,7 @@ export default function LogoutModal({ ...props }) {
       <Text>Are you sure you want to log out?</Text>
       <BtnWrapper>
         <LogoutBtn onClick={() => dispatch(signOut())}>Log out</LogoutBtn>
-        <CancelBtn>Cancel</CancelBtn>
+        <CancelBtn onClick={props.handleClose}>Cancel</CancelBtn>
       </BtnWrapper>
     </Modal>
   );

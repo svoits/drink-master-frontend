@@ -48,13 +48,13 @@ const drinksSlice = createSlice({
         state.isLoading = false;
         state.error = null;
       })
-      .addCase(getPopularDrinks.rejected, handleRejected)      
+      .addCase(getPopularDrinks.rejected, handleRejected)
       .addCase(getRequestedDrink.pending, handlePending)
       .addCase(getRequestedDrink.fulfilled, (state, action) => {
         state.drinks = action.payload.drinks;
         state.total = action.payload.total;
-        // state.searchQuery = action.payload;
         state.isLoading = false;
+        state.error = null;
       })
       .addCase(getRequestedDrink.rejected, handleRejected)
       .addCase(addMyDrink.pending, handlePending)
@@ -83,6 +83,7 @@ const drinksSlice = createSlice({
       .addCase(getOwnDrinks.pending, handlePending)
       .addCase(getOwnDrinks.fulfilled, (state, action) => {
         state.drinks = action.payload.drinks;
+        state.total = action.payload.total;
         state.isLoading = false;
         state.error = null;
       })

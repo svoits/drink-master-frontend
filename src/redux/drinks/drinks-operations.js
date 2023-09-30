@@ -7,7 +7,6 @@ export const getMainPageAllDrinks = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const response = await axios.get('api/drinks/mainpage');
-      // console.log('response =>', response); // TEST LINE
 
       return response.data;
     } catch (error) {
@@ -43,11 +42,19 @@ export const getPopularDrinks = createAsyncThunk(
 
 export const getRequestedDrink = createAsyncThunk(
   'drinks/search',
-  async ({ query, category, ingredient }, thunkAPI) => {
+  async ({ query, category, ingredient, limit, page }, thunkAPI) => {
+    const urlParams = {
+      params: {
+        query,
+        category,
+        ingredient,
+        limit,
+        page,
+      },
+    };
+
     try {
-      const response = await axios.get(
-        `/api/drinks/search?query=${query}&category=${category}&ingredient=${ingredient}`,
-      );
+      const response = await axios.get('/api/drinks/search', urlParams);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -95,9 +102,9 @@ export const removeOwnDrink = createAsyncThunk(
 
 export const getOwnDrinks = createAsyncThunk(
   'drinks/own/all',
-  async (_, thunkAPI) => {
+  async ({page, limit}, thunkAPI) => {
     try {
-      const response = await axios.get('/api/drinks/own/all');
+      const response = await axios.get(`/api/drinks/own/all?page=${page}&limit=${limit}`);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -119,18 +126,14 @@ export const addDrinkToFavorite = createAsyncThunk(
 
 export const getFavoriteAll = createAsyncThunk(
   'drinks/favorite/all',
-  async (_, thunkAPI) => {
+  async ({ page, limit }, thunkAPI) => {
     try {
-      const response = await axios.get('/api/drinks/favorite/all');
+      const response = await axios.get(
+        `/api/drinks/favorite/all?page=${page}&limit=${limit}`,
+      );
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
   },
 );
-
-// /own/remove/:id
-// /own/all
-// /favorite/add/:id
-// /favorite/remove/:id
-// /favorite/all

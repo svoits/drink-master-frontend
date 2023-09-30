@@ -1,16 +1,14 @@
 import styled from 'styled-components';
-import {  NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 export const Wrap = styled.div`
-
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    width: 335px;
-@media screen and (max-width: 374.98px) {
-  padding-left:20px;
-  padding-right:20px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 335px;
+  @media screen and (max-width: 374.98px) {
+    padding-left: 20px;
+    padding-right: 20px;
   }
-  
 
   @media screen and (min-width: 768px) {
   }
@@ -18,17 +16,17 @@ export const Wrap = styled.div`
   }
 `;
 export const Link = styled(NavLink)`
-color: #F3F3F3;
-font-size: 12px;
-font-weight: 600;
-line-height: 1.33; 
-text-decoration-line: none;
+  color: #f3f3f3;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.33;
+  text-decoration: underline;
+  @media screen and (min-width: 768px) {
+    font-size: 14px;
+    line-height: 1.286;
+  }
 `;
 export const Nav = styled.nav`
-    display: flex;
-    justify-content: center;
-     @media screen and (min-width: 768px) {
-      display:block;
-      margin-left:142px;
-  }
+  display: block;
+  margin: 0 auto;
 `;

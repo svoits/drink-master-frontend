@@ -5,16 +5,18 @@ import {
   signOut,
   currentUser,
   updateUser,
-  subscribeDrinks,
+  subscribeEmail,
 } from './auth-operation';
+
 const initialState = {
   user: { name: '', email: '', birthDate: '', avatarURL: '' },
   token: '',
   isLoggedIn: false,
   isSubscribed: false,
-  isRefreshing: false,
+  isRefreshing: true,
   theme: 'dark',
 };
+
 const authSlice = createSlice({
   name: 'auth',
   initialState,
@@ -36,42 +38,34 @@ const authSlice = createSlice({
         state.isLoggedIn = true;
       })
       .addCase(signOut.fulfilled, (state) => {
-        state.user = { name: null, email: null, birthDate: null };
-        state.token = null;
+        state.user = { name: '', email: '', birthDate: '' };
+        state.token = '';
         state.isLoggedIn = false;
       })
       .addCase(signOut.rejected, (state) => {
-        state.user = { name: null, email: null, birthDate: null };
-        state.token = null;
+        state.user = { name: '', email: '', birthDate: '' };
+        state.token = '';
         state.isLoggedIn = false;
+      })
+      .addCase(currentUser.rejected, (state) => {
+        state.isRefreshing = false;
+        state.token = '';
       })
       .addCase(currentUser.fulfilled, (state, { payload }) => {
         state.user = payload.user;
         state.token = payload.token;
         state.isLoggedIn = true;
+        state.isRefreshing = false;
       })
       .addCase(updateUser.fulfilled, (state, { payload }) => {
         state.user.name = payload.name;
         payload.avatarURL && (state.user.avatarURL = payload.avatarURL);
       })
-      .addCase(subscribeDrinks.fulfilled, (state) => {
-        state.user = { name: null, email: null, birthDate: null };
-
+      .addCase(subscribeEmail.fulfilled, (state) => {
+        state.user = { name: '', email: '', birthDate: '' };
         state.isLoggedIn = true;
         state.isSubscribed = true;
       }),
-  // .addCase(refreshUser.pending, (state) => {
-  //   state.isRefreshing = true;
-  // })
-  // .addCase(refreshUser.fulfilled, (state, action) => {
-  //   state.user = action.payload;
-  //   state.isLoggedIn = true;
-  //   state.isRefreshing = false;
-  // })
-
-  // .addCase(refreshUser.rejected, (state) => {
-  //   state.isRefreshing = false;
-  // }),
 });
 export const authReducer = authSlice.reducer;
 

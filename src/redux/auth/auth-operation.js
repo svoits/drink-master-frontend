@@ -84,7 +84,6 @@ export const updateUser = createAsyncThunk(
           'Content-Type': 'multipart/form-data',
         },
       });
-      console.log(response.data);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -92,13 +91,15 @@ export const updateUser = createAsyncThunk(
   },
 );
 
-export const subscribeDrinks = createAsyncThunk(
+export const subscribeEmail = createAsyncThunk(
   'auth/subscribe',
   async (data, thunkAPI) => {
     try {
       await axios.post('/users/subscribe', data);
-      //після цього має відображатись нотифікація, що юзер підписаний
+      toast.success('You are subscribed for newsletter');
     } catch (error) {
+      toast.error(error.response.data.message);
+
       return thunkAPI.rejectWithValue(error.message);
     }
   },

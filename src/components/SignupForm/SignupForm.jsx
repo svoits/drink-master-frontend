@@ -1,13 +1,12 @@
 import { Formik } from 'formik';
 import * as Yup from 'yup';
-import React from 'react';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { signUp } from '../../redux/auth/auth-operation';
 import FormError from '../FormError/FormError';
 import { format } from 'date-fns';
 import { toast } from 'react-toastify';
-import StyledDatepicker from '../StyledDatepicker/StyledDatepicker';
+import DatePicker from '../DatePicker/DatePicker';
 import {
   AuthForm,
   Input,
@@ -19,25 +18,20 @@ import {
   ErrorIcon,
   SuccessIcon,
 } from './SignupForm.styled';
-// const today = new Date();
 
 const initialValues = { name: '', dateOfBirth: '', email: '', password: '' };
 const schema = Yup.object().shape({
   name: Yup.string().min(3).required('Name is required'),
   dateOfBirth: Yup.date().required('dateOfBirth is required'),
-  // .matches(/^\d{2}-\d{2}-\d{4}$/, 'Invalid date format (DD-MM-YYYY)'),
-  // .test("max-date", "Future date not allowed", function (value) {
-  //   if (!value) return true;
-  //   const [day, month, year] = value.split('-');
-  //   const birthDate = new Date(`${year}-${month}-${day}`);
-  //   return birthDate <= today;
-  // }),
   email: Yup.string()
+    .matches(
+      /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
+      'Email must contain only digits, letters and . - _ symbols. e.g. test@mail.com',
+    )
     .email('Invalid email format, test@mail.com')
-    .required('Email is required')
-    .matches(/\.(com|net)$/, 'Email must end with .com or .net'),
+    .required('Email is required'),
   password: Yup.string()
-    .min(3, 'Password must be 3 characters at minimum')
+    .min(6, 'Password must be at least 6 characters long')
     .required('Password is required')
     .matches(/[a-zA-Z]/, 'Password must contain at least one letter')
     .matches(/[0-9]/, 'Password must contain at least one number'),
@@ -53,11 +47,6 @@ export default function SignupForm() {
   const handleSubmit = (values, { resetForm }) => {
     const { name, dateOfBirth, email, password } = values;
     const birthDate = format(new Date(dateOfBirth), "yyyy-MM-dd'T'HH:mm:ssXXX");
-    console.log('Name: ', name);
-    console.log('birthDate: ', birthDate);
-    console.log('email: ', email);
-    console.log('password: ', password);
-
     dispatch(signUp({ name, birthDate, email, password }))
       .unwrap()
       .then(() => toast.success('Registration succesfully'))
@@ -92,10 +81,12 @@ export default function SignupForm() {
             </PasswordInputWrap>
 
             <div>
-              <StyledDatepicker
+              <DatePicker
                 name="dateOfBirth"
+                type="text"
                 value={values.dateOfBirth}
                 setFieldValue={setFieldValue}
+                placeholder="Date of birth"
                 error={
                   errors.dateOfBirth && touched.dateOfBirth ? 'true' : 'false'
                 }

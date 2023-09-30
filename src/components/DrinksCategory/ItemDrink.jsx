@@ -1,26 +1,31 @@
-import {
-    HomeDrinksITEM,
-    HomeDrinksIMG,
-    HomeDrinksTEXTDIV,
-    HomeDrinksP,
-    HomeDrinksButton,
-  } from '../HomeDrinksList/HomeDrinksList.styled';
+import React from 'react';
+import { useResize } from '../../hooks/useResize';
+import { CategoryDrinksITEM, CategoryDrinksIMG, CategoryDrinksTEXTDIV, CategoryDrinksP, CategoryDrinksLink} from './DrinksCategory.styled';
 
-export const ItemDrink = ({ id, drink, drinkThumb }) => {
-    return (
-        <>
-        <HomeDrinksITEM key={id}>
-            {drinkThumb ? (
-              <HomeDrinksIMG src={drinkThumb} alt={drink} />
-            ) : (
-              <HomeDrinksIMG src="" />
-            )}
-            <HomeDrinksTEXTDIV>
-              <HomeDrinksP>{drink}</HomeDrinksP>
-              <HomeDrinksButton>See more</HomeDrinksButton>
-            </HomeDrinksTEXTDIV>
-          </HomeDrinksITEM>
-        </>
-    )
 
-}
+
+export const ItemDrink = ({item, idx}) => {
+  const { width } = useResize();
+
+  if ((width <= 768 && idx > 0) || (width <= 1440 && idx > 1)) {
+  
+    return(``);
+    
+  } 
+  
+  const { _id: id, drink, drinkThumb } = item;
+ 
+  return (
+    <CategoryDrinksITEM key={id}>
+      {drinkThumb ? ( 
+        <CategoryDrinksIMG src={drinkThumb} alt={drink} />
+      ) : (
+        <CategoryDrinksIMG src="" alt={drink} />
+      )}
+      <CategoryDrinksTEXTDIV>
+        <CategoryDrinksP>{drink}</CategoryDrinksP>
+        <CategoryDrinksLink to={`/drinks/${id}`}>See more</CategoryDrinksLink>
+      </CategoryDrinksTEXTDIV>
+    </CategoryDrinksITEM>
+  );
+};

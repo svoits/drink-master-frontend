@@ -1,12 +1,13 @@
 import SocialIcons from '../SocialIcons/SocialIcons';
+import { FollowUsTitle, FollowUsWrap } from './FollowUs.styled';
 
 const FollowUs = () => {
-    return (
-        <div>
-            <h3>Follow Us</h3>
-            <SocialIcons />
-        </div>
-    )
+  return (
+    <FollowUsWrap>
+      <FollowUsTitle>Follow Us</FollowUsTitle>
+      <SocialIcons />
+    </FollowUsWrap>
+  );
 };
 
 export default FollowUs;
