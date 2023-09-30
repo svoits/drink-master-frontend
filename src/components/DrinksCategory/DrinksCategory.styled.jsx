@@ -63,7 +63,7 @@ export const CategoryDrinksLink = styled(NavLink)`
   line-height: 18px;
   letter-spacing: 0em;
   text-align: right;
-  color: ${({ theme }) => theme.mainBackground};
+  color: ${({ theme }) => theme.subTitleText};
   
 `;
 
@@ -82,8 +82,8 @@ export const CategoryDrinkToDrink = styled(NavLink)`
   padding: 14px 40px;
 
 
-  background: ${({ theme }) => theme.userPopupBtnText};
-  color: ${({ theme }) => theme.userPopupText};
+  background: ${({ theme }) => theme.hoverBackgroundColorLink};
+  color: ${({ theme }) => theme.themeSwitcher};
   border: 2px solid transparent;
   border-radius: 42px;
   transition: color ${transition};
