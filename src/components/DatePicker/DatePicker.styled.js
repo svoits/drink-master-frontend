@@ -4,11 +4,13 @@ import transition from '../../utils/transition';
 
 export const StyledCalendarIcon = styled(AiOutlineCalendar)`
   position: absolute;
-  top: 20px;
-  right: 25px;
+  top: 18px;
+  right: 24px;
   fill: #f3f3f3;
   width: 18px;
   height: 18px;
+  pointer-events: none;
+
   @media screen and (min-width: 768px) {
     width: 20px;
     height: 20px;

@@ -11,7 +11,7 @@ export default function SignupPage() {
           <WelcomePageTitle title="Sign Up" />
           <SignupForm />
           <Nav>
-            <Link to="/signin"> Sign In</Link>
+            <Link to="/signin">Sign In</Link>
           </Nav>
         </Wrap>
       </Section>
