@@ -78,8 +78,8 @@ const DrinkDescriptionFields = ({ formData, setFormData, refId }) => {
   }, [defaultAlcoholic, dispatch]);
 
   const handleImageChange = (evt) => {
-    const [file] = evt.target.files;
-
+    const file = evt.target.files[0];
+  
     if (file) {
       const imageURL = URL.createObjectURL(file);
       setFormData({
@@ -87,6 +87,7 @@ const DrinkDescriptionFields = ({ formData, setFormData, refId }) => {
         drinkThumb: file,
       });
       setImagePreview(imageURL);
+      setIsImageSelected(true);
     }
   };
 
@@ -107,12 +108,9 @@ const DrinkDescriptionFields = ({ formData, setFormData, refId }) => {
   return (
     <FormContainer>
       <Formik
-        initialValues={{ ...formData }}
+        initialValues={formData}
         validationSchema={validationSchema}
         innerRef={refId}
-        onSubmit={(values) => {
-          setFormData({ ...formData, ...values, alcoholic });
-        }}
       >
         <SearchForm>
           <PhotoContainer htmlFor="drinkThumb">
