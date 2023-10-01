@@ -15,6 +15,7 @@ import WelcomePage from './pages/WelcomePage/WelcomePage';
 import SignupPage from './pages/SignupPage/SignupPage';
 import SigninPage from './pages/SigninPage/SigninPage';
 import { useAuth } from './redux/hooks/useAuth';
+import { Container } from './components/Container/Container.styled';
 
 const Home = lazy(() => import('./pages/HomePage/HomePage'));
 const Drinks = lazy(() => import('./pages/DrinksPage/DrinksPage'));
@@ -70,7 +71,9 @@ function App() {
       )}
 
       <GlobalStyles />
-      <ToastContainer autoClose={2000} />
+      <Container>
+        <ToastContainer autoClose={2000} />
+      </Container>
     </ThemeProvider>
   );
 }
