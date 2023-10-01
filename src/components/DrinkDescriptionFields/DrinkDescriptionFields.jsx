@@ -9,8 +9,8 @@ import {
   getGlasses,
 } from '../../redux/filters/filters-operation';
 // import { AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai';
-import {BsPlus} from 'react-icons/bs';
-import {BiMinus} from 'react-icons/bi';
+import { BsPlus } from 'react-icons/bs';
+import { BiMinus } from 'react-icons/bi';
 import {
   FormContainer,
   AddPhotoButton,
@@ -27,7 +27,7 @@ import {
   RadioButtonDiv,
   RadioLabel,
   RadioField,
-  RadioSpan
+  RadioSpan,
 } from './DrinkDescriptionFields.styled';
 
 const style = {
