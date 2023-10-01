@@ -181,7 +181,7 @@ const DrinkDescriptionFields = ({ formData, setFormData, refId }) => {
                         label: category,
                       }))}
                       name={field.name}
-                      id="categories"
+                      id="category"
                       {...field}
                       value={
                         selectedCategory
@@ -196,7 +196,7 @@ const DrinkDescriptionFields = ({ formData, setFormData, refId }) => {
                           selectedOption ? selectedOption.value : null,
                         );
                         form.setFieldValue(
-                          'categories',
+                          'category',
                           selectedOption ? selectedOption.value : null,
                         );
                       }}
@@ -231,17 +231,13 @@ const DrinkDescriptionFields = ({ formData, setFormData, refId }) => {
                         label: glass,
                       }))}
                       name={field.name}
-                      id="glasses"
+                      id="glass"
                       {...field}
-                      value={
-                        selectedGlass
-                          ? { value: selectedGlass, label: selectedGlass }
-                          : ''
-                      }
+                      value={selectedGlass ? { value: selectedGlass, label: selectedGlass } : ''}
                       onChange={(selectedOption) => {
                         if (selectedOption) {
                           setSelectedGlass(selectedOption.value);
-                          form.setFieldValue('glasses', selectedOption.value);
+                          form.setFieldValue('glass', selectedOption.value);
                         }
                       }}
                       placeholder="Glasses"
