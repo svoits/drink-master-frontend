@@ -1,19 +1,28 @@
 import { getIngredients } from '../../redux/filters/filters-operation';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
+// import { useState } from 'react';
+
 import { useSelector, useDispatch } from 'react-redux';
-import { ErrorMessage, Field, Form, Formik, FieldArray } from 'formik';
-import Select from 'react-select';
-import _ from 'lodash';
+import { Formik, FieldArray } from 'formik';
+// import Select from 'react-select';
+import { useResize } from 'src/hooks/useResize';
+import { IoMdClose } from 'react-icons/io';
 
 import {
+  DrinkIngredientsFieldsDiv,
   SearchDrinkTitle,
   SearchDrinkForm,
+  CulculationButtonDiv,
+  CulculationSpan,
+  PlusMinusButton,
   ContainerDIV,
   ListDIV,
+  SelectorsDIV,
   IngredientsDIV,
   IngredientsInput,
   StyledSelect,
   StyledSelectCL,
+  RemoveItemButton,
 } from './DrinkIngredientsFields1.styled'
 const measures = [
   { value: 'ml', label: 'ml' },
@@ -27,18 +36,23 @@ const measures = [
   { value: 'tblsp', label: 'tblsp' },
 ];
 
-const handleMeasureChange = (selectedOption, index) => {
-  const newSelectedMeasures = [...selectedMeasures];
-  newSelectedMeasures[index] = selectedOption;
-  setSelectedMeasures(newSelectedMeasures);
-};
+// const handleMeasureChange = (selectedOption, index) => {
+//   const newSelectedMeasures = [...selectedMeasures];
+//   newSelectedMeasures[index] = selectedOption;
+//   setSelectedMeasures(newSelectedMeasures);
+// };
 
 const DrinkIngredientsFields1 = ({
   formData,
   setFormData,
-  handleSubmit,
+  // handleSubmit,
   refId,
 }) => {
+  //for icon
+  const { width: windowWidth } = useResize();
+  const iconSize = windowWidth >= 768 ? 20 : 18;
+ //for icon
+
   const maxIngredientCount = 10;
   const dispatch = useDispatch();
   const ingredientsList = useSelector((state) => state.filters.ingredients);
@@ -75,35 +89,29 @@ const DrinkIngredientsFields1 = ({
     }
   };
   return (
-    <>
+    <DrinkIngredientsFieldsDiv>
       <SearchDrinkTitle>Ingredients</SearchDrinkTitle>
       <Formik initialValues={{ ...formData }} innerRef={refId}>
         <SearchDrinkForm>
           <FieldArray
             name="ingredients"
-            render={(arrayHelpers) => (
+            render={() => (
               <>
-                <button
+                <CulculationButtonDiv>
+                <PlusMinusButton
                   type="button"
-                  onClick={() => arrayHelpers.remove(index)}
-                  onClick={handleRemoveIngredient}
+                  onClick={() => handleRemoveIngredient()}
                 >
                   -
-                </button>
-                <span>{ingredientsCount}</span>
-                <button
+                </PlusMinusButton>
+                <CulculationSpan>{ingredientsCount}</CulculationSpan>
+                <PlusMinusButton
                   type="button"
                   onClick={handleAddIngredient}
-                  // onClick={() =>
-                  //   arrayHelpers.push({
-                  //     ingredient: '',
-                  //     measure: '',
-                  //     quantity: '',
-                  //   })
-                  // }
                 >
                   +
-                </button>
+                </PlusMinusButton>
+                </CulculationButtonDiv>
                 {ingredientsList && (
                   <ContainerDIV>
                     {formData.ingredients.map((ingredient, index) => {
@@ -117,6 +125,7 @@ const DrinkIngredientsFields1 = ({
 
                       return (
                         <ListDIV key={index}>
+                          <SelectorsDIV>
                           <label htmlFor={`ingredients[${index}]`}>
                             <StyledSelect
                               className="basic-single"
@@ -165,6 +174,11 @@ const DrinkIngredientsFields1 = ({
                             />
                           </label>
                           </IngredientsDIV>
+                          </SelectorsDIV>
+
+                          <RemoveItemButton type="button" onClick={handleRemoveIngredient}>
+                            <IoMdClose  size={iconSize}/>
+                          </RemoveItemButton>
                         </ListDIV>
                       );
                     })}
@@ -175,7 +189,7 @@ const DrinkIngredientsFields1 = ({
           />
         </SearchDrinkForm>
       </Formik>
-    </>
+    </DrinkIngredientsFieldsDiv>
   );
 };
 

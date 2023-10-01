@@ -18,13 +18,16 @@ export const DrinksPageSection = styled.section`
 `;
 
 export const DrinksPageContainer = styled.div`
-dispay: flex;
+      display: flex;
+      flex-direction: column;
+      gap: 80px;
 
   @media screen and (min-width: 768px) {
 
   }
 
   @media screen and (min-width: 1440px) {
-
+    flex-direction: row;
+    gap: 94px;
   }
 `;

@@ -6,10 +6,6 @@ import { Field, Form } from 'formik';
 import ReactSelect from 'react-select';
 import transition from '../../utils/transition';
 
-// @media screen and (min-width: 1440px) {
-//     padding-top: 160px;
-//     padding-bottom: 160px;
-//   }
 export const FormContainer = styled.div`
   margin-top: 40px;
   margin-bottom: 80px;
@@ -47,9 +43,14 @@ export const PhotoContainer = styled.label`
     width: 320px;
     height: auto;
   }
+  @media screen and (min-width: 1440px) {
+    width: 400px;
+    height: 400px;
+  }
 `;
 
 export const PhotoPreview = styled.img`
+  // background-color: ${({ theme }) => theme.AddPhotoBackgroundColor};
   max-width: 100%;
   max-height: 100%;
   width: auto;
@@ -57,13 +58,13 @@ export const PhotoPreview = styled.img`
 `;
 
 export const PhotoField = styled(Field)`
-  background-color: pink;
-  position: absolute;
-  width: 0;
-  height: 0;
-  opacity: 0;
-  visibility: hidden;
-  overflow: hidden;
+  // background-color: pink;
+  // position: absolute;
+  // width: 0;
+  // height: 0;
+  // opacity: 0;
+  // visibility: hidden;
+  // overflow: hidden;
 `;
 
 export const AddPhotoButton = styled.button`
@@ -100,6 +101,10 @@ export const SearchContainer = styled.div`
 
   @media screen and (min-width: 768px) {
     width: 352px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    gap: 40px;
   }
 `;
 
@@ -147,13 +152,21 @@ export const SearchDrinkLabel = styled.label`
 
   @media screen and (min-width: 768px) {
   }
+  // #categories {
+  //   width: 100%;
+  // }
+
+  // #ingredients {
+  //   width: 100%;
+  // }
 `;
 
 export const SearchDrinkInput2 = styled(Field)`
+  width: 120px;
   padding-bottom: 15px;
 
-  //   width: 100%;
-  width: 120px;
+  // width: 100%;
+
   border: none;
   border-bottom: 1px solid ${({ theme }) => theme.inputBorder};
   background-color: transparent;
@@ -186,7 +199,9 @@ export const SearchDrinkInput2 = styled(Field)`
 
 export const StyledSelect = styled(ReactSelect)`
   & .Select__control {
-    width: 200px;
+    width: 150px;
+    padding-top: 10px;
+
     background-color: transparent;
     border: none;
     box-shadow: none;
@@ -206,12 +221,14 @@ export const StyledSelect = styled(ReactSelect)`
   }
 
   & .Select__value-container {
-    padding: 17px 24px;
+    padding-top: 2px;
+
     padding-right: 0;
+    padding-bottom: 19px;
 
     @media screen and (min-width: 768px) {
-      padding: 15px 24px;
-      padding-right: 0;
+      // padding: 15px 24px;
+      // padding-right: 0;
     }
   }
 
@@ -225,8 +242,9 @@ export const StyledSelect = styled(ReactSelect)`
 
   & .Select__indicator {
     color: ${({ theme }) => theme.selectDownOptionText};
-    padding: 17px 24px;
-    padding-left: 8px;
+    // padding: 17px 24px;
+    // padding-left: 8px;
+    // padding-bottom: 19px;
     cursor: pointer;
 
     &:hover {
@@ -235,8 +253,8 @@ export const StyledSelect = styled(ReactSelect)`
     }
 
     @media screen and (min-width: 768px) {
-      padding: 18px 24px;
-      padding-left: 8px;
+      // padding: 18px 24px;
+      // padding-left: 8px;
     }
   }
 
@@ -350,11 +368,15 @@ export const RadioLabel = styled.label`
 `;
 
 export const RadioField = styled(Field)`
-  border: 1px solid ${({ theme }) => theme.inputBorder};
-
-  &:active {
-    color: none;
-    // color: ${({ theme }) => theme.selectDropdownOptionTextActive};
-    // color: #f3f3f380;
+  display: none;
+`;
+export const RadioSpan = styled.span`
+  &::before {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: white;
+    border: 1px solid #ccc;
+    // border-color: ${({ theme }) => theme.inputBorderFocus};
   }
 `;
