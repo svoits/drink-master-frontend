@@ -60,6 +60,7 @@ const AddDrinkForm = () => {
       dispatch(addMyDrink(data));
     }
   };
+  
 
   return (
     <AddDrinkFormContainer>
