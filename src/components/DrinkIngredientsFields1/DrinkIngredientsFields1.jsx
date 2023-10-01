@@ -1,9 +1,9 @@
+// Один і той же компонент DrinkIngredientsFields1
 import { getIngredients } from '../../redux/filters/filters-operation';
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import {  Formik, FieldArray } from 'formik';
+import { Formik, FieldArray } from 'formik';
 import { IoMdClose } from 'react-icons/io';
-
 
 import {
   SearchDrinkTitle,
@@ -16,7 +16,6 @@ import {
   StyledSelectCL,
 } from './DrinkIngredientsFields1.styled';
 
-
 const measures = [
   { value: 'ml', label: 'ml' },
   { value: 'oz', label: 'oz' },
@@ -28,8 +27,6 @@ const measures = [
   { value: 'cups', label: 'cups' },
   { value: 'tblsp', label: 'tblsp' },
 ];
-
-
 
 const DrinkIngredientsFields1 = ({
   formData,
@@ -49,7 +46,20 @@ const DrinkIngredientsFields1 = ({
 
   useEffect(() => {
     dispatch(getIngredients());
-  }, [dispatch]);
+
+    if (ingredientsCount < 3) {
+      const initialIngredients = [];
+      for (let i = 0; i < 3; i++) {
+        initialIngredients.push({ ingredient: '', measure: '', quantity: '' });
+      }
+      setFormData((prevState) => ({
+        ...prevState,
+        ingredients: [...prevState.ingredients, ...initialIngredients],
+      }));
+      setIngredientsCount(3);
+    }
+    
+  }, [dispatch, ingredientsCount, setFormData]);
 
   const handleAddIngredient = () => {
     if (ingredientsCount < maxIngredientCount) {
@@ -65,12 +75,12 @@ const DrinkIngredientsFields1 = ({
     if (ingredientsCount > 1) {
       const updatedIngredients = [...formData.ingredients];
       updatedIngredients.splice(index, 1);
-  
+
       setFormData((prevState) => ({
         ...prevState,
         ingredients: updatedIngredients,
       }));
-      
+
       setIngredientsCount(ingredientsCount - 1);
     }
   };
@@ -82,25 +92,22 @@ const DrinkIngredientsFields1 = ({
         <SearchDrinkForm>
           <FieldArray
             name="ingredients"
-            render={(arrayHelpers, index) => (
+            render={(arrayHelpers) => (
               <>
                 <div>
-                <button
-                  type="button"
-                onClick={() => {
-                  handleRemoveIngredient();
-                  arrayHelpers.remove(index);
-                }}
-                >
-                  -
-                </button>
-                <span>{ingredientsCount}</span>
-                <button
-                  type="button"
-                  onClick={handleAddIngredient}
-                >
-                  +
-                </button>
+                  <button
+                    type="button"
+                    onClick={handleRemoveIngredient}
+                  >
+                    -
+                  </button>
+                  <span>{ingredientsCount}</span>
+                  <button
+                    type="button"
+                    onClick={handleAddIngredient}
+                  >
+                    +
+                  </button>
                 </div>
                 {ingredientsList && (
                   <ContainerDIV>
@@ -138,36 +145,35 @@ const DrinkIngredientsFields1 = ({
                             />
                           </label>
                           <IngredientsDIV>
-                          <IngredientsInput
-                            name={`ingredients[${index}].quantity`}
-                            value={ingredient.quantity || ''}
-                            onChange={(e) =>
-                              handleFieldChange(
-                                'quantity',
-                                parseInt(e.target.value, 10),
-                                index,
-                              )
-                            }
-                          />
-                          <label htmlFor={`ingredients[${index}].measure`}>
-                            <StyledSelectCL
-                              className="basic-single"
-                              classNamePrefix="Select"
-                              options={measures}
-                              name={`ingredients[${index}].measure`}
-                              value={measureVal || ''}
-                              onChange={({ value }) =>
-                                handleFieldChange('measure', value, index)
+                            <IngredientsInput
+                              name={`ingredients[${index}].quantity`}
+                              value={ingredient.quantity || ''}
+                              onChange={(e) =>
+                                handleFieldChange(
+                                  'quantity',
+                                  parseInt(e.target.value, 10),
+                                  index,
+                                )
                               }
-                              placeholder="cl"
                             />
-                          </label>
+                            <label htmlFor={`ingredients[${index}].measure`}>
+                              <StyledSelectCL
+                                className="basic-single"
+                                classNamePrefix="Select"
+                                options={measures}
+                                name={`ingredients[${index}].measure`}
+                                value={measureVal || ''}
+                                onChange={({ value }) =>
+                                  handleFieldChange('measure', value, index)
+                                }
+                                placeholder="cl"
+                              />
+                            </label>
                           </IngredientsDIV>
-                          <button type="button" 
-                            onClick={() => {
-                              handleRemoveIngredient();
-                              arrayHelpers.remove(index);
-                            }}>
+                          <button
+                            type="button"
+                            onClick={() => handleRemoveIngredient(index)}
+                          >
                             <IoMdClose />
                           </button>
                         </ListDIV>
