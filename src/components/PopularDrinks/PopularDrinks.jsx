@@ -5,6 +5,7 @@ import { selectDrinks } from '../../redux/drinks/drinks-selectors';
 
 import Loader from '../Loader/Loader';
 import {
+  PopularDrinksTitle,
   DrinksImg,
   DrinksInfoDescr,
   DrinksInfoTitle,
@@ -25,6 +26,7 @@ const PopularDrinks = () => {
 
   return (
     <div>
+      <PopularDrinksTitle>Popular drinks</PopularDrinksTitle>
       {isLoading && <Loader />}
       {error && <p>Sorry. There are no images ... 😭</p>}
       <DrinksList>

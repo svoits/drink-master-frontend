@@ -1,21 +1,30 @@
 // Один і той же компонент DrinkIngredientsFields1
 import { getIngredients } from '../../redux/filters/filters-operation';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
+import { useState } from 'react';
+
 import { useSelector, useDispatch } from 'react-redux';
 import { Formik, FieldArray } from 'formik';
+// import Select from 'react-select';
+import { useResize } from 'src/hooks/useResize';
 import { IoMdClose } from 'react-icons/io';
 
 import {
+  DrinkIngredientsFieldsDiv,
   SearchDrinkTitle,
   SearchDrinkForm,
+  CulculationButtonDiv,
+  CulculationSpan,
+  PlusMinusButton,
   ContainerDIV,
   ListDIV,
+  SelectorsDIV,
   IngredientsDIV,
   IngredientsInput,
   StyledSelect,
   StyledSelectCL,
-} from './DrinkIngredientsFields1.styled';
-
+  RemoveItemButton,
+} from './DrinkIngredientsFields1.styled'
 const measures = [
   { value: 'ml', label: 'ml' },
   { value: 'oz', label: 'oz' },
@@ -28,10 +37,27 @@ const measures = [
   { value: 'tblsp', label: 'tblsp' },
 ];
 
-const DrinkIngredientsFields1 = ({ formData, setFormData, refId }) => {
+// const handleMeasureChange = (selectedOption, index) => {
+//   const newSelectedMeasures = [...selectedMeasures];
+//   newSelectedMeasures[index] = selectedOption;
+//   setSelectedMeasures(newSelectedMeasures);
+// };
+
+const DrinkIngredientsFields1 = ({
+  formData,
+  setFormData,
+  // handleSubmit,
+  refId,
+}) => {
+  //for icon
+  const { width: windowWidth } = useResize();
+  const iconSize = windowWidth >= 768 ? 20 : 18;
+ //for icon
+
   const maxIngredientCount = 10;
   const dispatch = useDispatch();
   const ingredientsList = useSelector((state) => state.filters.ingredients);
+  // eslint-disable-next-line no-undef
   const [ingredientsCount, setIngredientsCount] = useState(
     formData.ingredients.length,
   );
@@ -39,7 +65,10 @@ const DrinkIngredientsFields1 = ({ formData, setFormData, refId }) => {
   const handleFieldChange = (field, val, index) => {
     const ingredients = [...formData.ingredients];
     ingredients[index][field] = val;
-    setFormData({ ...formData, ingredients });
+    setFormData(prevFormData => ({
+      ...prevFormData,
+      ingredients,
+    }));
   };
 
   useEffect(() => {
@@ -74,23 +103,29 @@ const DrinkIngredientsFields1 = ({ formData, setFormData, refId }) => {
   };
 
   return (
-    <>
+    <DrinkIngredientsFieldsDiv>
       <SearchDrinkTitle>Ingredients</SearchDrinkTitle>
-      <Formik initialValues={{ ...formData }} innerRef={refId}>
+      <Formik initialValues={formData} innerRef={refId}>
         <SearchDrinkForm>
           <FieldArray
             name="ingredients"
-            render={(arrayHelpers) => (
+            render={() => (
               <>
-                <div>
-                  <button type="button" onClick={handleRemoveIngredient}>
-                    -
-                  </button>
-                  <span>{ingredientsCount}</span>
-                  <button type="button" onClick={handleAddIngredient}>
-                    +
-                  </button>
-                </div>
+                <CulculationButtonDiv>
+                <PlusMinusButton
+                  type="button"
+                  onClick={() => handleRemoveIngredient()}
+                >
+                  -
+                </PlusMinusButton>
+                <CulculationSpan>{ingredientsCount}</CulculationSpan>
+                <PlusMinusButton
+                  type="button"
+                  onClick={handleAddIngredient}
+                >
+                  +
+                </PlusMinusButton>
+                </CulculationButtonDiv>
                 {ingredientsList && (
                   <ContainerDIV>
                     {formData.ingredients.map((ingredient, index) => {
@@ -104,6 +139,7 @@ const DrinkIngredientsFields1 = ({ formData, setFormData, refId }) => {
 
                       return (
                         <ListDIV key={index}>
+                          <SelectorsDIV>
                           <label htmlFor={`ingredients[${index}]`}>
                             <StyledSelect
                               className="basic-single"
@@ -152,12 +188,11 @@ const DrinkIngredientsFields1 = ({ formData, setFormData, refId }) => {
                               />
                             </label>
                           </IngredientsDIV>
-                          <button
-                            type="button"
-                            onClick={() => handleRemoveIngredient(index)}
-                          >
-                            <IoMdClose />
-                          </button>
+                          </SelectorsDIV>
+
+                          <RemoveItemButton type="button" onClick={handleRemoveIngredient}>
+                            <IoMdClose  size={iconSize}/>
+                          </RemoveItemButton>
                         </ListDIV>
                       );
                     })}
@@ -168,7 +203,7 @@ const DrinkIngredientsFields1 = ({ formData, setFormData, refId }) => {
           />
         </SearchDrinkForm>
       </Formik>
-    </>
+    </DrinkIngredientsFieldsDiv>
   );
 };
 

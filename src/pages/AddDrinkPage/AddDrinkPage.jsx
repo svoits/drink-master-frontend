@@ -12,15 +12,15 @@ export default function AddDrinkPage() {
   return (
     <DrinksPageSection>
       <Container>
-        <DrinksPageContainer>
         <PageTitle title="Add drink" />
+        <DrinksPageContainer>
         <div>
         <AddDrinkForm />
         </div>
+        
       <div>
       <FollowUs />
         <PopularDrinks />
-
       </div>
      
         </DrinksPageContainer>

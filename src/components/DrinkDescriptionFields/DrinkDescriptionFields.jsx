@@ -8,6 +8,8 @@ import {
   getGlasses,
 } from '../../redux/filters/filters-operation';
 import { AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai';
+import { BsPlus } from 'react-icons/bs';
+import { BiMinus } from 'react-icons/bi';
 import {
   FormContainer,
   AddPhotoButton,
@@ -24,6 +26,7 @@ import {
   RadioButtonDiv,
   RadioLabel,
   RadioField,
+  RadioSpan,
 } from './DrinkDescriptionFields.styled';
 
 const style = {
@@ -70,7 +73,7 @@ const DrinkDescriptionFields = ({ formData, setFormData, refId }) => {
   }, [dispatch]);
 
   const handleImageChange = (evt) => {
-    const [file] = evt.target.files;
+    const file = evt.target.files[0];
 
     if (file) {
       const imageURL = URL.createObjectURL(file);
@@ -79,6 +82,7 @@ const DrinkDescriptionFields = ({ formData, setFormData, refId }) => {
         drinkThumb: file,
       });
       setImagePreview(imageURL);
+      setIsImageSelected(true);
     }
   };
 
@@ -99,12 +103,9 @@ const DrinkDescriptionFields = ({ formData, setFormData, refId }) => {
   return (
     <FormContainer>
       <Formik
-        initialValues={{ ...formData }}
+        initialValues={formData}
         validationSchema={validationSchema}
         innerRef={refId}
-        // onSubmit={(values) => {
-        //   setFormData({ ...formData, ...values, alcoholic });
-        // }}
       >
         <SearchForm>
           <PhotoContainer htmlFor="drinkThumb">
@@ -122,7 +123,7 @@ const DrinkDescriptionFields = ({ formData, setFormData, refId }) => {
               </button>
             ) : (
               <AddPhotoButton type="button">
-                <AiOutlinePlus style={style} />
+                <BsPlus style={style} />
 
                 <span>Add image</span>
               </AddPhotoButton>
@@ -225,7 +226,11 @@ const DrinkDescriptionFields = ({ formData, setFormData, refId }) => {
                       name={field.name}
                       id="glass"
                       {...field}
-                      value={selectedGlass ? { value: selectedGlass, label: selectedGlass } : ''}
+                      value={
+                        selectedGlass
+                          ? { value: selectedGlass, label: selectedGlass }
+                          : ''
+                      }
                       onChange={(selectedOption) => {
                         if (selectedOption) {
                           setSelectedGlass(selectedOption.value);

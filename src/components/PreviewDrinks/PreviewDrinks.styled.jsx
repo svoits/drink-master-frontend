@@ -2,45 +2,63 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import transition from '../../utils/transition';
 
-
-export const CategoryDrinksDiv = styled.div`
-  margin-bottom: 40px;
+export const SectionContainer = styled.section`
+  padding-bottom: 80px;
 
   @media screen and (min-width: 768px) {
-    margin-bottom: 80px;
+    padding-bottom: 140px;
   }
 `;
+
+export const MainWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  row-gap: 40px;
+
+  @media screen and (min-width: 768px) {
+    row-gap: 80px;
+  }
+`;
+
+export const CategoryDrinksDiv = styled.div``;
 
 export const DrinkCategoryTitle = styled.h2`
   font-weight: 600;
   font-size: 28px;
-  line-height: 32px;
+  line-height: 1.14;
   margin-bottom: 24px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 40px;
+    line-height: 1.1;
+  }
 `;
 
 export const CategoryDrinksLIST = styled.ul`
- 
-  flex-wrap: wrap;
+  display: flex;
+
   align-content: center;
   justify-content: center;
   align-items: center;
-  
 
   @media screen and (min-width: 768px) {
-    display: flex;
-    gap:20px;
+    column-gap: 20px;
   }
 `;
 
 export const CategoryDrinksITEM = styled.li`
-  width: 335px;
-  height: 360px;
+  width: 100%;
 `;
 
 export const CategoryDrinksIMG = styled.img`
-  width: 335px;
+  width: 100%;
   height: 360px;
+  object-fit: cover;
   border-radius: 8px;
+
+  @media screen and (min-width: 1440px) {
+    height: 400px;
+  }
 `;
 
 export const CategoryDrinksP = styled.p`
@@ -49,48 +67,51 @@ export const CategoryDrinksP = styled.p`
   color: ${({ theme }) => theme.mainText};
   font-size: 16px;
   font-weight: 500;
-  line-height: 18px;
-  letter-spacing: 0em;
-  text-align: left;
- 
+  line-height: 1.12;
+
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
+  }
 `;
 
 export const CategoryDrinksLink = styled(NavLink)`
-  
-  font-family: Manrope;
-  font-size: 14px;
   font-weight: 500;
   line-height: 18px;
-  letter-spacing: 0em;
-  text-align: right;
+  white-space: nowrap;
+
   color: ${({ theme }) => theme.subTitleText};
-  
+  transition: color ${transition};
+
+  &:hover,
+  &:focus {
+    color: ${({ theme }) => theme.subTitleTextHover};
+  }
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+  }
 `;
 
 export const CategoryDrinksTEXTDIV = styled.div`
   margin-top: 14px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
 `;
 
 export const CategoryDrinkToDrink = styled(NavLink)`
   display: block;
-  max-width: 168px;
-  min-height: 46px;
-  margin: 60px auto;
+  width: 185px;
+  margin: 0 auto;
+  margin-top: 60px;
   padding: 14px 40px;
-
 
   background: ${({ theme }) => theme.hoverBackgroundColorLink};
   color: ${({ theme }) => theme.themeSwitcher};
   border: 2px solid transparent;
   border-radius: 42px;
   transition: color ${transition};
-  transition: background ${transition};
+  transition: background-color ${transition};
   font-weight: 500;
-  font-size: 14px;
-  line-height: 18px;
+  line-height: 1.285;
 
   &:active {
     border: 2px solid rgba(64, 112, 205, 0.5);
@@ -106,4 +127,10 @@ export const CategoryDrinkToDrink = styled(NavLink)`
     color: rgba(243, 243, 243, 0.2);
     background: #434d67;
   }
-`
+
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+    padding: 16px 40px;
+    margin: 80px auto 0px;
+  }
+`;

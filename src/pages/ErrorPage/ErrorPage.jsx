@@ -7,7 +7,7 @@ import ErrorImgTablet2x from '../../images/error/error-coctail-tablet@2x.png';
 import ErrorImgDesc from '../../images/error/error-coctail-desc.png';
 import ErrorImgDesc2x from '../../images/error/error-coctail-desc@2x.png';
 
-const HomePage = () => {
+const ErrorPage = () => {
   return (
     <>
       <Container>
@@ -39,4 +39,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default ErrorPage;

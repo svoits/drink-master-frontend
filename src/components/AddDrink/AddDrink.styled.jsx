@@ -2,62 +2,44 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import transition from '../../utils/transition';
 
-export const SectionWrap = styled.div`
+export const SectionContainer = styled.section`
   padding-top: 80px;
   padding-bottom: 112px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 47px;
 
   @media screen and (min-width: 768px) {
     padding-top: 120px;
-    padding-bottom: 123px;
-    gap: 54px;
+    padding-bottom: 124px;
   }
 
   @media screen and (min-width: 1440px) {
-    padding-top: 185px;
-    padding-bottom: 218px;
-    display: flex;
+    padding-top: 128px;
+    padding-bottom: 160px;
+  }
+`;
+
+export const SectionWrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 47px;
+
+  @media screen and (min-width: 768px) {
+    row-gap: 54px;
+  }
+
+  @media screen and (min-width: 1440px) {
     flex-direction: row;
-    align-items: center;
-    gap: 130px;
+    column-gap: 130px;
   }
 `;
 
 export const MainWrap = styled.div`
-  /* padding-left: 100px; */
-`;
-
-export const MainTitle = styled.h1`
-  width: 335px;
-  font-size: 32px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 1.1;
-  margin-bottom: 16px;
-
-  @media screen and (min-width: 768px) {
-    width: 641px;
-    font-size: 56px;
-    line-height: 1.07;
-  }
-
-  @media screen and (min-width: 1440px) {
-    width: 715px;
-    font-size: 64px;
-    line-height: 1.06;
-  }
+  max-width: 716px;
 `;
 
 export const MainDescr = styled.p`
-  max-width: 335px;
-
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
   line-height: 1.4;
+  margin-top: 16px;
   margin-bottom: 32px;
 
   @media screen and (min-width: 768px) {
@@ -65,6 +47,7 @@ export const MainDescr = styled.p`
     font-size: 18px;
     line-height: 1.3;
     margin-bottom: 48px;
+    margin-top: 28px;
   }
 
   @media screen and (min-width: 1440px) {
@@ -76,11 +59,10 @@ export const MainDescr = styled.p`
 `;
 
 export const MainLink = styled(Link)`
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 151px;
-  height: 46px;
+  padding: 12px 42px;
   border-radius: 42px;
   background: #f3f3f3;
   background: ${({ theme }) => theme.userPopupBtnText};
@@ -88,22 +70,15 @@ export const MainLink = styled(Link)`
   color: #161f37;
   color: ${({ theme }) => theme.userPopupText};
 
-  font-size: 14px;
-  font-style: normal;
   font-weight: 600;
-  line-height: 18px;
+  line-height: 1.285;
   border: 2px solid transparent;
   transition: color ${transition};
-  transition: background ${transition};
+  transition: background-color ${transition};
 
   @media screen and (min-width: 768px) {
     font-size: 16px;
-  }
-
-  @media screen and (min-width: 1440px) {
-    font-size: 16px;
-    width: 160px;
-    height: 54px;
+    padding: 15px 47px;
   }
 
   &:active {
@@ -128,7 +103,7 @@ export const MainLink = styled(Link)`
 
 export const ImageWrap = styled.div`
   position: relative;
-  height: 100%;
+
   z-index: 2;
 `;
 

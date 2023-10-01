@@ -62,6 +62,8 @@ button {
   background-color: transparent; /* Color of the track */
 }
 
-
+.Toastify__toast-container--top-right {
+  top: 90px !important;
+}
 
   `;

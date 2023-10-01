@@ -5,6 +5,22 @@ import styled from 'styled-components';
 
 //   @media screen and (min-width: 1440px) {
 //   }
+export const PopularDrinksTitle = styled.h3`
+  margin-bottom: 28px;
+
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.33;
+
+  color: #f3f3f3;
+  color: ${({ theme }) => theme.mainText};
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 40px;
+    font-size: 24px;
+    line-height: 1.33;
+  }
+`;
 
 export const DrinksList = styled.ul`
   display: flex;
@@ -17,7 +33,7 @@ export const DrinksList = styled.ul`
     flex-direction: row;
     flex-wrap: wrap;
     gap: 32px;
-    width: 704px;
+    // width: 704px;
     margin-bottom: 140px;
   }
 
