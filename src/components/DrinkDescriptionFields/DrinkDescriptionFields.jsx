@@ -1,4 +1,4 @@
-import { Formik, ErrorMessage } from 'formik';
+import { Formik, ErrorMessage, Field } from 'formik';
 import * as Yup from 'yup';
 import makeAnimated from 'react-select/animated';
 import { useSelector, useDispatch } from 'react-redux';
@@ -17,7 +17,7 @@ import {
   SearchandRarioDiv,
   PhotoContainer,
   SearchDrinkInput,
-  SearchDrinkInput2,
+  SearchDrinkText,
   PhotoField,
   PhotoPreview,
   StyledSelect,
@@ -151,8 +151,8 @@ const DrinkDescriptionFields = ({ formData, setFormData, refId }) => {
               <ErrorMessage name="description" component="div" />
 
               <SearchDrinkLabel htmlFor="category">
-                <p>Category</p>
-                <SearchDrinkInput2
+                <SearchDrinkText>Category</SearchDrinkText>
+                <Field
                   name="category"
                   value={formData.category}
                   onChange={handleChange}
@@ -196,12 +196,12 @@ const DrinkDescriptionFields = ({ formData, setFormData, refId }) => {
                       placeholder="Cocktail"
                     />
                   )}
-                </SearchDrinkInput2>
+                </Field>
               </SearchDrinkLabel>
 
               <SearchDrinkLabel htmlFor="glass">
-                <p>Glasses</p>
-                <SearchDrinkInput2
+                <SearchDrinkText>Glasses</SearchDrinkText>
+                <Field
                   name="glass"
                   value={formData.glass}
                   onChange={handleChange}
@@ -240,7 +240,7 @@ const DrinkDescriptionFields = ({ formData, setFormData, refId }) => {
                       placeholder="Glasses"
                     />
                   )}
-                </SearchDrinkInput2>
+                </Field>
               </SearchDrinkLabel>
             </SearchContainer>
 
