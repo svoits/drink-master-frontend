@@ -9,7 +9,7 @@ import AddDrink from '../../components/AddDrink/AddDrink';
 
 export default function HomePage() {
   const dispatch = useDispatch();
- 
+
   const { isLoading, error } = useDrink();
 
   useEffect(() => {
