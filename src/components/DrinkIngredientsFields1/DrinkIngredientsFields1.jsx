@@ -39,7 +39,10 @@ const DrinkIngredientsFields1 = ({ formData, setFormData, refId }) => {
   const handleFieldChange = (field, val, index) => {
     const ingredients = [...formData.ingredients];
     ingredients[index][field] = val;
-    setFormData({ ...formData, ingredients });
+    setFormData(prevFormData => ({
+      ...prevFormData,
+      ingredients,
+    }));
   };
 
   useEffect(() => {
@@ -76,7 +79,7 @@ const DrinkIngredientsFields1 = ({ formData, setFormData, refId }) => {
   return (
     <>
       <SearchDrinkTitle>Ingredients</SearchDrinkTitle>
-      <Formik initialValues={{ ...formData }} innerRef={refId}>
+      <Formik initialValues={formData} innerRef={refId}>
         <SearchDrinkForm>
           <FieldArray
             name="ingredients"
