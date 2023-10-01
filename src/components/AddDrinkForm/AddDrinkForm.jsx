@@ -66,7 +66,7 @@ const AddDrinkForm = () => {
         refId={formCref}
       />
 
-      <button type="button" onClick={handleSubmit}>
+      <button type="submit" onClick={handleSubmit}>
         Add
       </button>
     </>
