@@ -1,4 +1,4 @@
-import{s as t,t as m,a as x,r as h,U as $,d as g,j as e,V as I,Q as P,W as u,X as S,Y as z,i as y,Z as R,$ as F,C as W}from"./index-807a6fb2.js";import{u as B}from"./useDrink-d89d275f.js";import{a as L,P as C,b as A}from"./PageTitle-1df7dafd.js";import{S as j}from"./stub-14c8272a.js";import{a as E}from"./selectors-a7d85374.js";const H=t.p`
+import{s as t,t as m,a as x,r as h,U as $,d as g,j as e,V as I,Q as P,W as u,X as S,Y as z,i as y,Z as R,$ as F,C as W}from"./index-edbc8bfe.js";import{u as B}from"./useDrink-622eee78.js";import{a as L,P as C,b as A}from"./PageTitle-e6879d7c.js";import{S as j}from"./stub-0a114ce5.js";import{a as E}from"./selectors-a7d85374.js";const H=t.p`
   color: ${({theme:i})=>i.drinkPageSubtitle};
   font-size: 12px;
   font-weight: 400;
@@ -101,7 +101,7 @@ import{s as t,t as m,a as x,r as h,U as $,d as g,j as e,V as I,Q as P,W as u,X a
     height: 400px;
     padding: 133px 135px;
   }
-`,b=(i={})=>({position:"top-right",autoClose:3e3,hideProgressBar:!0,closeOnClick:!0,pauseOnHover:!0,draggable:!0,progress:void 0,theme:"colored",...i}),V=({id:i,name:r,glass:n,alcoholic:s,description:o,imgPath:d})=>{const p=()=>u.success("Added to favorites",b({icon:e.jsx(S,{})})),k=()=>u.info("Removed from favorites",b({icon:e.jsx(z,{})})),{isLoading:l}=B(),a=x();h.useEffect(()=>{a($())},[a]);const c=g(L),v=D=>{if(c)return c.find(T=>T._id===D)};return e.jsx(e.Fragment,{children:c&&e.jsxs(N,{children:[e.jsxs(Q,{children:[e.jsx(C,{title:r}),e.jsxs(H,{children:[n," / ",s]}),e.jsx(M,{children:o}),v(i)?e.jsx(f,{onClick:()=>a(P(i)).then(()=>k()),disabled:l,children:"Remove from favorite drinks"}):e.jsx(f,{onClick:()=>a(I(i)).then(()=>p()),disabled:l,children:"Add to favorite drinks"})]}),d?e.jsx(O,{children:e.jsx(_,{src:d,alt:"img"})}):e.jsx(U,{children:e.jsx(j,{})})]})})},X=t.div`
+`,b=(i={})=>({position:"top-right",autoClose:2e3,hideProgressBar:!0,closeOnClick:!0,pauseOnHover:!0,draggable:!0,progress:void 0,theme:"colored",...i}),V=({id:i,name:r,glass:n,alcoholic:s,description:o,imgPath:d})=>{const p=()=>u.success("Added to favorites",b({icon:e.jsx(S,{})})),k=()=>u.info("Removed from favorites",b({icon:e.jsx(z,{})})),{isLoading:l}=B(),a=x();h.useEffect(()=>{a($())},[a]);const c=g(L),v=D=>{if(c)return c.find(T=>T._id===D)};return e.jsx(e.Fragment,{children:c&&e.jsxs(N,{children:[e.jsxs(Q,{children:[e.jsx(C,{title:r}),e.jsxs(H,{children:[n," / ",s]}),e.jsx(M,{children:o}),v(i)?e.jsx(f,{onClick:()=>a(P(i)).then(()=>k()),disabled:l,children:"Remove from favorite drinks"}):e.jsx(f,{onClick:()=>a(I(i)).then(()=>p()),disabled:l,children:"Add to favorite drinks"})]}),d?e.jsx(O,{children:e.jsx(_,{src:d,alt:"img"})}):e.jsx(U,{children:e.jsx(j,{})})]})})},X=t.div`
   display: flex;
   justify-content: space-between;
   margin-top: 8px;
