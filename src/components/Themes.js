@@ -21,6 +21,7 @@ export const lightTheme = {
 
   sectionBackgroundColor: 'rgb(11 11 11)',
   hoverBackgroundColorLink: '#161f37',
+  hoverColorTextLink: '#F3F3F3',
   modalBg: '#161F37',
   modalText: '#F3F3F3',
   modalBtnBg: '#F3F3F3',
@@ -75,6 +76,7 @@ export const darkTheme = {
 
   sectionBackgroundColor: 'transparent',
   hoverBackgroundColorLink: '#F3F3F3',
+  hoverColorTextLink: '#161f37 ',
   modalBg: '#161F37',
   modalText: '#F3F3F3',
   modalBtnBg: '#F3F3F3',
