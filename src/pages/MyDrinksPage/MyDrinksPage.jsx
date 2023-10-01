@@ -53,7 +53,7 @@ export default function MyDrinksPage() {
     <MyDrinksContainer>
       <Container>
         <PageTitle title={'My Drinks'} />
-        {total === 0 && (
+        {!drinks.length && (
           <DefaultContainer>
             <DefaultImg src={CocktailImage} alt="Cocktail" />
             <DefaultDescr>You haven't added any own cocktails yet</DefaultDescr>

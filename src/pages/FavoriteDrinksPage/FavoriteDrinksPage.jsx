@@ -50,7 +50,7 @@ export default function FavoriteDrinksPage() {
       <Container>
         <PageTitle title="Favorites" />
         {isLoading && <Loader />}
-        {total === 0 && (
+        {!favoriteDrinks.length && (
           <DefaultContainer>
             <DefaultImg src={CocktailImage} alt="Cocktail" />
             <DefaultDescr>You have not added any cocktails yet</DefaultDescr>
