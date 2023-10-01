@@ -1,16 +1,19 @@
 import Backdrop from '@mui/material/Backdrop';
 import MuiModal from '@mui/material/Modal';
 import Fade from '@mui/material/Fade';
-import { IoClose } from 'react-icons/io5';
 
-import { StyledBox, CloseBtn, Wrapper, Wrap } from './MotivationModal.styled';
-// import MotivationModalIcon from '../MotivationModalIcon/MotivationModalIcon';
+import {
+  StyledBox,
+  CloseBtn,
+  Wrapper,
+  Wrap,
+  CloseIcon,
+} from './MotivationModal.styled';
+import MotivationModalIcon from '../MotivationModalIcon/MotivationModalIcon';
 import MotivationModalText from '../MotivationModalText/MotivationModalText';
-import Vector from '../../images/motivation/Vector.png';
+
 import { useState, useEffect } from 'react';
-import { useDrink } from "../../redux/hooks/useDrink";
-
-
+import { useDrink } from '../../redux/hooks/useDrink';
 
 const motivationOne =
   '/drink-master-frontend/src/images/motivation/Motivation.jpg';
@@ -25,46 +28,78 @@ const motivationTree =
 const motivationTree2x =
   '/drink-master-frontend/src/images/motivation/Motivation2@2x.jpg';
 
-function randomImages() {
-  const obj = {
-    0: [motivationOne, motivationOne2x],
-    1: [motivationTwo, motivationTwo2x],
-    2: [motivationTree, motivationTree2x],
-  };
-  const randomIdx = Math.floor(Math.random() * 3);
+const motivationOneTablet =
+  '/drink-master-frontend/src/images/motivation/motivation-tablet.png';
+const motivationOneTablet2x =
+  '/drink-master-frontend/src/images/motivation/motivation-tablet@2x.png';
+const motivationTwoTablet =
+  '/drink-master-frontend/src/images/motivation/motivation-2-tablet.png';
+const motivationTwoTablet2x =
+  '/drink-master-frontend/src/images/motivation/motivation-2-tablet@2x.png';
+const motivationTreeTablet =
+  '/drink-master-frontend/src/images/motivation/motivation-3-tablet.png';
+const motivationTreeTablet2x =
+  '/drink-master-frontend/src/images/motivation/motivation-3-tablet@2x.png';
 
-  return obj[randomIdx];
+function randomImages() {
+  const backgrounds = {
+    mobile: {
+      0: [motivationOne, motivationOne2x],
+      1: [motivationTwo, motivationTwo2x],
+      2: [motivationTree, motivationTree2x],
+    },
+    tablet: {
+      0: [motivationOneTablet, motivationOneTablet2x],
+      1: [motivationTwoTablet, motivationTwoTablet2x],
+      2: [motivationTreeTablet, motivationTreeTablet2x],
+    },
+  };
+
+  const randomIdxMobile = Math.floor(Math.random() * 3);
+  const randomIdxTablet = Math.floor(Math.random() * 3);
+
+  return {
+    mobile: backgrounds.mobile[randomIdxMobile],
+    tablet: backgrounds.tablet[randomIdxTablet],
+  };
 }
-const urlImg = randomImages();
+
+const { mobile, tablet } = randomImages();
+
+const backgroundImages = { mobile, tablet };
+
 
 export default function MotivationModal() {
+  const { favoriteDrinks } = useDrink();
 
-const { favoriteDrinks } = useDrink();
-    // let isOpen = favoriteDrinks.length === 1;
-    // const isOpen = true;
- 
+  const [isOpenMotivation, setIsOpenMotivation] = useState(false);
 
-    const [isOpenMotivation, setIsOpenMotivation] = useState(false);
-    const handleClose = () => {
+  const [previousValue, setPreviousValue] = useState(0);
+
+  const handleClose = () => {
     setIsOpenMotivation(false);
   };
 
-
   useEffect(() => {
-    if (favoriteDrinks.length === 1) {
-      setIsOpenMotivation(true);
+    function trackValueChange(newValue) {
+      if (
+        (previousValue === 0 && newValue === 1) ||
+        (previousValue === 2 && newValue === 3) 
+      ) {
+        setIsOpenMotivation(true);
+      }
+      setPreviousValue(newValue);
     }
-  }, [favoriteDrinks]);
 
-  
-  
-  
-    return (
-        <MuiModal
-    open={isOpenMotivation}
-    onClose={handleClose}
-    closeAfterTransition
-    slots={{ backdrop: Backdrop }}
+    trackValueChange(favoriteDrinks.length);
+  }, [favoriteDrinks.length]);
+
+  return (
+    <MuiModal
+      open={isOpenMotivation}
+      onClose={handleClose}
+      closeAfterTransition
+      slots={{ backdrop: Backdrop }}
       slotProps={{
         backdrop: {
           timeout: 500,
@@ -72,25 +107,23 @@ const { favoriteDrinks } = useDrink();
       }}
     >
       <Fade in={isOpenMotivation}>
-        <StyledBox background={urlImg}>
-          <section >
+        <StyledBox background={backgroundImages}>
+          <section>
             <Wrapper>
-              
-              <img
-                src={Vector}
-                alt="decoration"
-                style={{
-                  fill: 'rgba(217, 217, 217, 0.14)',
-                    backdropFilter: 'blur(27.976364135742188px)',
-                    
-                }}
+              <MotivationModalIcon />
+
+              <Wrap>
+                <MotivationModalText
+                  title={
+                    favoriteDrinks.length === 1
+                      ? 'Wow! You have added the first recipe to your favorites!'
+                      : `Wow! You have added ${favoriteDrinks.length} recipes to your favorites!`
+                  }
                 />
-                <Wrap>
-              <MotivationModalText title="Wow! You have added the first recipe to your favorites!" />
-              <CloseBtn onClick={handleClose}>
-                <IoClose size={28} />
-                  </CloseBtn>
-                </Wrap>
+                <CloseBtn onClick={handleClose}>
+                  <CloseIcon />
+                </CloseBtn>
+              </Wrap>
             </Wrapper>
           </section>
         </StyledBox>

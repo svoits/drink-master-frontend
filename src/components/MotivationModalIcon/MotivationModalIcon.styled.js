@@ -1,14 +1,10 @@
 import styled from 'styled-components';
-export const Path = styled.path`
-  fill: currentColor;
-`;
 
 export const Svg = styled.svg`
-  width: 22px;
-  height: 22px;
-
+  width: 299px;
+  height: 269px;
   @media screen and (min-width: 768px) {
-    width: 28px;
-    height: 28px;
+    width: 268px;
+    height: 242px;
   }
 `;
