@@ -1,4 +1,4 @@
-import{s as e,j as t}from"./index-edbc8bfe.js";const o=s=>s.drinks.isLoading,d=s=>s.drinks.mainPageDrinks,c=s=>s.drinks.drinks,k=s=>s.drinks.error,l=(s,n)=>s.drinks.drinks.find(i=>i._id===n),x=s=>s.drinks.favoriteDrinks,f=s=>s.drinks.total,r=e.h1`
+import{s as e,j as t}from"./index-3c4cfd3d.js";const o=s=>s.drinks.isLoading,d=s=>s.drinks.mainPageDrinks,c=s=>s.drinks.drinks,k=s=>s.drinks.error,l=(s,n)=>s.drinks.drinks.find(i=>i._id===n),x=s=>s.drinks.favoriteDrinks,f=s=>s.drinks.total,r=e.h1`
   color: ${({theme:s})=>s.mainText};
   font-size: 32px;
   font-weight: 600;
