@@ -58,24 +58,16 @@ const DrinkDescriptionFields = ({ formData, setFormData, refId }) => {
   const dispatch = useDispatch();
   const categories = useSelector((state) => state.filters.categories);
   const glasses = useSelector((state) => state.filters.glasses);
-  const birthDate = useSelector((state) => state.auth.user.birthDate);
 
   const [imagePreview, setImagePreview] = useState(null);
   const [isImageSelected, setIsImageSelected] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [selectedGlass, setSelectedGlass] = useState('');
 
-  const currentDate = new Date();
-  const userBirthDate = new Date(birthDate);
-  const ageDiff = currentDate.getFullYear() - userBirthDate.getFullYear();
-  const defaultAlcoholic = ageDiff >= 18 ? 'alcoholic' : 'nonAlcoholic';
-  const [alcoholic, setAlcoholic] = useState(defaultAlcoholic);
-
   useEffect(() => {
     dispatch(getCategories());
     dispatch(getGlasses());
-    setAlcoholic(defaultAlcoholic);
-  }, [defaultAlcoholic, dispatch]);
+  }, [dispatch]);
 
   const handleImageChange = (evt) => {
     const [file] = evt.target.files;
@@ -110,9 +102,9 @@ const DrinkDescriptionFields = ({ formData, setFormData, refId }) => {
         initialValues={{ ...formData }}
         validationSchema={validationSchema}
         innerRef={refId}
-        onSubmit={(values) => {
-          setFormData({ ...formData, ...values, alcoholic });
-        }}
+        // onSubmit={(values) => {
+        //   setFormData({ ...formData, ...values, alcoholic });
+        // }}
       >
         <SearchForm>
           <PhotoContainer htmlFor="drinkThumb">
@@ -181,7 +173,7 @@ const DrinkDescriptionFields = ({ formData, setFormData, refId }) => {
                         label: category,
                       }))}
                       name={field.name}
-                      id="categories"
+                      id="category"
                       {...field}
                       value={
                         selectedCategory
@@ -196,7 +188,7 @@ const DrinkDescriptionFields = ({ formData, setFormData, refId }) => {
                           selectedOption ? selectedOption.value : null,
                         );
                         form.setFieldValue(
-                          'categories',
+                          'category',
                           selectedOption ? selectedOption.value : null,
                         );
                       }}
@@ -231,7 +223,7 @@ const DrinkDescriptionFields = ({ formData, setFormData, refId }) => {
                         label: glass,
                       }))}
                       name={field.name}
-                      id="glasses"
+                      id="glass"
                       {...field}
                       value={
                         selectedGlass
@@ -241,7 +233,7 @@ const DrinkDescriptionFields = ({ formData, setFormData, refId }) => {
                       onChange={(selectedOption) => {
                         if (selectedOption) {
                           setSelectedGlass(selectedOption.value);
-                          form.setFieldValue('glasses', selectedOption.value);
+                          form.setFieldValue('glass', selectedOption.value);
                         }
                       }}
                       placeholder="Glasses"
@@ -256,9 +248,11 @@ const DrinkDescriptionFields = ({ formData, setFormData, refId }) => {
                 <RadioField
                   type="radio"
                   name="alcoholic"
-                  value="alcoholic"
-                  checked={alcoholic === 'alcoholic'}
-                  onChange={() => setAlcoholic('alcoholic')}
+                  value="Alcoholic"
+                  checked={formData.alcoholic === 'Alcoholic'}
+                  onChange={() =>
+                    setFormData({ ...formData, alcoholic: 'Alcoholic' })
+                  }
                 />
                 <span>Alcoholic</span>
               </RadioLabel>
@@ -267,9 +261,11 @@ const DrinkDescriptionFields = ({ formData, setFormData, refId }) => {
                 <RadioField
                   type="radio"
                   name="alcoholic"
-                  value="nonAlcoholic"
-                  checked={alcoholic === 'nonAlcoholic'}
-                  onChange={() => setAlcoholic('nonAlcoholic')}
+                  value="Non alcoholic"
+                  checked={formData.alcoholic === 'Non alcoholic'}
+                  onChange={() =>
+                    setFormData({ ...formData, alcoholic: 'Non alcoholic' })
+                  }
                 />
                 <span>Non-alcoholic</span>
               </RadioLabel>

@@ -4,7 +4,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Field, Form, Formik, FieldArray } from 'formik';
 import Select from 'react-select';
 import { IoMdClose } from 'react-icons/io';
-// import _ from 'lodash';
 
 const measures = [
   { value: 'ml', label: 'ml' },
@@ -18,21 +17,13 @@ const measures = [
   { value: 'tblsp', label: 'tblsp' },
 ];
 
-// const handleMeasureChange = (selectedOption, index) => {
-//   const newSelectedMeasures = [...selectedMeasures];
-//   newSelectedMeasures[index] = selectedOption;
-//   setSelectedMeasures(newSelectedMeasures);
-// };
-
-const DrinkIngredientsFields1 = ({
-  formData,
-  setFormData,
-  refId,
-}) => {
+const DrinkIngredientsFields1 = ({ formData, setFormData, refId }) => {
   const maxIngredientCount = 10;
   const dispatch = useDispatch();
   const ingredientsList = useSelector((state) => state.filters.ingredients);
-  const [ingredientsCount, setIngredientsCount] = useState(formData.ingredients.length);
+  const [ingredientsCount, setIngredientsCount] = useState(
+    formData.ingredients.length,
+  );
 
   const handleFieldChange = (field, val, index) => {
     const ingredients = [...formData.ingredients];
@@ -145,7 +136,10 @@ const DrinkIngredientsFields1 = ({
                               placeholder="cl"
                             />
                           </label>
-                          <button type="button" onClick={handleRemoveIngredient}>
+                          <button
+                            type="button"
+                            onClick={handleRemoveIngredient}
+                          >
                             <IoMdClose />
                           </button>
                         </div>
@@ -164,10 +158,6 @@ const DrinkIngredientsFields1 = ({
 
 export default DrinkIngredientsFields1;
 
-
-
-
-
 // <FieldArray
 //      name="friends"
 //      render={arrayHelpers => (
@@ -177,7 +167,7 @@ export default DrinkIngredientsFields1;
 //              {/** both these conventions do the same */}
 //              <Field name={`friends[${index}].name`} />
 //              <Field name={`friends.${index}.age`} />
- 
+
 //              <button type="button" onClick={() => arrayHelpers.remove(index)}>
 //                -
 //              </button>

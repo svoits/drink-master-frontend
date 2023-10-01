@@ -1,4 +1,4 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useState, useRef } from 'react';
 import { addMyDrink } from '../../redux/drinks/drinks-operations';
 import DrinkDescriptionFields from '../DrinkDescriptionFields/DrinkDescriptionFields';
@@ -7,14 +7,20 @@ import RecipePreparationText from '../RecipePreparationText';
 
 const AddDrinkForm = () => {
   const dispatch = useDispatch();
+  const birthDate = useSelector((state) => state.auth.user.birthDate);
+
   const formAref = useRef();
   const formBref = useRef();
   const formCref = useRef();
 
+  const currentDate = new Date();
+  const userBirthDate = new Date(birthDate);
+  const ageDiff = currentDate.getFullYear() - userBirthDate.getFullYear();
+
   const [formData, setFormData] = useState({
     drink: '',
     description: '',
-    alcoholic: '',
+    alcoholic: ageDiff >= 18 ? 'Alcoholic' : 'Non alcoholic',
     category: '',
     glass: '',
     instructions: '',
@@ -37,12 +43,15 @@ const AddDrinkForm = () => {
       const { values: valuesFormC } = formCref.current;
 
       const data = {
-        ...valuesFormA,
-        ingredients: JSON.stringify(valuesFormB.ingredients),
+        ...formData,
+        alcoholic: valuesFormA.alcoholic,
+        category: valuesFormA.category,
+        glass: valuesFormA.glass,
+        ingredients: JSON.stringify(
+          valuesFormB.ingredients.filter((ing) => ing.ingredientId),
+        ),
         instructions: valuesFormC.instructions,
       };
-
-      console.log({ formData, data });
 
       dispatch(addMyDrink(data));
     }
