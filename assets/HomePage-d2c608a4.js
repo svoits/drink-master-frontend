@@ -1,4 +1,4 @@
-import{s as n,t as d,N as l,u as j,j as i,a as g,r as h,g as m,b as f,C as u,L as b,c as y}from"./index-7b4f4d67.js";import{C as D}from"./hero-img-desc-2x-e8906f30.js";import{P as v}from"./PageTitle-a660d629.js";const $=n.section`
+import{s as n,t as d,N as l,u as j,j as i,a as g,r as h,g as m,b as f,C as u,L as b,c as y}from"./index-1d07d95e.js";import{C as D}from"./hero-img-desc-2x-e8906f30.js";import{P as v}from"./PageTitle-4faddb5c.js";const $=n.section`
   padding-bottom: 80px;
 
   @media screen and (min-width: 768px) {
