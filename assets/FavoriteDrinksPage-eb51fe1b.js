@@ -1,4 +1,4 @@
-import{s as e,t as s,N as m,P as k,a as f,j as t,Q as v,u as y,r as c,U as D,C as P,L as S}from"./index-3c4cfd3d.js";import{D as F}from"./stub-f27fd4ad.js";import{C}from"./hero-img-desc-2x-e8906f30.js";import{P as z}from"./PageTitle-d4905bc6.js";import{P as I}from"./Paginator-8c2df6be.js";import{u as L}from"./useDrink-3b141143.js";const $=e.li`
+import{s as e,t as s,N as m,U as k,a as f,j as t,V as v,b as y,u as D,r as c,W as P,C as S,L as F}from"./index-c79e0293.js";import{D as C}from"./stub-50519d40.js";import{C as z}from"./hero-img-desc-2x-e8906f30.js";import{P as I}from"./PageTitle-e6eabedc.js";import{P as L}from"./Paginator-5d40705e.js";const $=e.li`
   margin-left: auto;
   margin-right: auto;
 `,A=e.img`
@@ -98,7 +98,7 @@ import{s as e,t as s,N as m,P as k,a as f,j as t,Q as v,u as y,r as c,U as D,C a
     width: 26px;
     height: 26px;
   }
-`,_=e.button`
+`,W=e.button`
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -124,7 +124,7 @@ import{s as e,t as s,N as m,P as k,a as f,j as t,Q as v,u as y,r as c,U as D,C a
     background-color: #f3f3f3;
     color: #161f37;
   }
-`;function Q({drink:i}){const n=f(),{_id:o,drink:r,alcoholic:d,drinkThumb:x,description:l}=i,a=()=>{n(v(o))};return t.jsxs($,{children:[t.jsx(A,{src:x||F,alt:r}),t.jsx(E,{children:r}),t.jsx(T,{children:d?"Alcoholic":"NonAlcoholic"}),t.jsx(M,{children:l}),t.jsxs(N,{children:[t.jsx(R,{to:`/drinks/${o}`,children:"See More"}),t.jsx(_,{onClick:a,children:t.jsx(B,{})})]})]})}const U=e.ul`
+`;function _({drink:i}){const n=f(),{_id:o,drink:r,alcoholic:d,drinkThumb:x,description:l}=i,a=()=>{n(v(o))};return t.jsxs($,{children:[t.jsx(A,{src:x||C,alt:r}),t.jsx(E,{children:r}),t.jsx(T,{children:d?"Alcoholic":"NonAlcoholic"}),t.jsx(M,{children:l}),t.jsxs(N,{children:[t.jsx(R,{to:`/drinks/${o}`,children:"See More"}),t.jsx(W,{onClick:a,children:t.jsx(B,{})})]})]})}const U=e.ul`
   display: grid;
   grid-row-gap: 40px;
   list-style: none;
@@ -140,7 +140,7 @@ import{s as e,t as s,N as m,P as k,a as f,j as t,Q as v,u as y,r as c,U as D,C a
     grid-template-columns: repeat(3, 1fr);
     margin-top: 62px;
   }
-`;function W({drinks:i}){return t.jsx(U,{children:Array.isArray(i)&&i.map(n=>t.jsx(Q,{drink:n},n._id))})}const Y=e.section`
+`;function V({drinks:i}){return t.jsx(U,{children:Array.isArray(i)&&i.map(n=>t.jsx(_,{drink:n},n._id))})}const Y=e.section`
   padding-top: 80px;
   padding-bottom: 80px;
 
@@ -204,4 +204,4 @@ import{s as e,t as s,N as m,P as k,a as f,j as t,Q as v,u as y,r as c,U as D,C a
     margin-top: 60px;
     margin-bottom: 80px;
   }
-`;function et(){const i=f(),{total:n,favoriteDrinks:o}=L(),{width:r}=y(),[d,x]=c.useState(""),[l,a]=c.useState(!0),[h,u]=c.useState(1),w=r<768?5:8,p=r<1440?8:9,b=g=>{u(g)};c.useEffect(()=>{a(!0),i(D({page:h,limit:p})).then(()=>a(!1)).catch(g=>{console.error(g),x("Something went wrong, please try later."),a(!1)})},[h,i,p]);const j=Math.ceil(n/p);return t.jsx(Y,{children:t.jsxs(P,{children:[t.jsx(z,{title:"Favorites"}),l&&t.jsx(S,{}),!o.length&&t.jsxs(q,{children:[t.jsx(H,{src:C,alt:"Cocktail"}),t.jsx(G,{children:"You have not added any cocktails yet"})]}),o.length>0&&t.jsx(J,{children:t.jsx(W,{drinks:o})}),d&&t.jsx("div",{children:d}),j>1&&t.jsx(I,{currentPage:h,drinksPerPage:p,totalDrinks:n,onPageChange:b,pageNumbersToShow:w})]})})}export{et as default};
+`;function tt(){const i=f(),{total:n,favoriteDrinks:o}=y(),{width:r}=D(),[d,x]=c.useState(""),[l,a]=c.useState(!0),[h,u]=c.useState(1),w=r<768?5:8,p=r<1440?8:9,b=g=>{u(g)};c.useEffect(()=>{a(!0),i(P({page:h,limit:p})).then(()=>a(!1)).catch(g=>{console.error(g),x("Something went wrong, please try later."),a(!1)})},[h,i,p]);const j=Math.ceil(n/p);return t.jsx(Y,{children:t.jsxs(S,{children:[t.jsx(I,{title:"Favorites"}),l&&t.jsx(F,{}),!o.length&&t.jsxs(q,{children:[t.jsx(H,{src:z,alt:"Cocktail"}),t.jsx(G,{children:"You have not added any cocktails yet"})]}),o.length>0&&t.jsx(J,{children:t.jsx(V,{drinks:o})}),d&&t.jsx("div",{children:d}),j>1&&t.jsx(L,{currentPage:h,drinksPerPage:p,totalDrinks:n,onPageChange:b,pageNumbersToShow:w})]})})}export{tt as default};
