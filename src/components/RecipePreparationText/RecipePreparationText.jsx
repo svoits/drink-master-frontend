@@ -24,10 +24,10 @@ const RecipePreparationText = ({
         innerRef={refId}
       >
         <Form>
-          <h2 htmlFor="instructions">Recipe Preparation</h2>
+          <RecipePreparationTitle htmlFor="instructions">Recipe Preparation</RecipePreparationTitle>
           <Field name="instructions">
             {({ field }) => (
-              <textarea
+              <StyledTextarea
                 {...field}
                 id="instructions"
                 placeholder="Enter the recipe"

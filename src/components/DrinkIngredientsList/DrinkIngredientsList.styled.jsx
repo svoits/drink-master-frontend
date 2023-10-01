@@ -4,7 +4,7 @@ export const IngredientsTitle = styled.h2`
   color: ${({ theme }) => theme.drinkPageSubtitle};
   font-size: 16px;
   font-weight: 500;
-  line-height: 20px;
+  line-height: 1.25;
   margin-top: 18px;
   margin-bottom: 0;
 

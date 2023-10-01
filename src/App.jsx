@@ -15,6 +15,7 @@ import WelcomePage from './pages/WelcomePage/WelcomePage';
 import SignupPage from './pages/SignupPage/SignupPage';
 import SigninPage from './pages/SigninPage/SigninPage';
 import { useAuth } from './redux/hooks/useAuth';
+import MotivationModal from './components/MotivationModal/MotivationModal';
 
 const Home = lazy(() => import('./pages/HomePage/HomePage'));
 const Drinks = lazy(() => import('./pages/DrinksPage/DrinksPage'));
@@ -70,6 +71,7 @@ function App() {
       )}
 
       <GlobalStyles />
+      <MotivationModal />
       <ToastContainer autoClose={2000} />
     </ThemeProvider>
   );

@@ -5,6 +5,10 @@ import DrinkDescriptionFields from '../DrinkDescriptionFields/DrinkDescriptionFi
 import DrinkIngredientsFields1 from '../DrinkIngredientsFields1/DrinkIngredientsFields1';
 import RecipePreparationText from '../RecipePreparationText';
 
+import { 
+  AddDrinkFormContainer,
+  AddDrinkFormBtn
+} from './AddDrinkForm.styled'
 const AddDrinkForm = () => {
   const dispatch = useDispatch();
   const formAref = useRef();
@@ -49,7 +53,7 @@ const AddDrinkForm = () => {
   };
 
   return (
-    <>
+    <AddDrinkFormContainer>
       <DrinkDescriptionFields
         formData={formData}
         setFormData={setFormData}
@@ -66,10 +70,10 @@ const AddDrinkForm = () => {
         refId={formCref}
       />
 
-      <button type="submit" onClick={handleSubmit}>
+      <AddDrinkFormBtn type="submit" onClick={handleSubmit}>
         Add
-      </button>
-    </>
+      </AddDrinkFormBtn>
+    </AddDrinkFormContainer>
   );
 };
 

@@ -7,7 +7,9 @@ import {
   getCategories,
   getGlasses,
 } from '../../redux/filters/filters-operation';
-import { AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai';
+// import { AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai';
+import {BsPlus} from 'react-icons/bs';
+import {BiMinus} from 'react-icons/bi';
 import {
   FormContainer,
   AddPhotoButton,
@@ -24,6 +26,7 @@ import {
   RadioButtonDiv,
   RadioLabel,
   RadioField,
+  RadioSpan
 } from './DrinkDescriptionFields.styled';
 
 const style = {
@@ -128,7 +131,7 @@ const DrinkDescriptionFields = ({ formData, setFormData, refId }) => {
               </button>
             ) : (
               <AddPhotoButton type="button">
-                <AiOutlinePlus style={style} />
+                <BsPlus style={style} />
 
                 <span>Add image</span>
               </AddPhotoButton>
