@@ -23,17 +23,19 @@ export const StyledBox = styled(Box)`
 
   background-size: cover;
   background-repeat: no-repeat;
+  background-position: top center;
   border-radius: 16px;
   box-shadow: 0px 4px 48px 0px rgba(0, 0, 0, 0.1);
-  padding: 25px;
+  /* padding: 25px;
   padding-top: 50px;
-  padding-bottom: 50px;
+  padding-bottom: 50px; */
   width: 100vh;
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
   @media (min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {
@@ -68,7 +70,6 @@ export const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
 `;
-// export const VectorDecor = styled(vector)`
-//   color: rgba(217, 217, 217, 0.14);
-//   filter: blur(27.976364135742188px);
-// `;
+export const Wrap = styled.div`
+  position: absolute;
+`;

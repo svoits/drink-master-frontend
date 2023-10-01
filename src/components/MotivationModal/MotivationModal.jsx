@@ -3,11 +3,11 @@ import MuiModal from '@mui/material/Modal';
 import Fade from '@mui/material/Fade';
 import { IoClose } from 'react-icons/io5';
 
-import { StyledBox, CloseBtn, Wrapper } from './MotivationModal.styled';
+import { StyledBox, CloseBtn, Wrapper, Wrap } from './MotivationModal.styled';
 // import MotivationModalIcon from '../MotivationModalIcon/MotivationModalIcon';
 import MotivationModalText from '../MotivationModalText/MotivationModalText';
 import Vector from '../../images/motivation/Vector.png';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useDrink } from "../../redux/hooks/useDrink";
 
 
@@ -40,25 +40,28 @@ const urlImg = randomImages();
 export default function MotivationModal() {
 
 const { favoriteDrinks } = useDrink();
-    let isOpen = favoriteDrinks.length === 1;
+    // let isOpen = favoriteDrinks.length === 1;
     // const isOpen = true;
-    console.log(isOpen)
+ 
 
     const [isOpenMotivation, setIsOpenMotivation] = useState(false);
-    console.log(isOpenMotivation);
-    console.log(setIsOpenMotivation);
-
-const handleClose=() => {
-    setIsOpenMotivation((state) => !state);
-    isOpen = false;
-    
+    const handleClose = () => {
+    setIsOpenMotivation(false);
   };
+
+
+  useEffect(() => {
+    if (favoriteDrinks.length === 1) {
+      setIsOpenMotivation(true);
+    }
+  }, [favoriteDrinks]);
+
+  
+  
   
     return (
         <MuiModal
-            
-    open={isOpen}
-    
+    open={isOpenMotivation}
     onClose={handleClose}
     closeAfterTransition
     slots={{ backdrop: Backdrop }}
@@ -68,9 +71,9 @@ const handleClose=() => {
         },
       }}
     >
-      <Fade in={isOpen}>
+      <Fade in={isOpenMotivation}>
         <StyledBox background={urlImg}>
-          <section>
+          <section >
             <Wrapper>
               
               <img
@@ -81,11 +84,13 @@ const handleClose=() => {
                     backdropFilter: 'blur(27.976364135742188px)',
                     
                 }}
-              />
+                />
+                <Wrap>
               <MotivationModalText title="Wow! You have added the first recipe to your favorites!" />
               <CloseBtn onClick={handleClose}>
                 <IoClose size={28} />
-              </CloseBtn>
+                  </CloseBtn>
+                </Wrap>
             </Wrapper>
           </section>
         </StyledBox>
