@@ -1,9 +1,9 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-// import {
-//   RecipePreparationTitle,
-//   StyledTextarea,
-// } from './RecipePreparationText.styled';
+import {
+  RecipePreparationTitle,
+  StyledTextarea,
+} from './RecipePreparationText.styled';
 
 const validationSchema = Yup.object().shape({
   instructions: Yup.string().min(

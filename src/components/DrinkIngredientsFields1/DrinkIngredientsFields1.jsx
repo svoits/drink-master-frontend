@@ -1,7 +1,7 @@
 // Один і той же компонент DrinkIngredientsFields1
 import { getIngredients } from '../../redux/filters/filters-operation';
 import { useEffect } from 'react';
-// import { useState } from 'react';
+import { useState } from 'react';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { Formik, FieldArray } from 'formik';
@@ -57,6 +57,7 @@ const DrinkIngredientsFields1 = ({
   const maxIngredientCount = 10;
   const dispatch = useDispatch();
   const ingredientsList = useSelector((state) => state.filters.ingredients);
+  // eslint-disable-next-line no-undef
   const [ingredientsCount, setIngredientsCount] = useState(
     formData.ingredients.length,
   );

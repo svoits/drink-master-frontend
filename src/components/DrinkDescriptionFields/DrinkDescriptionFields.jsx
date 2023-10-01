@@ -7,7 +7,7 @@ import {
   getCategories,
   getGlasses,
 } from '../../redux/filters/filters-operation';
-// import { AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai';
+import { AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai';
 import {BsPlus} from 'react-icons/bs';
 import {BiMinus} from 'react-icons/bi';
 import {
@@ -142,13 +142,13 @@ const DrinkDescriptionFields = ({ formData, setFormData, refId }) => {
 
           <SearchandRarioDiv>
             <SearchContainer>
-              <SearchDrinkInput
-                name="drink"
-                value={formData.drink}
-                onChange={handleChange}
-                placeholder="Enter item drink"
-              />
-              <ErrorMessage name="drink" component="div" />
+            <SearchDrinkInput
+              name="drink"
+              value={formData.drink}
+              onChange={handleChange}
+              placeholder="Enter item drink"
+            />
+            <ErrorMessage name="drink" component="div" />
 
               <SearchDrinkInput
                 name="description"
