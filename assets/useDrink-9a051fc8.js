@@ -1,1 +1,0 @@
-import{d as s}from"./index-e7266b2e.js";import{c as i,s as c,d as k,e as l,f as D,a as d}from"./PageTitle-e6c3863d.js";const g=()=>{const r=s(i),e=s(c),t=s(k),n=s(l),o=s(D),a=s(d);return{isLoading:r,drinks:e,mainPageDrinks:t,error:n,total:o,favoriteDrinks:a}};export{g as u};
