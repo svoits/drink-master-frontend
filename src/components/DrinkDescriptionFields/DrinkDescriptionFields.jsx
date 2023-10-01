@@ -1,6 +1,6 @@
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import Select from 'react-select';
+
 import makeAnimated from 'react-select/animated';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
@@ -8,7 +8,9 @@ import {
   getCategories,
   getGlasses,
 } from '../../redux/filters/filters-operation';
-import { AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai';
+// import { AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai';
+import {BsPlus} from 'react-icons/bs';
+import {BiMinus} from 'react-icons/bi';
 import {
   FormContainer,
   AddPhotoButton,
@@ -25,6 +27,7 @@ import {
   RadioButtonDiv,
   RadioLabel,
   RadioField,
+  RadioSpan
 } from './DrinkDescriptionFields.styled';
 
 const style = {
@@ -109,13 +112,13 @@ const DrinkDescriptionFields = ({ formData, setFormData, handleSubmit }) => {
               style={{ display: 'none' }}
             />
             {isImageSelected ? (
-              <button type="button" onClick={handleImageDelete}>
-                <AiOutlineMinus />
+              <AddPhotoButton type="button" onClick={handleImageDelete}>
+                <BiMinus style={style} />
                 Delete image
-              </button>
+              </AddPhotoButton>
             ) : (
               <AddPhotoButton type="button">
-                <AiOutlinePlus style={style} />
+                <BsPlus style={style} />
 
                 <span>Add image</span>
               </AddPhotoButton>
@@ -225,7 +228,7 @@ const DrinkDescriptionFields = ({ formData, setFormData, handleSubmit }) => {
             <RadioButtonDiv>
               <RadioLabel>
                 <RadioField type="radio" name="strength" value="alcoholic" />
-                <span>Alcoholic</span>
+                <RadioSpan>Alcoholic</RadioSpan>
               </RadioLabel>
 
               <RadioLabel>
