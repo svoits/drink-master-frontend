@@ -82,12 +82,15 @@ const DrinkIngredientsFields1 = ({
         <SearchDrinkForm>
           <FieldArray
             name="ingredients"
-            render={() => (
+            render={(arrayHelpers, index) => (
               <>
-                <div >
+                <div>
                 <button
                   type="button"
-                  onClick={() => handleRemoveIngredient()}
+                onClick={() => {
+                  handleRemoveIngredient();
+                  arrayHelpers.remove(index);
+                }}
                 >
                   -
                 </button>
@@ -160,7 +163,11 @@ const DrinkIngredientsFields1 = ({
                             />
                           </label>
                           </IngredientsDIV>
-                          <button type="button" onClick={() => handleRemoveIngredient()}>
+                          <button type="button" 
+                            onClick={() => {
+                              handleRemoveIngredient();
+                              arrayHelpers.remove(index);
+                            }}>
                             <IoMdClose />
                           </button>
                         </ListDIV>
