@@ -225,11 +225,7 @@ const DrinkDescriptionFields = ({ formData, setFormData, refId }) => {
                       name={field.name}
                       id="glass"
                       {...field}
-                      value={
-                        selectedGlass
-                          ? { value: selectedGlass, label: selectedGlass }
-                          : ''
-                      }
+                      value={selectedGlass ? { value: selectedGlass, label: selectedGlass } : ''}
                       onChange={(selectedOption) => {
                         if (selectedOption) {
                           setSelectedGlass(selectedOption.value);

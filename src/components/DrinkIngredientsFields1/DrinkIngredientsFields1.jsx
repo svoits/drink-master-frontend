@@ -44,19 +44,7 @@ const DrinkIngredientsFields1 = ({ formData, setFormData, refId }) => {
 
   useEffect(() => {
     dispatch(getIngredients());
-
-    if (ingredientsCount < 3) {
-      const initialIngredients = [];
-      for (let i = 0; i < 3; i++) {
-        initialIngredients.push({ ingredient: '', measure: '', quantity: '' });
-      }
-      setFormData((prevState) => ({
-        ...prevState,
-        ingredients: [...prevState.ingredients, ...initialIngredients],
-      }));
-      setIngredientsCount(3);
-    }
-  }, [dispatch, ingredientsCount, setFormData]);
+  }, [dispatch]);
 
   const handleAddIngredient = () => {
     if (ingredientsCount < maxIngredientCount) {
