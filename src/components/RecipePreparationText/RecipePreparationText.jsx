@@ -29,7 +29,7 @@ const RecipePreparationText = ({
             {({ field }) => (
               <textarea
                 {...field}
-                id="textareaValue"
+                id="instructions"
                 placeholder="Enter the recipe"
               />
             )}
