@@ -368,8 +368,32 @@ export const RadioLabel = styled.label`
 `;
 
 export const RadioField = styled(Field)`
- 
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #f3f3f3;
+  border-radius: 50%;
+  background-color: transparent;
+
+  cursor: pointer;
+  position: relative;
+
+  &:checked::before {
+    content: '';
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    right: 4px;
+    bottom: 4px;
+    background-color: #f3f3f3;
+    border-radius: 50%;
+  }
+
+  &:not(:checked) {
+    border: 2px solid rgba(243, 243, 243, 0.5);
+  }
 `;
+
 export const RadioSpan = styled.span`
   // &::before {
   //   width: 24px;
