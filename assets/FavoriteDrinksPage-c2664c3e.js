@@ -1,4 +1,4 @@
-import{s as e,t as s,N as g,U as k,a as f,j as i,V as v,u as y,r as c,W as D,C as P,L as S}from"./index-2fed0ace.js";import{D as F}from"./stub-8870aed9.js";import{C as z}from"./hero-img-desc-2x-e8906f30.js";import{P as C}from"./PageTitle-d6040374.js";import{P as I}from"./Paginator-1ad691c9.js";import{u as L}from"./useDrink-39444c19.js";import"./drinks-selectors-db0f3074.js";const $=e.li`
+import{s as e,t as s,N as g,P as k,a as f,j as i,Q as v,u as y,r as c,U as D,C as P,L as S}from"./index-62df3d71.js";import{D as F}from"./stub-6d3cf7f1.js";import{C as z}from"./hero-img-desc-2x-e8906f30.js";import{P as C}from"./PageTitle-e9f999ea.js";import{P as I}from"./Paginator-0365bd68.js";import{u as L}from"./useDrink-13dd26e1.js";import"./drinks-selectors-db0f3074.js";const $=e.li`
   margin-left: auto;
   margin-right: auto;
 `,A=e.img`
@@ -98,7 +98,7 @@ import{s as e,t as s,N as g,U as k,a as f,j as i,V as v,u as y,r as c,W as D,C a
     width: 26px;
     height: 26px;
   }
-`,W=e.button`
+`,_=e.button`
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -124,7 +124,7 @@ import{s as e,t as s,N as g,U as k,a as f,j as i,V as v,u as y,r as c,W as D,C a
     background-color: #f3f3f3;
     color: #161f37;
   }
-`;function _({drink:n}){const t=f(),{_id:o,drink:r,alcoholic:d,drinkThumb:x,description:l}=n,a=()=>{t(v(o))};return i.jsxs($,{children:[i.jsx(A,{src:x||F,alt:r}),i.jsx(E,{children:r}),i.jsx(T,{children:d?"Alcoholic":"NonAlcoholic"}),i.jsx(M,{children:l}),i.jsxs(N,{children:[i.jsx(R,{to:`/drinks/${o}`,children:"See More"}),i.jsx(W,{onClick:a,children:i.jsx(B,{})})]})]})}const U=e.ul`
+`;function Q({drink:n}){const t=f(),{_id:o,drink:r,alcoholic:d,drinkThumb:x,description:l}=n,a=()=>{t(v(o))};return i.jsxs($,{children:[i.jsx(A,{src:x||F,alt:r}),i.jsx(E,{children:r}),i.jsx(T,{children:d?"Alcoholic":"NonAlcoholic"}),i.jsx(M,{children:l}),i.jsxs(N,{children:[i.jsx(R,{to:`/drinks/${o}`,children:"See More"}),i.jsx(_,{onClick:a,children:i.jsx(B,{})})]})]})}const U=e.ul`
   display: grid;
   grid-row-gap: 40px;
   list-style: none;
@@ -140,7 +140,7 @@ import{s as e,t as s,N as g,U as k,a as f,j as i,V as v,u as y,r as c,W as D,C a
     grid-template-columns: repeat(3, 1fr);
     margin-top: 62px;
   }
-`;function V({drinks:n}){return i.jsx(U,{children:Array.isArray(n)&&n.map(t=>i.jsx(_,{drink:t},t._id))})}const Y=e.section`
+`;function W({drinks:n}){return i.jsx(U,{children:Array.isArray(n)&&n.map(t=>i.jsx(Q,{drink:t},t._id))})}const Y=e.section`
   padding-top: 80px;
   padding-bottom: 80px;
 
@@ -211,4 +211,4 @@ import{s as e,t as s,N as g,U as k,a as f,j as i,V as v,u as y,r as c,W as D,C a
     margin-top: 60px;
     margin-bottom: 80px;
   }
-`;function ti(){const n=f(),{total:t,favoriteDrinks:o}=L(),{width:r}=y(),[d,x]=c.useState(""),[l,a]=c.useState(!0),[h,u]=c.useState(1),w=r<768?5:8,p=r<1440?8:9,b=m=>{u(m)};c.useEffect(()=>{a(!0),n(D({page:h,limit:p})).then(()=>a(!1)).catch(m=>{console.error(m),x("Something went wrong, please try later."),a(!1)})},[h,n,p]);const j=Math.ceil(t/p);return i.jsx(Y,{children:i.jsxs(P,{children:[i.jsx(C,{title:"Favorites"}),l&&i.jsx(S,{}),t===0&&i.jsxs(q,{children:[i.jsx(H,{src:z,alt:"Cocktail"}),i.jsx(G,{children:"You have not added any cocktails yet"})]}),o.length&&i.jsx(J,{children:i.jsx(V,{drinks:o})}),d&&i.jsx("div",{children:d}),j>1&&i.jsx(I,{currentPage:h,drinksPerPage:p,totalDrinks:t,onPageChange:b,pageNumbersToShow:w})]})})}export{ti as default};
+`;function ti(){const n=f(),{total:t,favoriteDrinks:o}=L(),{width:r}=y(),[d,x]=c.useState(""),[l,a]=c.useState(!0),[h,u]=c.useState(1),w=r<768?5:8,p=r<1440?8:9,b=m=>{u(m)};c.useEffect(()=>{a(!0),n(D({page:h,limit:p})).then(()=>a(!1)).catch(m=>{console.error(m),x("Something went wrong, please try later."),a(!1)})},[h,n,p]);const j=Math.ceil(t/p);return i.jsx(Y,{children:i.jsxs(P,{children:[i.jsx(C,{title:"Favorites"}),l&&i.jsx(S,{}),t===0&&i.jsxs(q,{children:[i.jsx(H,{src:z,alt:"Cocktail"}),i.jsx(G,{children:"You have not added any cocktails yet"})]}),o.length&&i.jsx(J,{children:i.jsx(W,{drinks:o})}),d&&i.jsx("div",{children:d}),j>1&&i.jsx(I,{currentPage:h,drinksPerPage:p,totalDrinks:t,onPageChange:b,pageNumbersToShow:w})]})})}export{ti as default};

@@ -1,4 +1,4 @@
-import{s as i,j as t}from"./index-2fed0ace.js";const n=i.h1`
+import{s as i,j as t}from"./index-62df3d71.js";const n=i.h1`
   color: ${({theme:e})=>e.mainText};
   font-size: 32px;
   font-weight: 600;
