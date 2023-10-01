@@ -52,12 +52,8 @@ export const MainTitle = styled.h1`
 `;
 
 export const MainDescr = styled.p`
-  max-width: 335px;
-
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
   line-height: 1.4;
+  margin-top: 16px;
   margin-bottom: 32px;
 
   @media screen and (min-width: 768px) {
@@ -76,11 +72,10 @@ export const MainDescr = styled.p`
 `;
 
 export const MainLink = styled(Link)`
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 151px;
-  height: 46px;
+  padding: 12px 42px;
   border-radius: 42px;
   background: #f3f3f3;
   background: ${({ theme }) => theme.userPopupBtnText};
@@ -88,13 +83,11 @@ export const MainLink = styled(Link)`
   color: #161f37;
   color: ${({ theme }) => theme.userPopupText};
 
-  font-size: 14px;
-  font-style: normal;
   font-weight: 600;
-  line-height: 18px;
+  line-height: 1.285;
   border: 2px solid transparent;
   transition: color ${transition};
-  transition: background ${transition};
+  transition: background-color ${transition};
 
   @media screen and (min-width: 768px) {
     font-size: 16px;

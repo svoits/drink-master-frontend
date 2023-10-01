@@ -2,9 +2,14 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import transition from '../../utils/transition';
 
+export const MainWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  row-gap: 40px;
+`;
 
 export const CategoryDrinksDiv = styled.div`
-  margin-bottom: 40px;
+  /* margin-bottom: 40px; */
 
   @media screen and (min-width: 768px) {
     margin-bottom: 80px;
@@ -19,27 +24,25 @@ export const DrinkCategoryTitle = styled.h2`
 `;
 
 export const CategoryDrinksLIST = styled.ul`
- 
   flex-wrap: wrap;
   align-content: center;
   justify-content: center;
   align-items: center;
-  
 
   @media screen and (min-width: 768px) {
     display: flex;
-    gap:20px;
+    gap: 20px;
   }
 `;
 
 export const CategoryDrinksITEM = styled.li`
-  width: 335px;
-  height: 360px;
+  width: 100%;
 `;
 
 export const CategoryDrinksIMG = styled.img`
-  width: 335px;
+  width: 100%;
   height: 360px;
+  object-fit: cover;
   border-radius: 8px;
 `;
 
@@ -52,11 +55,9 @@ export const CategoryDrinksP = styled.p`
   line-height: 18px;
   letter-spacing: 0em;
   text-align: left;
- 
 `;
 
 export const CategoryDrinksLink = styled(NavLink)`
-  
   font-family: Manrope;
   font-size: 14px;
   font-weight: 500;
@@ -64,7 +65,6 @@ export const CategoryDrinksLink = styled(NavLink)`
   letter-spacing: 0em;
   text-align: right;
   color: ${({ theme }) => theme.subTitleText};
-  
 `;
 
 export const CategoryDrinksTEXTDIV = styled.div`
@@ -80,7 +80,6 @@ export const CategoryDrinkToDrink = styled(NavLink)`
   min-height: 46px;
   margin: 60px auto;
   padding: 14px 40px;
-
 
   background: ${({ theme }) => theme.hoverBackgroundColorLink};
   color: ${({ theme }) => theme.themeSwitcher};
@@ -106,4 +105,4 @@ export const CategoryDrinkToDrink = styled(NavLink)`
     color: rgba(243, 243, 243, 0.2);
     background: #434d67;
   }
-`
+`;
