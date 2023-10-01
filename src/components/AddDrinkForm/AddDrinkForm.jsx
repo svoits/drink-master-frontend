@@ -1,10 +1,9 @@
-import { useDispatch } from 'react-redux';
-import { useState, useRef, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useState, useRef } from 'react';
 import { addMyDrink } from '../../redux/drinks/drinks-operations';
 import DrinkDescriptionFields from '../DrinkDescriptionFields/DrinkDescriptionFields';
-// import DrinkIngredientsFields from '../DrinkIngredientsFields';
-import RecipePreparationText from '../RecipePreparationText/RecipePreparationText';
 import DrinkIngredientsFields1 from '../DrinkIngredientsFields1/DrinkIngredientsFields1';
+import RecipePreparationText from '../RecipePreparationText';
 
 import { 
   AddDrinkFormContainer,
@@ -12,14 +11,20 @@ import {
 } from './AddDrinkForm.styled'
 const AddDrinkForm = () => {
   const dispatch = useDispatch();
+  const birthDate = useSelector((state) => state.auth.user.birthDate);
+
   const formAref = useRef();
   const formBref = useRef();
   const formCref = useRef();
 
+  const currentDate = new Date();
+  const userBirthDate = new Date(birthDate);
+  const ageDiff = currentDate.getFullYear() - userBirthDate.getFullYear();
+
   const [formData, setFormData] = useState({
     drink: '',
     description: '',
-    alcoholic: '',
+    alcoholic: ageDiff >= 18 ? 'Alcoholic' : 'Non alcoholic',
     category: '',
     glass: '',
     instructions: '',
@@ -28,37 +33,34 @@ const AddDrinkForm = () => {
       { ingredientId: '', measure: '', quantity: '' },
       { ingredientId: '', measure: '', quantity: '' },
       { ingredientId: '', measure: '', quantity: '' },
-      // {
-      //   _id: '65172c12b39fc60288e8037a',
-      //   title: 'Dark rum',
-      //   measure: '1 1/2 oz ',
-      //   ingredientId: '64aebb7f82d96cc69e0eb4a7',
-      // },
     ],
   });
 
   const handleSubmit = () => {
-    formAref.current.handleSubmit();
-    formBref.current.handleSubmit();
-    formCref.current.handleSubmit();
+    if (formAref.current && formBref.current && formCref.current) {
+      formAref.current.handleSubmit();
+      formBref.current.handleSubmit();
+      formCref.current.handleSubmit();
 
-    const { values } = formAref.current;
-    const { values: valuesPrep } = formCref.current;
-    const { values: valuesIng } = formBref.current;
-    // console.log(valuesIng);
-    const data = {
-      ...values,
+      const { values: valuesFormA } = formAref.current;
+      const { values: valuesFormB } = formBref.current;
+      const { values: valuesFormC } = formCref.current;
 
-      // Stringify ingredients field to make it work with API
-      ingredients: JSON.stringify(formData.ingredients),
-      drinkThumb: formData.drinkThumb,
-      instructions: valuesPrep.instructions,
-    };
+      const data = {
+        ...formData,
+        alcoholic: valuesFormA.alcoholic,
+        category: valuesFormA.category,
+        glass: valuesFormA.glass,
+        ingredients: JSON.stringify(
+          valuesFormB.ingredients.filter((ing) => ing.ingredientId),
+        ),
+        instructions: valuesFormC.instructions,
+      };
 
-    console.log({ formData, valuesPrep, valuesIng, data });
-
-    dispatch(addMyDrink(data));
+      dispatch(addMyDrink(data));
+    }
   };
+  
 
   return (
     <AddDrinkFormContainer>
@@ -67,11 +69,6 @@ const AddDrinkForm = () => {
         setFormData={setFormData}
         refId={formAref}
       />
-      {/* <DrinkIngredientsFields
-        formData={formData}
-        setFormData={setFormData}
-        refId={formBref}
-      /> */}
       <DrinkIngredientsFields1
         formData={formData}
         setFormData={setFormData}
@@ -83,7 +80,7 @@ const AddDrinkForm = () => {
         refId={formCref}
       />
 
-      <AddDrinkFormBtn type="button" onClick={handleSubmit}>
+      <AddDrinkFormBtn type="submit" onClick={handleSubmit}>
         Add
       </AddDrinkFormBtn>
     </AddDrinkFormContainer>

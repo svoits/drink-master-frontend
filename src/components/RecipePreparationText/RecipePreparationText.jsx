@@ -14,16 +14,14 @@ const validationSchema = Yup.object().shape({
 
 const RecipePreparationText = ({
   formData,
-  setFormData,
-  handleSubmit,
   refId,
 }) => {
   return (
     <>
       <Formik
-        innerRef={refId}
         initialValues={formData}
-        // validationSchema={validationSchema}
+        validationSchema={validationSchema}
+        innerRef={refId}
       >
         <Form>
           <RecipePreparationTitle htmlFor="instructions">Recipe Preparation</RecipePreparationTitle>
@@ -31,7 +29,7 @@ const RecipePreparationText = ({
             {({ field }) => (
               <StyledTextarea
                 {...field}
-                id="textareaValue"
+                id="instructions"
                 placeholder="Enter the recipe"
               />
             )}

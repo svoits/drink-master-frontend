@@ -1,6 +1,7 @@
+// Один і той же компонент DrinkIngredientsFields1
 import { getIngredients } from '../../redux/filters/filters-operation';
 import { useEffect } from 'react';
-// import { useState } from 'react';
+import { useState } from 'react';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { Formik, FieldArray } from 'formik';
@@ -56,21 +57,18 @@ const DrinkIngredientsFields1 = ({
   const maxIngredientCount = 10;
   const dispatch = useDispatch();
   const ingredientsList = useSelector((state) => state.filters.ingredients);
-  let ingredientsCount = formData.ingredients.length;
-  // const ingredientsList = formData.ingredients;
-  console.log(ingredientsList);
+  // eslint-disable-next-line no-undef
+  const [ingredientsCount, setIngredientsCount] = useState(
+    formData.ingredients.length,
+  );
+
   const handleFieldChange = (field, val, index) => {
-    const ing = formData.ingredients[index];
-
-    if (ing) {
-      // console.log(val);
-
-      const ingredients = [...formData.ingredients];
-      ingredients[index][field] = val;
-
-      // console.log('ingredients', _.clone(ingredients));
-      setFormData({ ...formData, ingredients });
-    }
+    const ingredients = [...formData.ingredients];
+    ingredients[index][field] = val;
+    setFormData(prevFormData => ({
+      ...prevFormData,
+      ingredients,
+    }));
   };
 
   useEffect(() => {
@@ -79,19 +77,35 @@ const DrinkIngredientsFields1 = ({
 
   const handleAddIngredient = () => {
     if (ingredientsCount < maxIngredientCount) {
-      return (ingredientsCount += 1);
+      setFormData((prevState) => ({
+        ...prevState,
+        ingredients: [
+          ...prevState.ingredients,
+          { ingredient: '', measure: '', quantity: '' },
+        ],
+      }));
+      setIngredientsCount(ingredientsCount + 1);
     }
   };
 
-  const handleRemoveIngredient = () => {
+  const handleRemoveIngredient = (index) => {
     if (ingredientsCount > 1) {
-      return (ingredientsCount -= 1);
+      const updatedIngredients = [...formData.ingredients];
+      updatedIngredients.splice(index, 1);
+
+      setFormData((prevState) => ({
+        ...prevState,
+        ingredients: updatedIngredients,
+      }));
+
+      setIngredientsCount(ingredientsCount - 1);
     }
   };
+
   return (
     <DrinkIngredientsFieldsDiv>
       <SearchDrinkTitle>Ingredients</SearchDrinkTitle>
-      <Formik initialValues={{ ...formData }} innerRef={refId}>
+      <Formik initialValues={formData} innerRef={refId}>
         <SearchDrinkForm>
           <FieldArray
             name="ingredients"
@@ -149,30 +163,30 @@ const DrinkIngredientsFields1 = ({
                             />
                           </label>
                           <IngredientsDIV>
-                          <IngredientsInput
-                            name={`ingredients[${index}].quantity`}
-                            value={ingredient.quantity}
-                            onChange={(e) =>
-                              handleFieldChange(
-                                'quantity',
-                                parseInt(e.target.value, 10),
-                                index,
-                              )
-                            }
-                          />
-                          <label htmlFor={`ingredients[${index}].measure`}>
-                            <StyledSelectCL
-                              className="basic-single"
-                              classNamePrefix="Select"
-                              options={measures}
-                              name={`ingredients[${index}].measure`}
-                              value={measureVal}
-                              onChange={({ value }) =>
-                                handleFieldChange('measure', value, index)
+                            <IngredientsInput
+                              name={`ingredients[${index}].quantity`}
+                              value={ingredient.quantity || ''}
+                              onChange={(e) =>
+                                handleFieldChange(
+                                  'quantity',
+                                  parseInt(e.target.value, 10),
+                                  index,
+                                )
                               }
-                              placeholder="cl"
                             />
-                          </label>
+                            <label htmlFor={`ingredients[${index}].measure`}>
+                              <StyledSelectCL
+                                className="basic-single"
+                                classNamePrefix="Select"
+                                options={measures}
+                                name={`ingredients[${index}].measure`}
+                                value={measureVal || ''}
+                                onChange={({ value }) =>
+                                  handleFieldChange('measure', value, index)
+                                }
+                                placeholder="cl"
+                              />
+                            </label>
                           </IngredientsDIV>
                           </SelectorsDIV>
 
