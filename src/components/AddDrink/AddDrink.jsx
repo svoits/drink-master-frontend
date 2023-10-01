@@ -6,8 +6,8 @@ import {
   ImageWrap,
   MainDescr,
   MainLink,
-  MainTitle,
   MainWrap,
+  SectionContainer,
   SectionWrap,
 } from './AddDrink.styled';
 
@@ -21,7 +21,7 @@ import PageTitle from '../PageTitle/PageTitle';
 
 export default function AddDrink() {
   return (
-    <section>
+    <SectionContainer>
       <Container>
         <SectionWrap>
           <MainWrap>
@@ -37,7 +37,6 @@ export default function AddDrink() {
           </MainWrap>
 
           <ImageWrap>
-            <ImageBgYellow></ImageBgYellow>
             <picture>
               <source
                 media="(min-width:1200px)"
@@ -57,6 +56,6 @@ export default function AddDrink() {
           </ImageWrap>
         </SectionWrap>
       </Container>
-    </section>
+    </SectionContainer>
   );
 }

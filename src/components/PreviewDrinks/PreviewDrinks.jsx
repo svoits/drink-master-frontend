@@ -11,6 +11,7 @@ import {
   CategoryDrinksDiv,
   CategoryDrinkToDrink,
   MainWrapper,
+  SectionContainer,
 } from './PreviewDrinks.styled';
 import { Container } from '../Container/Container.styled';
 
@@ -27,7 +28,7 @@ export const PreviewDrinks = () => {
 
   return (
     <>
-      <section>
+      <SectionContainer>
         <Container>
           <MainWrapper>
             {isLoading ? (
@@ -46,13 +47,12 @@ export const PreviewDrinks = () => {
               ))
             )}
           </MainWrapper>
-          <div>
-            <CategoryDrinkToDrink to={`/drinks`}>
-              Other drinks
-            </CategoryDrinkToDrink>
-          </div>
+
+          <CategoryDrinkToDrink to={`/drinks`}>
+            Other drinks
+          </CategoryDrinkToDrink>
         </Container>
-      </section>
+      </SectionContainer>
     </>
   );
 };
