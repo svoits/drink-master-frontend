@@ -1,10 +1,6 @@
 import { useDrink } from '../../redux/hooks/useDrink';
 import { ItemDrink } from './ItemDrink';
 import Loader from '../Loader/Loader';
-import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { getMainPageAllDrinks } from '../../redux/drinks/drinks-operations';
-
 import {
   CategoryDrinksLIST,
   DrinkCategoryTitle,
@@ -14,15 +10,14 @@ import {
   SectionContainer,
 } from './PreviewDrinks.styled';
 import { Container } from '../Container/Container.styled';
+import { useResize } from '../../hooks/useResize';
 
 export const PreviewDrinks = () => {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getMainPageAllDrinks());
-  }, [dispatch]);
-
   const { mainPageDrinks, isLoading, error } = useDrink();
+
+  const { width } = useResize();
+
+  const drinksToRender = width < 768 ? 1 : width < 1440 ? 2 : 3;
 
   const drinksCategory = Object.keys(mainPageDrinks).slice(0, 4);
 
@@ -39,9 +34,11 @@ export const PreviewDrinks = () => {
                 <CategoryDrinksDiv key={idx}>
                   <DrinkCategoryTitle>{category} </DrinkCategoryTitle>
                   <CategoryDrinksLIST>
-                    {mainPageDrinks[category].map((item, i) => (
-                      <ItemDrink key={item._id} item={item} idx={i} />
-                    ))}
+                    {mainPageDrinks[category]
+                      .slice(0, drinksToRender)
+                      .map((item) => (
+                        <ItemDrink key={item._id} item={item} />
+                      ))}
                   </CategoryDrinksLIST>
                 </CategoryDrinksDiv>
               ))
