@@ -27,23 +27,25 @@ const AddDrinkForm = () => {
   });
 
   const handleSubmit = () => {
-    formAref.current.handleSubmit();
-    formBref.current.handleSubmit();
-    formCref.current.handleSubmit();
-
-    const { values } = formAref.current;
-    const { values: valuesPrep } = formCref.current;
-    const { values: valuesIng } = formBref.current;
-    const data = {
-      ...values,
-      ingredients: JSON.stringify(formData.ingredients),
-      drinkThumb: formData.drinkThumb,
-      instructions: valuesPrep.instructions,
-    };
-
-    console.log({ formData, valuesPrep, valuesIng, data });
-
-    dispatch(addMyDrink(data));
+    if (formAref.current && formBref.current && formCref.current) {
+      formAref.current.handleSubmit();
+      formBref.current.handleSubmit();
+      formCref.current.handleSubmit();
+    
+      const { values } = formAref.current;
+      const { values: valuesPrep } = formCref.current;
+      const { values: valuesIng } = formBref.current;
+      const data = {
+        ...values,
+        ingredients: JSON.stringify(formData.ingredients),
+        drinkThumb: formData.drinkThumb,
+        instructions: valuesPrep.instructions,
+      };
+    
+      console.log({ formData, valuesPrep, valuesIng, data });
+    
+      dispatch(addMyDrink(data));
+    }
   };
 
   return (
