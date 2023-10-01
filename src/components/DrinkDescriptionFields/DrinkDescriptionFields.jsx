@@ -54,15 +54,17 @@ const validationSchema = Yup.object().shape({
 
 const animatedComponents = makeAnimated();
 
-const DrinkDescriptionFields = ({ formData, setFormData, handleSubmit }) => {
+const DrinkDescriptionFields = ({ formData, setFormData, innerRef }) => {
   const dispatch = useDispatch();
   const categories = useSelector((state) => state.filters.categories);
   const glasses = useSelector((state) => state.filters.glasses);
+  const birthDate = useSelector((state) => state.auth.user.birthDate);
+  
   const [imagePreview, setImagePreview] = useState(null);
   const [isImageSelected, setIsImageSelected] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [selectedGlass, setSelectedGlass] = useState('');
-  const birthDate = useSelector((state) => state.auth.user.birthDate);
+
   const currentDate = new Date();
   const userBirthDate = new Date(birthDate);
   const ageDiff = currentDate.getFullYear() - userBirthDate.getFullYear();
@@ -91,7 +93,7 @@ const DrinkDescriptionFields = ({ formData, setFormData, handleSubmit }) => {
   const handleImageDelete = () => {
     setFormData({
       ...formData,
-      drinkThumb: null,
+      drinkThumb: '',
     });
     setImagePreview(null);
     setIsImageSelected(false);
@@ -105,11 +107,11 @@ const DrinkDescriptionFields = ({ formData, setFormData, handleSubmit }) => {
   return (
     <FormContainer>
       <Formik
-        initialValues={{ formData }}
+        initialValues={{ ...formData }}
         validationSchema={validationSchema}
+        innerRef={innerRef}
         onSubmit={(values) => {
           setFormData({ ...formData, ...values, alcoholic });
-          handleSubmit();
         }}
       >
         <SearchForm>
@@ -151,7 +153,7 @@ const DrinkDescriptionFields = ({ formData, setFormData, handleSubmit }) => {
               <ErrorMessage name="description" component="div" />
 
               <SearchDrinkLabel htmlFor="category">
-                <SearchDrinkInput name="category" value={formData.category}  onChange={handleChange} placeholder="Category" />
+                <p>Category</p>
                 <SearchDrinkInput2 name="category" value={formData.category}  onChange={handleChange} placeholder="Category">
                   {({ field, form }) => (
                     <StyledSelect
@@ -195,7 +197,7 @@ const DrinkDescriptionFields = ({ formData, setFormData, handleSubmit }) => {
               </SearchDrinkLabel>
 
               <SearchDrinkLabel htmlFor="glass">
-                <SearchDrinkInput type='text' name="glass" value={formData.glass} onChange={handleChange} placeholder="Glasses" />
+                <p>Glasses</p>
                 <SearchDrinkInput2 name="glass" value={formData.glass} onChange={handleChange} placeholder="Glasses">
                   {({ field, form }) => (
                     <StyledSelect
