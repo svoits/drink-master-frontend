@@ -76,7 +76,7 @@ const DrinkDescriptionFields = ({ formData, setFormData, handleSubmit }) => {
   const handleImageChange = (evt) => {
     const [file] = evt.target.files;
 
-    if (file) {
+    if (file) { 
       const imageURL = URL.createObjectURL(file);
       setFormData({
         ...formData,
@@ -231,12 +231,12 @@ const DrinkDescriptionFields = ({ formData, setFormData, handleSubmit }) => {
 
             <RadioButtonDiv>
               <RadioLabel>
-                <RadioField type="radio" name="strength" value="alcoholic" defaultChecked={strength === 'alcoholic'} />
+                <RadioField type="radio" name="strength" value="alcoholic" checked={strength === 'alcoholic'} />
                 <span>Alcoholic</span>
               </RadioLabel>
 
               <RadioLabel>
-                <RadioField type="radio" name="strength" value="nonAlcoholic" defaultChecked={strength === 'nonAlcoholic'} />
+                <RadioField type="radio" name="strength" value="nonAlcoholic" checked={strength === 'nonAlcoholic'} />
                 <span>Non-alcoholic</span>
               </RadioLabel>
             </RadioButtonDiv>
