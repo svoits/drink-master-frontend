@@ -5,7 +5,6 @@ import DrinkDescriptionFields from '../DrinkDescriptionFields/DrinkDescriptionFi
 import DrinkIngredientsFields1 from '../DrinkIngredientsFields1/DrinkIngredientsFields1';
 import RecipePreparationText from '../RecipePreparationText';
 
-
 const AddDrinkForm = () => {
   const dispatch = useDispatch();
   const formAref = useRef();
@@ -27,26 +26,24 @@ const AddDrinkForm = () => {
     ],
   });
 
-  const handleSubmit = async () => {
+  const handleSubmit = () => {
     if (formAref.current && formBref.current && formCref.current) {
-      await Promise.all([
-        formAref.current.submitForm(),
-        formBref.current.submitForm(),
-        formCref.current.submitForm(),
-      ]);
-    
+      formAref.current.handleSubmit();
+      formBref.current.handleSubmit();
+      formCref.current.handleSubmit();
+
       const { values: valuesFormA } = formAref.current;
       const { values: valuesFormB } = formBref.current;
       const { values: valuesFormC } = formCref.current;
 
-    const data = {
-      ...valuesFormA,
-      ingredients: JSON.stringify(valuesFormB.ingredients),
-      instructions: valuesFormC.instructions,
-    };
-    
+      const data = {
+        ...valuesFormA,
+        ingredients: JSON.stringify(valuesFormB.ingredients),
+        instructions: valuesFormC.instructions,
+      };
+
       console.log({ formData, data });
-    
+
       dispatch(addMyDrink(data));
     }
   };

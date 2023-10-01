@@ -28,15 +28,13 @@ const measures = [
   { value: 'tblsp', label: 'tblsp' },
 ];
 
-const DrinkIngredientsFields1 = ({
-  formData,
-  setFormData,
-  refId,
-}) => {
+const DrinkIngredientsFields1 = ({ formData, setFormData, refId }) => {
   const maxIngredientCount = 10;
   const dispatch = useDispatch();
   const ingredientsList = useSelector((state) => state.filters.ingredients);
-  const [ingredientsCount, setIngredientsCount] = useState(formData.ingredients.length);
+  const [ingredientsCount, setIngredientsCount] = useState(
+    formData.ingredients.length,
+  );
 
   const handleFieldChange = (field, val, index) => {
     const ingredients = [...formData.ingredients];
@@ -58,14 +56,16 @@ const DrinkIngredientsFields1 = ({
       }));
       setIngredientsCount(3);
     }
-    
   }, [dispatch, ingredientsCount, setFormData]);
 
   const handleAddIngredient = () => {
     if (ingredientsCount < maxIngredientCount) {
       setFormData((prevState) => ({
         ...prevState,
-        ingredients: [...prevState.ingredients, { ingredient: '', measure: '', quantity: '' }],
+        ingredients: [
+          ...prevState.ingredients,
+          { ingredient: '', measure: '', quantity: '' },
+        ],
       }));
       setIngredientsCount(ingredientsCount + 1);
     }
@@ -95,17 +95,11 @@ const DrinkIngredientsFields1 = ({
             render={(arrayHelpers) => (
               <>
                 <div>
-                  <button
-                    type="button"
-                    onClick={handleRemoveIngredient}
-                  >
+                  <button type="button" onClick={handleRemoveIngredient}>
                     -
                   </button>
                   <span>{ingredientsCount}</span>
-                  <button
-                    type="button"
-                    onClick={handleAddIngredient}
-                  >
+                  <button type="button" onClick={handleAddIngredient}>
                     +
                   </button>
                 </div>
