@@ -1,6 +1,5 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import Select from 'react-select';
 import makeAnimated from 'react-select/animated';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
@@ -61,11 +60,18 @@ const DrinkDescriptionFields = ({ formData, setFormData, handleSubmit }) => {
   const [isImageSelected, setIsImageSelected] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [selectedGlass, setSelectedGlass] = useState(null);
+  const birthDate = useSelector((state) => state.auth.user.birthDate);
+  const currentDate = new Date();
+  const userBirthDate = new Date(birthDate);
+  const ageDiff = currentDate.getFullYear() - userBirthDate.getFullYear();
+  const defaultStrength = ageDiff >= 18 ? 'alcoholic' : 'nonAlcoholic';
+  const [strength, setStrength] = useState(defaultStrength);
 
   useEffect(() => {
     dispatch(getCategories());
     dispatch(getGlasses());
-  }, [dispatch]);
+    setStrength(defaultStrength);
+  }, [defaultStrength, dispatch]);
 
   const handleImageChange = (evt) => {
     const [file] = evt.target.files;
@@ -92,10 +98,10 @@ const DrinkDescriptionFields = ({ formData, setFormData, handleSubmit }) => {
   return (
     <FormContainer>
       <Formik
-        initialValues={formData}
+        initialValues={{ ...formData, strength: defaultStrength }}
         validationSchema={validationSchema}
         onSubmit={(values) => {
-          setFormData({ ...formData, ...values });
+          setFormData({ ...formData, ...values, strength });
           handleSubmit();
         }}
       >
@@ -126,18 +132,19 @@ const DrinkDescriptionFields = ({ formData, setFormData, handleSubmit }) => {
 
           <SearchandRarioDiv>
             <SearchContainer>
-              <SearchDrinkInput name="title" placeholder="Enter item title" />
+              <SearchDrinkInput name="title" value={formData.title} placeholder="Enter item title" />
               <ErrorMessage name="title" component="div" />
 
               <SearchDrinkInput
                 name="recipe"
+                value={formData.recipe}
                 placeholder="Enter about recipe"
               />
               <ErrorMessage name="recipe" component="div" />
 
               <SearchDrinkLabel htmlFor="category">
-                <SearchDrinkInput name="category" placeholder="Category" />
-                <SearchDrinkInput2 name="category" placeholder="Category">
+                <SearchDrinkInput name="category" value={formData.category} placeholder="Category" />
+                <SearchDrinkInput2 name="category" value={formData.category} placeholder="Category">
                   {({ field, form }) => (
                     <StyledSelect
                       classNamePrefix="Select"
@@ -180,7 +187,7 @@ const DrinkDescriptionFields = ({ formData, setFormData, handleSubmit }) => {
               </SearchDrinkLabel>
 
               <SearchDrinkLabel htmlFor="glasses">
-                <SearchDrinkInput name="category" placeholder="Glasses" />
+                <SearchDrinkInput name="glasses" value={formData.glasses} placeholder="Glasses" />
                 <SearchDrinkInput2 name="glasses" placeholder="Glasses">
                   {({ field, form }) => (
                     <StyledSelect
@@ -224,12 +231,12 @@ const DrinkDescriptionFields = ({ formData, setFormData, handleSubmit }) => {
 
             <RadioButtonDiv>
               <RadioLabel>
-                <RadioField type="radio" name="strength" value="alcoholic" />
+                <RadioField type="radio" name="strength" value="alcoholic" defaultChecked={strength === 'alcoholic'} />
                 <span>Alcoholic</span>
               </RadioLabel>
 
               <RadioLabel>
-                <RadioField type="radio" name="strength" value="nonAlcoholic" />
+                <RadioField type="radio" name="strength" value="nonAlcoholic" defaultChecked={strength === 'nonAlcoholic'} />
                 <span>Non-alcoholic</span>
               </RadioLabel>
             </RadioButtonDiv>
