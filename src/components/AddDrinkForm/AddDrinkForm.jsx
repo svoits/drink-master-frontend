@@ -8,7 +8,10 @@ import RecipePreparationText from '../RecipePreparationText';
 import { 
   AddDrinkFormContainer,
   AddDrinkFormBtn
-} from './AddDrinkForm.styled'
+} from './AddDrinkForm.styled';
+import { Link } from 'react-router-dom';
+
+
 const AddDrinkForm = () => {
   const dispatch = useDispatch();
   const birthDate = useSelector((state) => state.auth.user.birthDate);
@@ -80,9 +83,11 @@ const AddDrinkForm = () => {
         refId={formCref}
       />
 
+      <Link to={'/my'}>
       <AddDrinkFormBtn type="submit" onClick={handleSubmit}>
         Add
       </AddDrinkFormBtn>
+      </Link>
     </AddDrinkFormContainer>
   );
 };
