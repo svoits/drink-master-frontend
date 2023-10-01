@@ -19,7 +19,7 @@ const RecipePreparationText = ({
   return (
     <>
       <Formik
-        initialValues={{ ...formData }}
+        initialValues={formData}
         validationSchema={validationSchema}
         innerRef={refId}
       >
