@@ -2,8 +2,9 @@ import { useDispatch } from 'react-redux';
 import { useState, useRef } from 'react';
 import { addMyDrink } from '../../redux/drinks/drinks-operations';
 import DrinkDescriptionFields from '../DrinkDescriptionFields/DrinkDescriptionFields';
-import RecipePreparationText from '../RecipePreparationText/RecipePreparationText';
 import DrinkIngredientsFields1 from '../DrinkIngredientsFields1/DrinkIngredientsFields1';
+import RecipePreparationText from '../RecipePreparationText';
+
 
 const AddDrinkForm = () => {
   const dispatch = useDispatch();
@@ -26,23 +27,25 @@ const AddDrinkForm = () => {
     ],
   });
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     if (formAref.current && formBref.current && formCref.current) {
-      formAref.current.handleSubmit();
-      formBref.current.handleSubmit();
-      formCref.current.handleSubmit();
+      await Promise.all([
+        formAref.current.submitForm(),
+        formBref.current.submitForm(),
+        formCref.current.submitForm(),
+      ]);
     
-      const { values } = formAref.current;
-      const { values: valuesPrep } = formCref.current;
-      const { values: valuesIng } = formBref.current;
-      const data = {
-        ...values,
-        ingredients: JSON.stringify(formData.ingredients),
-        drinkThumb: formData.drinkThumb,
-        instructions: valuesPrep.instructions,
-      };
+      const { values: valuesFormA } = formAref.current;
+      const { values: valuesFormB } = formBref.current;
+      const { values: valuesFormC } = formCref.current;
+
+    const data = {
+      ...valuesFormA,
+      ingredients: JSON.stringify(valuesFormB.ingredients),
+      instructions: valuesFormC.instructions,
+    };
     
-      console.log({ formData, valuesPrep, valuesIng, data });
+      console.log({ formData, data });
     
       dispatch(addMyDrink(data));
     }
