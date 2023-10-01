@@ -17,7 +17,7 @@ import {
 
 const PopularDrinks = () => {
   const dispatch = useDispatch();
-  const popularList = useSelector((state) => state.drinks.popularDrinks);
+  const popularList = useSelector((state) => state.drinks.popularDrinks).slice(0, 4);
   const { isLoading, error } = useSelector(selectDrinks);
 
   useEffect(() => {

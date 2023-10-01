@@ -4,13 +4,14 @@ import { Header } from '../Header/Header';
 import Loader from '../Loader';
 import { Main, MainContainer } from './SharedLayout.styled';
 import Footer from '../Footer/Footer';
+const BgBlue = '/drink-master-frontend/src/images/BgBlue.png';
 
 const SharedLayout = () => {
   return (
     <MainContainer>
       <Header />
 
-      <Main>
+      <Main bg={BgBlue}>
         <Suspense fallback={<Loader />}>
           <Outlet />
         </Suspense>
