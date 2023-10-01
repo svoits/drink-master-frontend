@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useDrink } from '../../redux/hooks/useDrink';
 import { BiTrash, BiHeart } from 'react-icons/bi';
 
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {
   addDrinkToFavorite,
@@ -21,7 +21,6 @@ import {
   DrinkHeroWrapper,
   DrinkPhotoWrapper,
   DrinkSvgWrapper,
-  BgLeft,
 } from './DrinkPageHero.styled';
 import { toastConfig } from '../../helpers/toast';
 import PageTitle from '../PageTitle/PageTitle';
@@ -67,7 +66,6 @@ export const DrinkPageHero = ({
     <>
       {favoriteDrinksList && (
         <DrinkHeroWrapper>
-          <BgLeft></BgLeft>
           <DrinkDescriptionWrapper>
             <PageTitle title={name} />
             <DrinkSubTitle>
@@ -93,7 +91,6 @@ export const DrinkPageHero = ({
                 Remove from favorite drinks
               </AddToFavoriteButton>
             )}
-            <ToastContainer icon={false} />
           </DrinkDescriptionWrapper>
           {imgPath ? (
             <DrinkPhotoWrapper>

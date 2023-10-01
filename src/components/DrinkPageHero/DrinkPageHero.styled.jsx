@@ -119,17 +119,3 @@ export const DrinkSvgWrapper = styled.div`
     padding: 133px 135px;
   }
 `;
-
-export const BgLeft = styled.div`
-  position: absolute;
-  left: -730px;
-  top: 20px;
-  z-index: -1;
-
-  width: 784px;
-  height: 849px;
-
-  border-radius: 849px;
-  background: rgba(64, 112, 205, 0.5);
-  filter: blur(104.8543701171875px);
-`;
