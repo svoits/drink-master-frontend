@@ -21,6 +21,7 @@ import {
   DrinkHeroWrapper,
   DrinkPhotoWrapper,
   DrinkSvgWrapper,
+  BgLeft,
 } from './DrinkPageHero.styled';
 import { toastConfig } from '../../helpers/toast';
 import PageTitle from '../PageTitle/PageTitle';
@@ -66,6 +67,7 @@ export const DrinkPageHero = ({
     <>
       {favoriteDrinksList && (
         <DrinkHeroWrapper>
+          <BgLeft></BgLeft>
           <DrinkDescriptionWrapper>
             <PageTitle title={name} />
             <DrinkSubTitle>

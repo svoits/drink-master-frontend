@@ -7,7 +7,7 @@ export const IngredientDescription = styled.div`
   color: ${({ theme }) => theme.mainText};
   font-size: 14px;
   font-weight: 500;
-  line-height: 18px;
+  line-height: 1.29;
   align-items: center;
 
   @media screen and (min-width: 768px) {
@@ -51,12 +51,12 @@ export const IngredientMeasure = styled.p`
   margin-bottom: 0;
   color: ${({ theme }) => theme.subTitleText};
   font-size: 14px;
-  line-height: 18px;
+  line-height: 1.29;
   text-align: end;
 
   @media screen and (min-width: 768px) {
     font-size: 16px;
-    line-height: 20px;
+    line-height: 1.25;
   }
 `;
 

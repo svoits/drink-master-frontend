@@ -5,13 +5,13 @@ export const DrinkSubTitle = styled.p`
   color: ${({ theme }) => theme.drinkPageSubtitle};
   font-size: 12px;
   font-weight: 400;
-  line-height: 14px;
+  line-height: 1.17;
   margin-top: 8px;
   margin-bottom: 0;
 
   @media screen and (min-width: 768px) {
     font-size: 16px;
-    line-height: 20px;
+    line-height: 1.25;
   }
 `;
 
@@ -19,13 +19,13 @@ export const DrinkDescription = styled.p`
   color: ${({ theme }) => theme.mainText};
   font-size: 14px;
   font-weight: 400;
-  line-height: 18px;
+  line-height: 1.29;
   margin-top: 20px;
   margin-bottom: 0;
 
   @media screen and (min-width: 768px) {
     font-size: 16px;
-    line-height: 22px;
+    line-height: 1.375;
   }
 `;
 
@@ -118,4 +118,18 @@ export const DrinkSvgWrapper = styled.div`
     height: 400px;
     padding: 133px 135px;
   }
+`;
+
+export const BgLeft = styled.div`
+  position: absolute;
+  left: -730px;
+  top: 20px;
+  z-index: -1;
+
+  width: 784px;
+  height: 849px;
+
+  border-radius: 849px;
+  background: rgba(64, 112, 205, 0.5);
+  filter: blur(104.8543701171875px);
 `;
