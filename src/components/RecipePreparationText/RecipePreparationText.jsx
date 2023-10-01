@@ -19,9 +19,9 @@ const RecipePreparationText = ({
   return (
     <>
       <Formik
-        innerRef={refId}
-        initialValues={formData}
+        initialValues={{ ...formData }}
         validationSchema={validationSchema}
+        innerRef={refId}
       >
         <Form>
           <h2 htmlFor="instructions">Recipe Preparation</h2>
