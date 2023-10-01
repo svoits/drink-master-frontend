@@ -1,6 +1,13 @@
 import styled from 'styled-components';
 import transition from '../../utils/transition';
 
+export const AddDrinkFormContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  // gap: 80px;
+`;
+
 export const AddDrinkFormBtn = styled.button`
   margin-bottom: 80px;
   border-radius: 42px;
