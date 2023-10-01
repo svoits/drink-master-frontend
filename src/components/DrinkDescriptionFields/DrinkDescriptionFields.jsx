@@ -1,4 +1,4 @@
-import { Formik, ErrorMessage } from 'formik';
+import { Formik, ErrorMessage, Field } from 'formik';
 import * as Yup from 'yup';
 
 import makeAnimated from 'react-select/animated';
@@ -18,7 +18,7 @@ import {
   SearchandRarioDiv,
   PhotoContainer,
   SearchDrinkInput,
-  SearchDrinkInput2,
+  SearchDrinkText,
   PhotoField,
   PhotoPreview,
   StyledSelect,
@@ -139,8 +139,8 @@ const DrinkDescriptionFields = ({ formData, setFormData, handleSubmit }) => {
               <ErrorMessage name="recipe" component="div" />
 
               <SearchDrinkLabel htmlFor="category">
-                <SearchDrinkInput name="category" placeholder="Category" />
-                <SearchDrinkInput2 name="category" placeholder="Category">
+              <SearchDrinkText>Category</SearchDrinkText>
+                <Field name="category" placeholder="Category">
                   {({ field, form }) => (
                     <StyledSelect
                       classNamePrefix="Select"
@@ -179,12 +179,13 @@ const DrinkDescriptionFields = ({ formData, setFormData, handleSubmit }) => {
                       placeholder="Cocktail"
                     />
                   )}
-                </SearchDrinkInput2>
+                </Field>
               </SearchDrinkLabel>
 
               <SearchDrinkLabel htmlFor="glasses">
-                <SearchDrinkInput name="category" placeholder="Glasses" />
-                <SearchDrinkInput2 name="glasses" placeholder="Glasses">
+                <SearchDrinkText>Glasses</SearchDrinkText>
+
+                <Field name="glasses" placeholder="Glasses">
                   {({ field, form }) => (
                     <StyledSelect
                       classNamePrefix="Select"
@@ -221,7 +222,7 @@ const DrinkDescriptionFields = ({ formData, setFormData, handleSubmit }) => {
                       placeholder="Glasses"
                     />
                   )}
-                </SearchDrinkInput2>
+                </Field>
               </SearchDrinkLabel>
             </SearchContainer>
 

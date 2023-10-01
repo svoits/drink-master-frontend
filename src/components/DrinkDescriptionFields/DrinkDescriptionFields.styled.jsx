@@ -35,7 +35,7 @@ export const PhotoContainer = styled.label`
 
   width: 335px;
   height: 320px;
-  background-color: ${({ theme }) => theme.AddPhotoBackgroundColor};
+  background-color: ${({ theme }) => theme.addPhotoBackgroundColor};
 
   border-radius: 8px;
 
@@ -50,7 +50,7 @@ export const PhotoContainer = styled.label`
 `;
 
 export const PhotoPreview = styled.img`
-  // background-color: ${({ theme }) => theme.AddPhotoBackgroundColor};
+  // background-color: ${({ theme }) => theme.addPhotoBackgroundColor};
   max-width: 100%;
   max-height: 100%;
   width: auto;
@@ -129,7 +129,6 @@ export const SearchDrinkInput = styled(Field)`
   }
 
   &::placeholder {
-    // color: ${({ theme }) => theme.mainText};
     line-height: 1.285;
   }
 
@@ -148,8 +147,6 @@ export const SearchDrinkLabel = styled.label`
   flex-direction: row;
   justify-content: space-between;
 
-  //   position: relative;
-
   @media screen and (min-width: 768px) {
   }
   // #categories {
@@ -161,34 +158,20 @@ export const SearchDrinkLabel = styled.label`
   // }
 `;
 
-export const SearchDrinkInput2 = styled(Field)`
-  width: 120px;
-  padding-bottom: 15px;
-
-  // width: 100%;
-
-  border: none;
+export const SearchDrinkText = styled.p`
+  // padding-bottom: 15px;
+  width: 100%;
+  padding: 0;
+  margin: 0;
   border-bottom: 1px solid ${({ theme }) => theme.inputBorder};
-  background-color: transparent;
-  color: ${({ theme }) => theme.mainText};
+  color: ${({ theme }) => theme.selectDownOptionRegular};
   font-size: 14px;
   font-weight: 400;
 
   line-height: 2.41;
   transition: border-color ${transition};
 
-  &:focus {
-    outline: transparent;
-    border-color: ${({ theme }) => theme.inputBorderFocus};
-  }
-
-  &::placeholder {
-    // color: ${({ theme }) => theme.mainText};
-    line-height: 1.285;
-  }
-
   @media screen and (min-width: 768px) {
-    // width: 352px;
     font-size: 16px;
 
     line-height: 22px;
@@ -200,7 +183,7 @@ export const SearchDrinkInput2 = styled(Field)`
 export const StyledSelect = styled(ReactSelect)`
   & .Select__control {
     width: 150px;
-    padding-top: 10px;
+    padding-bottom: 15px;
 
     background-color: transparent;
     border: none;
@@ -218,18 +201,17 @@ export const StyledSelect = styled(ReactSelect)`
         transform: rotate(-180deg);
       }
     }
+    @media screen and (min-width: 768px) {
+      // padding-bottom: 19px;
+    }
+    &:active,
+    &:hover,
+    &:focus {
+      border-bottom: 1px solid ${({ theme }) => theme.inputBorder};
+    }
   }
 
   & .Select__value-container {
-    padding-top: 2px;
-
-    padding-right: 0;
-    padding-bottom: 19px;
-
-    @media screen and (min-width: 768px) {
-      // padding: 15px 24px;
-      // padding-right: 0;
-    }
   }
 
   & .Select__indicator-separator {
@@ -336,6 +318,7 @@ export const StyledSelect = styled(ReactSelect)`
     }
   }
 `;
+
 //=========================================
 export const RadioButtonDiv = styled.div`
   display: flex;
@@ -367,9 +350,7 @@ export const RadioLabel = styled.label`
   }
 `;
 
-export const RadioField = styled(Field)`
- 
-`;
+export const RadioField = styled(Field)``;
 export const RadioSpan = styled.span`
   // &::before {
   //   width: 24px;
