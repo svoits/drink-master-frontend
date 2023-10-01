@@ -35,7 +35,9 @@ const style = {
 };
 
 const validationSchema = Yup.object().shape({
-  drinkThumb: Yup.string().required('Cocktail photo is a mandatory field').url(),
+  drinkThumb: Yup.string()
+    .required('Cocktail photo is a mandatory field')
+    .url(),
 
   drink: Yup.string()
     .required('Cocktail title is a mandatory field')
@@ -45,21 +47,19 @@ const validationSchema = Yup.object().shape({
     .required('Description of the cocktail is a mandatory field')
     .min(10, 'The cocktail description must contain at least 10 symbols'),
 
-  category: 
-    Yup.string().required('Cocktail category is a required field'),
+  category: Yup.string().required('Cocktail category is a required field'),
 
-  glass: 
-    Yup.string().required('Cocktail glass is a required field'),
+  glass: Yup.string().required('Cocktail glass is a required field'),
 });
 
 const animatedComponents = makeAnimated();
 
-const DrinkDescriptionFields = ({ formData, setFormData, innerRef }) => {
+const DrinkDescriptionFields = ({ formData, setFormData, refId }) => {
   const dispatch = useDispatch();
   const categories = useSelector((state) => state.filters.categories);
   const glasses = useSelector((state) => state.filters.glasses);
   const birthDate = useSelector((state) => state.auth.user.birthDate);
-  
+
   const [imagePreview, setImagePreview] = useState(null);
   const [isImageSelected, setIsImageSelected] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -80,7 +80,7 @@ const DrinkDescriptionFields = ({ formData, setFormData, innerRef }) => {
   const handleImageChange = (evt) => {
     const [file] = evt.target.files;
 
-    if (file) { 
+    if (file) {
       const imageURL = URL.createObjectURL(file);
       setFormData({
         ...formData,
@@ -109,7 +109,7 @@ const DrinkDescriptionFields = ({ formData, setFormData, innerRef }) => {
       <Formik
         initialValues={{ ...formData }}
         validationSchema={validationSchema}
-        innerRef={innerRef}
+        innerRef={refId}
         onSubmit={(values) => {
           setFormData({ ...formData, ...values, alcoholic });
         }}
@@ -141,7 +141,12 @@ const DrinkDescriptionFields = ({ formData, setFormData, innerRef }) => {
 
           <SearchandRarioDiv>
             <SearchContainer>
-              <SearchDrinkInput name="drink" value={formData.drink} onChange={handleChange} placeholder="Enter item drink" />
+              <SearchDrinkInput
+                name="drink"
+                value={formData.drink}
+                onChange={handleChange}
+                placeholder="Enter item drink"
+              />
               <ErrorMessage name="drink" component="div" />
 
               <SearchDrinkInput
@@ -154,7 +159,12 @@ const DrinkDescriptionFields = ({ formData, setFormData, innerRef }) => {
 
               <SearchDrinkLabel htmlFor="category">
                 <p>Category</p>
-                <SearchDrinkInput2 name="category" value={formData.category}  onChange={handleChange} placeholder="Category">
+                <SearchDrinkInput2
+                  name="category"
+                  value={formData.category}
+                  onChange={handleChange}
+                  placeholder="Category"
+                >
                   {({ field, form }) => (
                     <StyledSelect
                       classNamePrefix="Select"
@@ -198,7 +208,12 @@ const DrinkDescriptionFields = ({ formData, setFormData, innerRef }) => {
 
               <SearchDrinkLabel htmlFor="glass">
                 <p>Glasses</p>
-                <SearchDrinkInput2 name="glass" value={formData.glass} onChange={handleChange} placeholder="Glasses">
+                <SearchDrinkInput2
+                  name="glass"
+                  value={formData.glass}
+                  onChange={handleChange}
+                  placeholder="Glasses"
+                >
                   {({ field, form }) => (
                     <StyledSelect
                       classNamePrefix="Select"
@@ -238,23 +253,23 @@ const DrinkDescriptionFields = ({ formData, setFormData, innerRef }) => {
 
             <RadioButtonDiv>
               <RadioLabel>
-                <RadioField 
-                type="radio" 
-                name="alcoholic" 
-                value="alcoholic" 
-                checked={alcoholic === 'alcoholic'}
-                onChange={() => setAlcoholic('alcoholic')}
+                <RadioField
+                  type="radio"
+                  name="alcoholic"
+                  value="alcoholic"
+                  checked={alcoholic === 'alcoholic'}
+                  onChange={() => setAlcoholic('alcoholic')}
                 />
                 <span>Alcoholic</span>
               </RadioLabel>
 
               <RadioLabel>
-                <RadioField 
-                type="radio" 
-                name="alcoholic" 
-                value="nonAlcoholic" 
-                checked={alcoholic === 'nonAlcoholic'} 
-                onChange={() => setAlcoholic('nonAlcoholic')}
+                <RadioField
+                  type="radio"
+                  name="alcoholic"
+                  value="nonAlcoholic"
+                  checked={alcoholic === 'nonAlcoholic'}
+                  onChange={() => setAlcoholic('nonAlcoholic')}
                 />
                 <span>Non-alcoholic</span>
               </RadioLabel>
