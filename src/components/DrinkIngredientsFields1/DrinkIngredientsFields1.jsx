@@ -2,9 +2,8 @@ import { getIngredients } from '../../redux/filters/filters-operation';
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {  Formik, FieldArray } from 'formik';
-// import Select from 'react-select';
 import { IoMdClose } from 'react-icons/io';
-// import _ from 'lodash';
+
 
 import {
   SearchDrinkTitle,
@@ -15,7 +14,9 @@ import {
   IngredientsInput,
   StyledSelect,
   StyledSelectCL,
-} from './DrinkIngredientsFields1.styled'
+} from './DrinkIngredientsFields1.styled';
+
+
 const measures = [
   { value: 'ml', label: 'ml' },
   { value: 'oz', label: 'oz' },
@@ -62,13 +63,18 @@ const DrinkIngredientsFields1 = ({
 
   const handleRemoveIngredient = (index) => {
     if (ingredientsCount > 1) {
+      const updatedIngredients = [...formData.ingredients];
+      updatedIngredients.splice(index, 1);
+  
       setFormData((prevState) => ({
         ...prevState,
-        ingredients: prevState.ingredients.filter((_, i) => i !== index),
+        ingredients: updatedIngredients,
       }));
+      
       setIngredientsCount(ingredientsCount - 1);
     }
   };
+
   return (
     <>
       <SearchDrinkTitle>Ingredients</SearchDrinkTitle>
@@ -76,12 +82,12 @@ const DrinkIngredientsFields1 = ({
         <SearchDrinkForm>
           <FieldArray
             name="ingredients"
-            render={(arrayHelpers, index) => (
+            render={() => (
               <>
                 <div >
                 <button
                   type="button"
-                  onClick={handleRemoveIngredient(index)}
+                  onClick={() => handleRemoveIngredient()}
                 >
                   -
                 </button>
@@ -89,13 +95,6 @@ const DrinkIngredientsFields1 = ({
                 <button
                   type="button"
                   onClick={handleAddIngredient}
-                  // onClick={() =>
-                  //   arrayHelpers.push({
-                  //     ingredient: '',
-                  //     measure: '',
-                  //     quantity: '',
-                  //   })
-                  // }
                 >
                   +
                 </button>
@@ -138,7 +137,7 @@ const DrinkIngredientsFields1 = ({
                           <IngredientsDIV>
                           <IngredientsInput
                             name={`ingredients[${index}].quantity`}
-                            value={ingredient.quantity}
+                            value={ingredient.quantity || ''}
                             onChange={(e) =>
                               handleFieldChange(
                                 'quantity',
@@ -153,7 +152,7 @@ const DrinkIngredientsFields1 = ({
                               classNamePrefix="Select"
                               options={measures}
                               name={`ingredients[${index}].measure`}
-                              value={measureVal}
+                              value={measureVal || ''}
                               onChange={({ value }) =>
                                 handleFieldChange('measure', value, index)
                               }
@@ -161,7 +160,7 @@ const DrinkIngredientsFields1 = ({
                             />
                           </label>
                           </IngredientsDIV>
-                          <button type="button" >
+                          <button type="button" onClick={() => handleRemoveIngredient()}>
                             <IoMdClose />
                           </button>
                         </ListDIV>
