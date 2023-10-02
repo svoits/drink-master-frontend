@@ -3,12 +3,19 @@ import Loader from '../../components/Loader';
 import Paginator from '../../components/Paginator/Paginator';
 import { Container } from '../../components/Container/Container.styled';
 import { useDrink } from '../../redux/hooks/useDrink';
+import { useResize } from '../../hooks/useResize';
 
 import { SearchDrinks } from 'components/SearchDrinks/SearchDrinks';
-import { DrinksPageContainer } from './DrinksPage.styled';
-import { useResize } from '../../hooks/useResize';
-import PageTitle from '../../components/PageTitle/PageTitle';
 import { AllDrinksList } from '../../components/AllDrinksList/AllDrinksList';
+
+import PageTitle from '../../components/PageTitle/PageTitle';
+import {
+   DrinksPageContainer,
+   DefaultImageContainer,
+   DefaultDescr,
+   DefaultImage,
+ } from './DrinksPage.styled';
+import CocktailImage from '../../images/heroImage/hero-img-desc-2x.png';
 // import { toast } from 'react-toastify';
 
 export default function DrinksPage() {
@@ -32,7 +39,13 @@ export default function DrinksPage() {
 
         {isLoading && <Loader />}
         {total > 0 && !error && <AllDrinksList drinks={drinks} />}
-
+        {/* {error &&  <p>Sorry. There are no cocktails ... 😭</p>} */}
+        {error &&  (
+         <DefaultImageContainer>
+         <DefaultImage src={CocktailImage} alt="Cocktail" />
+         <DefaultDescr>Sorry. There are no cocktails ... 😭Please try again.</DefaultDescr>
+         </DefaultImageContainer> 
+        )}
         {totalPages > 1 && (
           <Paginator
             currentPage={currentPage}
