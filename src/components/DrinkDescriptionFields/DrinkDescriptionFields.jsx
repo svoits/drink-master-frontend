@@ -14,7 +14,7 @@ import {
   FormContainer,
   AddPhotoButton,
   SearchForm,
-  SearchandRarioDiv,
+  FieldsAndRadioWrapper,
   PhotoContainer,
   SearchDrinkInput,
   SearchDrinkText,
@@ -23,10 +23,10 @@ import {
   StyledSelect,
   SearchContainer,
   SearchDrinkLabel,
-  RadioButtonDiv,
-  RadioLabel,
+  RadioBtnWrapper,
+  RadioLabelWrapper,
   RadioField,
-  RadioSpan,
+  RadioLabel,
 } from './DrinkDescriptionFields.styled';
 
 const style = {
@@ -136,7 +136,7 @@ const DrinkDescriptionFields = ({ formData, setFormData, refId }) => {
             <ErrorMessage name="drinkThumb" component="div" />
           </PhotoContainer>
 
-          <SearchandRarioDiv>
+          <FieldsAndRadioWrapper>
             <SearchContainer>
               <SearchDrinkInput
                 name="drink"
@@ -167,18 +167,12 @@ const DrinkDescriptionFields = ({ formData, setFormData, refId }) => {
                       classNamePrefix="Select"
                       closeMenuOnSelect={true}
                       isClearable={true}
-                      classNames={{
-                        control: (state) =>
-                          state.isFocused
-                            ? 'border-orange-600'
-                            : 'border-grey-300',
-                      }}
                       options={categories.map((category) => ({
                         value: category,
                         label: category,
                       }))}
                       name={field.name}
-                      id="category"
+                      id="cocktail"
                       {...field}
                       value={
                         selectedCategory
@@ -217,18 +211,12 @@ const DrinkDescriptionFields = ({ formData, setFormData, refId }) => {
                       closeMenuOnSelect={true}
                       components={animatedComponents}
                       isClearable={true}
-                      classNames={{
-                        control: (state) =>
-                          state.isFocused
-                            ? 'border-orange-600'
-                            : 'border-grey-300',
-                      }}
                       options={glasses.map((glass) => ({
                         value: glass,
                         label: glass,
                       }))}
                       name={field.name}
-                      id="glass"
+                      id="glasses"
                       {...field}
                       value={
                         selectedGlass
@@ -248,8 +236,8 @@ const DrinkDescriptionFields = ({ formData, setFormData, refId }) => {
               </SearchDrinkLabel>
             </SearchContainer>
 
-            <RadioButtonDiv>
-              <RadioLabel>
+            <RadioBtnWrapper>
+              <RadioLabelWrapper>
                 <RadioField
                   type="radio"
                   name="alcoholic"
@@ -259,10 +247,10 @@ const DrinkDescriptionFields = ({ formData, setFormData, refId }) => {
                     setFormData({ ...formData, alcoholic: 'Alcoholic' })
                   }
                 />
-                <span>Alcoholic</span>
-              </RadioLabel>
+                <RadioLabel>Alcoholic</RadioLabel>
+              </RadioLabelWrapper>
 
-              <RadioLabel>
+              <RadioLabelWrapper>
                 <RadioField
                   type="radio"
                   name="alcoholic"
@@ -272,10 +260,10 @@ const DrinkDescriptionFields = ({ formData, setFormData, refId }) => {
                     setFormData({ ...formData, alcoholic: 'Non alcoholic' })
                   }
                 />
-                <span>Non-alcoholic</span>
-              </RadioLabel>
-            </RadioButtonDiv>
-          </SearchandRarioDiv>
+                <RadioLabel>Non-alcoholic</RadioLabel>
+              </RadioLabelWrapper>
+            </RadioBtnWrapper>
+          </FieldsAndRadioWrapper>
         </SearchForm>
       </Formik>
     </FormContainer>

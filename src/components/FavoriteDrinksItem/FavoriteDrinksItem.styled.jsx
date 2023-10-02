@@ -50,7 +50,7 @@ export const StyledName = styled.h2`
 `;
 
 export const StyledDescr = styled.p`
-  height: 74px;
+  height: 75px;
   text-overflow: ellipsis;
   overflow: hidden;
   font-size: 14px;
@@ -58,6 +58,10 @@ export const StyledDescr = styled.p`
   line-height: 1.28;
   margin-top: 18px;
   margin-bottom: 18px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
 
   @media screen and (min-width: 768px) {
     height: 110px;
@@ -65,10 +69,12 @@ export const StyledDescr = styled.p`
     line-height: 1.38;
     margin-top: 24px;
     margin-bottom: 24px;
+    -webkit-line-clamp: 5;
   }
 
   @media screen and (min-width: 1440px) {
     height: 90px;
+    -webkit-line-clamp: 4;
   }
 `;
 

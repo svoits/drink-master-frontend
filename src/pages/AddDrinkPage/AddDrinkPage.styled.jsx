@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const DrinksPageSection = styled.section`
+export const PageSection = styled.section`
   width: 100%;
   margin: 0;
   padding-top: 80px;
@@ -18,16 +18,17 @@ export const DrinksPageSection = styled.section`
 `;
 
 export const DrinksPageContainer = styled.div`
-      display: flex;
-      flex-direction: column;
-      gap: 80px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 80px;
+  margin-top: 40px;
 
   @media screen and (min-width: 768px) {
-
+    margin-top: 60px;
   }
 
   @media screen and (min-width: 1440px) {
     flex-direction: row;
-    gap: 94px;
+    justify-content: space-between;
   }
 `;
