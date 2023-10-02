@@ -46,7 +46,7 @@ export default function DrinksPage() {
          <DefaultDescr>Sorry. There are no cocktails ... 😭Please try again.</DefaultDescr>
          </DefaultImageContainer> 
         )}
-        {totalPages > 1 && (
+        {totalPages > 1 && !error && (
           <Paginator
             currentPage={currentPage}
             drinksPerPage={itemsPerPage}
