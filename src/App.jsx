@@ -39,7 +39,7 @@ function App() {
   return (
     <ThemeProvider theme={theme === 'dark' ? darkTheme : lightTheme}>
       {isRefreshing ? (
-        <b>Refresh user</b>
+        <b>Refreshing user...</b>
       ) : (
         <Routes>
           <Route

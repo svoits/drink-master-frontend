@@ -3,9 +3,8 @@ import { Field, Form as FormikForm } from 'formik';
 import transition from '../../utils/transition';
 
 export const Form = styled(FormikForm)`
-  /* display: flex;
-  flex-direction: column; */
   width: 100%;
+
   @media screen and (min-width: 768px) {
     width: 308px;
   }

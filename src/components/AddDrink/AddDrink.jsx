@@ -1,6 +1,5 @@
 import { Container } from '../../components/Container/Container.styled';
 import {
-  Gradient,
   // ImageBgBlue,
   ImageBgYellow,
   ImageWrap,
@@ -17,6 +16,7 @@ import heroImgdescS from '../../images/heroImage/hero-img-desc-1x.png';
 import heroImgmobileL from '../../images/heroImage/hero-img-mobile-2x.png';
 import heroImgtabletL from '../../images/heroImage/hero-img-tablet-2x.png';
 import heroImgdescL from '../../images/heroImage/hero-img-desc-2x.png';
+import PageTitle from '../PageTitle/PageTitle';
 
 export default function AddDrink() {
   return (
@@ -24,8 +24,7 @@ export default function AddDrink() {
       <Container>
         <SectionWrap>
           <MainWrap>
-            <MainTitle>Craft Your Perfect Drink with Drink Master</MainTitle>
-            <Gradient></Gradient>
+            <PageTitle title="Craft Your Perfect Drink with Drink Master" />
             <MainDescr>
               Unlock your inner mixologist with Drink Master, your one-stop
               destination for exploring, crafting, and mastering the world`s
