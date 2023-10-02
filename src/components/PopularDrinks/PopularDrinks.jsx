@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { toast } from 'react-toastify';
 import { getPopularDrinks } from '../../redux/drinks/drinks-operations';
 import { selectDrinks } from '../../redux/drinks/drinks-selectors';
 
@@ -30,11 +31,11 @@ const PopularDrinks = () => {
     <div>
       <PopularDrinksTitle>Popular drinks</PopularDrinksTitle>
       {isLoading && <Loader />}
-      {error && <p>Sorry. There are no images ... 😭</p>}
+      {error && toast.error('Sorry. There are no images ... 😭')}
       <DrinksList>
         {popularList.map(({ _id, drinkThumb, drink, shortDescription }) => (
           <DrinksItem key={_id}>
-            <DrinksLink href={`/api/drinks/popular/${_id}`}>
+            <DrinksLink href={`/drinks/${_id}`}>
               <DrinksImg src={drinkThumb} alt={drink} width={90} height={90} />
               <InfoWrap>
                 <DrinksInfoTitle>{drink}</DrinksInfoTitle>
