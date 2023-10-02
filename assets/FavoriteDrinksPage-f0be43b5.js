@@ -1,7 +1,7 @@
-import{s as e,t as s,N as m,Q as k,c as f,j as t,U as v,u as y,a as D,r as c,V as P,C as S,L as F}from"./index-975c6b9a.js";import{D as C}from"./stub-99541d4b.js";import{C as z}from"./hero-img-desc-2x-e8906f30.js";import{P as I}from"./PageTitle-4170ea27.js";import{P as L}from"./Paginator-29ba9b4e.js";const $=e.li`
+import{s as i,t as s,N as m,W as j,c as f,j as e,X as v,u as y,a as D,r as c,Y as P,C as S,L as F}from"./index-65719016.js";import{D as C}from"./stub-b3e735d4.js";import{C as z}from"./hero-img-desc-2x-e8906f30.js";import{P as I}from"./PageTitle-2ca656e2.js";import{P as L}from"./Paginator-975bd0b1.js";const $=i.li`
   margin-left: auto;
   margin-right: auto;
-`,A=e.img`
+`,A=i.img`
   width: 100%;
   border-radius: 8px;
   background: #161f37;
@@ -14,7 +14,7 @@ import{s as e,t as s,N as m,Q as k,c as f,j as t,U as v,u as y,a as D,r as c,V a
     width: 400px;
     height: 400px;
   }
-`,T=e.h3`
+`,T=i.h3`
   font-size: 14px;
   font-weight: 400;
   line-height: 1.28;
@@ -26,7 +26,7 @@ import{s as e,t as s,N as m,Q as k,c as f,j as t,U as v,u as y,a as D,r as c,V a
     font-size: 16px;
     line-height: 1.13;
   }
-`,E=e.h2`
+`,E=i.h2`
   font-size: 18px;
   font-weight: 500;
   line-height: 1.33;
@@ -36,8 +36,8 @@ import{s as e,t as s,N as m,Q as k,c as f,j as t,U as v,u as y,a as D,r as c,V a
     font-size: 24px;
     margin-top: 24px;
   }
-`,M=e.p`
-  height: 74px;
+`,M=i.p`
+  height: 75px;
   text-overflow: ellipsis;
   overflow: hidden;
   font-size: 14px;
@@ -45,6 +45,10 @@ import{s as e,t as s,N as m,Q as k,c as f,j as t,U as v,u as y,a as D,r as c,V a
   line-height: 1.28;
   margin-top: 18px;
   margin-bottom: 18px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
 
   @media screen and (min-width: 768px) {
     height: 110px;
@@ -52,21 +56,23 @@ import{s as e,t as s,N as m,Q as k,c as f,j as t,U as v,u as y,a as D,r as c,V a
     line-height: 1.38;
     margin-top: 24px;
     margin-bottom: 24px;
+    -webkit-line-clamp: 5;
   }
 
   @media screen and (min-width: 1440px) {
     height: 90px;
+    -webkit-line-clamp: 4;
   }
-`,N=e.div`
+`,N=i.div`
   display: flex;
   column-gap: 8px;
-`;e(m)`
+`;i(m)`
   padding: 14px 40px 14px 40px;
   cursor: pointer;
   border-radius: 42px;
   background-color: #161f37;
   color: #f3f3f3;
-`;const R=e(m)`
+`;const R=i(m)`
   border-radius: 42px;
   background-color: #161f37;
   color: #f3f3f3;
@@ -90,7 +96,7 @@ import{s as e,t as s,N as m,Q as k,c as f,j as t,U as v,u as y,a as D,r as c,V a
     font-size: 16px;
     line-height: calc(18 / 16);
   }
-`,B=e(k)`
+`,B=i(j)`
   width: 24px;
   height: 24px;
 
@@ -98,7 +104,7 @@ import{s as e,t as s,N as m,Q as k,c as f,j as t,U as v,u as y,a as D,r as c,V a
     width: 26px;
     height: 26px;
   }
-`,_=e.button`
+`,W=i.button`
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -124,7 +130,7 @@ import{s as e,t as s,N as m,Q as k,c as f,j as t,U as v,u as y,a as D,r as c,V a
     background-color: #f3f3f3;
     color: #161f37;
   }
-`;function Q({drink:i}){const n=f(),{_id:o,drink:r,alcoholic:d,drinkThumb:x,description:l}=i,a=()=>{n(v(o))};return t.jsxs($,{children:[t.jsx(A,{src:x||C,alt:r}),t.jsx(E,{children:r}),t.jsx(T,{children:d?"Alcoholic":"NonAlcoholic"}),t.jsx(M,{children:l}),t.jsxs(N,{children:[t.jsx(R,{to:`/drinks/${o}`,children:"See More"}),t.jsx(_,{onClick:a,children:t.jsx(B,{})})]})]})}const U=e.ul`
+`;function Y({drink:t}){const n=f(),{_id:o,drink:r,alcoholic:d,drinkThumb:l,description:x}=t,a=()=>{n(v(o))};return e.jsxs($,{children:[e.jsx(A,{src:l||C,alt:r}),e.jsx(E,{children:r}),e.jsx(T,{children:d?"Alcoholic":"NonAlcoholic"}),e.jsx(M,{children:x}),e.jsxs(N,{children:[e.jsx(R,{to:`/drinks/${o}`,children:"See More"}),e.jsx(W,{onClick:a,children:e.jsx(B,{})})]})]})}const _=i.ul`
   display: grid;
   grid-row-gap: 40px;
   list-style: none;
@@ -140,7 +146,7 @@ import{s as e,t as s,N as m,Q as k,c as f,j as t,U as v,u as y,a as D,r as c,V a
     grid-template-columns: repeat(3, 1fr);
     margin-top: 62px;
   }
-`;function V({drinks:i}){return t.jsx(U,{children:Array.isArray(i)&&i.map(n=>t.jsx(Q,{drink:n},n._id))})}const W=e.section`
+`;function X({drinks:t}){return e.jsx(_,{children:Array.isArray(t)&&t.map(n=>e.jsx(Y,{drink:n},n._id))})}const q=i.section`
   padding-top: 80px;
   padding-bottom: 80px;
 
@@ -152,7 +158,7 @@ import{s as e,t as s,N as m,Q as k,c as f,j as t,U as v,u as y,a as D,r as c,V a
   @media screen and (min-width: 1440px) {
     padding-top: 160px;
   }
-`;e.div`
+`;i.div`
   margin: 0 auto;
   padding-top: 91px;
   display: flex;
@@ -166,7 +172,7 @@ import{s as e,t as s,N as m,Q as k,c as f,j as t,U as v,u as y,a as D,r as c,V a
   @media screen and (min-width: 1440px) {
     padding-top: 67px;
   }
-`;const Y=e.div`
+`;const G=i.div`
   margin: 0 auto;
   padding-top: 91px;
   display: flex;
@@ -183,7 +189,7 @@ import{s as e,t as s,N as m,Q as k,c as f,j as t,U as v,u as y,a as D,r as c,V a
   @media screen and (min-width: 1440px) {
     padding-top: 67px;
   }
-`,q=e.p`
+`,H=i.p`
   font-weight: 500;
   line-height: 1.28;
   text-align: center;
@@ -193,10 +199,10 @@ import{s as e,t as s,N as m,Q as k,c as f,j as t,U as v,u as y,a as D,r as c,V a
     font-weight: 500;
     line-height: 1.38;
   }
-`,G=e.img`
+`,J=i.img`
   width: 100%;
   object-fit: contain;
-`,H=e.div`
+`,K=i.div`
   margin-top: 40px;
   margin-bottom: 40px;
 
@@ -204,4 +210,4 @@ import{s as e,t as s,N as m,Q as k,c as f,j as t,U as v,u as y,a as D,r as c,V a
     margin-top: 60px;
     margin-bottom: 80px;
   }
-`;function tt(){const i=f(),{total:n,favoriteDrinks:o}=y(),{width:r}=D(),[d,x]=c.useState(""),[l,a]=c.useState(!0),[h,u]=c.useState(1),w=r<768?5:8,p=r<1440?8:9,b=g=>{u(g)};c.useEffect(()=>{a(!0),i(P({page:h,limit:p})).then(()=>a(!1)).catch(g=>{console.error(g),x("Something went wrong, please try later."),a(!1)})},[h,i,p]);const j=Math.ceil(n/p);return t.jsx(W,{children:t.jsxs(S,{children:[t.jsx(I,{title:"Favorites"}),l&&t.jsx(F,{}),!o.length&&t.jsxs(Y,{children:[t.jsx(G,{src:z,alt:"Cocktail"}),t.jsx(q,{children:"You have not added any cocktails yet"})]}),o.length>0&&t.jsx(H,{children:t.jsx(V,{drinks:o})}),d&&t.jsx("div",{children:d}),j>1&&t.jsx(L,{currentPage:h,drinksPerPage:p,totalDrinks:n,onPageChange:b,pageNumbersToShow:w})]})})}export{tt as default};
+`;function ee(){const t=f(),{total:n,favoriteDrinks:o}=y(),{width:r}=D(),[d,l]=c.useState(""),[x,a]=c.useState(!0),[h,u]=c.useState(1),w=r<768?5:8,p=r<1440?8:9,b=g=>{u(g)};c.useEffect(()=>{a(!0),t(P({page:h,limit:p})).then(()=>a(!1)).catch(g=>{console.error(g),l("Something went wrong, please try later."),a(!1)})},[h,t,p]);const k=Math.ceil(n/p);return e.jsx(q,{children:e.jsxs(S,{children:[e.jsx(I,{title:"Favorites"}),x&&e.jsx(F,{}),!o.length&&e.jsxs(G,{children:[e.jsx(J,{src:z,alt:"Cocktail"}),e.jsx(H,{children:"You have not added any cocktails yet"})]}),o.length>0&&e.jsx(K,{children:e.jsx(X,{drinks:o})}),d&&e.jsx("div",{children:d}),k>1&&e.jsx(L,{currentPage:h,drinksPerPage:p,totalDrinks:n,onPageChange:b,pageNumbersToShow:w})]})})}export{ee as default};
