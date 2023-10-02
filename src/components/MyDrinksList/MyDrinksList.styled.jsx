@@ -29,11 +29,11 @@ export const DrinkListItem = styled.li`
 export const DrinkIMG = styled.img`
   width: 100%;
   border-radius: 8px;
-  background: #161f37;
+  height: 360px;
+  object-fit: cover;
 
   @media screen and (min-width: 768px) {
     width: 342px;
-    height: 360px;
   }
   @media screen and (min-width: 1440px) {
     width: 400px;
@@ -65,7 +65,7 @@ export const DrinkCATEGORY = styled.span`
   }
 `;
 export const AboutDRINK = styled.p`
-  height: 75px;
+  height: 73px;
   text-overflow: ellipsis;
   overflow: hidden;
   font-size: 14px;
@@ -146,8 +146,9 @@ export const DeleteDrinkBTN = styled.button`
   &:focus {
     background-color: #f3f3f3;
     color: #161f37;
-  }y
+  }
 `;
+
 export const TrashIcon = styled(FiTrash2)`
   width: 24px;
   height: 24px;

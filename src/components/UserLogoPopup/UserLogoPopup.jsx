@@ -1,23 +1,28 @@
 import { FiEdit2 } from 'react-icons/fi';
-import { EditProfile, LogoutBtn, Wrapper } from './UserLogoPopup.styled';
+import {
+  Backdrop,
+  EditProfile,
+  LogoutBtn,
+  Wrapper,
+} from './UserLogoPopup.styled';
 
 import { useState } from 'react';
 
 import UserInfoModal from '../UserInfoModal/UserInfoModal';
 import LogoutModal from '../LogoutModal/LogoutModal';
 
-export default function UserLogoPopup({ isPopupOpen, handleTogglePopup }) {
+export default function UserLogoPopup({ isPopupOpen, handleClosePopup }) {
   const [isUserInfoModalOpen, setIsUserInfoModalOpen] = useState(false);
   const [isLogoutModalOpen, setIsLogoutModalOpen] = useState(false);
 
   const handleToggleUserModal = () => {
     setIsUserInfoModalOpen((state) => !state);
-    handleTogglePopup();
+    handleClosePopup();
   };
 
   const handleToggleLogoutModal = () => {
     setIsLogoutModalOpen((state) => !state);
-    handleTogglePopup();
+    handleClosePopup();
   };
 
   return (
@@ -36,6 +41,10 @@ export default function UserLogoPopup({ isPopupOpen, handleTogglePopup }) {
       <LogoutModal
         isOpen={isLogoutModalOpen}
         handleClose={handleToggleLogoutModal}
+      />
+      <Backdrop
+        ispopupopen={isPopupOpen.toString()}
+        onClick={handleClosePopup}
       />
     </>
   );

@@ -50,14 +50,9 @@ export const CancelBtn = styled.button`
 
   &:hover,
   &:focus {
-    /* color: ${({ theme }) => theme.modalBtnText};
-    background-color: ${({ theme }) => theme.modalBtnBg}; */
-    &:hover,
-    &:focus {
-      color: ${({ theme }) => theme.modalText};
-      background-color: ${({ theme }) => theme.modalBg};
-      border: 1px solid ${({ theme }) => theme.modalBtnBorderHover};
-    }
+    color: ${({ theme }) => theme.modalText};
+    background-color: ${({ theme }) => theme.modalBg};
+    border: 1px solid ${({ theme }) => theme.modalBtnBorderHover};
   }
 `;
 
@@ -66,4 +61,8 @@ export const BtnWrapper = styled.div`
 
   column-gap: 8px;
   min-width: 285px;
+
+  @media screen and (min-width: 768px) {
+    column-gap: 12px;
+  }
 `;

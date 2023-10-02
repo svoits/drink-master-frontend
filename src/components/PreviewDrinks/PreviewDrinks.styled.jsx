@@ -103,7 +103,7 @@ export const CategoryDrinkToDrink = styled(NavLink)`
   margin: 0 auto;
   margin-top: 60px;
   padding: 14px 40px;
-
+  text-align: center;
   background: ${({ theme }) => theme.hoverBackgroundColorLink};
   color: ${({ theme }) => theme.themeSwitcher};
   border: 2px solid transparent;
