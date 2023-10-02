@@ -10,9 +10,9 @@ import {
   DeleteDrinkBTN,
   TrashIcon,
 } from './MyDrinksList.styled';
-import CocktailImage from '../../images/heroImage/hero-img-desc-2x.png';
 import { removeOwnDrink } from '../../redux/drinks/drinks-operations';
 import { useDispatch } from 'react-redux';
+import DefaultImg from '../../assets/stub.svg';
 
 export const MyDrinksList = ({ drinks }) => {
   const dispatch = useDispatch();
@@ -26,7 +26,7 @@ export const MyDrinksList = ({ drinks }) => {
       {drinks.map(({ _id, drinkThumb, drink, category, description }) => (
         <DrinkListItem key={_id}>
           <DrinkIMG
-            src={drinkThumb !== '' ? drinkThumb : CocktailImage}
+            src={drinkThumb !== '' ? drinkThumb : DefaultImg}
             alt={`${drink}`}
           />
           <DrinkTITLE>{drink}</DrinkTITLE>
