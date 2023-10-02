@@ -1,10 +1,10 @@
-import { Link, Nav } from "./AuthNav.styled";
+import { SigninLink,SignupLink, Nav } from "./AuthNav.styled";
 
 export default function AuthNav() {
   return (
     <Nav>
-      <Link to="/signup">Sign Up</Link>
-      <Link to="/signin">Sign In</Link>
+      <SignupLink to="/signup">Sign Up</SignupLink>
+      <SigninLink to="/signin">Sign In</SigninLink>
     </Nav>
   );
 }
