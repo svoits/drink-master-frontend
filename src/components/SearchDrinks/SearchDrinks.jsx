@@ -49,7 +49,9 @@ export const SearchDrinks = ({ page, limit }) => {
   useEffect(() => {
     dispatch(getCategories());
     dispatch(getIngredients());
+  }, [dispatch]);
 
+  useEffect(() => {
     dispatch(getRequestedDrink({ query, category, ingredient, page, limit }));
   }, [dispatch, query, category, ingredient, page, limit]);
 
@@ -94,14 +96,27 @@ export const SearchDrinks = ({ page, limit }) => {
                 classNamePrefix="Select"
                 closeMenuOnSelect={true}
                 isClearable={true}
-                options={categories.map((category) => ({
-                  value: category,
-                  label: category,
-                }))}
+                options={[
+                  {
+                    value: '',
+                    label: 'All categories',
+                  },
+                  ...categories.map((category) => ({
+                    value: category,
+                    label: category,
+                  })),
+                ]}
                 name={field.name}
                 id="categories"
                 {...field}
-                value={category ? { value: category, label: category } : ''}
+                value={
+                  category
+                    ? { value: category, label: category }
+                    : {
+                        value: '',
+                        label: 'All categories',
+                      }
+                }
                 onChange={(selectedOption) => {
                   setCategory(selectedOption ? selectedOption.value : '');
                   form.setFieldValue(
@@ -120,15 +135,23 @@ export const SearchDrinks = ({ page, limit }) => {
                 classNamePrefix="Select"
                 closeMenuOnSelect={true}
                 isClearable={true}
-                options={ingredients.map((ingredient) => ({
-                  value: ingredient.title,
-                  label: ingredient.title,
-                }))}
+                options={[
+                  {
+                    value: '',
+                    label: 'All ingredients',
+                  },
+                  ...ingredients.map((ingredient) => ({
+                    value: ingredient.title,
+                    label: ingredient.title,
+                  })),
+                ]}
                 name={field.name}
                 id="ingredients"
                 {...field}
                 value={
-                  ingredient ? { value: ingredient, label: ingredient } : ''
+                  ingredient
+                    ? { value: ingredient, label: ingredient }
+                    : { value: '', label: 'All ingredients' }
                 }
                 onChange={(selectedOption) => {
                   setIngredient(selectedOption ? selectedOption.value : '');
