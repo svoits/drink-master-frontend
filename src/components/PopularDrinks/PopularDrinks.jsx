@@ -35,7 +35,7 @@ const PopularDrinks = () => {
       <DrinksList>
         {popularList.map(({ _id, drinkThumb, drink, shortDescription }) => (
           <DrinksItem key={_id}>
-            <DrinksLink href={`/drinks/${_id}`}>
+            <DrinksLink href={`drinks/${_id}`}>
               <DrinksImg src={drinkThumb} alt={drink} width={90} height={90} />
               <InfoWrap>
                 <DrinksInfoTitle>{drink}</DrinksInfoTitle>
