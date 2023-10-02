@@ -64,7 +64,7 @@ const DrinkDescriptionFields = ({ formData, setFormData, refId }) => {
 
   const [imagePreview, setImagePreview] = useState(null);
   const [isImageSelected, setIsImageSelected] = useState(false);
-  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [selectedCategory, setSelectedCategory] = useState('');
   const [selectedGlass, setSelectedGlass] = useState('');
 
   useEffect(() => {
@@ -180,15 +180,15 @@ const DrinkDescriptionFields = ({ formData, setFormData, refId }) => {
                               value: selectedCategory,
                               label: selectedCategory,
                             }
-                          : null
+                          : ''
                       }
                       onChange={(selectedOption) => {
                         setSelectedCategory(
-                          selectedOption ? selectedOption.value : null,
+                          selectedOption ? selectedOption.value : '',
                         );
                         form.setFieldValue(
                           'category',
-                          selectedOption ? selectedOption.value : null,
+                          selectedOption ? selectedOption.value : '',
                         );
                       }}
                       placeholder="Cocktail"
