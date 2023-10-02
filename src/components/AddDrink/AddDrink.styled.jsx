@@ -64,11 +64,9 @@ export const MainLink = styled(Link)`
   justify-content: center;
   padding: 12px 42px;
   border-radius: 42px;
-  background: #f3f3f3;
-  background: ${({ theme }) => theme.userPopupBtnText};
 
-  color: #161f37;
-  color: ${({ theme }) => theme.userPopupText};
+  background: ${({ theme }) => theme.hoverBackgroundColorLink};
+  color: ${({ theme }) => theme.hoverColorTextLink};
 
   font-weight: 600;
   line-height: 1.285;
@@ -86,13 +84,13 @@ export const MainLink = styled(Link)`
   }
 
   &:hover {
-    color: #f3f3f3;
-    background: #161f37;
+    color: ${({ theme }) => theme.activeNavLinkText};
+    background: ${({ theme }) => theme.activeNavLinkBg};
   }
 
   &:focus {
-    color: #f3f3f3;
-    background: #161f37;
+    color: ${({ theme }) => theme.activeNavLinkText};
+    background: ${({ theme }) => theme.activeNavLinkBg};
   }
 
   &:disabled {
