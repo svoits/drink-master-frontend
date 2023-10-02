@@ -8,11 +8,8 @@ import transition from '../../utils/transition';
 
 export const FormContainer = styled.div`
   width: 100%;
-  margin-bottom: 40px;
+  margin-bottom: 80px;
 
-  @media screen and (min-width: 768px) {
-    margin-bottom: 80px;
-  }
 `;
 
 export const SearchForm = styled(Form)`
@@ -394,7 +391,8 @@ export const RadioField = styled(Field)`
   appearance: none;
   width: 20px;
   height: 20px;
-  border: 2px solid #f3f3f3;
+
+  border: 2px solid ${({ theme }) => theme.selectDownOptionText};;
   border-radius: 50%;
   background-color: transparent;
   transition: border-color ${transition};
@@ -402,7 +400,10 @@ export const RadioField = styled(Field)`
   position: relative;
 
   &:not(:checked) {
-    border-color: rgba(243, 243, 243, 0.5);
+    // border: 2px solid #F3F3F380
+    // border: 2px solid #0A0A1180
+    border: 1px solid  ${({ theme }) => theme.selectDownOptionRegular};
+
   }
 
   &:checked::before {
@@ -412,7 +413,7 @@ export const RadioField = styled(Field)`
     height: 10px;
     left: 3.2px;
     top: 3.2px;
-    background-color: #f3f3f3;
+    background-color: ${({ theme }) => theme.selectDownOptionText};
     border-radius: 50%;
   }
 
@@ -432,6 +433,7 @@ export const RadioField = styled(Field)`
 export const RadioLabel = styled.span`
   transition: color ${transition};
   ${RadioField}:checked ~ & {
+    // color: ${({ theme }) => theme.mainText};
     color: ${({ theme }) => theme.mainText};
   }
 `;

@@ -98,7 +98,7 @@ export const DrinkPageHero = ({
             </DrinkPhotoWrapper>
           ) : (
             <DrinkSvgWrapper>
-              <StubPhoto />
+              <StubPhoto width="100%" height="100%" />
             </DrinkSvgWrapper>
           )}
         </DrinkHeroWrapper>

@@ -1,3 +1,5 @@
+import DefaultImg from '../../assets/stub.svg';
+
 import {
   CategoryDrinksITEM,
   CategoryDrinksIMG,
