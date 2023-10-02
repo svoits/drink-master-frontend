@@ -1,12 +1,17 @@
-import { Link, LinkWrapper, Text, Wrapper } from './FooterCopyright.styled';
+import {
+  LinkWrapper,
+  Text,
+  Wrapper,
+  AdditionalText,
+} from './FooterCopyright.styled';
 
 export default function FooterCopyright() {
   return (
     <Wrapper>
       <Text>&#169;2023 Drink Master. All rights reserved.</Text>
       <LinkWrapper>
-        <Link to="/">Privacy Policy</Link>
-        <Link to="/">Terms of Service</Link>
+        <AdditionalText>Privacy Policy</AdditionalText>
+        <AdditionalText>Terms of Service</AdditionalText>
       </LinkWrapper>
     </Wrapper>
   );
