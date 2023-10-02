@@ -1,4 +1,4 @@
-import{s as e,t as s,N as m,U as k,c as f,j as t,V as v,u as y,a as D,r as c,W as P,C as S,L as F}from"./index-62938364.js";import{D as C}from"./stub-7640e523.js";import{C as z}from"./hero-img-desc-2x-e8906f30.js";import{P as I}from"./PageTitle-775fcf06.js";import{P as L}from"./Paginator-69aaaca6.js";const $=e.li`
+import{s as e,t as s,N as m,Q as k,c as f,j as t,U as v,u as y,a as D,r as c,V as P,C as S,L as F}from"./index-fc42256f.js";import{D as C}from"./stub-2a43d409.js";import{C as z}from"./hero-img-desc-2x-e8906f30.js";import{P as I}from"./PageTitle-2d989cff.js";import{P as L}from"./Paginator-0d23fba3.js";const $=e.li`
   margin-left: auto;
   margin-right: auto;
 `,A=e.img`
@@ -98,7 +98,7 @@ import{s as e,t as s,N as m,U as k,c as f,j as t,V as v,u as y,a as D,r as c,W a
     width: 26px;
     height: 26px;
   }
-`,W=e.button`
+`,_=e.button`
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -124,7 +124,7 @@ import{s as e,t as s,N as m,U as k,c as f,j as t,V as v,u as y,a as D,r as c,W a
     background-color: #f3f3f3;
     color: #161f37;
   }
-`;function _({drink:i}){const n=f(),{_id:o,drink:r,alcoholic:d,drinkThumb:x,description:l}=i,a=()=>{n(v(o))};return t.jsxs($,{children:[t.jsx(A,{src:x||C,alt:r}),t.jsx(E,{children:r}),t.jsx(T,{children:d?"Alcoholic":"NonAlcoholic"}),t.jsx(M,{children:l}),t.jsxs(N,{children:[t.jsx(R,{to:`/drinks/${o}`,children:"See More"}),t.jsx(W,{onClick:a,children:t.jsx(B,{})})]})]})}const U=e.ul`
+`;function Q({drink:i}){const n=f(),{_id:o,drink:r,alcoholic:d,drinkThumb:x,description:l}=i,a=()=>{n(v(o))};return t.jsxs($,{children:[t.jsx(A,{src:x||C,alt:r}),t.jsx(E,{children:r}),t.jsx(T,{children:d?"Alcoholic":"NonAlcoholic"}),t.jsx(M,{children:l}),t.jsxs(N,{children:[t.jsx(R,{to:`/drinks/${o}`,children:"See More"}),t.jsx(_,{onClick:a,children:t.jsx(B,{})})]})]})}const U=e.ul`
   display: grid;
   grid-row-gap: 40px;
   list-style: none;
@@ -140,7 +140,7 @@ import{s as e,t as s,N as m,U as k,c as f,j as t,V as v,u as y,a as D,r as c,W a
     grid-template-columns: repeat(3, 1fr);
     margin-top: 62px;
   }
-`;function V({drinks:i}){return t.jsx(U,{children:Array.isArray(i)&&i.map(n=>t.jsx(_,{drink:n},n._id))})}const Y=e.section`
+`;function V({drinks:i}){return t.jsx(U,{children:Array.isArray(i)&&i.map(n=>t.jsx(Q,{drink:n},n._id))})}const W=e.section`
   padding-top: 80px;
   padding-bottom: 80px;
 
@@ -166,7 +166,7 @@ import{s as e,t as s,N as m,U as k,c as f,j as t,V as v,u as y,a as D,r as c,W a
   @media screen and (min-width: 1440px) {
     padding-top: 67px;
   }
-`;const q=e.div`
+`;const Y=e.div`
   margin: 0 auto;
   padding-top: 91px;
   display: flex;
@@ -183,7 +183,7 @@ import{s as e,t as s,N as m,U as k,c as f,j as t,V as v,u as y,a as D,r as c,W a
   @media screen and (min-width: 1440px) {
     padding-top: 67px;
   }
-`,G=e.p`
+`,q=e.p`
   font-weight: 500;
   line-height: 1.28;
   text-align: center;
@@ -193,10 +193,10 @@ import{s as e,t as s,N as m,U as k,c as f,j as t,V as v,u as y,a as D,r as c,W a
     font-weight: 500;
     line-height: 1.38;
   }
-`,H=e.img`
+`,G=e.img`
   width: 100%;
   object-fit: contain;
-`,J=e.div`
+`,H=e.div`
   margin-top: 40px;
   margin-bottom: 40px;
 
@@ -204,4 +204,4 @@ import{s as e,t as s,N as m,U as k,c as f,j as t,V as v,u as y,a as D,r as c,W a
     margin-top: 60px;
     margin-bottom: 80px;
   }
-`;function tt(){const i=f(),{total:n,favoriteDrinks:o}=y(),{width:r}=D(),[d,x]=c.useState(""),[l,a]=c.useState(!0),[h,u]=c.useState(1),w=r<768?5:8,p=r<1440?8:9,b=g=>{u(g)};c.useEffect(()=>{a(!0),i(P({page:h,limit:p})).then(()=>a(!1)).catch(g=>{console.error(g),x("Something went wrong, please try later."),a(!1)})},[h,i,p]);const j=Math.ceil(n/p);return t.jsx(Y,{children:t.jsxs(S,{children:[t.jsx(I,{title:"Favorites"}),l&&t.jsx(F,{}),!o.length&&t.jsxs(q,{children:[t.jsx(H,{src:z,alt:"Cocktail"}),t.jsx(G,{children:"You have not added any cocktails yet"})]}),o.length>0&&t.jsx(J,{children:t.jsx(V,{drinks:o})}),d&&t.jsx("div",{children:d}),j>1&&t.jsx(L,{currentPage:h,drinksPerPage:p,totalDrinks:n,onPageChange:b,pageNumbersToShow:w})]})})}export{tt as default};
+`;function tt(){const i=f(),{total:n,favoriteDrinks:o}=y(),{width:r}=D(),[d,x]=c.useState(""),[l,a]=c.useState(!0),[h,u]=c.useState(1),w=r<768?5:8,p=r<1440?8:9,b=g=>{u(g)};c.useEffect(()=>{a(!0),i(P({page:h,limit:p})).then(()=>a(!1)).catch(g=>{console.error(g),x("Something went wrong, please try later."),a(!1)})},[h,i,p]);const j=Math.ceil(n/p);return t.jsx(W,{children:t.jsxs(S,{children:[t.jsx(I,{title:"Favorites"}),l&&t.jsx(F,{}),!o.length&&t.jsxs(Y,{children:[t.jsx(G,{src:z,alt:"Cocktail"}),t.jsx(q,{children:"You have not added any cocktails yet"})]}),o.length>0&&t.jsx(H,{children:t.jsx(V,{drinks:o})}),d&&t.jsx("div",{children:d}),j>1&&t.jsx(L,{currentPage:h,drinksPerPage:p,totalDrinks:n,onPageChange:b,pageNumbersToShow:w})]})})}export{tt as default};
