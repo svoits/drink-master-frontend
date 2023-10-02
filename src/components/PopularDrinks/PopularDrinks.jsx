@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 import { getPopularDrinks } from '../../redux/drinks/drinks-operations';
 import { selectDrinks } from '../../redux/drinks/drinks-selectors';
+import DefaultImg from '../../assets/stub.svg';
 
 import Loader from '../Loader/Loader';
 import {
@@ -14,6 +15,7 @@ import {
   DrinksLink,
   DrinksList,
   InfoWrap,
+  DrinksSvgWrapper,
 } from './PopularDrinks.styled';
 
 const PopularDrinks = () => {
@@ -36,7 +38,23 @@ const PopularDrinks = () => {
         {popularList.map(({ _id, drinkThumb, drink, shortDescription }) => (
           <DrinksItem key={_id}>
             <DrinksLink href={`/drinks/${_id}`}>
-              <DrinksImg src={drinkThumb} alt={drink} width={90} height={90} />
+              {drinkThumb ? (
+                <DrinksImg
+                  src={drinkThumb}
+                  alt={drink}
+                  width={90}
+                  height={90}
+                />
+              ) : (
+                <DrinksSvgWrapper>
+                  <DrinksImg
+                    src={DefaultImg}
+                    alt={drink}
+                    width={60}
+                    height={60}
+                  />
+                </DrinksSvgWrapper>
+              )}
               <InfoWrap>
                 <DrinksInfoTitle>{drink}</DrinksInfoTitle>
                 <DrinksInfoDescr>{shortDescription}</DrinksInfoDescr>
