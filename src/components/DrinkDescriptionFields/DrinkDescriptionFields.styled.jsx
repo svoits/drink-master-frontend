@@ -379,7 +379,12 @@ export const RadioLabelWrapper = styled.label`
   justify-content: center;
   align-items: center;
   column-gap: 6px;
-
+  
+  &:hover,
+  &:focus {
+    // color: #F3F3F3;
+    color: ${({ theme }) => theme.selectDownOptionText};
+  }
   @media screen and (min-width: 768px) {
     font-size: 16px;
     line-height: 22px;
@@ -392,7 +397,7 @@ export const RadioField = styled(Field)`
   width: 20px;
   height: 20px;
 
-  border: 2px solid ${({ theme }) => theme.selectDownOptionText};;
+  border: 2px solid ${({ theme }) => theme.selectDownOptionText};
   border-radius: 50%;
   background-color: transparent;
   transition: border-color ${transition};
