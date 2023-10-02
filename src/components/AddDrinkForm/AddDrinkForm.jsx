@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useState, useRef } from 'react';
 import { addMyDrink } from '../../redux/drinks/drinks-operations';
 import DrinkDescriptionFields from '../DrinkDescriptionFields/DrinkDescriptionFields';
-import DrinkIngredientsFields1 from '../DrinkIngredientsFields1/DrinkIngredientsFields1';
+import DrinkIngredientsFields1 from '../DrinkIngredientsFields/DrinkIngredientsFields1';
 import RecipePreparationText from '../RecipePreparationText/RecipePreparationText';
 
 import { AddDrinkFormContainer, AddDrinkFormBtn } from './AddDrinkForm.styled';

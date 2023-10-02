@@ -39,8 +39,6 @@ export const DrinkIngredientsList = ({ ingredients }) => {
               images['thumb-small'] = ingredientRec['thumb-small'];
             }
 
-            // console.log({ ingredient, ingredientRec, ingredientsWithImages });
-
             return (
               <li key={ingredient.ingredientId}>
                 <DrinkIngredientItem

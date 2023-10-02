@@ -6,7 +6,6 @@ import { IoClose } from 'react-icons/io5';
 import { CloseBtn, StyledBox } from './Modal.styled';
 
 export default function Modal({ children, isOpen, handleClose, gradient }) {
-  console.log(gradient);
   return (
     <MuiModal
       open={isOpen}

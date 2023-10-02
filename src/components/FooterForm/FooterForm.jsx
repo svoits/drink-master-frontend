@@ -20,7 +20,6 @@ export default function FooterForm() {
       validationSchema={subscribeSchema}
       onSubmit={(values, actions) => {
         dispatch(subscribeEmail(values));
-        console.log(values);
         actions.resetForm();
       }}
     >
