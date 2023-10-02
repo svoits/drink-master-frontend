@@ -1,4 +1,4 @@
-import{s as i,t as s,N as m,X as j,c as f,j as e,Y as v,u as y,a as D,r as c,Z as P,C as S,L as F}from"./index-ad01a815.js";import{D as C}from"./stub-823d2b12.js";import{C as z}from"./hero-img-desc-2x-e8906f30.js";import{P as I}from"./PageTitle-13290e97.js";import{P as L}from"./Paginator-1269fb55.js";const $=i.li`
+import{s as i,t as s,N as m,X as j,c as f,j as e,Y as v,u as y,a as D,r as c,Z as P,C as S,L as F}from"./index-6a5d9e98.js";import{D as C,P as z}from"./PageTitle-98e35de4.js";import{C as I}from"./hero-img-desc-2x-e8906f30.js";import{P as L}from"./Paginator-e14ba8cc.js";const $=i.li`
   margin-left: auto;
   margin-right: auto;
 `,A=i.img`
@@ -210,4 +210,4 @@ import{s as i,t as s,N as m,X as j,c as f,j as e,Y as v,u as y,a as D,r as c,Z a
     margin-top: 60px;
     margin-bottom: 80px;
   }
-`;function ee(){const t=f(),{total:n,favoriteDrinks:o}=y(),{width:r}=D(),[d,l]=c.useState(""),[x,a]=c.useState(!0),[h,u]=c.useState(1),w=r<768?5:8,p=r<1440?8:9,b=g=>{u(g)};c.useEffect(()=>{a(!0),t(P({page:h,limit:p})).then(()=>a(!1)).catch(g=>{console.error(g),l("Something went wrong, please try later."),a(!1)})},[h,t,p]);const k=Math.ceil(n/p);return e.jsx(Z,{children:e.jsxs(S,{children:[e.jsx(I,{title:"Favorites"}),x&&e.jsx(F,{}),!o.length&&e.jsxs(q,{children:[e.jsx(H,{src:z,alt:"Cocktail"}),e.jsx(G,{children:"You have not added any cocktails yet"})]}),o.length>0&&e.jsx(J,{children:e.jsx(X,{drinks:o})}),d&&e.jsx("div",{children:d}),k>1&&e.jsx(L,{currentPage:h,drinksPerPage:p,totalDrinks:n,onPageChange:b,pageNumbersToShow:w})]})})}export{ee as default};
+`;function V(){const t=f(),{total:n,favoriteDrinks:o}=y(),{width:r}=D(),[d,l]=c.useState(""),[x,a]=c.useState(!0),[h,u]=c.useState(1),w=r<768?5:8,p=r<1440?8:9,b=g=>{u(g)};c.useEffect(()=>{a(!0),t(P({page:h,limit:p})).then(()=>a(!1)).catch(g=>{console.error(g),l("Something went wrong, please try later."),a(!1)})},[h,t,p]);const k=Math.ceil(n/p);return e.jsx(Z,{children:e.jsxs(S,{children:[e.jsx(z,{title:"Favorites"}),x&&e.jsx(F,{}),!o.length&&e.jsxs(q,{children:[e.jsx(H,{src:I,alt:"Cocktail"}),e.jsx(G,{children:"You have not added any cocktails yet"})]}),o.length>0&&e.jsx(J,{children:e.jsx(X,{drinks:o})}),d&&e.jsx("div",{children:d}),k>1&&e.jsx(L,{currentPage:h,drinksPerPage:p,totalDrinks:n,onPageChange:b,pageNumbersToShow:w})]})})}export{V as default};
