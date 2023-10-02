@@ -1,14 +1,14 @@
-import{s as i,t as s,N as m,X as j,c as f,j as e,Y as v,u as y,a as D,r as c,Z as P,C as S,L as F}from"./index-7fef8c9e.js";import{D as C,P as z}from"./PageTitle-c82d1644.js";import{C as I}from"./hero-img-desc-2x-e8906f30.js";import{P as L}from"./Paginator-d28e5457.js";const $=i.li`
+import{s as i,t as s,N as m,X as j,c as f,j as e,Y as v,u as y,a as D,r as c,Z as P,C as S,L as F}from"./index-3681b435.js";import{D as C,P as z}from"./PageTitle-56af4459.js";import{C as I}from"./hero-img-desc-2x-e8906f30.js";import{P as L}from"./Paginator-2a2e9859.js";const $=i.li`
   margin-left: auto;
   margin-right: auto;
 `,A=i.img`
   width: 100%;
   border-radius: 8px;
-  background: #161f37;
+  height: 360px;
+  object-fit: cover;
 
   @media screen and (min-width: 768px) {
     width: 342px;
-    height: 360px;
   }
   @media screen and (min-width: 1440px) {
     width: 400px;
@@ -37,7 +37,7 @@ import{s as i,t as s,N as m,X as j,c as f,j as e,Y as v,u as y,a as D,r as c,Z a
     margin-top: 24px;
   }
 `,M=i.p`
-  height: 75px;
+  height: 73px;
   text-overflow: ellipsis;
   overflow: hidden;
   font-size: 14px;

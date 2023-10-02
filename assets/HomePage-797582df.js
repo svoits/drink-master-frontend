@@ -1,4 +1,4 @@
-import{s as n,t as s,N as p,j as i,u as l,a as k,C as g,L as m,b as u,c as b,r as w,g as j}from"./index-7fef8c9e.js";import{D as v,P as D}from"./PageTitle-c82d1644.js";import{C as y}from"./hero-img-desc-2x-e8906f30.js";const $=n.section`
+import{s as n,t as s,N as p,j as i,u as l,a as k,C as g,L as m,b as u,c as b,r as w,g as j}from"./index-3681b435.js";import{D as v,P as D}from"./PageTitle-56af4459.js";import{C as y}from"./hero-img-desc-2x-e8906f30.js";const $=n.section`
   padding-bottom: 80px;
 
   @media screen and (min-width: 768px) {
@@ -79,7 +79,7 @@ import{s as n,t as s,N as p,j as i,u as l,a as k,C as g,L as m,b as u,c as b,r a
   margin: 0 auto;
   margin-top: 60px;
   padding: 14px 40px;
-
+  text-align: center;
   background: ${({theme:e})=>e.hoverBackgroundColorLink};
   color: ${({theme:e})=>e.themeSwitcher};
   border: 2px solid transparent;
