@@ -52,6 +52,14 @@ export const DrinksImg = styled.img`
   border-radius: 8px;
 `;
 
+export const DrinksSvgWrapper = styled.div`
+  width: 90px;
+  height: 90px;
+  border-radius: 8px;
+  padding: 15px;
+  background-color: ${({ theme }) => theme.AddPhotoBackgroundColor};
+`;
+
 export const InfoWrap = styled.div`
   display: flex;
   flex-direction: column;
