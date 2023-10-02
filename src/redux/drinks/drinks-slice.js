@@ -76,9 +76,12 @@ const drinksSlice = createSlice({
       .addCase(removeDrink.rejected, handleRejected)
       .addCase(removeOwnDrink.pending, handlePending)
       .addCase(removeOwnDrink.fulfilled, (state, action) => {
-        state.drinks = action.payload;
         state.isLoading = false;
         state.error = null;
+        const index = state.drinks.findIndex(
+          (drink) => drink._id === action.payload.result._id,
+        );
+        state.drinks.splice(index, 1);
       })
       .addCase(getOwnDrinks.pending, handlePending)
       .addCase(getOwnDrinks.fulfilled, (state, action) => {
