@@ -10,13 +10,12 @@ export const AddDrinkFormContainer = styled.div`
 
 export const AddDrinkFormBtn = styled.button`
   border-radius: 42px;
-  background: #f3f3f3;
-  background: ${({ theme }) => theme.userPopupBtnText};
+
+  background: ${({ theme }) => theme.hoverBackgroundColorLink};
   padding: 13px 39px;
   border: 1px solid transparent;
 
-  color: #161f37;
-  color: ${({ theme }) => theme.userPopupText};
+  color: ${({ theme }) => theme.hoverColorTextLink};
 
   font-weight: 600;
   line-height: 1.2;
@@ -31,7 +30,6 @@ export const AddDrinkFormBtn = styled.button`
 
   &:disabled {
     color: rgba(243, 243, 243, 0.2);
-
     background: #434d67;
   }
 
