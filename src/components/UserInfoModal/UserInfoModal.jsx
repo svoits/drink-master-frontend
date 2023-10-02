@@ -18,11 +18,14 @@ import { useAuth } from '../../redux/hooks/useAuth';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { updateUser } from '../../redux/auth/auth-operation';
+import { toast } from 'react-toastify';
+import { useResize } from '../../hooks/useResize';
 
 export default function UserInfoModal({ isOpen, handleClose }) {
   const {
     user: { avatarURL, name },
   } = useAuth();
+  const { width } = useResize();
 
   const [username, setUsername] = useState(name);
   const [file, setFile] = useState(null);
@@ -36,9 +39,9 @@ export default function UserInfoModal({ isOpen, handleClose }) {
 
   const handleFileChange = (event) => {
     const file = event.target.files[0];
-    const maxSizeFile = 5242880;
+    const maxSizeFile = 3145728;
     if (file.size > maxSizeFile) {
-      //tostify
+      toast.error('The file size must be less than 3 MB.');
       setFile('');
       return;
     }
@@ -62,7 +65,7 @@ export default function UserInfoModal({ isOpen, handleClose }) {
   }, [avatarURL]);
 
   return (
-    <Modal isOpen={isOpen} handleClose={handleClose}>
+    <Modal isOpen={isOpen} handleClose={handleClose} gradient={true}>
       <Formik initialValues={{ name: username }} onSubmit={handleSubmit}>
         <Form>
           <FileInputWrapper>
@@ -84,7 +87,7 @@ export default function UserInfoModal({ isOpen, handleClose }) {
               onChange={handleInputChange}
             />
             <EditIconWrapper>
-              <FiEdit2 size={14} />
+              <FiEdit2 size={width < 768 ? 14 : 20} />
             </EditIconWrapper>
           </NameInputWrapper>
           <SubmitBtn type="submit">Save changes</SubmitBtn>

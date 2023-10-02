@@ -7,7 +7,7 @@ export default function LogoutModal({ ...props }) {
   const dispatch = useDispatch();
 
   return (
-    <Modal {...props}>
+    <Modal {...props} gradient={false}>
       <Text>Are you sure you want to log out?</Text>
       <BtnWrapper>
         <LogoutBtn onClick={() => dispatch(signOut())}>Log out</LogoutBtn>

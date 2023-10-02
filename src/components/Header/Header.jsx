@@ -26,6 +26,8 @@ export const Header = () => {
     setIsUserPopupOpen((state) => !state);
   };
 
+  windowWidth >= 1440 && enableBodyScroll(document);
+
   return (
     <>
       <HeaderContainer isopen={isMenuOpen ? 'true' : 'false'}>
@@ -59,9 +61,12 @@ export const Header = () => {
         handleTogglePopup={handleToggleUserPopup}
       />
 
-      {/* {isMenuOpen && <MobileMenu isMenuOpen={isMenuOpen} />} */}
-
-      <MobileMenu isMenuOpen={isMenuOpen} handleToggleMenu={handleToggleMenu} />
+      {windowWidth < 1440 && (
+        <MobileMenu
+          isMenuOpen={isMenuOpen}
+          handleToggleMenu={handleToggleMenu}
+        />
+      )}
     </>
   );
 };

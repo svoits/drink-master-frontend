@@ -32,6 +32,12 @@ export const ChangeNameInput = styled(Field)`
     outline: transparent;
     border-color: ${({ theme }) => theme.modalInputBorderFocus};
   }
+
+  @media screen and (min-width: 768px) {
+    font-size: 17px;
+    line-height: 1.56;
+    padding: 14px 23px;
+  }
 `;
 
 export const Image = styled.img`
@@ -39,6 +45,11 @@ export const Image = styled.img`
   width: 80px;
   height: 80px;
   border-radius: 50%;
+
+  @media screen and (min-width: 768px) {
+    width: 100px;
+    height: 100px;
+  }
 `;
 
 export const FileInputWrapper = styled.div`
@@ -47,12 +58,22 @@ export const FileInputWrapper = styled.div`
   height: 80px;
   width: 80px;
   margin-bottom: 38px;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 66px;
+    width: 100px;
+    height: 100px;
+  }
 `;
 
 export const NameInputWrapper = styled.div`
   position: relative;
   width: 100%;
   margin-bottom: 18px;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 25px;
+  }
 `;
 
 export const EditIconWrapper = styled.span`
@@ -61,14 +82,19 @@ export const EditIconWrapper = styled.span`
   right: 24px;
   pointer-events: none;
   color: ${({ theme }) => theme.modalText};
+
+  @media screen and (min-width: 768px) {
+    top: 18px;
+  }
 `;
 
 export const SubmitBtn = styled.button`
   min-width: 285px;
   border: none;
   background-color: transparent;
-  padding: 18px;
+  padding: 17px;
   border-radius: 42px;
+  line-height: 1.285;
   background-color: ${({ theme }) => theme.modalBtnBg};
   border: 1px solid ${({ theme }) => theme.modalBg};
   color: ${({ theme }) => theme.modalBtnText};
@@ -87,6 +113,8 @@ export const SubmitBtn = styled.button`
 
   @media screen and (min-width: 768px) {
     min-width: 400px;
+    font-size: 16px;
+    line-height: 1.125;
   }
 `;
 

@@ -109,11 +109,12 @@ export const ImageWrap = styled.div`
 
 export const ImageBgYellow = styled.div`
   display: none;
+
   @media screen and (min-width: 1440px) {
     display: block;
     position: absolute;
     z-index: -1;
-    top: 225px;
+    top: 110px;
     left: -145px;
     width: 387px;
     height: 381px;
@@ -121,40 +122,4 @@ export const ImageBgYellow = styled.div`
     background: rgba(188, 230, 210, 0.3);
     filter: blur(104.8543701171875px);
   }
-`;
-
-export const ImageBgBlue = styled.div`
-  position: absolute;
-  width: 549px;
-  height: 543px;
-  right: -680px;
-  top: 100px;
-
-  border-radius: 549px;
-  background: rgba(64, 112, 205, 0.5);
-  filter: blur(104.8543701171875px);
-
-  @media screen and (min-width: 768px) {
-    top: -40px;
-    right: -680px;
-  }
-
-  @media screen and (min-width: 1440px) {
-    top: 340px;
-    right: -470px;
-  }
-`;
-
-export const Gradient = styled.div`
-  position: absolute;
-  left: -590px;
-  top: 60px;
-  z-index: -1;
-
-  width: 784px;
-  height: 849px;
-
-  border-radius: 849px;
-  background: rgba(64, 112, 205, 0.5);
-  filter: blur(104.8543701171875px);
 `;

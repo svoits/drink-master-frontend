@@ -72,7 +72,7 @@ export const darkTheme = {
   footerBorderHover: '#F3F3F380',
   footerText: '#F3F3F3',
   footerCopyright: '#F3F3F380',
-  footerBg: '#0A0A11',
+  footerBg: 'transparent',
 
   sectionBackgroundColor: 'transparent',
   hoverBackgroundColorLink: '#F3F3F3',

@@ -1,6 +1,5 @@
 import { Container } from '../../components/Container/Container.styled';
 import {
-  Gradient,
   // ImageBgBlue,
   ImageBgYellow,
   ImageWrap,
@@ -26,7 +25,6 @@ export default function AddDrink() {
         <SectionWrap>
           <MainWrap>
             <PageTitle title="Craft Your Perfect Drink with Drink Master" />
-            <Gradient></Gradient>
             <MainDescr>
               Unlock your inner mixologist with Drink Master, your one-stop
               destination for exploring, crafting, and mastering the world`s
