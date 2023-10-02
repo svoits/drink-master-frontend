@@ -103,19 +103,17 @@ export const DrinkDescriptionWrapper = styled.div`
 `;
 
 export const DrinkSvgWrapper = styled.div`
-  padding: 133px 102px;
   margin-top: 80px;
-  background-color: rgba(22, 31, 55, 0.5);
+  background-color: ${({ theme }) => theme.drinkPageIngredientBg};
+  border-radius: 8px;
 
   @media screen and (min-width: 768px) {
     width: 704px;
     height: 400px;
-    padding: 133px 286px;
   }
 
   @media screen and (min-width: 1440px) {
     width: 400px;
     height: 400px;
-    padding: 133px 135px;
   }
 `;
