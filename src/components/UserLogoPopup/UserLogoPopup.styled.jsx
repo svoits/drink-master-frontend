@@ -1,6 +1,23 @@
 import styled from 'styled-components';
 import transition from '../../utils/transition';
 
+export const Backdrop = styled.div`
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: ${({ ispopupopen }) => (ispopupopen === 'true' ? 1 : 0)};
+  visibility: ${({ ispopupopen }) =>
+    ispopupopen === 'true' ? 'visible' : 'hidden'};
+
+  transition:
+    opacity ${transition},
+    visibility ${transition};
+  transition-duration: 500ms;
+`;
+
 export const Wrapper = styled.div`
   position: absolute;
   top: 72px;
@@ -17,7 +34,6 @@ export const Wrapper = styled.div`
   flex-direction: column;
   row-gap: 38px;
   z-index: 5;
-  will-change: transform, opacity;
 
   transition:
     opacity ${transition},
@@ -50,7 +66,20 @@ export const EditProfile = styled.button`
 
   &:hover,
   &:focus {
-    column-gap: 12px;
+    transition: column-gap ${transition};
+    animation: expandGap 2s infinite;
+  }
+
+  @keyframes expandGap {
+    0% {
+      column-gap: 56px;
+    }
+    50% {
+      column-gap: 12px;
+    }
+    100% {
+      column-gap: 56px;
+    }
   }
 `;
 

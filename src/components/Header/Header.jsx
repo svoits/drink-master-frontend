@@ -22,8 +22,12 @@ export const Header = () => {
     isMenuOpen ? enableBodyScroll(document) : disableBodyScroll(document);
   };
 
-  const handleToggleUserPopup = () => {
-    setIsUserPopupOpen((state) => !state);
+  const handleOpenUserPopup = () => {
+    setIsUserPopupOpen(true);
+  };
+
+  const handleCloseUserPopup = () => {
+    setIsUserPopupOpen(false);
   };
 
   windowWidth >= 1440 && enableBodyScroll(document);
@@ -42,9 +46,11 @@ export const Header = () => {
                 <ThemeSwitcher />
               )}
               {windowWidth <= 1439.98 ? (
-                !isMenuOpen && <UserLogo togglePopup={handleToggleUserPopup} />
+                !isMenuOpen && (
+                  <UserLogo handleOpenPopup={handleOpenUserPopup} />
+                )
               ) : (
-                <UserLogo togglePopup={handleToggleUserPopup} />
+                <UserLogo handleOpenPopup={handleOpenUserPopup} />
               )}
               {windowWidth <= 1439.98 && (
                 <MenuBtn
@@ -58,7 +64,7 @@ export const Header = () => {
       </HeaderContainer>
       <UserLogoPopup
         isPopupOpen={isUserPopupOpen}
-        handleTogglePopup={handleToggleUserPopup}
+        handleClosePopup={handleCloseUserPopup}
       />
 
       {windowWidth < 1440 && (

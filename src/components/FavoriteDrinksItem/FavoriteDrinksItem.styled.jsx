@@ -11,11 +11,11 @@ export const StyledItem = styled.li`
 export const StyledImg = styled.img`
   width: 100%;
   border-radius: 8px;
-  background: #161f37;
+  height: 360px;
+  object-fit: cover;
 
   @media screen and (min-width: 768px) {
     width: 342px;
-    height: 360px;
   }
   @media screen and (min-width: 1440px) {
     width: 400px;
@@ -50,7 +50,7 @@ export const StyledName = styled.h2`
 `;
 
 export const StyledDescr = styled.p`
-  height: 75px;
+  height: 73px;
   text-overflow: ellipsis;
   overflow: hidden;
   font-size: 14px;
