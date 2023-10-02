@@ -10,7 +10,6 @@ export const getMainPageAllDrinks = createAsyncThunk(
 
       return response.data;
     } catch (error) {
-      // console.log('error =>', error); // TEST LINE
       return thunkAPI.rejectWithValue(error.message);
     }
   },
