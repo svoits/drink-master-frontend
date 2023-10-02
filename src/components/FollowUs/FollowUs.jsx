@@ -5,7 +5,7 @@ const FollowUs = () => {
   return (
     <FollowUsWrap>
       <FollowUsTitle>Follow Us</FollowUsTitle>
-      <SocialIcons />
+      <SocialIcons isInFooter={false}/>
     </FollowUsWrap>
   );
 };

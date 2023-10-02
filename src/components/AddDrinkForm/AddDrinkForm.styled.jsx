@@ -11,21 +11,25 @@ export const AddDrinkFormContainer = styled.div`
 export const AddDrinkFormBtn = styled.button`
   border-radius: 42px;
 
-  background: ${({ theme }) => theme.hoverBackgroundColorLink};
+  background: ${({ theme }) => theme.basicBtnBg};
   padding: 13px 39px;
-  border: 1px solid transparent;
+  border: 1px solid ${({ theme }) => theme.basicBtnBg};
 
-  color: ${({ theme }) => theme.hoverColorTextLink};
+  color: ${({ theme }) => theme.basicBtnText};
 
   font-weight: 600;
   line-height: 1.2;
   transition: color ${transition};
-  transition: background-color ${transition};
+  transition:
+    color ${transition},
+    background-color ${transition},
+    border-color ${transition};
 
   &:hover,
   &:focus {
-    color: ${({ theme }) => theme.activeNavLinkText};
-    background: ${({ theme }) => theme.activeNavLinkBg};
+    color: ${({ theme }) => theme.basicBtnTextHover};
+    background-color: ${({ theme }) => theme.basicBtnBgHover};
+    border-color: ${({ theme }) => theme.basicBtnBorderHover};
   }
 
   &:disabled {

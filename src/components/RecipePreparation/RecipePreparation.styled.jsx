@@ -25,6 +25,7 @@ export const RecipePreparationDescription = styled.p`
   line-height: 1.285;
   margin-top: 40px;
   margin-bottom: 0;
+  overflow-wrap: break-word;
 
   @media screen and (min-width: 768px) {
     font-size: 16px;

@@ -50,6 +50,15 @@ export const lightTheme = {
 
   selectDownOptionText: '#0A0A11',
   selectDownOptionRegular: '#0A0A1180',
+
+  basicBtnBg: '#161F37',
+  basicBtnText: '#F3F3F3',
+  basicBtnBgHover: '#F3F3F3',
+  basicBtnTextHover: '#161F37',
+  basicBtnBorderHover: '#4070CD80',
+
+  socialIcon: '#161F37CC',
+  socialIconBorder: '#161F3733',
 };
 
 export const darkTheme = {
@@ -105,4 +114,13 @@ export const darkTheme = {
 
   selectDownOptionText: '#f3f3f3',
   selectDownOptionRegular: '#F3F3F380',
+
+  basicBtnBg: '#F3F3F3',
+  basicBtnText: '#161F37',
+  basicBtnBgHover: 'transparent',
+  basicBtnTextHover: '#F3F3F3',
+  basicBtnBorderHover: '#F3F3F333',
+
+  socialIcon: '#F3F3F3',
+  socialIconBorder: '#F3F3F333',
 };

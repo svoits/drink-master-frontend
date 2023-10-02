@@ -331,7 +331,7 @@ export const StyledSelectCL = styled(ReactSelect)`
       background-color: ${({ theme }) => theme.selectDropdownOptionBgActive};
     }
 
-    @media screen and (min-width: 1440px) {
+    @media screen and (min-width: 768px) {
       font-size: 16px;
     }
   }
@@ -428,7 +428,15 @@ export const StyledSelect = styled(ReactSelect)`
     }
   }
 
-  & .Select__placeholder,
+  & .Select__placeholder {
+    line-height: 1.285;
+    color: ${({ theme }) => theme.subTitleText};
+
+    @media screen and (min-width: 768px) {
+      font-size: 17px;
+      line-height: 1.56;
+    }
+  }
   & .Select__single-value {
     color: ${({ theme }) => theme.selectDownOptionText};
     line-height: 1.285;
