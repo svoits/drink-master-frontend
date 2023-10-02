@@ -1,3 +1,5 @@
+import DefaultImg from '../../assets/stub.svg';
+
 import {
   CategoryDrinksITEM,
   CategoryDrinksIMG,
@@ -11,11 +13,7 @@ export const ItemDrink = ({ item }) => {
 
   return (
     <CategoryDrinksITEM key={id}>
-      {drinkThumb ? (
-        <CategoryDrinksIMG src={drinkThumb} alt={drink} />
-      ) : (
-        <CategoryDrinksIMG src="" alt={drink} />
-      )}
+        <CategoryDrinksIMG src={drinkThumb || DefaultImg} alt={drink} />
       <CategoryDrinksTEXTDIV>
         <CategoryDrinksP>{drink}</CategoryDrinksP>
         <CategoryDrinksLink to={`/drinks/${id}`}>See more</CategoryDrinksLink>
