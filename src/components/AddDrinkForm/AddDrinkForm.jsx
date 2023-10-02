@@ -3,14 +3,10 @@ import { useState, useRef } from 'react';
 import { addMyDrink } from '../../redux/drinks/drinks-operations';
 import DrinkDescriptionFields from '../DrinkDescriptionFields/DrinkDescriptionFields';
 import DrinkIngredientsFields1 from '../DrinkIngredientsFields1/DrinkIngredientsFields1';
-import RecipePreparationText from '../RecipePreparationText';
+import RecipePreparationText from '../RecipePreparationText/RecipePreparationText';
 
-import { 
-  AddDrinkFormContainer,
-  AddDrinkFormBtn
-} from './AddDrinkForm.styled';
+import { AddDrinkFormContainer, AddDrinkFormBtn } from './AddDrinkForm.styled';
 import { Link } from 'react-router-dom';
-
 
 const AddDrinkForm = () => {
   const dispatch = useDispatch();
@@ -63,7 +59,6 @@ const AddDrinkForm = () => {
       dispatch(addMyDrink(data));
     }
   };
-  
 
   return (
     <AddDrinkFormContainer>
@@ -84,9 +79,9 @@ const AddDrinkForm = () => {
       />
 
       <Link to={'/my'}>
-      <AddDrinkFormBtn type="submit" onClick={handleSubmit}>
-        Add
-      </AddDrinkFormBtn>
+        <AddDrinkFormBtn type="submit" onClick={handleSubmit}>
+          Add
+        </AddDrinkFormBtn>
       </Link>
     </AddDrinkFormContainer>
   );

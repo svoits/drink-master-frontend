@@ -15,13 +15,12 @@ export const FollowUsTitle = styled.h3`
   font-size: 18px;
   font-style: normal;
   font-weight: 500;
-  line-height: 1.3;
+  line-height: 1.33;
 
   @media screen and (min-width: 768px) {
     margin-bottom: 24px;
 
     font-size: 24px;
-    line-height: 1.3;
   }
 `;
 

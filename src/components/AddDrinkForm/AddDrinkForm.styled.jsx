@@ -9,35 +9,24 @@ export const AddDrinkFormContainer = styled.div`
 `;
 
 export const AddDrinkFormBtn = styled.button`
-  margin-bottom: 80px;
   border-radius: 42px;
   background: #f3f3f3;
   background: ${({ theme }) => theme.userPopupBtnText};
-  padding: 14px 40px;
-  border: 2px solid transparent;
+  padding: 13px 39px;
+  border: 1px solid transparent;
 
   color: #161f37;
   color: ${({ theme }) => theme.userPopupText};
-  font-family: Manrope;
-  font-size: 14px;
-  font-style: normal;
+
   font-weight: 600;
   line-height: 1.2;
   transition: color ${transition};
-  transition: background ${transition};
+  transition: background-color ${transition};
 
-  &:active {
-    border: 2px solid rgba(64, 112, 205, 0.5);
-  }
-
-  &:hover {
-    color: #f3f3f3;
-    background: #161f37;
-  }
-
+  &:hover,
   &:focus {
-    color: #f3f3f3;
-    background: #161f37;
+    color: ${({ theme }) => theme.activeNavLinkText};
+    background: ${({ theme }) => theme.activeNavLinkBg};
   }
 
   &:disabled {
@@ -47,9 +36,9 @@ export const AddDrinkFormBtn = styled.button`
   }
 
   @media screen and (min-width: 768px) {
-    padding: 18px 44px;
+    padding: 17.5px 43px;
     font-size: 16px;
-    line-height: 1.1;
+    line-height: 1.125;
   }
   @media screen and (min-width: 1440px) {
     margin-bottom: 0px;

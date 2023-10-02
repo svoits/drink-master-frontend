@@ -8,13 +8,14 @@ import { Formik, FieldArray } from 'formik';
 // import Select from 'react-select';
 import { useResize } from 'src/hooks/useResize';
 import { IoMdClose } from 'react-icons/io';
+import { FiMinus, FiPlus, FiX } from 'react-icons/fi';
 
 import {
   DrinkIngredientsFieldsDiv,
   SearchDrinkTitle,
   SearchDrinkForm,
-  CulculationButtonDiv,
-  CulculationSpan,
+  CalculationBtnWrapper,
+  CalculationNumber,
   PlusMinusButton,
   ContainerDIV,
   ListDIV,
@@ -24,6 +25,7 @@ import {
   StyledSelect,
   StyledSelectCL,
   RemoveItemButton,
+  IngredientSelectWrapper,
 } from './DrinkIngredientsFields1.styled';
 const measures = [
   { value: 'ml', label: 'ml' },
@@ -49,15 +51,11 @@ const DrinkIngredientsFields1 = ({
   // handleSubmit,
   refId,
 }) => {
-  //for icon
   const { width: windowWidth } = useResize();
   const iconSize = windowWidth >= 768 ? 20 : 18;
-  //for icon
-
   const maxIngredientCount = 10;
   const dispatch = useDispatch();
   const ingredientsList = useSelector((state) => state.filters.ingredients);
-  // eslint-disable-next-line no-undef
   const [ingredientsCount, setIngredientsCount] = useState(
     formData.ingredients.length,
   );
@@ -111,18 +109,18 @@ const DrinkIngredientsFields1 = ({
             name="ingredients"
             render={() => (
               <>
-                <CulculationButtonDiv>
+                <CalculationBtnWrapper>
                   <PlusMinusButton
                     type="button"
                     onClick={() => handleRemoveIngredient()}
                   >
-                    -
+                    <FiMinus size={16} />
                   </PlusMinusButton>
-                  <CulculationSpan>{ingredientsCount}</CulculationSpan>
+                  <CalculationNumber>{ingredientsCount}</CalculationNumber>
                   <PlusMinusButton type="button" onClick={handleAddIngredient}>
-                    +
+                    <FiPlus size={16} />
                   </PlusMinusButton>
-                </CulculationButtonDiv>
+                </CalculationBtnWrapper>
                 {ingredientsList && (
                   <ContainerDIV>
                     {formData.ingredients.map((ingredient, index) => {
@@ -137,7 +135,9 @@ const DrinkIngredientsFields1 = ({
                       return (
                         <ListDIV key={index}>
                           <SelectorsDIV>
-                            <label htmlFor={`ingredients[${index}]`}>
+                            <IngredientSelectWrapper
+                              htmlFor={`ingredients[${index}]`}
+                            >
                               <StyledSelect
                                 className="basic-single"
                                 classNamePrefix="Select"
@@ -161,8 +161,9 @@ const DrinkIngredientsFields1 = ({
                                   )
                                 }
                                 placeholder="Ingredient"
+                                blurInputOnSelect={true}
                               />
-                            </label>
+                            </IngredientSelectWrapper>
                             <IngredientsDIV>
                               <IngredientsInput
                                 name={`ingredients[${index}].quantity`}
@@ -186,6 +187,7 @@ const DrinkIngredientsFields1 = ({
                                     handleFieldChange('measure', value, index)
                                   }
                                   placeholder="cl"
+                                  isSearchable={false}
                                 />
                               </label>
                             </IngredientsDIV>
@@ -195,7 +197,7 @@ const DrinkIngredientsFields1 = ({
                             type="button"
                             onClick={handleRemoveIngredient}
                           >
-                            <IoMdClose size={iconSize} />
+                            <FiX size={iconSize} />
                           </RemoveItemButton>
                         </ListDIV>
                       );

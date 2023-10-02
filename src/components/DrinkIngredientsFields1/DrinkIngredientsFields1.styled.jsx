@@ -7,6 +7,11 @@ import transition from '../../utils/transition';
 export const DrinkIngredientsFieldsDiv = styled.div`
   position: relative;
   margin-bottom: 80px;
+  width: 100%;
+
+  @media screen and (min-width: 1440px) {
+    width: 540px;
+  }
 `;
 
 export const SearchDrinkTitle = styled.h2`
@@ -22,12 +27,12 @@ export const SearchDrinkTitle = styled.h2`
   @media screen and (min-width: 768px) {
     font-size: 40px;
 
-    line-height: 2.24;
+    line-height: 1.1;
   }
 `;
 
 export const SearchDrinkForm = styled(Form)`
-  width: 335px;
+  width: 100%;
   // margin-bottom: 80px;
   @media screen and (min-width: 768px) {
     width: 704px;
@@ -45,53 +50,63 @@ export const SearchDrinkForm = styled(Form)`
   //     width: 100%;
   //   }
 `;
-//============================================
 
-export const CulculationButtonDiv = styled.div`
+export const IngredientSelectWrapper = styled.label`
+  flex: 2;
+
+  @media screen and (min-width: 768px) {
+    flex: 2.22;
+  }
+`;
+
+export const CalculationBtnWrapper = styled.div`
   position: absolute;
-  top: -5px;
+  top: 0;
   right: 0;
   display: flex;
-  padding: 8px 16px;
-  gap: 16px;
-  justify-content: center;
+  padding: 10px 15px;
+  column-gap: 16px;
+  justify-content: space-between;
   align-items: center;
-  max-width: 104px;
+  min-width: 104px;
   border: 1px solid ${({ theme }) => theme.inputBorder};
   border-radius: 40px;
   box-shadow: none;
 
   @media screen and (min-width: 768px) {
-    top: 24px;
-    gap: 18px;
+    padding: 11px 17px;
+
     max-width: 114px;
   }
 `;
 
 export const PlusMinusButton = styled.button`
-  font-size: 16px;
+  padding: 0;
   background-color: transparent;
   color: ${({ theme }) => theme.mainText};
   border: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform ${transition};
 
+  &:hover,
   &:focus {
-    outline: transparent;
-    border-color: ${({ theme }) => theme.inputBorderFocus};
+    transform: scale(1.2);
   }
   @media screen and (min-width: 768px) {
   }
 `;
 
-export const CulculationSpan = styled.span`
+export const CalculationNumber = styled.span`
   font-size: 14px;
   font-weight: 400;
-  line-height: 18px;
+  line-height: 1.285;
 
   color: ${({ theme }) => theme.mainText};
 
   @media screen and (min-width: 768px) {
     font-size: 17px;
-    line-height: 27px;
   }
 `;
 
@@ -100,7 +115,7 @@ export const CulculationSpan = styled.span`
 export const ContainerDIV = styled.div`
   display: flex;
   align-items: center;
-  gap: 18px;
+  row-gap: 18px;
   flex-direction: column;
 
   @media screen and (min-width: 768px) {
@@ -108,11 +123,11 @@ export const ContainerDIV = styled.div`
   }
 `;
 export const ListDIV = styled.div`
-  // width: 335px;
+  width: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 8px;
+  column-gap: 8px;
 
   @media screen and (min-width: 768px) {
     gap: 188px;
@@ -124,23 +139,24 @@ export const ListDIV = styled.div`
 `;
 export const SelectorsDIV = styled.div`
   display: flex;
-  gap: 8px;
+  column-gap: 8px;
+  width: 100%;
 
   @media screen and (min-width: 768px) {
     gap: 14px;
   }
 `;
 export const IngredientsDIV = styled.div`
+  flex: 1;
   display: flex;
-  width: 101px;
   background-color: transparent;
-
   border: none;
   border-radius: 40px;
   border: 1px solid ${({ theme }) => theme.inputBorder};
   color: ${({ theme }) => theme.mainText};
   line-height: 1.285;
   transition: border-color ${transition};
+  justify-content: space-between;
 
   &:focus {
     outline: transparent;
@@ -152,17 +168,14 @@ export const IngredientsDIV = styled.div`
     line-height: 1.285;
   }
 
-  @media screen and (min-width: 768px) {
-    width: 150px;
-  }
-
   @media screen and (min-width: 1440px) {
   }
 `;
 export const IngredientsInput = styled(Field)`
   background-color: transparent;
-  width: 35px;
-  padding: 16px 24px;
+  max-width: 35px;
+  display: inline-block;
+  padding: 15px 17px;
   padding-right: 0;
   border: none;
 
@@ -181,13 +194,13 @@ export const IngredientsInput = styled(Field)`
   }
 
   @media screen and (min-width: 768px) {
-    width: 45px;
+    min-width: 65px;
+    padding-left: 23px;
   }
 `;
 
 export const StyledSelectCL = styled(ReactSelect)`
   & .Select__control {
-    width: 67px;
     background-color: transparent;
     border: none;
     border-radius: 40px;
@@ -206,16 +219,12 @@ export const StyledSelectCL = styled(ReactSelect)`
       }
     }
     @media screen and (min-width: 768px) {
-      width: 95px;
+      width: 80px;
     }
   }
 
   & .Select__value-container {
-    padding: 17px 0;
-
-    @media screen and (min-width: 768px) {
-      padding: 17px 18px;
-    }
+    padding: 15px 0;
   }
 
   & .Select__indicator-separator {
@@ -227,19 +236,19 @@ export const StyledSelectCL = styled(ReactSelect)`
   }
 
   & .Select__indicator {
-    color: ${({ theme }) => theme.selectDownOptionText};
-    // padding: 17px 24px;
+    color: ${({ theme }) => theme.mainText};
+    padding: 15px 17px;
     padding-left: 8px;
+
     cursor: pointer;
 
     &:hover {
-      //   color: #f3f3f3;
-      color: ${({ theme }) => theme.selectDownOptionText};
+      color: ${({ theme }) => theme.mainText};
     }
 
     @media screen and (min-width: 768px) {
-      // padding: 18px 24px;
-      // padding-left: 8px;
+      padding: 17px 23px;
+      padding-left: 8px;
     }
   }
 
@@ -247,11 +256,6 @@ export const StyledSelectCL = styled(ReactSelect)`
     color: ${({ theme }) => theme.selectDropdownOptionTextActive};
     margin: 0;
     padding: 0;
-
-    &:hover {
-      // color: ${({ theme }) => theme.selectDropdownOptionTextActive};
-      color: #f3f3f3;
-    }
 
     @media screen and (min-width: 768px) {
       font-size: 17px;
@@ -281,23 +285,34 @@ export const StyledSelectCL = styled(ReactSelect)`
   & .Select__menu {
     margin: 0;
     margin-top: 4px;
-    border-radius: 24px;
+    border-radius: 12px;
     background-color: ${({ theme }) => theme.selectDropdownBackground};
+    min-width: 62px;
+    right: 0;
+
+    @media screen and (min-width: 768px) {
+      border-radius: 20px;
+    }
   }
 
   & .Select__menu-list {
-    padding: 10px;
-    border-radius: 24px;
+    padding: 8px;
+    border-radius: 12px;
     background-color: ${({ theme }) => theme.selectDropdownBackground};
     display: flex;
     flex-direction: column;
-    row-gap: 4px;
+    row-gap: 2px;
     max-height: 400px;
+
+    @media screen and (min-width: 768px) {
+      padding: 10px;
+      border-radius: 20px;
+    }
   }
 
   & .Select__option {
-    padding: 4px 14px;
-    border-radius: 20px;
+    padding: 4px;
+    border-radius: 12px;
     color: ${({ theme }) => theme.selectDropdownOptionText};
     transition:
       color ${transition},
@@ -316,24 +331,29 @@ export const StyledSelectCL = styled(ReactSelect)`
       background-color: ${({ theme }) => theme.selectDropdownOptionBgActive};
     }
 
-    @media screen and (min-width: 768px) {
-      font-size: 17px;
-      line-height: 1.56;
+    @media screen and (min-width: 1440px) {
+      font-size: 16px;
     }
   }
 `;
 
 export const StyledSelect = styled(ReactSelect)`
   & .Select__control {
-    width: 200px;
-    // width: 100%;
+    width: 100%;
     background-color: transparent;
     border: none;
     border-radius: 40px;
     box-shadow: none;
     cursor: pointer;
     border: 1px solid ${({ theme }) => theme.inputBorder};
+    transition: border-color ${transition};
 
+    &:hover {
+      border-color: ${({ theme }) => theme.inputBorder};
+    }
+    &.Select__control--is-focused {
+      border-color: ${({ theme }) => theme.inputBorderFocus};
+    }
     svg {
       transform: rotate(0deg);
       transition: transform ${transition};
@@ -344,16 +364,14 @@ export const StyledSelect = styled(ReactSelect)`
         transform: rotate(-180deg);
       }
     }
-    @media screen and (min-width: 768px) {
-      width: 332px;
-    }
+
     @media screen and (min-width: 1440px) {
       width: 316px;
     }
   }
 
   & .Select__value-container {
-    padding: 17px 24px;
+    padding: 15px 17px;
     padding-right: 0;
 
     @media screen and (min-width: 768px) {
@@ -372,13 +390,13 @@ export const StyledSelect = styled(ReactSelect)`
 
   & .Select__indicator {
     color: ${({ theme }) => theme.selectDownOptionText};
-    padding: 17px 24px;
+    padding: 15px 17px;
     padding-left: 8px;
     cursor: pointer;
 
     &:hover {
-      //   color: #f3f3f3;
-      color: ${({ theme }) => theme.selectDownOptionText};
+      color: ${({ theme }) => theme.mainText};
+      /* color: ${({ theme }) => theme.selectDownOptionText}; */
     }
 
     @media screen and (min-width: 768px) {
@@ -394,7 +412,7 @@ export const StyledSelect = styled(ReactSelect)`
 
     &:hover {
       // color: ${({ theme }) => theme.selectDropdownOptionTextActive};
-      color: #f3f3f3;
+      /* color: #f3f3f3; */
     }
 
     @media screen and (min-width: 768px) {
@@ -425,23 +443,34 @@ export const StyledSelect = styled(ReactSelect)`
   & .Select__menu {
     margin: 0;
     margin-top: 4px;
-    border-radius: 24px;
+    border-radius: 12px;
     background-color: ${({ theme }) => theme.selectDropdownBackground};
+    overflow: hidden;
+
+    @media screen and (min-width: 768px) {
+      border-radius: 20px;
+    }
   }
 
   & .Select__menu-list {
-    padding: 10px;
-    border-radius: 24px;
+    padding: 8px;
+    border-radius: 12px;
     background-color: ${({ theme }) => theme.selectDropdownBackground};
     display: flex;
     flex-direction: column;
-    row-gap: 4px;
+    row-gap: 2px;
     max-height: 400px;
+
+    @media screen and (min-width: 768px) {
+      padding: 12px;
+
+      border-radius: 20px;
+    }
   }
 
   & .Select__option {
-    padding: 4px 14px;
-    border-radius: 20px;
+    padding: 4px;
+    border-radius: 12px;
     color: ${({ theme }) => theme.selectDropdownOptionText};
     transition:
       color ${transition},
@@ -461,14 +490,28 @@ export const StyledSelect = styled(ReactSelect)`
     }
 
     @media screen and (min-width: 768px) {
-      font-size: 17px;
-      line-height: 1.56;
+      border-radius: 20px;
+    }
+
+    @media screen and (min-width: 1440px) {
+      padding: 4px 6px;
+      font-size: 16px;
     }
   }
 `;
 
 export const RemoveItemButton = styled.button`
   background-color: transparent;
+  padding: 0;
   border: none;
   color: ${({ theme }) => theme.mainText};
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform ${transition};
+
+  &:hover,
+  &:focus {
+    transform: scale(1.2);
+  }
 `;

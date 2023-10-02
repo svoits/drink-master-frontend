@@ -7,24 +7,28 @@ import ReactSelect from 'react-select';
 import transition from '../../utils/transition';
 
 export const FormContainer = styled.div`
-  margin-top: 40px;
-  margin-bottom: 80px;
+  width: 100%;
+  margin-bottom: 40px;
 
   @media screen and (min-width: 768px) {
-    margin-top: 60px;
+    margin-bottom: 80px;
   }
 `;
 
 export const SearchForm = styled(Form)`
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  row-gap: 40px;
   align-content: center;
   justify-content: center;
 
   @media screen and (min-width: 768px) {
     flex-direction: row;
-    gap: 32px;
+    column-gap: 32px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    column-gap: 40px;
   }
 `;
 //=====================================
@@ -36,29 +40,27 @@ export const PhotoContainer = styled.label`
   overflow: hidden;
   cursor: pointer;
 
-  width: 335px;
+  width: 100%;
   height: 320px;
   background-color: ${({ theme }) => theme.AddPhotoBackgroundColor};
 
   border-radius: 8px;
 
   @media screen and (min-width: 768px) {
-    width: 320px;
-    height: auto;
+    max-width: 320px;
+    height: 320px;
   }
   @media screen and (min-width: 1440px) {
-    width: 400px;
+    min-width: 400px;
     height: 400px;
   }
 `;
 
 export const PhotoPreview = styled.img`
-  // background-color: ${({ theme }) => theme.AddPhotoBackgroundColor};
-  /* max-width: 100%; */
-  /* max-height: 100%; */
-  /* width: auto; */
   height: 100%;
   position: absolute;
+  width: 100%;
+  object-fit: cover;
 `;
 
 export const PhotoField = styled(Field)`
@@ -75,8 +77,8 @@ export const AddPhotoButton = styled.button`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 18px;
-
+  row-gap: 18px;
+  padding: 0;
   color: #f3f3f3;
   font-size: 16px;
   font-weight: 500;
@@ -89,32 +91,33 @@ export const AddPhotoButton = styled.button`
 
 //=========================================
 
-export const SearchandRarioDiv = styled.div`
+export const FieldsAndRadioWrapper = styled.div`
   display: flex;
-  gap: 40px;
+  row-gap: 40px;
   flex-direction: column;
+  width: 100%;
 
   @media screen and (min-width: 768px) {
-    gap: 40px;
+    row-gap: 40px;
+  }
+  @media screen and (min-width: 1440px) {
+    width: 394px;
   }
 `;
 
 export const SearchContainer = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 31px;
-
-  @media screen and (min-width: 768px) {
-    width: 352px;
-  }
+  row-gap: 30px;
 
   @media screen and (min-width: 1440px) {
-    gap: 40px;
+    row-gap: 40px;
   }
 `;
 
 export const SearchDrinkInput = styled(Field)`
-  padding-bottom: 15px;
+  padding: 0;
+  padding-bottom: 14px;
 
   width: 100%;
 
@@ -125,7 +128,7 @@ export const SearchDrinkInput = styled(Field)`
   font-size: 14px;
   font-weight: 400;
 
-  line-height: 2.41;
+  line-height: 1.357;
   transition: border-color ${transition};
 
   &:focus {
@@ -136,15 +139,15 @@ export const SearchDrinkInput = styled(Field)`
   &::placeholder {
     // color: ${({ theme }) => theme.mainText};
     line-height: 1.285;
+    font-size: 16px;
   }
 
   @media screen and (min-width: 768px) {
-    // width: 352px;
     font-size: 16px;
 
-    line-height: 22px;
+    line-height: 1.285;
 
-    padding-bottom: 19px;
+    padding-bottom: 18px;
   }
 `;
 export const SearchDrinkLabel = styled.label`
@@ -174,7 +177,7 @@ export const SearchDrinkText = styled.p`
   font-size: 14px;
   font-weight: 400;
 
-  line-height: 2.41;
+  line-height: 1.357;
   transition: border-color ${transition};
 
   @media screen and (min-width: 768px) {
@@ -188,7 +191,7 @@ export const SearchDrinkText = styled.p`
 
 export const StyledSelect = styled(ReactSelect)`
   & .Select__control {
-    width: 150px;
+    min-width: 100px;
     padding-bottom: 15px;
 
     background-color: transparent;
@@ -218,6 +221,7 @@ export const StyledSelect = styled(ReactSelect)`
   }
 
   & .Select__value-container {
+    padding: 0 8px;
   }
 
   & .Select__indicator-separator {
@@ -230,9 +234,8 @@ export const StyledSelect = styled(ReactSelect)`
 
   & .Select__indicator {
     color: ${({ theme }) => theme.selectDownOptionText};
-    // padding: 17px 24px;
-    // padding-left: 8px;
-    // padding-bottom: 19px;
+    padding: 0;
+
     cursor: pointer;
 
     &:hover {
@@ -247,7 +250,7 @@ export const StyledSelect = styled(ReactSelect)`
   }
 
   & .Select__input-container {
-    color: ${({ theme }) => theme.selectDropdownOptionTextActive};
+    color: ${({ theme }) => theme.mainText};
     margin: 0;
     padding: 0;
 
@@ -273,6 +276,8 @@ export const StyledSelect = styled(ReactSelect)`
     color: ${({ theme }) => theme.selectDownOptionText};
     line-height: 1.285;
     margin: 0;
+    max-width: 150px;
+    width: 100%;
 
     @media screen and (min-width: 768px) {
       font-size: 17px;
@@ -283,23 +288,53 @@ export const StyledSelect = styled(ReactSelect)`
   & .Select__menu {
     margin: 0;
     margin-top: 4px;
-    border-radius: 24px;
+    border-radius: 12px;
     background-color: ${({ theme }) => theme.selectDropdownBackground};
+    overflow: hidden;
+
+    min-width: 135px;
+
+    top: 32px;
+    right: 0;
+
+    @media screen and (min-width: 768px) {
+      border-radius: 20px;
+      min-width: 155px;
+    }
+
+    @media screen and (min-width: 1440px) {
+      border-radius: 20px;
+      min-width: 180px;
+    }
   }
 
   & .Select__menu-list {
-    padding: 10px;
-    border-radius: 24px;
+    padding: 8px;
+    border-radius: 12px;
     background-color: ${({ theme }) => theme.selectDropdownBackground};
     display: flex;
     flex-direction: column;
-    row-gap: 4px;
-    max-height: 400px;
+    row-gap: 2px;
+    max-height: 300px;
+
+    @media screen and (min-width: 768px) {
+      padding: 12px;
+
+      border-radius: 20px;
+      max-height: 400px;
+    }
+
+    @media screen and (min-width: 768px) {
+      padding: 12px;
+
+      border-radius: 20px;
+      max-height: 460px;
+    }
   }
 
   & .Select__option {
-    padding: 4px 14px;
-    border-radius: 20px;
+    padding: 4px 6px;
+    border-radius: 12px;
     color: ${({ theme }) => theme.selectDropdownOptionText};
     transition:
       color ${transition},
@@ -307,6 +342,7 @@ export const StyledSelect = styled(ReactSelect)`
     background-color: transparent;
     cursor: pointer;
     line-height: 1.285;
+    font-size: 12px;
 
     &:hover,
     &:focus {
@@ -319,40 +355,38 @@ export const StyledSelect = styled(ReactSelect)`
     }
 
     @media screen and (min-width: 768px) {
-      font-size: 17px;
+      font-size: 14px;
       line-height: 1.56;
+      border-radius: 16px;
+    }
+
+    @media screen and (min-width: 768px) {
+      font-size: 16px;
     }
   }
 `;
 
 //=========================================
-export const RadioButtonDiv = styled.div`
+export const RadioBtnWrapper = styled.div`
   display: flex;
   align-items: center;
-  gap: 14px;
+  column-gap: 14px;
 `;
 
-export const RadioLabel = styled.label`
+export const RadioLabelWrapper = styled.label`
   color: ${({ theme }) => theme.inputBorder};
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 19px;
+  line-height: 1.35;
   letter-spacing: -0.02em;
-  text-align: left;
-
   display: flex;
-
-  align-content: center;
+  cursor: pointer;
   justify-content: center;
   align-items: center;
-  gap: 4px;
+  column-gap: 6px;
 
   @media screen and (min-width: 768px) {
     font-size: 16px;
-
     line-height: 22px;
-
-    gap: 8px;
+    column-gap: 8px;
   }
 `;
 
@@ -363,33 +397,41 @@ export const RadioField = styled(Field)`
   border: 2px solid #f3f3f3;
   border-radius: 50%;
   background-color: transparent;
-
+  transition: border-color ${transition};
   cursor: pointer;
   position: relative;
+
+  &:not(:checked) {
+    border-color: rgba(243, 243, 243, 0.5);
+  }
 
   &:checked::before {
     content: '';
     position: absolute;
-    top: 4px;
-    left: 4px;
-    right: 4px;
-    bottom: 4px;
+    width: 10px;
+    height: 10px;
+    left: 3.2px;
+    top: 3.2px;
     background-color: #f3f3f3;
     border-radius: 50%;
   }
 
-  &:not(:checked) {
-    border: 2px solid rgba(243, 243, 243, 0.5);
+  &:not(:checked)::before {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    left: 3.2px;
+    top: 3.2px;
+    background-color: transparent;
+    border-radius: 50%;
+    transition: background-color ${transition};
   }
 `;
 
-export const RadioSpan = styled.span`
-  // &::before {
-  //   width: 24px;
-  //   height: 24px;
-  //   border-radius: 50%;
-  //   background: white;
-  //   border: 1px solid #ccc;
-  //   // border-color: ${({ theme }) => theme.inputBorderFocus};
-  // }
+export const RadioLabel = styled.span`
+  transition: color ${transition};
+  ${RadioField}:checked ~ & {
+    color: ${({ theme }) => theme.mainText};
+  }
 `;

@@ -1,6 +1,7 @@
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import {
+  Form,
   RecipePreparationTitle,
   StyledTextarea,
 } from './RecipePreparationText.styled';
@@ -12,10 +13,7 @@ const validationSchema = Yup.object().shape({
   ),
 });
 
-const RecipePreparationText = ({
-  formData,
-  refId,
-}) => {
+const RecipePreparationText = ({ formData, refId }) => {
   return (
     <>
       <Formik
@@ -24,7 +22,9 @@ const RecipePreparationText = ({
         innerRef={refId}
       >
         <Form>
-          <RecipePreparationTitle htmlFor="instructions">Recipe Preparation</RecipePreparationTitle>
+          <RecipePreparationTitle htmlFor="instructions">
+            Recipe Preparation
+          </RecipePreparationTitle>
           <Field name="instructions">
             {({ field }) => (
               <StyledTextarea
