@@ -62,8 +62,6 @@ const authSlice = createSlice({
         payload.avatarURL && (state.user.avatarURL = payload.avatarURL);
       })
       .addCase(subscribeEmail.fulfilled, (state) => {
-        state.user = { name: '', email: '', birthDate: '' };
-        state.isLoggedIn = true;
         state.isSubscribed = true;
       }),
 });
