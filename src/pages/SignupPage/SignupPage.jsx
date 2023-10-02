@@ -1,4 +1,4 @@
-import { Container } from '../../components/Container/Container.styled';
+
 import WelcomePageTitle from '../../components/WelcomePageTitle/WelcomePageTitle';
 import SignupForm from '../../components/SignupForm/SignupForm';
 import { Section } from '../WelcomePage/WelcomePage.styled';
