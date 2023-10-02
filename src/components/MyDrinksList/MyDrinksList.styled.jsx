@@ -29,6 +29,7 @@ export const DrinkListItem = styled.li`
 export const DrinkIMG = styled.img`
   width: 100%;
   border-radius: 8px;
+  background: #161f37;
 
   @media screen and (min-width: 768px) {
     width: 342px;
