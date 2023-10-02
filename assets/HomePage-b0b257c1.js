@@ -1,4 +1,4 @@
-import{s as n,t as o,N as p,j as i,u as l,a as k,C as g,L as m,b as u,c as b,r as w,g as j}from"./index-497510b8.js";import{D as v}from"./stub-1f7be72d.js";import{C as D}from"./hero-img-desc-2x-e8906f30.js";import{P as y}from"./PageTitle-b3e55571.js";const $=n.section`
+import{s as n,t as s,N as p,j as i,u as l,a as k,C as g,L as m,b as u,c as b,r as w,g as j}from"./index-208a6d6a.js";import{D as v}from"./stub-256c6b64.js";import{C as D}from"./hero-img-desc-2x-e8906f30.js";import{P as y}from"./PageTitle-563d2414.js";const $=n.section`
   padding-bottom: 80px;
 
   @media screen and (min-width: 768px) {
@@ -60,7 +60,7 @@ import{s as n,t as o,N as p,j as i,u as l,a as k,C as g,L as m,b as u,c as b,r a
   white-space: nowrap;
 
   color: ${({theme:e})=>e.subTitleText};
-  transition: color ${o};
+  transition: color ${s};
 
   &:hover,
   &:focus {
@@ -84,8 +84,8 @@ import{s as n,t as o,N as p,j as i,u as l,a as k,C as g,L as m,b as u,c as b,r a
   color: ${({theme:e})=>e.themeSwitcher};
   border: 2px solid transparent;
   border-radius: 42px;
-  transition: color ${o};
-  transition: background-color ${o};
+  transition: color ${s};
+  transition: background-color ${s};
   font-weight: 500;
   line-height: 1.285;
 
@@ -109,7 +109,7 @@ import{s as n,t as o,N as p,j as i,u as l,a as k,C as g,L as m,b as u,c as b,r a
     padding: 16px 40px;
     margin: 80px auto 0px;
   }
-`,B=({item:e})=>{const{_id:t,drink:r,drinkThumb:s}=e;return i.jsxs(z,{children:[i.jsx(S,{src:s||v,alt:r}),i.jsxs(N,{children:[i.jsx(M,{children:r}),i.jsx(P,{to:`/drinks/${t}`,children:"See more"})]})]},t)},W=()=>{const{mainPageDrinks:e,isLoading:t,error:r}=l(),{width:s}=k(),h=s<768?1:s<1440?2:3,a=Object.keys(e).slice(0,4);return i.jsx(i.Fragment,{children:i.jsx($,{children:i.jsxs(g,{children:[i.jsx(C,{children:t?i.jsx(m,{}):a.length>0&&a.map((d,f)=>i.jsxs(L,{children:[i.jsxs(T,{children:[d," "]}),i.jsx(I,{children:e[d].slice(0,h).map(c=>i.jsx(B,{item:c},c._id))})]},f))}),i.jsx(E,{to:"/drinks",children:"Other drinks"})]})})})},A=n.section`
+`,B=({item:e})=>{const{_id:t,drink:r,drinkThumb:o}=e;return i.jsxs(z,{children:[i.jsx(S,{src:o!==""?o:v,alt:r}),i.jsxs(N,{children:[i.jsx(M,{children:r}),i.jsx(P,{to:`/drinks/${t}`,children:"See more"})]})]},t)},W=()=>{const{mainPageDrinks:e,isLoading:t,error:r}=l(),{width:o}=k(),h=o<768?1:o<1440?2:3,a=Object.keys(e).slice(0,4);return i.jsx(i.Fragment,{children:i.jsx($,{children:i.jsxs(g,{children:[i.jsx(C,{children:t?i.jsx(m,{}):a.length>0&&a.map((d,f)=>i.jsxs(L,{children:[i.jsxs(T,{children:[d," "]}),i.jsx(I,{children:e[d].slice(0,h).map(c=>i.jsx(B,{item:c},c._id))})]},f))}),i.jsx(E,{to:"/drinks",children:"Other drinks"})]})})})},A=n.section`
   padding-top: 80px;
   padding-bottom: 112px;
 
@@ -170,8 +170,8 @@ import{s as n,t as o,N as p,j as i,u as l,a as k,C as g,L as m,b as u,c as b,r a
   font-weight: 600;
   line-height: 1.285;
   border: 2px solid transparent;
-  transition: color ${o};
-  transition: background-color ${o};
+  transition: color ${s};
+  transition: background-color ${s};
 
   @media screen and (min-width: 768px) {
     font-size: 16px;
