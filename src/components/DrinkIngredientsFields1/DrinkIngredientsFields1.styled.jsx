@@ -49,10 +49,10 @@ export const SearchDrinkForm = styled(Form)`
 
 export const CulculationButtonDiv = styled.div`
   position: absolute;
-  top: -2%;
-  left: 69%;
+  top: -5px;
+  right: 0;
   display: flex;
-  padding: 10px 16px;
+  padding: 8px 16px;
   gap: 16px;
   justify-content: center;
   align-items: center;
@@ -62,13 +62,9 @@ export const CulculationButtonDiv = styled.div`
   box-shadow: none;
 
   @media screen and (min-width: 768px) {
-    top: 5%;
-    left: 84%;
+    top: 24px;
     gap: 18px;
     max-width: 114px;
-  }
-  @media screen and (min-width: 1440px) {
-    left: 79%;
   }
 `;
 
@@ -197,6 +193,7 @@ export const StyledSelectCL = styled(ReactSelect)`
     border-radius: 40px;
     box-shadow: none;
     cursor: pointer;
+    display: flex;
 
     svg {
       transform: rotate(0deg);
@@ -215,7 +212,6 @@ export const StyledSelectCL = styled(ReactSelect)`
 
   & .Select__value-container {
     padding: 17px 0;
-    padding-right: 0;
 
     @media screen and (min-width: 768px) {
       padding: 17px 18px;

@@ -116,7 +116,7 @@ const DrinkDescriptionFields = ({ formData, setFormData, refId }) => {
               onChange={handleImageChange}
               style={{ display: 'none' }}
             />
-            {isImageSelected ? (
+            {/* {isImageSelected ? (
               <button type="button" onClick={handleImageDelete}>
                 <AiOutlineMinus />
                 Change image
@@ -127,7 +127,11 @@ const DrinkDescriptionFields = ({ formData, setFormData, refId }) => {
 
                 <span>Add image</span>
               </AddPhotoButton>
-            )}
+            )} */}
+            <AddPhotoButton type="button">
+              <BsPlus style={style} />
+              <span>Add image</span>
+            </AddPhotoButton>
             {imagePreview && <PhotoPreview src={imagePreview} alt="Preview" />}
             <ErrorMessage name="drinkThumb" component="div" />
           </PhotoContainer>

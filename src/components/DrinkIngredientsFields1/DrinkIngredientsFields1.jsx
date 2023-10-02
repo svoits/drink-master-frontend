@@ -24,7 +24,7 @@ import {
   StyledSelect,
   StyledSelectCL,
   RemoveItemButton,
-} from './DrinkIngredientsFields1.styled'
+} from './DrinkIngredientsFields1.styled';
 const measures = [
   { value: 'ml', label: 'ml' },
   { value: 'oz', label: 'oz' },
@@ -52,7 +52,7 @@ const DrinkIngredientsFields1 = ({
   //for icon
   const { width: windowWidth } = useResize();
   const iconSize = windowWidth >= 768 ? 20 : 18;
- //for icon
+  //for icon
 
   const maxIngredientCount = 10;
   const dispatch = useDispatch();
@@ -65,7 +65,7 @@ const DrinkIngredientsFields1 = ({
   const handleFieldChange = (field, val, index) => {
     const ingredients = [...formData.ingredients];
     ingredients[index][field] = val;
-    setFormData(prevFormData => ({
+    setFormData((prevFormData) => ({
       ...prevFormData,
       ingredients,
     }));
@@ -112,19 +112,16 @@ const DrinkIngredientsFields1 = ({
             render={() => (
               <>
                 <CulculationButtonDiv>
-                <PlusMinusButton
-                  type="button"
-                  onClick={() => handleRemoveIngredient()}
-                >
-                  -
-                </PlusMinusButton>
-                <CulculationSpan>{ingredientsCount}</CulculationSpan>
-                <PlusMinusButton
-                  type="button"
-                  onClick={handleAddIngredient}
-                >
-                  +
-                </PlusMinusButton>
+                  <PlusMinusButton
+                    type="button"
+                    onClick={() => handleRemoveIngredient()}
+                  >
+                    -
+                  </PlusMinusButton>
+                  <CulculationSpan>{ingredientsCount}</CulculationSpan>
+                  <PlusMinusButton type="button" onClick={handleAddIngredient}>
+                    +
+                  </PlusMinusButton>
                 </CulculationButtonDiv>
                 {ingredientsList && (
                   <ContainerDIV>
@@ -140,58 +137,65 @@ const DrinkIngredientsFields1 = ({
                       return (
                         <ListDIV key={index}>
                           <SelectorsDIV>
-                          <label htmlFor={`ingredients[${index}]`}>
-                            <StyledSelect
-                              className="basic-single"
-                              classNamePrefix="Select"
-                              closeMenuOnSelect={true}
-                              isMulti={false}
-                              isClearable={true}
-                              options={ingredientsList.map(
-                                ({ _id, title }) => ({
-                                  value: _id,
-                                  label: title,
-                                }),
-                              )}
-                              name={`ingredients[${index}]`}
-                              id={`ingredient${index}`}
-                              value={ingredientVal}
-                              onChange={({ value }) =>
-                                handleFieldChange('ingredientId', value, index)
-                              }
-                              placeholder="Lem"
-                            />
-                          </label>
-                          <IngredientsDIV>
-                            <IngredientsInput
-                              name={`ingredients[${index}].quantity`}
-                              value={ingredient.quantity || ''}
-                              onChange={(e) =>
-                                handleFieldChange(
-                                  'quantity',
-                                  parseInt(e.target.value, 10),
-                                  index,
-                                )
-                              }
-                            />
-                            <label htmlFor={`ingredients[${index}].measure`}>
-                              <StyledSelectCL
+                            <label htmlFor={`ingredients[${index}]`}>
+                              <StyledSelect
                                 className="basic-single"
                                 classNamePrefix="Select"
-                                options={measures}
-                                name={`ingredients[${index}].measure`}
-                                value={measureVal || ''}
+                                closeMenuOnSelect={true}
+                                isMulti={false}
+                                isClearable={true}
+                                options={ingredientsList.map(
+                                  ({ _id, title }) => ({
+                                    value: _id,
+                                    label: title,
+                                  }),
+                                )}
+                                name={`ingredients[${index}]`}
+                                id={`ingredient${index}`}
+                                value={ingredientVal}
                                 onChange={({ value }) =>
-                                  handleFieldChange('measure', value, index)
+                                  handleFieldChange(
+                                    'ingredientId',
+                                    value,
+                                    index,
+                                  )
                                 }
-                                placeholder="cl"
+                                placeholder="Ingredient"
                               />
                             </label>
-                          </IngredientsDIV>
+                            <IngredientsDIV>
+                              <IngredientsInput
+                                name={`ingredients[${index}].quantity`}
+                                value={ingredient.quantity || ''}
+                                onChange={(e) =>
+                                  handleFieldChange(
+                                    'quantity',
+                                    parseInt(e.target.value, 10),
+                                    index,
+                                  )
+                                }
+                              />
+                              <label htmlFor={`ingredients[${index}].measure`}>
+                                <StyledSelectCL
+                                  className="basic-single"
+                                  classNamePrefix="Select"
+                                  options={measures}
+                                  name={`ingredients[${index}].measure`}
+                                  value={measureVal || ''}
+                                  onChange={({ value }) =>
+                                    handleFieldChange('measure', value, index)
+                                  }
+                                  placeholder="cl"
+                                />
+                              </label>
+                            </IngredientsDIV>
                           </SelectorsDIV>
 
-                          <RemoveItemButton type="button" onClick={handleRemoveIngredient}>
-                            <IoMdClose  size={iconSize}/>
+                          <RemoveItemButton
+                            type="button"
+                            onClick={handleRemoveIngredient}
+                          >
+                            <IoMdClose size={iconSize} />
                           </RemoveItemButton>
                         </ListDIV>
                       );

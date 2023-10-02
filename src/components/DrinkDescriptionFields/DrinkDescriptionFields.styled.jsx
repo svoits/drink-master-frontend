@@ -32,6 +32,9 @@ export const PhotoContainer = styled.label`
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
 
   width: 335px;
   height: 320px;
@@ -51,10 +54,11 @@ export const PhotoContainer = styled.label`
 
 export const PhotoPreview = styled.img`
   // background-color: ${({ theme }) => theme.AddPhotoBackgroundColor};
-  max-width: 100%;
-  max-height: 100%;
-  width: auto;
-  height: auto;
+  /* max-width: 100%; */
+  /* max-height: 100%; */
+  /* width: auto; */
+  height: 100%;
+  position: absolute;
 `;
 
 export const PhotoField = styled(Field)`
@@ -80,6 +84,7 @@ export const AddPhotoButton = styled.button`
   letter-spacing: 0em;
   background-color: transparent;
   border: none;
+  pointer-events: none;
 `;
 
 //=========================================
