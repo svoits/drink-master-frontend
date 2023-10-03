@@ -6,14 +6,20 @@ export const Link = styled.a`
   align-items: center;
   justify-content: center;
   border-radius: 10px;
-  border: 1px solid ${({ theme }) => theme.footerBorder};
+  border: 1px solid
+    ${({ theme, isinfooter }) =>
+      isinfooter === 'true' ? theme.footerBorder : theme.socialIconBorder};
   padding: 8px;
-  color: ${({ theme }) => theme.footerText};
+  color: ${({ theme, isinfooter }) =>
+    isinfooter === 'true' ? theme.footerText : theme.socialIcon};
   transition: border-color ${transition};
 
   &:hover,
   &:focus {
-    border-color: ${({ theme }) => theme.footerBorderHover};
+    border-color: ${({ theme, isinfooter }) =>
+      isinfooter === 'true'
+        ? theme.footerBorderHover
+        : theme.navLinkBorderHover};
   }
 `;
 

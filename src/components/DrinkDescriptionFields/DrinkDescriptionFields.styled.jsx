@@ -8,8 +8,7 @@ import transition from '../../utils/transition';
 
 export const FormContainer = styled.div`
   width: 100%;
-  margin-bottom: 80px;
-
+  margin-bottom: 70px;
 `;
 
 export const SearchForm = styled(Form)`
@@ -196,6 +195,7 @@ export const StyledSelect = styled(ReactSelect)`
     box-shadow: none;
     cursor: pointer;
     border-bottom: 1px solid ${({ theme }) => theme.inputBorder};
+    border-radius: 0;
 
     svg {
       transform: rotate(0deg);
@@ -204,7 +204,7 @@ export const StyledSelect = styled(ReactSelect)`
 
     &.Select__control--menu-is-open {
       svg {
-        transform: rotate(-180deg);
+        transform: rotate(-170deg);
       }
     }
     @media screen and (min-width: 768px) {
@@ -252,7 +252,6 @@ export const StyledSelect = styled(ReactSelect)`
     padding: 0;
 
     &:hover {
-      // color: ${({ theme }) => theme.selectDropdownOptionTextActive};
       color: #f3f3f3;
     }
 
@@ -301,7 +300,7 @@ export const StyledSelect = styled(ReactSelect)`
 
     @media screen and (min-width: 1440px) {
       border-radius: 20px;
-      min-width: 180px;
+      min-width: 170px;
     }
   }
 
@@ -340,6 +339,7 @@ export const StyledSelect = styled(ReactSelect)`
     cursor: pointer;
     line-height: 1.285;
     font-size: 12px;
+    overflow-wrap: break-word;
 
     &:hover,
     &:focus {
@@ -371,7 +371,7 @@ export const RadioBtnWrapper = styled.div`
 `;
 
 export const RadioLabelWrapper = styled.label`
-  color: ${({ theme }) => theme.inputBorder};
+  color: ${({ theme }) => theme.selectDownOptionRegular};
   line-height: 1.35;
   letter-spacing: -0.02em;
   display: flex;
@@ -379,12 +379,7 @@ export const RadioLabelWrapper = styled.label`
   justify-content: center;
   align-items: center;
   column-gap: 6px;
-  
-  &:hover,
-  &:focus {
-    // color: #F3F3F3;
-    color: ${({ theme }) => theme.selectDownOptionText};
-  }
+
   @media screen and (min-width: 768px) {
     font-size: 16px;
     line-height: 22px;
@@ -394,44 +389,40 @@ export const RadioLabelWrapper = styled.label`
 
 export const RadioField = styled(Field)`
   appearance: none;
-  width: 20px;
+  min-width: 20px;
   height: 20px;
-
-  border: 2px solid ${({ theme }) => theme.selectDownOptionText};
+  border: 2px solid ${({ theme }) => theme.selectDownOptionRegular};
   border-radius: 50%;
   background-color: transparent;
   transition: border-color ${transition};
   cursor: pointer;
   position: relative;
 
-  &:not(:checked) {
-    // border: 2px solid #F3F3F380
-    // border: 2px solid #0A0A1180
-    border: 1px solid  ${({ theme }) => theme.selectDownOptionRegular};
+  &:checked {
+    border-color: ${({ theme }) => theme.mainText};
+  }
 
+  &::before {
+    content: '';
+    position: absolute;
+    width: 70%;
+    height: 70%;
+    left: 2.35px;
+    top: 2.35px;
+    background-color: transparent;
+    border-radius: 50%;
+    transition: background-color ${transition};
   }
 
   &:checked::before {
     content: '';
     position: absolute;
-    width: 10px;
-    height: 10px;
-    left: 3.2px;
-    top: 3.2px;
+    width: 70%;
+    height: 70%;
+    left: 2.35px;
+    top: 2.35px;
     background-color: ${({ theme }) => theme.selectDownOptionText};
     border-radius: 50%;
-  }
-
-  &:not(:checked)::before {
-    content: '';
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    left: 3.2px;
-    top: 3.2px;
-    background-color: transparent;
-    border-radius: 50%;
-    transition: background-color ${transition};
   }
 `;
 

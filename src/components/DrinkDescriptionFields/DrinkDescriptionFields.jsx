@@ -7,9 +7,7 @@ import {
   getCategories,
   getGlasses,
 } from '../../redux/filters/filters-operation';
-import { AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai';
 import { BsPlus } from 'react-icons/bs';
-import { BiMinus } from 'react-icons/bi';
 import {
   FormContainer,
   AddPhotoButton,

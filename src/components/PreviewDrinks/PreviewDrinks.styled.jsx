@@ -102,30 +102,24 @@ export const CategoryDrinkToDrink = styled(NavLink)`
   width: 185px;
   margin: 0 auto;
   margin-top: 60px;
-  padding: 14px 40px;
+  padding: 15px 41px;
   text-align: center;
-  background: ${({ theme }) => theme.hoverBackgroundColorLink};
-  color: ${({ theme }) => theme.themeSwitcher};
-  border: 2px solid transparent;
+  background: ${({ theme }) => theme.basicBtnBg};
+  color: ${({ theme }) => theme.basicBtnText};
+  border: 1px solid transparent;
   border-radius: 42px;
-  transition: color ${transition};
-  transition: background-color ${transition};
   font-weight: 500;
   line-height: 1.285;
-
-  &:active {
-    border: 2px solid rgba(64, 112, 205, 0.5);
-  }
+  transition:
+    color ${transition},
+    background-color ${transition},
+    border-color ${transition};
 
   &:hover,
   &:focus {
-    color: #f3f3f3;
-    background: #161f37;
-  }
-
-  &:disabled {
-    color: rgba(243, 243, 243, 0.2);
-    background: #434d67;
+    color: ${({ theme }) => theme.basicBtnTextHover};
+    background: ${({ theme }) => theme.basicBtnBgHover};
+    border-color: ${({ theme }) => theme.basicBtnBorderHover};
   }
 
   @media screen and (min-width: 768px) {

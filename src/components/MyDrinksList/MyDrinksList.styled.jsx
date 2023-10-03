@@ -31,6 +31,7 @@ export const DrinkIMG = styled.img`
   border-radius: 8px;
   height: 360px;
   object-fit: cover;
+  background: #161f37;
 
   @media screen and (min-width: 768px) {
     width: 342px;
@@ -113,6 +114,7 @@ export const DrinkPageLINK = styled(NavLink)`
   &:hover {
     background-color: #f3f3f3;
     color: #161f37;
+    border-color: ${({ theme }) => theme.basicBtnBorderHover};
   }
 
   @media (min-width: 768px) {
@@ -121,6 +123,7 @@ export const DrinkPageLINK = styled(NavLink)`
     line-height: calc(18 / 16);
   }
 `;
+
 export const DeleteDrinkBTN = styled.button`
   display: inline-flex;
   justify-content: center;
@@ -132,7 +135,7 @@ export const DeleteDrinkBTN = styled.button`
   padding: 0;
   background-color: #161f37;
   color: #f3f3f3;
-
+  border: 1px solid transparent;
   transition:
     background-color ${transition},
     color ${transition};
@@ -146,6 +149,7 @@ export const DeleteDrinkBTN = styled.button`
   &:focus {
     background-color: #f3f3f3;
     color: #161f37;
+    border-color: ${({ theme }) => theme.basicBtnBorderHover};
   }
 `;
 

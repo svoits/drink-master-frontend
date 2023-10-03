@@ -62,40 +62,30 @@ export const MainLink = styled(Link)`
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 12px 42px;
+  padding: 13px 43px;
   border-radius: 42px;
 
-  background: ${({ theme }) => theme.hoverBackgroundColorLink};
-  color: ${({ theme }) => theme.hoverColorTextLink};
+  background: ${({ theme }) => theme.basicBtnBg};
+  color: ${({ theme }) => theme.basicBtnText};
 
   font-weight: 600;
   line-height: 1.285;
-  border: 2px solid transparent;
-  transition: color ${transition};
-  transition: background-color ${transition};
+  border: 1px solid ${({ theme }) => theme.basicBtnBg};
+  transition:
+    color ${transition},
+    background-color ${transition},
+    border-color ${transition};
 
   @media screen and (min-width: 768px) {
     font-size: 16px;
-    padding: 15px 47px;
+    padding: 16px 48px;
   }
 
-  &:active {
-    border: 2px solid rgba(64, 112, 205, 0.5);
-  }
-
-  &:hover {
-    color: ${({ theme }) => theme.activeNavLinkText};
-    background: ${({ theme }) => theme.activeNavLinkBg};
-  }
-
+  &:hover,
   &:focus {
-    color: ${({ theme }) => theme.activeNavLinkText};
-    background: ${({ theme }) => theme.activeNavLinkBg};
-  }
-
-  &:disabled {
-    color: rgba(243, 243, 243, 0.2);
-    background: #434d67;
+    color: ${({ theme }) => theme.basicBtnTextHover};
+    background: ${({ theme }) => theme.basicBtnBgHover};
+    border-color: ${({ theme }) => theme.basicBtnBorderHover};
   }
 `;
 
