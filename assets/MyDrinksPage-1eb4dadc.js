@@ -1,4 +1,4 @@
-import{s as t,t as s,N as k,Y as j,c as m,j as e,a7 as D,u as v,a as y,r as x,a8 as P,L as C,C as L}from"./index-a9a8bd60.js";import{P as I}from"./PageTitle-355f3a2e.js";import{P as $}from"./Paginator-f0092566.js";import{C as z}from"./hero-img-desc-2x-e8906f30.js";import{D as M}from"./stub-8141962f.js";const E=t.section`
+import{s as t,t as s,N as k,Y as j,c as m,j as e,a7 as D,u as v,a as y,r as x,a8 as P,L as $,C}from"./index-02e09e0f.js";import{P as L}from"./PageTitle-862a06d6.js";import{P as I}from"./Paginator-8cc377aa.js";import{C as z}from"./hero-img-desc-2x-e8906f30.js";import{D as M}from"./stub-038aaa05.js";const E=t.section`
   padding-top: 80px;
   padding-bottom: 80px;
 
@@ -71,8 +71,9 @@ import{s as t,t as s,N as k,Y as j,c as m,j as e,a7 as D,u as v,a as y,r as x,a8
   width: 100%;
   border-radius: 8px;
   height: 360px;
-  object-fit: cover;
-  background: #161f37;
+  object-fit: ${({placeholder:i})=>i==="true"?"contain":"cover"};
+  background-color: #161f37;
+  padding: ${({placeholder:i})=>i==="true"?"28px":0};
 
   @media screen and (min-width: 768px) {
     width: 342px;
@@ -193,4 +194,4 @@ import{s as t,t as s,N as k,Y as j,c as m,j as e,a7 as D,u as v,a as y,r as x,a8
     width: 26px;
     height: 26px;
   }
-`,J=({drinks:i})=>{const d=m(),o=n=>{d(D(n))};return e.jsx(S,{children:i.map(({_id:n,drinkThumb:r,drink:p,category:l,description:a})=>e.jsxs(A,{children:[e.jsx(O,{src:r!==""?r:M,alt:`${p}`}),e.jsx(Y,{children:p}),e.jsx(G,{children:l}),e.jsx(H,{children:a}),e.jsxs(K,{children:[e.jsx(F,{to:`/drinks/${n}`,children:"See more"}),e.jsx(W,{onClick:()=>o(n),children:e.jsx(q,{})})]})]},n))})};function _(){const i=m(),{total:d,drinks:o}=v(),{width:n}=y(),[r,p]=x.useState(""),[l,a]=x.useState(!0),[h,f]=x.useState(1),w=n<768?5:8,c=6,u=g=>{f(g)},b=Math.ceil(d/c);return x.useEffect(()=>{a(!0),i(P({page:h,limit:c})).then(()=>a(!1)).catch(g=>{console.error(g),p("Something went wrong, please try later."),a(!1)})},[h,i,c]),l?e.jsx(C,{}):e.jsx(E,{children:e.jsxs(L,{children:[e.jsx(I,{title:"My Drinks"}),!o.length&&e.jsxs(B,{children:[e.jsx(R,{src:z,alt:"Cocktail"}),e.jsx(N,{children:"You haven't added any own cocktails yet"})]}),o.length>0&&e.jsx(T,{children:e.jsx(J,{drinks:o})}),r&&e.jsx("p",{children:r}),b>1&&e.jsx($,{currentPage:h,drinksPerPage:c,totalDrinks:d,onPageChange:u,pageNumbersToShow:w})]})})}export{_ as default};
+`,J=({drinks:i})=>{const d=m(),o=n=>{d(D(n))};return e.jsx(S,{children:i.map(({_id:n,drinkThumb:r,drink:p,category:l,description:a})=>e.jsxs(A,{children:[e.jsx(O,{src:r||M,alt:`${p}`,placeholder:!r&&"true"}),e.jsx(Y,{children:p}),e.jsx(G,{children:l}),e.jsx(H,{children:a}),e.jsxs(K,{children:[e.jsx(F,{to:`/drinks/${n}`,children:"See more"}),e.jsx(W,{onClick:()=>o(n),children:e.jsx(q,{})})]})]},n))})};function _(){const i=m(),{total:d,drinks:o}=v(),{width:n}=y(),[r,p]=x.useState(""),[l,a]=x.useState(!0),[h,f]=x.useState(1),u=n<768?5:8,c=6,w=g=>{f(g)},b=Math.ceil(d/c);return x.useEffect(()=>{a(!0),i(P({page:h,limit:c})).then(()=>a(!1)).catch(g=>{console.error(g),p("Something went wrong, please try later."),a(!1)})},[h,i,c]),l?e.jsx($,{}):e.jsx(E,{children:e.jsxs(C,{children:[e.jsx(L,{title:"My Drinks"}),!o.length&&e.jsxs(B,{children:[e.jsx(R,{src:z,alt:"Cocktail"}),e.jsx(N,{children:"You haven't added any own cocktails yet"})]}),o.length>0&&e.jsx(T,{children:e.jsx(J,{drinks:o})}),r&&e.jsx("p",{children:r}),b>1&&e.jsx(I,{currentPage:h,drinksPerPage:c,totalDrinks:d,onPageChange:w,pageNumbersToShow:u})]})})}export{_ as default};

@@ -1,11 +1,14 @@
-import{s as i,t as r,N as m,Y as k,c as f,j as e,Z as j,u as y,a as D,r as c,$ as P,C as S,L as F}from"./index-a9a8bd60.js";import{D as $}from"./stub-8141962f.js";import{C}from"./hero-img-desc-2x-e8906f30.js";import{P as z}from"./PageTitle-355f3a2e.js";import{P as I}from"./Paginator-f0092566.js";const L=i.li`
+import{s as t,t as r,N as m,Y as v,c as f,j as e,Z as j,u as y,a as D,r as l,$ as P,C as $,L as S}from"./index-02e09e0f.js";import{D as F}from"./stub-038aaa05.js";import{C}from"./hero-img-desc-2x-e8906f30.js";import{P as z}from"./PageTitle-862a06d6.js";import{P as I}from"./Paginator-8cc377aa.js";const L=t.li`
   margin-left: auto;
   margin-right: auto;
-`,B=i.img`
+`,B=t.img`
   width: 100%;
   border-radius: 8px;
   height: 360px;
-  object-fit: cover;
+
+  object-fit: ${({placeholder:i})=>i==="true"?"contain":"cover"};
+  background-color: #161f37;
+  padding: ${({placeholder:i})=>i==="true"?"28px":0};
 
   @media screen and (min-width: 768px) {
     width: 342px;
@@ -14,7 +17,7 @@ import{s as i,t as r,N as m,Y as k,c as f,j as e,Z as j,u as y,a as D,r as c,$ a
     width: 400px;
     height: 400px;
   }
-`,A=i.h3`
+`,A=t.h3`
   font-size: 14px;
   font-weight: 400;
   line-height: 1.28;
@@ -26,7 +29,7 @@ import{s as i,t as r,N as m,Y as k,c as f,j as e,Z as j,u as y,a as D,r as c,$ a
     font-size: 16px;
     line-height: 1.13;
   }
-`,T=i.h2`
+`,T=t.h2`
   font-size: 18px;
   font-weight: 500;
   line-height: 1.33;
@@ -36,7 +39,7 @@ import{s as i,t as r,N as m,Y as k,c as f,j as e,Z as j,u as y,a as D,r as c,$ a
     font-size: 24px;
     margin-top: 24px;
   }
-`,E=i.p`
+`,E=t.p`
   height: 73px;
   text-overflow: ellipsis;
   overflow: hidden;
@@ -63,16 +66,16 @@ import{s as i,t as r,N as m,Y as k,c as f,j as e,Z as j,u as y,a as D,r as c,$ a
     height: 90px;
     -webkit-line-clamp: 4;
   }
-`,M=i.div`
+`,M=t.div`
   display: flex;
   column-gap: 8px;
-`;i(m)`
+`;t(m)`
   padding: 14px 40px 14px 40px;
   cursor: pointer;
   border-radius: 42px;
   background-color: #161f37;
   color: #f3f3f3;
-`;const N=i(m)`
+`;const N=t(m)`
   border-radius: 42px;
   background-color: #161f37;
   color: #f3f3f3;
@@ -89,7 +92,7 @@ import{s as i,t as r,N as m,Y as k,c as f,j as e,Z as j,u as y,a as D,r as c,$ a
   &:hover {
     background-color: #f3f3f3;
     color: #161f37;
-    border-color: ${({theme:t})=>t.basicBtnBorderHover};
+    border-color: ${({theme:i})=>i.basicBtnBorderHover};
   }
 
   @media (min-width: 768px) {
@@ -97,7 +100,7 @@ import{s as i,t as r,N as m,Y as k,c as f,j as e,Z as j,u as y,a as D,r as c,$ a
     font-size: 16px;
     line-height: calc(18 / 16);
   }
-`,R=i(k)`
+`,R=t(v)`
   width: 24px;
   height: 24px;
 
@@ -105,7 +108,7 @@ import{s as i,t as r,N as m,Y as k,c as f,j as e,Z as j,u as y,a as D,r as c,$ a
     width: 26px;
     height: 26px;
   }
-`,H=i.button`
+`,H=t.button`
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -131,9 +134,9 @@ import{s as i,t as r,N as m,Y as k,c as f,j as e,Z as j,u as y,a as D,r as c,$ a
   &:focus {
     background-color: #f3f3f3;
     color: #161f37;
-    border-color: ${({theme:t})=>t.basicBtnBorderHover};
+    border-color: ${({theme:i})=>i.basicBtnBorderHover};
   }
-`;function Y({drink:t}){const n=f(),{_id:o,drink:a,alcoholic:d,drinkThumb:l,description:x}=t,s=()=>{n(j(o))};return e.jsxs(L,{children:[e.jsx(B,{src:l||$,alt:a}),e.jsx(T,{children:a}),e.jsx(A,{children:d?"Alcoholic":"NonAlcoholic"}),e.jsx(E,{children:x}),e.jsxs(M,{children:[e.jsx(N,{to:`/drinks/${o}`,children:"See More"}),e.jsx(H,{onClick:s,children:e.jsx(R,{})})]})]})}const _=i.ul`
+`;function Y({drink:i}){const n=f(),{_id:o,drink:a,alcoholic:d,drinkThumb:p,description:x}=i,s=()=>{n(j(o))};return e.jsxs(L,{children:[e.jsx(B,{src:p||F,alt:a,placeholder:!p&&"true"}),e.jsx(T,{children:a}),e.jsx(A,{children:d?"Alcoholic":"NonAlcoholic"}),e.jsx(E,{children:x}),e.jsxs(M,{children:[e.jsx(N,{to:`/drinks/${o}`,children:"See More"}),e.jsx(H,{onClick:s,children:e.jsx(R,{})})]})]})}const _=t.ul`
   display: grid;
   grid-row-gap: 40px;
   list-style: none;
@@ -149,7 +152,7 @@ import{s as i,t as r,N as m,Y as k,c as f,j as e,Z as j,u as y,a as D,r as c,$ a
     grid-template-columns: repeat(3, 1fr);
     margin-top: 62px;
   }
-`;function W({drinks:t}){return e.jsx(_,{children:Array.isArray(t)&&t.map(n=>e.jsx(Y,{drink:n},n._id))})}const Z=i.section`
+`;function W({drinks:i}){return e.jsx(_,{children:Array.isArray(i)&&i.map(n=>e.jsx(Y,{drink:n},n._id))})}const Z=t.section`
   padding-top: 80px;
   padding-bottom: 80px;
 
@@ -161,7 +164,7 @@ import{s as i,t as r,N as m,Y as k,c as f,j as e,Z as j,u as y,a as D,r as c,$ a
   @media screen and (min-width: 1440px) {
     padding-top: 160px;
   }
-`;i.div`
+`;t.div`
   margin: 0 auto;
   padding-top: 91px;
   display: flex;
@@ -175,7 +178,7 @@ import{s as i,t as r,N as m,Y as k,c as f,j as e,Z as j,u as y,a as D,r as c,$ a
   @media screen and (min-width: 1440px) {
     padding-top: 67px;
   }
-`;const q=i.div`
+`;const q=t.div`
   margin: 0 auto;
   padding-top: 91px;
   display: flex;
@@ -192,7 +195,7 @@ import{s as i,t as r,N as m,Y as k,c as f,j as e,Z as j,u as y,a as D,r as c,$ a
   @media screen and (min-width: 1440px) {
     padding-top: 67px;
   }
-`,G=i.p`
+`,G=t.p`
   font-weight: 500;
   line-height: 1.28;
   text-align: center;
@@ -202,10 +205,10 @@ import{s as i,t as r,N as m,Y as k,c as f,j as e,Z as j,u as y,a as D,r as c,$ a
     font-weight: 500;
     line-height: 1.38;
   }
-`,J=i.img`
+`,J=t.img`
   width: 100%;
   object-fit: contain;
-`,K=i.div`
+`,K=t.div`
   margin-top: 40px;
   margin-bottom: 40px;
 
@@ -213,4 +216,4 @@ import{s as i,t as r,N as m,Y as k,c as f,j as e,Z as j,u as y,a as D,r as c,$ a
     margin-top: 60px;
     margin-bottom: 80px;
   }
-`;function ee(){const t=f(),{total:n,favoriteDrinks:o}=y(),{width:a}=D(),[d,l]=c.useState(""),[x,s]=c.useState(!0),[h,u]=c.useState(1),w=a<768?5:8,p=a<1440?8:9,b=g=>{u(g)};c.useEffect(()=>{s(!0),t(P({page:h,limit:p})).then(()=>s(!1)).catch(g=>{console.error(g),l("Something went wrong, please try later."),s(!1)})},[h,t,p]);const v=Math.ceil(n/p);return e.jsx(Z,{children:e.jsxs(S,{children:[e.jsx(z,{title:"Favorites"}),x&&e.jsx(F,{}),!o.length&&e.jsxs(q,{children:[e.jsx(J,{src:C,alt:"Cocktail"}),e.jsx(G,{children:"You have not added any cocktails yet"})]}),o.length>0&&e.jsx(K,{children:e.jsx(W,{drinks:o})}),d&&e.jsx("div",{children:d}),v>1&&e.jsx(I,{currentPage:h,drinksPerPage:p,totalDrinks:n,onPageChange:b,pageNumbersToShow:w})]})})}export{ee as default};
+`;function ee(){const i=f(),{total:n,favoriteDrinks:o}=y(),{width:a}=D(),[d,p]=l.useState(""),[x,s]=l.useState(!0),[h,u]=l.useState(1),w=a<768?5:8,c=a<1440?8:9,b=g=>{u(g)};l.useEffect(()=>{s(!0),i(P({page:h,limit:c})).then(()=>s(!1)).catch(g=>{console.error(g),p("Something went wrong, please try later."),s(!1)})},[h,i,c]);const k=Math.ceil(n/c);return e.jsx(Z,{children:e.jsxs($,{children:[e.jsx(z,{title:"Favorites"}),x&&e.jsx(S,{}),!o.length&&e.jsxs(q,{children:[e.jsx(J,{src:C,alt:"Cocktail"}),e.jsx(G,{children:"You have not added any cocktails yet"})]}),o.length>0&&e.jsx(K,{children:e.jsx(W,{drinks:o})}),d&&e.jsx("div",{children:d}),k>1&&e.jsx(I,{currentPage:h,drinksPerPage:c,totalDrinks:n,onPageChange:b,pageNumbersToShow:w})]})})}export{ee as default};
