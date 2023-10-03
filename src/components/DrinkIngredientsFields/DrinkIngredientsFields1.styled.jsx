@@ -177,6 +177,7 @@ export const IngredientsInput = styled(Field)`
   display: inline-block;
   padding: 15px 17px;
   padding-right: 0;
+  padding-top: 18px;
   border: none;
 
   color: ${({ theme }) => theme.mainText};
@@ -406,7 +407,7 @@ export const StyledSelect = styled(ReactSelect)`
   }
 
   & .Select__input-container {
-    color: ${({ theme }) => theme.selectDropdownOptionTextActive};
+    color: ${({ theme }) => theme.mainText};
     margin: 0;
     padding: 0;
 

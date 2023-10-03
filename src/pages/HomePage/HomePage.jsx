@@ -4,13 +4,12 @@ import { PreviewDrinks } from '../../components/PreviewDrinks/PreviewDrinks';
 import { getMainPageAllDrinks } from '../../redux/drinks/drinks-operations';
 import { useDrink } from '../../redux/hooks/useDrink';
 
-import Loader from '../../components/Loader';
 import AddDrink from '../../components/AddDrink/AddDrink';
 
 export default function HomePage() {
   const dispatch = useDispatch();
 
-  const { isLoading, error } = useDrink();
+  const { error } = useDrink();
 
   useEffect(() => {
     dispatch(getMainPageAllDrinks());
@@ -19,7 +18,6 @@ export default function HomePage() {
   return (
     <>
       <AddDrink />
-      {isLoading && <Loader />}
       {error && <p>{error}</p>}
       <PreviewDrinks />
     </>

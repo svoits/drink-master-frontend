@@ -18,7 +18,10 @@ export const AllDrinksList = ({ drinks }) => {
         {drinks.length > 0 ? (
           drinks.map(({ _id, drink, drinkThumb }) => (
             <Item key={_id}>
-              <Image src={drinkThumb || DefaultImg} />
+              <Image
+                src={drinkThumb || DefaultImg}
+                placeholder={!drinkThumb && 'true'}
+              />
 
               <TextWrapper>
                 <DrinkTitle>{drink}</DrinkTitle>

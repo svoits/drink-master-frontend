@@ -26,8 +26,9 @@ export const MyDrinksList = ({ drinks }) => {
       {drinks.map(({ _id, drinkThumb, drink, category, description }) => (
         <DrinkListItem key={_id}>
           <DrinkIMG
-            src={drinkThumb !== '' ? drinkThumb : DefaultImg}
+            src={drinkThumb || DefaultImg}
             alt={`${drink}`}
+            placeholder={!drinkThumb && 'true'}
           />
           <DrinkTITLE>{drink}</DrinkTITLE>
           <DrinkCATEGORY>{category}</DrinkCATEGORY>

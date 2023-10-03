@@ -13,7 +13,7 @@ import { Container } from '../Container/Container.styled';
 import { useResize } from '../../hooks/useResize';
 
 export const PreviewDrinks = () => {
-  const { mainPageDrinks, isLoading, error } = useDrink();
+  const { mainPageDrinks, isLoading } = useDrink();
 
   const { width } = useResize();
 
@@ -45,9 +45,11 @@ export const PreviewDrinks = () => {
             )}
           </MainWrapper>
 
-          <CategoryDrinkToDrink to={`/drinks`}>
-            Other drinks
-          </CategoryDrinkToDrink>
+          {!isLoading && (
+            <CategoryDrinkToDrink to={`/drinks`}>
+              Other drinks
+            </CategoryDrinkToDrink>
+          )}
         </Container>
       </SectionContainer>
     </>
