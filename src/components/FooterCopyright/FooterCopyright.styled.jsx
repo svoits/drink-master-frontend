@@ -34,27 +34,27 @@ export const Text = styled.p`
   }
 `;
 
-// export const Link = styled(RouterLink)`
-//   color: ${({ theme }) => theme.footerCopyright};
-//   font-size: 12px;
-//   line-height: 1.333;
-//   letter-spacing: -0.24px;
-//   transition: color ${transition};
-//   @media screen and (min-width: 768px) {
-//     font-size: 14px;
-//   }
-//   &:hover,
-//   &:focus {
-//     color: ${({ theme }) => theme.footerText};
-//   }
-// `;
-
-export const AdditionalText = styled.p`
+export const Link = styled(RouterLink)`
   color: ${({ theme }) => theme.footerCopyright};
   font-size: 12px;
   line-height: 1.333;
   letter-spacing: -0.24px;
+  transition: color ${transition};
   @media screen and (min-width: 768px) {
     font-size: 14px;
   }
+  &:hover,
+  &:focus {
+    color: ${({ theme }) => theme.footerText};
+  }
 `;
+
+// export const AdditionalText = styled.p`
+//   color: ${({ theme }) => theme.footerCopyright};
+//   font-size: 12px;
+//   line-height: 1.333;
+//   letter-spacing: -0.24px;
+//   @media screen and (min-width: 768px) {
+//     font-size: 14px;
+//   }
+// `;

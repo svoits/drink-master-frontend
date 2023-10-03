@@ -2,7 +2,7 @@ import {
   LinkWrapper,
   Text,
   Wrapper,
-  AdditionalText,
+  Link,
 } from './FooterCopyright.styled';
 
 export default function FooterCopyright() {
@@ -10,8 +10,8 @@ export default function FooterCopyright() {
     <Wrapper>
       <Text>&#169;2023 Drink Master. All rights reserved.</Text>
       <LinkWrapper>
-        <AdditionalText>Privacy Policy</AdditionalText>
-        <AdditionalText>Terms of Service</AdditionalText>
+        <Link to={'/privacy'}>Privacy Policy</Link>
+        <Link to={'/service'}>Terms of Service</Link>
       </LinkWrapper>
     </Wrapper>
   );

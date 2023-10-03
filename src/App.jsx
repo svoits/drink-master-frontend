@@ -17,6 +17,7 @@ import SigninPage from './pages/SigninPage/SigninPage';
 import { useAuth } from './redux/hooks/useAuth';
 import MotivationModal from './components/MotivationModal/MotivationModal';
 
+
 const Home = lazy(() => import('./pages/HomePage/HomePage'));
 const Drinks = lazy(() => import('./pages/DrinksPage/DrinksPage'));
 const AddDrink = lazy(() => import('./pages/AddDrinkPage/AddDrinkPage'));
@@ -25,6 +26,8 @@ const FavoriteDrinks = lazy(() =>
 );
 const Drink = lazy(() => import('./pages/DrinkPage/DrinkPage'));
 const MyDrinks = lazy(() => import('./pages/MyDrinksPage/MyDrinksPage'));
+const Privacy = lazy(() => import('./pages/PrivacyPage/PrivacyPage'));
+const Service = lazy(() => import('./pages/TermsOfService/TermsOfService'));
 const Error = lazy(() => import('./pages/ErrorPage/ErrorPage'));
 
 function App() {
@@ -60,13 +63,15 @@ function App() {
             element={<PrivateRoute component={<SharedLayout />} />}
           >
             <Route path="home" element={<Home />} />
-            <Route path="drinks" element={<Drinks />} />
-            <Route path="add" element={<AddDrink />} />
-            <Route path="favorites" element={<FavoriteDrinks />} />
-            <Route path="drinks/:drinkId" element={<Drink />} />
-            <Route path="my" element={<MyDrinks />} />
-            <Route path="*" element={<Error />} />
-          </Route>
+              <Route path="drinks" element={<Drinks />} />
+              <Route path="add" element={<AddDrink />} />
+              <Route path="favorites" element={<FavoriteDrinks />} />
+              <Route path="drinks/:drinkId" element={<Drink />} />
+              <Route path="my" element={<MyDrinks />} />
+              <Route path="privacy" element={<Privacy />} />
+              <Route path="service" element={<Service />} />
+              <Route path="*" element={<Error />} />
+            </Route>  
         </Routes>
       )}
 
