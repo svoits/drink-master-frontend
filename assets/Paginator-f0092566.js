@@ -1,4 +1,4 @@
-import{s as e,t as r,j as i,a8 as w,a9 as f}from"./index-f3475109.js";const u=e.ul`
+import{s as e,t as r,j as a,a9 as w,aa as f}from"./index-a9a8bd60.js";const u=e.ul`
   list-style: none;
   padding: 0;
   display: flex;
@@ -96,4 +96,4 @@ import{s as e,t as r,j as i,a8 as w,a9 as f}from"./index-f3475109.js";const u=e.
   &:focus:not(:disabled) {
     color: ${({theme:n})=>n.paginatorArrowHover};
   }
-`,j=({currentPage:n,drinksPerPage:s,totalDrinks:d,onPageChange:p,pageNumbersToShow:c})=>{const o=t=>{p(t)},a=[];for(let t=1;t<=Math.ceil(d/s);t++)a.push(t);const h=()=>{const t=Math.floor(c/2),m=a.indexOf(n),l=Math.max(0,m-t),g=Math.min(a.length-1,l+c-1);return a.slice(l,g+1)};return i.jsx(b,{children:i.jsxs(u,{children:[i.jsx(x,{type:"button",onClick:()=>o(n-1),disabled:n===1,children:i.jsx(w,{size:24})}),h().map(t=>i.jsx("li",{children:i.jsx(v,{onClick:()=>o(t),className:t===n?"active":"",children:t})},t)),i.jsx(x,{onClick:()=>o(n+1),disabled:n===Math.ceil(d/s),children:i.jsx(f,{size:24})})]})})},y=j;export{y as P};
+`,j=({currentPage:n,drinksPerPage:s,totalDrinks:d,onPageChange:p,pageNumbersToShow:c})=>{const o=t=>{p(t)},i=[];for(let t=1;t<=Math.ceil(d/s);t++)i.push(t);const h=()=>{const t=Math.floor(c/2),m=i.indexOf(n),l=Math.max(0,m-t),g=Math.min(i.length-1,l+c-1);return i.slice(l,g+1)};return a.jsx(b,{children:a.jsxs(u,{children:[a.jsx(x,{type:"button",onClick:()=>o(n-1),disabled:n===1,children:a.jsx(w,{size:24})}),h().map(t=>a.jsx("li",{children:a.jsx(v,{onClick:()=>o(t),className:t===n?"active":"",children:t})},t)),a.jsx(x,{onClick:()=>o(n+1),disabled:n===Math.ceil(d/s),children:a.jsx(f,{size:24})})]})})},y=j;export{y as P};
