@@ -53,7 +53,7 @@ export const lightTheme = {
 
   basicBtnBg: '#161F37',
   basicBtnText: '#F3F3F3',
-  basicBtnBgHover: '#F3F3F3',
+  basicBtnBgHover: 'transparent',
   basicBtnTextHover: '#161F37',
   basicBtnBorderHover: '#4070CD80',
 

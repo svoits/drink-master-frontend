@@ -28,9 +28,12 @@ export const Item = styled.li`
 export const Image = styled.img`
   width: 100%;
   height: 360px;
-  object-fit: cover;
   border-radius: 8px;
-  background: #161f37;
+  object-fit: ${({ placeholder }) =>
+    placeholder === 'true' ? 'contain' : 'cover'};
+  background-color: #161f37;
+  padding: ${({ placeholder }) => (placeholder === 'true' ? '28px' : 0)};
+
   @media screen and (min-width: 1440px) {
     height: 400px;
   }

@@ -13,8 +13,9 @@ export const ItemDrink = ({ item }) => {
   return (
     <CategoryDrinksITEM key={id}>
       <CategoryDrinksIMG
-        src={drinkThumb !== '' ? drinkThumb : DefaultImg}
+        src={drinkThumb || DefaultImg}
         alt={drink}
+        placeholder={!drinkThumb && 'true'}
       />
       <CategoryDrinksTEXTDIV>
         <CategoryDrinksP>{drink}</CategoryDrinksP>

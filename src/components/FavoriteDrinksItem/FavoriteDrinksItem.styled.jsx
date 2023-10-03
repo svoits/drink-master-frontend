@@ -12,7 +12,11 @@ export const StyledImg = styled.img`
   width: 100%;
   border-radius: 8px;
   height: 360px;
-  object-fit: cover;
+
+  object-fit: ${({ placeholder }) =>
+    placeholder === 'true' ? 'contain' : 'cover'};
+  background-color: #161f37;
+  padding: ${({ placeholder }) => (placeholder === 'true' ? '28px' : 0)};
 
   @media screen and (min-width: 768px) {
     width: 342px;

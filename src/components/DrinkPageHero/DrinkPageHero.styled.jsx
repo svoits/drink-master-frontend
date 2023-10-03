@@ -106,6 +106,7 @@ export const DrinkSvgWrapper = styled.div`
   margin-top: 80px;
   background-color: ${({ theme }) => theme.drinkPageIngredientBg};
   border-radius: 8px;
+  padding: 28px;
 
   @media screen and (min-width: 768px) {
     width: 704px;
