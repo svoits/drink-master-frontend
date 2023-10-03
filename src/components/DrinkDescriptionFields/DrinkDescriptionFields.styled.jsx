@@ -35,6 +35,7 @@ export const PhotoContainer = styled.label`
   position: relative;
   overflow: hidden;
   cursor: pointer;
+  position: relative;
 
   width: 100%;
   height: 320px;
@@ -109,6 +110,10 @@ export const SearchContainer = styled.div`
   @media screen and (min-width: 1440px) {
     row-gap: 40px;
   }
+`;
+
+export const InputWrapper = styled.div`
+  position: relative;
 `;
 
 export const SearchDrinkInput = styled(Field)`
@@ -218,7 +223,7 @@ export const StyledSelect = styled(ReactSelect)`
   }
 
   & .Select__value-container {
-    padding: 0 8px;
+    padding: 0;
   }
 
   & .Select__indicator-separator {
@@ -274,6 +279,7 @@ export const StyledSelect = styled(ReactSelect)`
     margin: 0;
     max-width: 150px;
     width: 100%;
+    padding-right: 12px;
 
     @media screen and (min-width: 768px) {
       font-size: 17px;
