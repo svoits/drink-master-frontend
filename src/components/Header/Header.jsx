@@ -47,10 +47,18 @@ export const Header = () => {
               )}
               {windowWidth <= 1439.98 ? (
                 !isMenuOpen && (
-                  <UserLogo handleOpenPopup={handleOpenUserPopup} />
+                  <UserLogo
+                    handleOpenPopup={handleOpenUserPopup}
+                    handleClosePopup={handleCloseUserPopup}
+                    isPopupOpen={isUserPopupOpen}
+                  />
                 )
               ) : (
-                <UserLogo handleOpenPopup={handleOpenUserPopup} />
+                <UserLogo
+                  handleOpenPopup={handleOpenUserPopup}
+                  handleClosePopup={handleCloseUserPopup}
+                  isPopupOpen={isUserPopupOpen}
+                />
               )}
               {windowWidth <= 1439.98 && (
                 <MenuBtn

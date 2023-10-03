@@ -16,6 +16,7 @@ export const Backdrop = styled.div`
     opacity ${transition},
     visibility ${transition};
   transition-duration: 500ms;
+  z-index: 7;
 `;
 
 export const Wrapper = styled.div`
@@ -33,7 +34,7 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 38px;
-  z-index: 5;
+  z-index: 8;
 
   transition:
     opacity ${transition},

@@ -1,13 +1,20 @@
 import { useAuth } from '../../redux/hooks/useAuth';
 import { Button, Image } from './UserLogo.styled';
 
-export default function UserLogo({ handleOpenPopup }) {
+export default function UserLogo({
+  handleOpenPopup,
+  handleClosePopup,
+  isPopupOpen,
+}) {
   const {
     user: { avatarURL, name },
   } = useAuth();
 
   return (
-    <Button type="button" onClick={handleOpenPopup}>
+    <Button
+      type="button"
+      onClick={() => (isPopupOpen ? handleClosePopup() : handleOpenPopup())}
+    >
       <Image
         src={
           avatarURL ||
