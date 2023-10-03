@@ -1,13 +1,13 @@
 import styled from 'styled-components';
 
 export const PrivacyPolicySection = styled.section`
-    padding-top: 80px;
-    padding-bottom: 80px;
+  padding-top: 80px;
+  padding-bottom: 80px;
 
-    @media screen and (min-width: 768px) {
+  @media screen and (min-width: 768px) {
     padding-top: 140px;
     padding-bottom: 140px;
-    }
+  }
 `;
 
 export const PrivacyPolicyTitle = styled.h2`
@@ -29,10 +29,10 @@ export const PrivacyPolicyTitle = styled.h2`
 `;
 
 export const PrivacyPolicyList = styled.ul`
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 40px;
 `;
 
 export const PrivacyPolicyNameItem = styled.h3`
