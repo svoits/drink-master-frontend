@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+import transition from '../utils/transition';
 
 export const GlobalStyles = createGlobalStyle`
 
@@ -13,6 +14,7 @@ html, body, #root {
   font-style: normal;
   color: ${({ theme }) => theme.mainText};
   margin: 0;
+  transition: color ${transition}, background-color ${transition};
   
 }
 h1,

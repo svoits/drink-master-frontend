@@ -107,6 +107,7 @@ export const SeeMoreBtn = styled(NavLink)`
   &:hover {
     background-color: #f3f3f3;
     color: #161f37;
+    border-color: ${({ theme }) => theme.basicBtnBorderHover};
   }
 
   @media (min-width: 768px) {
@@ -137,10 +138,11 @@ export const DeleteBtn = styled.button`
   padding: 0;
   background-color: #161f37;
   color: #f3f3f3;
-
+  border: 1px solid transparent;
   transition:
     background-color ${transition},
-    color ${transition};
+    color ${transition},
+    border-color ${transition};
 
   @media (min-width: 768px) {
     width: 56px;
@@ -151,5 +153,6 @@ export const DeleteBtn = styled.button`
   &:focus {
     background-color: #f3f3f3;
     color: #161f37;
+    border-color: ${({ theme }) => theme.basicBtnBorderHover};
   }
 `;

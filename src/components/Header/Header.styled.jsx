@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import transition from '../../utils/transition';
 
 export const MainWrapper = styled.div`
   display: flex;
@@ -15,6 +16,7 @@ export const HeaderContainer = styled.header`
   min-width: 320px;
   z-index: 10;
   background-color: ${({ theme }) => theme.mainBackground};
+  transition: background-color ${transition};
 
   @media screen and (min-width: 768px) {
     padding-top: ${(props) => (props.isopen === 'true' ? 23 : 20)}px;

@@ -117,9 +117,9 @@ export const darkTheme = {
 
   basicBtnBg: '#F3F3F3',
   basicBtnText: '#161F37',
-  basicBtnBgHover: 'transparent',
+  basicBtnBgHover: '#161F37',
   basicBtnTextHover: '#F3F3F3',
-  basicBtnBorderHover: '#F3F3F333',
+  basicBtnBorderHover: '#161F37',
 
   socialIcon: '#F3F3F3',
   socialIconBorder: '#F3F3F333',
