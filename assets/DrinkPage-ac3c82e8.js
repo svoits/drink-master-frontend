@@ -1,4 +1,4 @@
-import{s as t,t as m,u as $,c as x,r as h,Z as I,e as g,$ as P,j as e,a0 as S,Y as z,Q as u,a1 as y,a2 as R,k as B,a3 as F,a4 as W,a5 as L,C}from"./index-6cd295ec.js";import{S as j}from"./stub-e3cf52d6.js";import{P as A}from"./PageTitle-60b9778c.js";import{a as E}from"./selectors-a7d85374.js";const H=t.p`
+import{s as t,t as m,u as $,c as x,r as h,Z as I,e as g,$ as P,j as e,a0 as S,Y as z,Q as u,a1 as y,a2 as R,k as B,a3 as F,a4 as W,a5 as L,C}from"./index-f3475109.js";import{S as j}from"./stub-85298420.js";import{P as A}from"./PageTitle-f98ab0e8.js";import{a as E}from"./selectors-a7d85374.js";const H=t.p`
   color: ${({theme:i})=>i.drinkPageSubtitle};
   font-size: 12px;
   font-weight: 400;
@@ -214,6 +214,7 @@ import{s as t,t as m,u as $,c as x,r as h,Z as I,e as g,$ as P,j as e,a0 as S,Y 
   line-height: 1.285;
   margin-top: 40px;
   margin-bottom: 0;
+  overflow-wrap: break-word;
 
   @media screen and (min-width: 768px) {
     font-size: 16px;
