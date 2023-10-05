@@ -14,6 +14,14 @@ export const StyledLink = styled(Link)`
   padding-top: 5px;
   padding-bottom: 5px;
 
+  @media screen and (max-width: 374.98px) {
+    font-size: 4.2vw;
+  }
+
+  @media screen and (max-width: 319.98px) {
+    font-size: 13.4px;
+  }
+
   @media screen and (min-width: 768px) {
     font-size: 18px;
     line-height: 1.22;

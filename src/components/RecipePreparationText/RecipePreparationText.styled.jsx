@@ -28,13 +28,12 @@ export const StyledTextarea = styled.textarea`
   padding-bottom: 16px;
   padding-left: 18px;
   padding-right: 18px;
-
   resize: none;
   border-radius: 14px;
   border: 1px solid ${({ theme }) => theme.inputBorder};
-
   opacity: 0.8;
   background: transparent;
+
 
   color: ${({ theme }) => theme.mainText};
   font-family: Manrope;
@@ -61,10 +60,10 @@ export const StyledTextarea = styled.textarea`
     font-size: 17px;
     line-height: 1.56;
     width: 480px;
-
     border-radius: 20px;
   }
 
-  @media screen and (min-width: 1440px) {
+  &::-webkit-scrollbar {
+    display: none;
   }
 `;

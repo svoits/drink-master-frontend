@@ -49,6 +49,7 @@ export const DrinkIngredientsList = ({ ingredients }) => {
                   <DrinkIngredientItem
                     title={ingredient.title}
                     measure={ingredient.measure}
+                    quantity={ingredient.quantity}
                     images={images}
                   />
                 </li>

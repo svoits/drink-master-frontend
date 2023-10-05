@@ -2,15 +2,20 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useState, useRef } from 'react';
 import { addMyDrink } from '../../redux/drinks/drinks-operations';
 import DrinkDescriptionFields from '../DrinkDescriptionFields/DrinkDescriptionFields';
-import DrinkIngredientsFields1 from '../DrinkIngredientsFields/DrinkIngredientsFields1';
+import DrinkIngredientsFields from '../DrinkIngredientsFields/DrinkIngredientsFields';
 import RecipePreparationText from '../RecipePreparationText/RecipePreparationText';
-
 import { AddDrinkFormContainer, AddDrinkFormBtn } from './AddDrinkForm.styled';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { useDrink } from '../../redux/hooks/useDrink';
+import FullScreenLoader from '../FullScreenLoader/FullScreenLoader';
 
 const AddDrinkForm = () => {
   const dispatch = useDispatch();
+  const { isLoading } = useDrink();
+  const navigate = useNavigate();
   const birthDate = useSelector((state) => state.auth.user.birthDate);
+  const [drinkThumb, setDrinkThumb] = useState(null);
 
   const formAref = useRef();
   const formBref = useRef();
@@ -20,7 +25,7 @@ const AddDrinkForm = () => {
   const userBirthDate = new Date(birthDate);
   const ageDiff = currentDate.getFullYear() - userBirthDate.getFullYear();
 
-  const [formData, setFormData] = useState({
+  const formData = {
     drink: '',
     description: '',
     alcoholic: ageDiff >= 18 ? 'Alcoholic' : 'Non alcoholic',
@@ -29,11 +34,11 @@ const AddDrinkForm = () => {
     instructions: '',
     drinkThumb: '',
     ingredients: [
-      { ingredientId: '', measure: '', quantity: '' },
-      { ingredientId: '', measure: '', quantity: '' },
-      { ingredientId: '', measure: '', quantity: '' },
+      { ingredientId: '', measure: 'cl', quantity: '1' },
+      { ingredientId: '', measure: 'cl', quantity: '1' },
+      { ingredientId: '', measure: 'cl', quantity: '1' },
     ],
-  });
+  };
 
   const handleSubmit = () => {
     if (formAref.current && formBref.current && formCref.current) {
@@ -45,18 +50,32 @@ const AddDrinkForm = () => {
       const { values: valuesFormB } = formBref.current;
       const { values: valuesFormC } = formCref.current;
 
+      const { drink, description, alcoholic, category, glass } = valuesFormA;
+      const { ingredients } = valuesFormB;
+      const { instructions } = valuesFormC;
+
       const data = {
-        ...formData,
-        alcoholic: valuesFormA.alcoholic,
-        category: valuesFormA.category,
-        glass: valuesFormA.glass,
+        drinkThumb,
+        drink,
+        description,
+        alcoholic,
+        category,
+        glass,
         ingredients: JSON.stringify(
-          valuesFormB.ingredients.filter((ing) => ing.ingredientId),
+          ingredients.filter((ing) => ing.ingredientId),
         ),
-        instructions: valuesFormC.instructions,
+        instructions,
       };
 
-      dispatch(addMyDrink(data));
+      dispatch(addMyDrink(data))
+        .unwrap()
+        .then(() => {
+          navigate('/my');
+          toast.success(`You have successfully added a drink ${drink}`);
+        })
+        .catch(() => {
+          toast.error('You should fill all required fields');
+        });
     }
   };
 
@@ -64,25 +83,16 @@ const AddDrinkForm = () => {
     <AddDrinkFormContainer>
       <DrinkDescriptionFields
         formData={formData}
-        setFormData={setFormData}
         refId={formAref}
+        setDrinkThumb={setDrinkThumb}
       />
-      <DrinkIngredientsFields1
-        formData={formData}
-        setFormData={setFormData}
-        refId={formBref}
-      />
-      <RecipePreparationText
-        formData={formData}
-        setFormData={setFormData}
-        refId={formCref}
-      />
+      <DrinkIngredientsFields formData={formData} refId={formBref} />
+      <RecipePreparationText formData={formData} refId={formCref} />
 
-      <Link to={'/my'}>
-        <AddDrinkFormBtn type="submit" onClick={handleSubmit}>
-          Add
-        </AddDrinkFormBtn>
-      </Link>
+      <AddDrinkFormBtn type="submit" onClick={handleSubmit}>
+        Add
+      </AddDrinkFormBtn>
+      {isLoading && <FullScreenLoader />}
     </AddDrinkFormContainer>
   );
 };

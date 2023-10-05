@@ -22,7 +22,7 @@ export default function UserLogo({
         }
         alt="avatar"
       />
-      {name || 'Name'}
+      <span>{name || 'Name'}</span>
     </Button>
   );
 }

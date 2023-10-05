@@ -28,7 +28,7 @@ export const MyDrinksList = ({ drinks }) => {
           <DrinkIMG
             src={drinkThumb || DefaultImg}
             alt={`${drink}`}
-            placeholder={!drinkThumb && 'true'}
+            placeholder={!drinkThumb ? 'true' : 'false'}
           />
           <DrinkTITLE>{drink}</DrinkTITLE>
           <DrinkCATEGORY>{category}</DrinkCATEGORY>

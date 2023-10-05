@@ -1,13 +1,12 @@
 import { Formik, Field } from 'formik';
 import * as Yup from 'yup';
 import makeAnimated from 'react-select/animated';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
 import {
   getCategories,
   getGlasses,
 } from '../../redux/filters/filters-operation';
-import { BsPlus } from 'react-icons/bs';
 import {
   FormContainer,
   AddPhotoButton,
@@ -26,44 +25,34 @@ import {
   RadioField,
   RadioLabel,
   InputWrapper,
+  AddPhotoIcon,
 } from './DrinkDescriptionFields.styled';
 import FormError from '../FormError/FormError';
-
-const style = {
-  backgroundColor: '#F3F3F3',
-  width: '50px',
-  height: '50px',
-  borderRadius: '6px',
-  color: '#161F37',
-};
+import { useFilter } from '../../redux/hooks/useFilter';
 
 const validationSchema = Yup.object().shape({
-  drinkThumb: Yup.string().url().required('Cocktail photo is required'),
-
+  drinkThumb: Yup.mixed(),
   drink: Yup.string()
     .min(3, 'Cocktail name must contain at least 3 symbols')
     .required('Cocktail title is required'),
-
   description: Yup.string()
     .min(10, 'The cocktail description must contain at least 10 symbols')
     .required('Description of the cocktail is required'),
-
-  category: Yup.string().required('Cocktail category is a required'),
-
-  glass: Yup.string().required('Cocktail glass is a required'),
+  category: Yup.string().required('Cocktail category is required'),
+  glass: Yup.string().required('Cocktail glass is required'),
 });
 
 const animatedComponents = makeAnimated();
 
-const DrinkDescriptionFields = ({ formData, setFormData, refId }) => {
-  const dispatch = useDispatch();
-  const categories = useSelector((state) => state.filters.categories);
-  const glasses = useSelector((state) => state.filters.glasses);
-
+const DrinkDescriptionFields = ({ formData, refId, setDrinkThumb }) => {
   const [imagePreview, setImagePreview] = useState(null);
-  const [isImageSelected, setIsImageSelected] = useState(false);
+  // const [isImageSelected, setIsImageSelected] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState('');
   const [selectedGlass, setSelectedGlass] = useState('');
+  const { categories, glasses } = useFilter();
+  const dispatch = useDispatch();
+  const { drink, description, category, glass, alcoholic, drinkThumb } =
+    formData;
 
   useEffect(() => {
     dispatch(getCategories());
@@ -75,45 +64,46 @@ const DrinkDescriptionFields = ({ formData, setFormData, refId }) => {
 
     if (file) {
       const imageURL = URL.createObjectURL(file);
-      setFormData({
-        ...formData,
-        drinkThumb: file,
-      });
+      setDrinkThumb(file);
       setImagePreview(imageURL);
-      setIsImageSelected(true);
+      // setIsImageSelected(true);
     }
   };
 
-  const handleImageDelete = () => {
-    setFormData({
-      ...formData,
-      drinkThumb: '',
-    });
-    setImagePreview(null);
-    setIsImageSelected(false);
-  };
+  // const handleImageDelete = () => {
+  //   setFormData({
+  //     ...formData,
+  //     drinkThumb: '',
+  //   });
+  //   setImagePreview(null);
+  //   setIsImageSelected(false);
+  // };
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    console.log(formData);
-    setFormData({ ...formData, [name]: value });
-  };
+  // const handleInputChange = (e) => {
+  //   const { name, value } = e.target;
+  //   console.log(name, value);
+
+  //   setFormData({
+  //     ...formData,
+  //     [name]: value,
+  //   });
+  // };
 
   return (
     <FormContainer>
       <Formik
         initialValues={{
-          drink: formData.drink,
-          description: formData.description,
-          category: formData.category,
-          glass: formData.glass,
-          alcoholic: formData.alcoholic,
-          drinkThumb: formData.drinkThumb,
+          drink,
+          description,
+          category,
+          glass,
+          alcoholic,
+          drinkThumb,
         }}
         validationSchema={validationSchema}
         innerRef={refId}
       >
-        {({ values, handleChange }) => (
+        {({ values, handleChange, setFieldValue }) => (
           <SearchForm>
             <PhotoContainer>
               <PhotoField
@@ -136,13 +126,12 @@ const DrinkDescriptionFields = ({ formData, setFormData, refId }) => {
               </AddPhotoButton>
             )} */}
               <AddPhotoButton type="button">
-                <BsPlus style={style} />
+                <AddPhotoIcon />
                 <span>Add image</span>
               </AddPhotoButton>
               {imagePreview && (
                 <PhotoPreview src={imagePreview} alt="Preview" />
               )}
-              <FormError absolute={true} name="drinkThumb" />
             </PhotoContainer>
 
             <FieldsAndRadioWrapper>
@@ -151,10 +140,7 @@ const DrinkDescriptionFields = ({ formData, setFormData, refId }) => {
                   <SearchDrinkInput
                     name="drink"
                     value={values.drink}
-                    onChange={(e) => {
-                      handleInputChange(e);
-                      handleChange(e);
-                    }}
+                    onChange={handleChange}
                     placeholder="Enter item drink"
                   />
                   <FormError absolute={true} name="drink" />
@@ -164,29 +150,24 @@ const DrinkDescriptionFields = ({ formData, setFormData, refId }) => {
                   <SearchDrinkInput
                     name="description"
                     value={values.description}
-                    onChange={(e) => {
-                      handleInputChange(e);
-                      handleChange(e);
-                    }}
+                    onChange={handleChange}
                     placeholder="Enter about description"
                   />
                   <FormError absolute={true} name="description" />
                 </InputWrapper>
 
-                <SearchDrinkLabel>
+                <SearchDrinkLabel htmlFor="category">
                   <SearchDrinkText>Category</SearchDrinkText>
                   <InputWrapper>
                     <Field
                       name="category"
                       value={values.category}
-                      onChange={(e) => {
-                        handleInputChange(e);
-                        handleChange(e);
-                      }}
+                      onChange={handleChange}
                       placeholder="Category"
                     >
-                      {({ field, form }) => (
+                      {({ field }) => (
                         <StyledSelect
+                          className="select-category"
                           classNamePrefix="Select"
                           closeMenuOnSelect={true}
                           isClearable={true}
@@ -206,36 +187,31 @@ const DrinkDescriptionFields = ({ formData, setFormData, refId }) => {
                               : ''
                           }
                           onChange={(selectedOption) => {
-                            setSelectedCategory(
-                              selectedOption ? selectedOption.value : '',
-                            );
-                            form.setFieldValue(
-                              'category',
-                              selectedOption ? selectedOption.value : '',
-                            );
+                            if (selectedOption) {
+                              setSelectedCategory(selectedOption.value);
+                              setFieldValue('category', selectedOption.value);
+                            }
                           }}
                           placeholder="Cocktail"
                         />
                       )}
                     </Field>
-                    <FormError name="category" />
+                    <FormError name="category" select={true} />
                   </InputWrapper>
                 </SearchDrinkLabel>
 
-                <SearchDrinkLabel>
+                <SearchDrinkLabel htmlFor="glass">
                   <SearchDrinkText>Glasses</SearchDrinkText>
                   <InputWrapper>
                     <Field
                       name="glass"
                       value={values.glass}
-                      onChange={(e) => {
-                        handleInputChange(e);
-                        handleChange(e);
-                      }}
+                      onChange={handleChange}
                       placeholder="Glasses"
                     >
-                      {({ field, form }) => (
+                      {({ field }) => (
                         <StyledSelect
+                          className="select-glass"
                           classNamePrefix="Select"
                           closeMenuOnSelect={true}
                           components={animatedComponents}
@@ -255,14 +231,14 @@ const DrinkDescriptionFields = ({ formData, setFormData, refId }) => {
                           onChange={(selectedOption) => {
                             if (selectedOption) {
                               setSelectedGlass(selectedOption.value);
-                              form.setFieldValue('glass', selectedOption.value);
+                              setFieldValue('glass', selectedOption.value);
                             }
                           }}
                           placeholder="Glasses"
                         />
                       )}
                     </Field>
-                    <FormError name="glass" />
+                    <FormError name="glass" select={true} />
                   </InputWrapper>
                 </SearchDrinkLabel>
               </SearchContainer>
@@ -273,10 +249,8 @@ const DrinkDescriptionFields = ({ formData, setFormData, refId }) => {
                     type="radio"
                     name="alcoholic"
                     value="Alcoholic"
-                    checked={formData.alcoholic === 'Alcoholic'}
-                    onChange={() =>
-                      setFormData({ ...formData, alcoholic: 'Alcoholic' })
-                    }
+                    checked={values.alcoholic === 'Alcoholic'}
+                    onChange={() => setFieldValue('alcoholic', 'Alcoholic')}
                   />
                   <RadioLabel>Alcoholic</RadioLabel>
                 </RadioLabelWrapper>
@@ -286,10 +260,8 @@ const DrinkDescriptionFields = ({ formData, setFormData, refId }) => {
                     type="radio"
                     name="alcoholic"
                     value="Non alcoholic"
-                    checked={formData.alcoholic === 'Non alcoholic'}
-                    onChange={() =>
-                      setFormData({ ...formData, alcoholic: 'Non alcoholic' })
-                    }
+                    checked={values.alcoholic === 'Non alcoholic'}
+                    onChange={() => setFieldValue('alcoholic', 'Non alcoholic')}
                   />
                   <RadioLabel>Non-alcoholic</RadioLabel>
                 </RadioLabelWrapper>

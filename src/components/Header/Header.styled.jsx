@@ -29,6 +29,20 @@ export const UserMenuWrap = styled.div`
   display: flex;
   align-items: center;
   column-gap: 14px;
+  justify-content: flex-end;
+
+  @media screen and (max-width: 374.98px) {
+    column-gap: 3.5vw;
+  }
+
+  @media screen and (max-width: 345px) {
+    column-gap: 2.8vw;
+  }
+
+  @media screen and (max-width: 319.98px) {
+    column-gap: 8.95px;
+  }
+
   @media screen and (min-width: 1440px) {
     column-gap: 28px;
   }

@@ -31,7 +31,7 @@ export const SearchDrinkTitle = styled.h2`
   }
 `;
 
-export const SearchDrinkForm = styled(Form)`
+export const AddIngredientsForm = styled(Form)`
   width: 100%;
   // margin-bottom: 80px;
   @media screen and (min-width: 768px) {
@@ -42,22 +42,37 @@ export const SearchDrinkForm = styled(Form)`
     width: 540px;
   }
 
-  //   #categories {
-  //     width: 100%;
-  //   }
+  .select-ingredient {
+    flex: 2;
 
-  //   #ingredients {
-  //     width: 100%;
-  //   }
-`;
+    @media screen and (max-width: 355px) {
+      flex: 1.8;
+    }
 
-export const IngredientSelectWrapper = styled.label`
-  flex: 2;
+    @media screen and (max-width: 335px) {
+      flex: 1.65;
+    }
+    @media screen and (max-width: 320px) {
+      flex: 1.55;
+    }
 
-  @media screen and (min-width: 768px) {
-    flex: 2.22;
+    @media screen and (min-width: 768px) {
+      flex: 2.22;
+    }
+
+    @media screen and (min-width: 1440px) {
+      flex: 2.1;
+    }
+  }
+
+  .select-measure {
+    width: 100%;
   }
 `;
+
+// export const IngredientSelectWrapper = styled.label`
+
+// `;
 
 export const CalculationBtnWrapper = styled.div`
   position: absolute;
@@ -92,9 +107,13 @@ export const PlusMinusButton = styled.button`
 
   &:hover,
   &:focus {
-    transform: scale(1.2);
+    transform: scale(1.3);
   }
-  @media screen and (min-width: 768px) {
+
+  &:disabled {
+    color: ${({ theme }) => theme.paginatorArrow};
+    cursor: default;
+    transform: unset;
   }
 `;
 
@@ -173,11 +192,9 @@ export const IngredientsDIV = styled.div`
 `;
 export const IngredientsInput = styled(Field)`
   background-color: transparent;
-  max-width: 35px;
+  max-width: 38px;
   display: inline-block;
-  padding: 15px 17px;
-  padding-right: 0;
-  padding-top: 18px;
+  padding: 17px 4px 15px 14px;
   border: none;
 
   color: ${({ theme }) => theme.mainText};
@@ -195,7 +212,7 @@ export const IngredientsInput = styled(Field)`
   }
 
   @media screen and (min-width: 768px) {
-    min-width: 65px;
+    min-width: 50px;
     padding-left: 23px;
   }
 `;
@@ -219,13 +236,14 @@ export const StyledSelectCL = styled(ReactSelect)`
         transform: rotate(-180deg);
       }
     }
-    @media screen and (min-width: 768px) {
-      width: 80px;
-    }
   }
 
   & .Select__value-container {
-    padding: 15px 0;
+    padding: 16px 0;
+
+    @media screen and (min-width: 768px) {
+      padding: 15px 0;
+    }
   }
 
   & .Select__indicator-separator {
@@ -238,8 +256,8 @@ export const StyledSelectCL = styled(ReactSelect)`
 
   & .Select__indicator {
     color: ${({ theme }) => theme.mainText};
-    padding: 15px 17px;
-    padding-left: 8px;
+    padding: 15px 10px;
+    padding-left: 0px;
 
     cursor: pointer;
 
@@ -249,7 +267,7 @@ export const StyledSelectCL = styled(ReactSelect)`
 
     @media screen and (min-width: 768px) {
       padding: 17px 23px;
-      padding-left: 8px;
+      padding-left: 7px;
     }
   }
 
@@ -276,10 +294,14 @@ export const StyledSelectCL = styled(ReactSelect)`
     color: ${({ theme }) => theme.selectDownOptionText};
     line-height: 1.285;
     margin: 0;
+    text-align: center;
+    /* padding-left: 4px; */
 
     @media screen and (min-width: 768px) {
       font-size: 17px;
       line-height: 1.56;
+      text-overflow: clip;
+      text-align: right;
     }
   }
 
@@ -372,7 +394,7 @@ export const StyledSelect = styled(ReactSelect)`
   }
 
   & .Select__value-container {
-    padding: 15px 17px;
+    padding: 15px 14px;
     padding-right: 0;
 
     @media screen and (min-width: 768px) {
@@ -391,7 +413,7 @@ export const StyledSelect = styled(ReactSelect)`
 
   & .Select__indicator {
     color: ${({ theme }) => theme.selectDownOptionText};
-    padding: 15px 17px;
+    padding: 15px 10px;
     padding-left: 8px;
     cursor: pointer;
 
