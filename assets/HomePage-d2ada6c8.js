@@ -1,4 +1,4 @@
-import{s as n,t as r,N as p,j as i,u as l,a as h,C as m,L as f,b,c as u,r as k,g as w}from"./index-02e09e0f.js";import{D as j}from"./stub-038aaa05.js";import{C as $}from"./hero-img-desc-2x-e8906f30.js";import{P as D}from"./PageTitle-862a06d6.js";const y=n.section`
+import{s as n,t as r,N as p,j as i,u as l,a as h,C as m,L as f,b,c as u,r as k,g as w}from"./index-35fbe8a3.js";import{D as j}from"./stub-33980911.js";import{C as $}from"./hero-img-desc-2x-e8906f30.js";import{P as D}from"./PageTitle-c6f3a8f9.js";const y=n.section`
   padding-bottom: 80px;
 
   @media screen and (min-width: 768px) {
@@ -105,7 +105,7 @@ import{s as n,t as r,N as p,j as i,u as l,a as h,C as m,L as f,b,c as u,r as k,g
     padding: 16px 40px;
     margin: 80px auto 0px;
   }
-`,P=({item:e})=>{const{_id:t,drink:o,drinkThumb:s}=e;return i.jsxs(I,{children:[i.jsx(z,{src:s||j,alt:o,placeholder:!s&&"true"}),i.jsxs(M,{children:[i.jsx(S,{children:o}),i.jsx(L,{to:`/drinks/${t}`,children:"See more"})]})]},t)},E=()=>{const{mainPageDrinks:e,isLoading:t}=l(),{width:o}=h(),s=o<768?1:o<1440?2:3,a=Object.keys(e).slice(0,4);return i.jsx(i.Fragment,{children:i.jsx(y,{children:i.jsxs(m,{children:[i.jsx(v,{children:t?i.jsx(f,{}):a.length>0&&a.map((d,g)=>i.jsxs(B,{children:[i.jsxs(T,{children:[d," "]}),i.jsx(C,{children:e[d].slice(0,s).map(c=>i.jsx(P,{item:c},c._id))})]},g))}),!t&&i.jsx(H,{to:"/drinks",children:"Other drinks"})]})})})},W=n.section`
+`,P=({item:e})=>{const{_id:t,drink:o,drinkThumb:s}=e;return i.jsxs(I,{children:[i.jsx(z,{src:s||j,alt:o,placeholder:s?"false":"true"}),i.jsxs(M,{children:[i.jsx(S,{children:o}),i.jsx(L,{to:`/drinks/${t}`,children:"See more"})]})]},t)},E=()=>{const{mainPageDrinks:e,isLoading:t}=l(),{width:o}=h(),s=o<768?1:o<1440?2:3,a=Object.keys(e).slice(0,4);return i.jsx(i.Fragment,{children:i.jsx(y,{children:i.jsxs(m,{children:[i.jsx(v,{children:t?i.jsx(f,{}):a.length>0&&a.map((d,g)=>i.jsxs(B,{children:[i.jsxs(T,{children:[d," "]}),i.jsx(C,{children:e[d].slice(0,s).map(c=>i.jsx(P,{item:c},c._id))})]},g))}),!t&&i.jsx(H,{to:"/drinks",children:"Other drinks"})]})})})},W=n.section`
   padding-top: 80px;
   padding-bottom: 112px;
 
