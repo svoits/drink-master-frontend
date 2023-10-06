@@ -35,6 +35,7 @@ export default function FavoriteDrinksPage() {
   useEffect(() => {
     setIsLoading(true);
     dispatch(getFavoriteAll({ page: currentPage, limit: itemsPerPage }))
+      .unwrap()
       .then(() => setIsLoading(false))
       .catch((err) => {
         console.error(err);

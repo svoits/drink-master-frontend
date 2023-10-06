@@ -21,10 +21,29 @@ export const Button = styled.button`
   color: ${({ theme }) => theme.headerText};
   font-weight: 500;
   line-height: 1.428;
+  max-width: 35vw;
+  max-width: 140px;
+
+  span {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  @media screen and (max-width: 374.98px) {
+    font-size: 3.6vw;
+    max-width: 37vw;
+  }
+
+  @media screen and (max-width: 319.98px) {
+    font-size: 11.5px;
+    max-width: 118.4px;
+  }
 
   @media screen and (min-width: 768px) {
     column-gap: 14px;
     font-size: 16px;
     line-height: 1.5;
+    max-width: unset;
   }
 `;

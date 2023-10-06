@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const MainContainer = styled.div`
   position: relative;
   min-height: 100%;
+  min-width: 320px;
   display: flex;
   flex-direction: column;
   background-image: radial-gradient(

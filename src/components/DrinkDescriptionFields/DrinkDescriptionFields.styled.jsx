@@ -1,8 +1,6 @@
 import styled from 'styled-components';
-// import transition from '../../utils/transition';
-
+import { BsPlus } from 'react-icons/bs';
 import { Field, Form } from 'formik';
-
 import ReactSelect from 'react-select';
 import transition from '../../utils/transition';
 
@@ -27,7 +25,7 @@ export const SearchForm = styled(Form)`
     column-gap: 40px;
   }
 `;
-//=====================================
+
 export const PhotoContainer = styled.label`
   display: flex;
   justify-content: center;
@@ -86,7 +84,13 @@ export const AddPhotoButton = styled.button`
   pointer-events: none;
 `;
 
-//=========================================
+export const AddPhotoIcon = styled(BsPlus)`
+  background-color: #f3f3f3;
+  width: 50px;
+  height: 50px;
+  border-radius: 6px;
+  color: #161f37;
+`;
 
 export const FieldsAndRadioWrapper = styled.div`
   display: flex;
@@ -114,6 +118,12 @@ export const SearchContainer = styled.div`
 
 export const InputWrapper = styled.div`
   position: relative;
+
+  .select-category {
+    .Select__option {
+      white-space: nowrap;
+    }
+  }
 `;
 
 export const SearchDrinkInput = styled(Field)`
@@ -156,16 +166,6 @@ export const SearchDrinkLabel = styled.label`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-
-  @media screen and (min-width: 768px) {
-  }
-  // #categories {
-  //   width: 100%;
-  // }
-
-  // #ingredients {
-  //   width: 100%;
-  // }
 `;
 
 export const SearchDrinkText = styled.p`
@@ -301,12 +301,12 @@ export const StyledSelect = styled(ReactSelect)`
 
     @media screen and (min-width: 768px) {
       border-radius: 20px;
-      min-width: 155px;
+      min-width: 174px;
     }
 
     @media screen and (min-width: 1440px) {
       border-radius: 20px;
-      min-width: 170px;
+      min-width: 178px;
     }
   }
 

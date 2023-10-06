@@ -20,7 +20,7 @@ export const AllDrinksList = ({ drinks }) => {
             <Item key={_id}>
               <Image
                 src={drinkThumb || DefaultImg}
-                placeholder={!drinkThumb && 'true'}
+                placeholder={!drinkThumb ? 'true' : 'false'}
               />
 
               <TextWrapper>

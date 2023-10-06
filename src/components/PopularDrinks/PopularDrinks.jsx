@@ -17,12 +17,11 @@ import {
   InfoWrap,
   DrinksSvgWrapper,
 } from './PopularDrinks.styled';
+import { useDrink } from '../../redux/hooks/useDrink';
 
 const PopularDrinks = () => {
   const dispatch = useDispatch();
-  const popularList = useSelector((state) =>
-    state.drinks.popularDrinks.slice(0, 4),
-  );
+  const { popularDrinks } = useDrink();
   const { isLoading, error } = useSelector(selectDrinks);
 
   useEffect(() => {
@@ -35,7 +34,7 @@ const PopularDrinks = () => {
       {isLoading && <Loader />}
       {error && toast.error('Sorry. There are no images ... 😭')}
       <DrinksList>
-        {popularList.map(({ _id, drinkThumb, drink, shortDescription }) => (
+        {popularDrinks.map(({ _id, drinkThumb, drink, shortDescription }) => (
           <DrinksItem key={_id}>
             <DrinksLink href={`drinks/${_id}`}>
               {drinkThumb ? (

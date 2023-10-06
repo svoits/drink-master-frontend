@@ -1,12 +1,14 @@
 import { ErrorMessage } from 'formik';
 import { ErrorText } from './FormError.styled';
 
-const FormError = ({ name, absolute = false }) => {
+const FormError = ({ name, absolute = false, select = false }) => {
   return (
     <ErrorMessage
       name={name}
       render={(message) => (
-        <ErrorText absolute={absolute.toString()}>{message}</ErrorText>
+        <ErrorText absolute={absolute.toString()} select={select.toString()}>
+          {message}
+        </ErrorText>
       )}
     />
   );

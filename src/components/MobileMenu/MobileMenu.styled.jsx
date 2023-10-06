@@ -92,6 +92,15 @@ export const StyledNavLink = styled(NavLink)`
   color: ${({ theme }) => theme.headerText};
   border-radius: 40px;
   border: 1px solid ${({ theme }) => theme.navLinkBorder};
+  transition:
+    border-color ${transition},
+    background-color ${transition},
+    color ${transition};
+
+  &:hover,
+  &:focus {
+    border-color: ${({ theme }) => theme.navLinkBorderHover};
+  }
 
   &.active {
     background-color: ${({ theme }) => theme.activeNavLinkBg};

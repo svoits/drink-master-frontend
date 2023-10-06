@@ -1,3 +1,5 @@
+import { createSelector } from '@reduxjs/toolkit';
+
 export const selectIsLoading = (state) => state.drinks.isLoading;
 export const selectMainPageDrinks = (state) => state.drinks.mainPageDrinks;
 export const selectDrinks = (state) => state.drinks.drinks;
@@ -6,4 +8,9 @@ export const selectDrinkById = (state, drinkId) =>
   state.drinks.drinks.find((drink) => drink._id === drinkId);
 export const selectFavoriteDrinks = (state) => state.drinks.favoriteDrinks;
 export const selectTotalDrinks = (state) => state.drinks.total;
-export const selectDrinksPopular = (state) => state.drinks.popularDrinks;
+const selectInitialPopularDrinks = (state) => state.drinks.popularDrinks;
+
+export const selectPopularDrinks = createSelector(
+  [selectInitialPopularDrinks],
+  (drinks) => drinks.slice(0, 4),
+);

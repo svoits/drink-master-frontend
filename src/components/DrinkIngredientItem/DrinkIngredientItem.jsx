@@ -9,7 +9,7 @@ import {
 } from './DrinkIngredientItem.styled';
 import { ReactComponent as StubPhoto } from '../../assets/stub.svg';
 
-export const DrinkIngredientItem = ({ title, measure, images }) => {
+export const DrinkIngredientItem = ({ title, measure, quantity, images }) => {
   // if (images['ingredientThumb'] === '') {
   //   return (images['ingredientThumb'] = StubPhoto);
   // }
@@ -40,7 +40,9 @@ export const DrinkIngredientItem = ({ title, measure, images }) => {
       </IngredientPhotoWrapper>
       <IngredientDescription>
         <IngredientTitle>{title}</IngredientTitle>
-        <IngredientMeasure>{measure}</IngredientMeasure>
+        <IngredientMeasure>
+          {quantity ? `${quantity} ${measure}` : measure}
+        </IngredientMeasure>
       </IngredientDescription>
     </>
   );

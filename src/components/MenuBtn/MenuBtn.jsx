@@ -4,7 +4,14 @@ import { useResize } from 'src/hooks/useResize';
 
 export default function MenuBtn({ handleToggleMenu, isMenuOpen }) {
   const { width: windowWidth } = useResize();
-  const iconSize = windowWidth >= 768 ? 38 : 32;
+  const iconSize =
+    windowWidth < 320
+      ? 27.2
+      : windowWidth < 375
+      ? windowWidth * 0.085
+      : windowWidth < 768
+      ? 32
+      : 38;
 
   return (
     <Button onClick={handleToggleMenu}>

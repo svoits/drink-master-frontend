@@ -7,6 +7,7 @@ import {
   selectErrorDrinks,
   selectTotalDrinks,
   selectFavoriteDrinks,
+  selectPopularDrinks,
 } from '../drinks/drinks-selectors';
 
 export const useDrink = () => {
@@ -16,6 +17,7 @@ export const useDrink = () => {
   const error = useSelector(selectErrorDrinks);
   const total = useSelector(selectTotalDrinks);
   const favoriteDrinks = useSelector(selectFavoriteDrinks);
+  const popularDrinks = useSelector(selectPopularDrinks);
 
   return {
     isLoading,
@@ -24,5 +26,6 @@ export const useDrink = () => {
     error,
     total,
     favoriteDrinks,
+    popularDrinks,
   };
 };

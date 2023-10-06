@@ -33,7 +33,7 @@ export default function FavoriteDrinksItem({ drink }) {
       <StyledImg
         src={image || DefaultImg}
         alt={title}
-        placeholder={!image && 'true'}
+        placeholder={!image ? 'true' : 'false'}
       />
       <StyledName>{title}</StyledName>
       <StyledType>{alcoholic ? 'Alcoholic' : 'NonAlcoholic'}</StyledType>

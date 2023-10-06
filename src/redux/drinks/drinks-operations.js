@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+
 // axios.defaults.baseURL = 'https://drink-master-api.onrender.com';
 
 export const getMainPageAllDrinks = createAsyncThunk(
