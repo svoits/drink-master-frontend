@@ -49,7 +49,7 @@ export default function SignupForm() {
     const birthDate = format(new Date(dateOfBirth), "yyyy-MM-dd'T'HH:mm:ssXXX");
     dispatch(signUp({ name, birthDate, email, password }))
       .unwrap()
-      .then(() => toast.success('Registration succesfully'))
+      .then(() => toast.success('Registration successfully'))
       .catch(() => toast.error('Something went wrong. Try again'));
     resetForm();
   };

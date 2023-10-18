@@ -16,6 +16,7 @@ import SignupPage from './pages/SignupPage/SignupPage';
 import SigninPage from './pages/SigninPage/SigninPage';
 import { useAuth } from './redux/hooks/useAuth';
 import MotivationModal from './components/MotivationModal/MotivationModal';
+import { useScrollY } from './hooks/useScrollY';
 
 const Home = lazy(() => import('./pages/HomePage/HomePage'));
 const Drinks = lazy(() => import('./pages/DrinksPage/DrinksPage'));
@@ -32,6 +33,7 @@ const Error = lazy(() => import('./pages/ErrorPage/ErrorPage'));
 function App() {
   const theme = useSelector(selectTheme);
   const { isRefreshing } = useAuth();
+  const { scrollY } = useScrollY();
 
   const dispatch = useDispatch();
 
@@ -74,7 +76,7 @@ function App() {
         </Routes>
       )}
 
-      <GlobalStyles />
+      <GlobalStyles scrollY={scrollY} />
       <MotivationModal />
       <ToastContainer autoClose={2000} />
     </ThemeProvider>
