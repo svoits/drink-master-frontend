@@ -1,4 +1,4 @@
-import{s as n,j as e,C as r}from"./index-2035ede7.js";import{P as a}from"./PageTitle-6bd0b221.js";import{T as o,M as t}from"./TermsOfService.styled-1677f143.js";const c=n.section`
+import{s as n,j as e,C as r}from"./index-059d999e.js";import{P as a}from"./PageTitle-68aedede.js";import{T as o,M as t}from"./TermsOfService.styled-588e791d.js";const c=n.section`
   padding-top: 80px;
   padding-bottom: 80px;
 
