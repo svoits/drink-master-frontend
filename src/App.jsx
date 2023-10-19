@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import SharedLayout from './components/SharedLayout/SharedLayout';
 import { ThemeProvider } from 'styled-components';
 import { ToastContainer } from 'react-toastify';
@@ -34,12 +34,17 @@ function App() {
   const theme = useSelector(selectTheme);
   const { isRefreshing } = useAuth();
   const { scrollY } = useScrollY();
-
+  const location = useLocation();
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(currentUser());
-  }, [dispatch]);
+
+    if (location.pathname === '/') {
+      navigate('/home');
+    }
+  }, [dispatch, location.pathname, navigate]);
 
   return (
     <ThemeProvider theme={theme === 'dark' ? darkTheme : lightTheme}>
