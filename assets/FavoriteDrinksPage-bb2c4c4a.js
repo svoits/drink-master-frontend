@@ -1,4 +1,4 @@
-import{s as t,t as r,N as m,$ as v,c as f,j as e,a0 as j,u as y,a as D,r as l,a1 as P,C as $,L as S}from"./index-059d999e.js";import{D as F}from"./stub-0063ae73.js";import{C}from"./hero-img-desc-2x-e8906f30.js";import{P as z}from"./PageTitle-68aedede.js";import{P as I}from"./Paginator-b0711a5c.js";const L=t.li`
+import{s as t,t as r,N as m,$ as v,c as f,j as e,a0 as j,u as y,a as D,r as l,a1 as P,C as $,L as S}from"./index-8e2ccb34.js";import{D as F}from"./stub-a973bab9.js";import{C}from"./hero-img-desc-2x-e8906f30.js";import{P as z}from"./PageTitle-9334c0eb.js";import{P as I}from"./Paginator-60a79234.js";const L=t.li`
   margin-left: auto;
   margin-right: auto;
 `,B=t.img`
