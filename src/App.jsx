@@ -17,6 +17,7 @@ import SigninPage from './pages/SigninPage/SigninPage';
 import { useAuth } from './redux/hooks/useAuth';
 import MotivationModal from './components/MotivationModal/MotivationModal';
 import { useScrollY } from './hooks/useScrollY';
+import Loader from './components/Loader';
 
 const Home = lazy(() => import('./pages/HomePage/HomePage'));
 const Drinks = lazy(() => import('./pages/DrinksPage/DrinksPage'));
@@ -49,7 +50,7 @@ function App() {
   return (
     <ThemeProvider theme={theme === 'dark' ? darkTheme : lightTheme}>
       {isRefreshing ? (
-        <b>Refreshing user...</b>
+        <Loader />
       ) : (
         <Routes>
           <Route
